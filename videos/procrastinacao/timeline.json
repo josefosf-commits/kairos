@@ -1,0 +1,304 @@
+{
+ "duration": 244.0,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.5,
+   "end": 5.34,
+   "text": "Toda segunda-feira, o Joseph fazia a mesma promessa."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.4,
+   "end": 10.64,
+   "text": "Esse projeto é importante. Mas hoje não. Amanhã eu faço."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 13.4,
+   "end": 16.12,
+   "text": "E foi assim que ele conheceu o Joseph de Amanhã."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 17.0,
+   "end": 23.48,
+   "text": "O Joseph de Amanhã era perfeito. Mais disciplinado, mais descansado, mais motivado."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 24.2,
+   "end": 26.12,
+   "text": "Ele ia dar conta de tudo."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 27.0,
+   "end": 30.76,
+   "text": "Então o Joseph de Hoje entregou o projeto pra ele... e foi relaxar."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 31.6,
+   "end": 33.12,
+   "text": "Na hora, que alívio."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 36.6,
+   "end": 39.64,
+   "text": "Na terça, ele passou mais uma: a academia."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 40.6,
+   "end": 45.08,
+   "text": "Na quarta, o dentista. Os e-mails. O estudo."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 46.0,
+   "end": 49.12,
+   "text": "E a mochila do Joseph de Amanhã foi ficando pesada."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 52.0,
+   "end": 53.6,
+   "text": "Mas por que a gente faz isso?"
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 54.6,
+   "end": 58.36,
+   "text": "Procrastinar não é preguiça. É fugir de uma emoção."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 59.4,
+   "end": 64.2,
+   "text": "A tarefa traz desconforto: tédio, medo de errar, insegurança."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 65.0,
+   "end": 69.08,
+   "text": "Aí vem a fuga. O celular, a geladeira, qualquer coisa."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 70.0,
+   "end": 74.08,
+   "text": "O alívio é imediato. E a culpa vem logo depois."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 75.0,
+   "end": 79.4,
+   "text": "E a culpa deixa a tarefa ainda mais pesada. O ciclo recomeça."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 80.6,
+   "end": 86.76,
+   "text": "Tem mais: pesquisas sugerem que o cérebro pensa no seu eu do futuro quase como pensa num estranho."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 87.6,
+   "end": 90.88,
+   "text": "Por isso é tão fácil jogar tudo nas costas dele."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 92.4,
+   "end": 96.96,
+   "text": "Na quinta à noite, véspera da entrega, o Joseph de Amanhã chegou."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 97.8,
+   "end": 99.24,
+   "text": "E não aguentou o peso."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 102.4,
+   "end": 104.8,
+   "text": "Foi aí que o Joseph de Hoje entendeu."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 105.6,
+   "end": 110.8,
+   "text": "O Joseph de Amanhã não era outra pessoa. Era ele mesmo. Só que mais cansado."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 112.0,
+   "end": 113.44,
+   "text": "Então ele fez diferente."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 114.6,
+   "end": 119.96,
+   "text": "Primeiro: a regra dos dois minutos. Se leva menos de dois minutos, faça agora."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 121.0,
+   "end": 124.36,
+   "text": "O e-mail. A ligação pro dentista. Pronto."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 127.6,
+   "end": 133.84,
+   "text": "Segundo: quebre a tarefa em pedaços. Ninguém faz um projeto. A gente faz o próximo passo."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 134.8,
+   "end": 138.72,
+   "text": "Abrir o arquivo. Escrever o título. Um parágrafo."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 141.8,
+   "end": 148.76,
+   "text": "Terceiro: só cinco minutos. Começar é a parte mais difícil. Depois, o cérebro embala."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 152.0,
+   "end": 156.08,
+   "text": "Quarto: tire o atrito. O celular foi pra outro cômodo."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 158.6,
+   "end": 161.96,
+   "text": "Pedaço por pedaço, a mochila foi ficando mais leve."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 168.6,
+   "end": 170.84,
+   "text": "E na sexta-feira, ele entregou."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 171.8,
+   "end": 177.24,
+   "text": "O Joseph de Amanhã chegou descansado. Pela primeira vez, sem nada nas costas."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 185.0,
+   "end": 189.08,
+   "text": "Resumindo. Quatro armas contra a procrastinação."
+  },
+  {
+   "id": 38,
+   "audio": "audio/l38.wav",
+   "start": 190.0,
+   "end": 192.48,
+   "text": "Leva dois minutos? Faça agora."
+  },
+  {
+   "id": 39,
+   "audio": "audio/l39.wav",
+   "start": 194.6,
+   "end": 197.08,
+   "text": "Tarefa grande? Quebre em pedaços."
+  },
+  {
+   "id": 40,
+   "audio": "audio/l40.wav",
+   "start": 199.2,
+   "end": 201.84,
+   "text": "Sem vontade? Só cinco minutos."
+  },
+  {
+   "id": 41,
+   "audio": "audio/l41.wav",
+   "start": 203.8,
+   "end": 206.68,
+   "text": "Distraído? Tire o atrito do caminho."
+  },
+  {
+   "id": 42,
+   "audio": "audio/l42.wav",
+   "start": 209.4,
+   "end": 212.76,
+   "text": "E lembre: o Joseph de Amanhã está contando com você."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 218.0,
+   "end": 220.88,
+   "text": "Toda vez que você adia, a tarefa não some.",
+   "nocap": true
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 222.4,
+   "end": 225.68,
+   "text": "Ela só muda de dono. E o dono é você.",
+   "nocap": true
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 227.6,
+   "end": 229.84,
+   "text": "Seja gentil com quem você vai ser amanhã.",
+   "nocap": true
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 232.0,
+   "end": 233.04,
+   "text": "Faça hoje.",
+   "nocap": true
+  }
+ ]
+}
