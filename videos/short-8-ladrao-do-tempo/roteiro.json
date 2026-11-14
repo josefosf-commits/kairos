@@ -1,0 +1,67 @@
+{
+ "name": "SHORT-8-LADRAO-DO-TEMPO",
+ "tail": 2.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Tem um ladrão que não leva o seu dinheiro. Ele leva o seu tempo.",
+   "gap": 0.6
+  },
+  {
+   "id": 2,
+   "text": "E ele é esperto: nunca rouba tudo de uma vez.",
+   "gap": 0.35
+  },
+  {
+   "id": 3,
+   "text": "Ele pega cinco minutos na fila. Cinco no banheiro. Cinco antes de dormir.",
+   "gap": 0.35
+  },
+  {
+   "id": 4,
+   "text": "Cada pedacinho parece nada. Só cinco minutinhos.",
+   "gap": 0.35
+  },
+  {
+   "id": 5,
+   "text": "Mas no fim do dia, o saco dele tá cheio: quatro horas.",
+   "gap": 0.35
+  },
+  {
+   "id": 6,
+   "text": "Quatro horas por dia dão sessenta dias por ano. Dois meses inteiros olhando pra uma tela.",
+   "gap": 0.35
+  },
+  {
+   "id": 7,
+   "text": "E ele guarda tudo: o livro que você não leu, o treino que não fez, o projeto que ficou pra depois.",
+   "gap": 0.35
+  },
+  {
+   "id": 8,
+   "text": "Pra pegar esse ladrão, primeiro você precisa ver o que ele levou.",
+   "gap": 0.35
+  },
+  {
+   "id": 9,
+   "text": "Abre o tempo de tela do seu celular, e olha o número de verdade.",
+   "gap": 0.35
+  },
+  {
+   "id": 10,
+   "text": "Depois, põe limite nos apps que mais roubam. Acabou o tempo, o app trava.",
+   "gap": 0.35
+  },
+  {
+   "id": 11,
+   "text": "Cada hora que você recupera, você devolve pra sua vida.",
+   "gap": 0.35
+  },
+  {
+   "id": 12,
+   "text": "Qual é o próximo ladrão? Autoestima ou energia? Comenta aqui.",
+   "gap": 0.35
+  }
+ ]
+}

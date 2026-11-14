@@ -1,0 +1,93 @@
+{
+ "name": "SHORT-8-LADRAO-DO-TEMPO",
+ "duration": 59.27,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.6,
+   "end": 4.36,
+   "text": "Tem um ladrão que não leva o seu dinheiro. Ele leva o seu tempo."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 4.71,
+   "end": 8.23,
+   "text": "E ele é esperto: nunca rouba tudo de uma vez."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 8.58,
+   "end": 13.22,
+   "text": "Ele pega cinco minutos na fila. Cinco no banheiro. Cinco antes de dormir."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 13.57,
+   "end": 17.17,
+   "text": "Cada pedacinho parece nada. Só cinco minutinhos."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 17.52,
+   "end": 21.76,
+   "text": "Mas no fim do dia, o saco dele tá cheio: quatro horas."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 22.11,
+   "end": 27.87,
+   "text": "Quatro horas por dia dão sessenta dias por ano. Dois meses inteiros olhando pra uma tela."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 28.22,
+   "end": 34.22,
+   "text": "E ele guarda tudo: o livro que você não leu, o treino que não fez, o projeto que ficou pra depois."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 34.57,
+   "end": 38.49,
+   "text": "Pra pegar esse ladrão, primeiro você precisa ver o que ele levou."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 38.84,
+   "end": 42.76,
+   "text": "Abre o tempo de tela do seu celular, e olha o número de verdade."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 43.11,
+   "end": 48.15,
+   "text": "Depois, põe limite nos apps que mais roubam. Acabou o tempo, o app trava."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 48.5,
+   "end": 51.86,
+   "text": "Cada hora que você recupera, você devolve pra sua vida."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 52.21,
+   "end": 56.77,
+   "text": "Qual é o próximo ladrão? Autoestima ou energia? Comenta aqui."
+  }
+ ]
+}
