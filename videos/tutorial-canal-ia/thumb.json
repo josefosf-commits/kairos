@@ -1,0 +1,2 @@
+{"t": 30.5, "filter": "brightness(1.08) saturate(1.2)",
+ "overlay": "<rect x='0' y='760' width='1920' height='320' fill='#07080b' opacity='0.82'/><text class='hand' x='960' y='905' font-size='150' text-anchor='middle' fill='#ffc53d' stroke='#000' stroke-width='20' paint-order='stroke'>CANAL COM IA</text><text class='hand' x='960' y='1035' font-size='96' text-anchor='middle' fill='#f4efe6' stroke='#000' stroke-width='16' paint-order='stroke'>PASSO A PASSO (ferramentas + links)</text>"}

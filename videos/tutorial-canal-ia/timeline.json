@@ -1,0 +1,280 @@
+{
+ "name": "COMO-CRIAR-UM-CANAL-COM-IA",
+ "duration": 273.64,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.2,
+   "end": 6.08,
+   "text": "Quer aprender a fazer um canal assim, e ter a possibilidade de ganhar grana com o YouTube?"
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.68,
+   "end": 11.64,
+   "text": "Fica comigo, que eu vou te mostrar o passo a passo. Literalmente."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.44,
+   "end": 18.04,
+   "text": "Todas as ferramentas que eu uso, com os links oficiais, estão aqui embaixo, na descrição."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.84,
+   "end": 24.12,
+   "text": "E não, você não precisa saber programar, nem desenhar, nem ter uma voz bonita."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 25.92,
+   "end": 31.36,
+   "text": "Passo um: o cérebro de tudo. A ferramenta se chama Claude, da empresa Anthropic."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 32.06,
+   "end": 37.9,
+   "text": "Eu uso o Claude Code, que roda direto no navegador, em claude ponto ai, barra code."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 38.6,
+   "end": 43.72,
+   "text": "Ele precisa de um plano pago do Claude. Confere o preço atual no site oficial."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 44.42,
+   "end": 49.14,
+   "text": "E é ali que eu escrevo o que eu quero, em português, como se fosse uma conversa."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 50.94,
+   "end": 58.7,
+   "text": "Passo dois: crie uma conta grátis no GitHub, e um repositório. É a pasta onde o projeto do canal fica guardado."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 59.4,
+   "end": 64.44,
+   "text": "Depois, conecte o GitHub no Claude Code, e escolha esse repositório."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 66.24,
+   "end": 73.04,
+   "text": "Passo três: a voz. Eu uso o Speko, que liga o Claude a várias vozes de inteligência artificial."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 73.74,
+   "end": 80.3,
+   "text": "A voz do narrador vem da Cartesia. E o Speko entra no Claude como um conector, nas configurações."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 81.0,
+   "end": 85.96,
+   "text": "Em voz, cada vídeo de quatro minutos custou menos de trinta centavos de dólar."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 87.76,
+   "end": 92.0,
+   "text": "Passo quatro: o pedido. Eu escrevi pro Claude mais ou menos assim:"
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 92.6,
+   "end": 101.4,
+   "text": "Crie um canal de curtas animados sobre disciplina. O personagem se chama Joseph, usa moletom verde, e a narração é firme e direta."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 102.2,
+   "end": 109.0,
+   "text": "Depois disso, pra cada vídeo, eu só peço o tema. Faça um vídeo de quatro minutos sobre procrastinação."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 110.8,
+   "end": 114.64,
+   "text": "E aí o Claude faz o resto. Primeiro, ele escreve o roteiro."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 115.24,
+   "end": 119.88,
+   "text": "Depois gera a narração, fala por fala, com a voz escolhida."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 120.48,
+   "end": 128.8,
+   "text": "Desenha a animação em código, e usa o navegador Chromium com uma ferramenta chamada Playwright, que tira trinta fotos por segundo do desenho."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 129.4,
+   "end": 134.52,
+   "text": "Cria a trilha e os efeitos com Python, do zero. Nenhuma música copiada."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 135.12,
+   "end": 139.76,
+   "text": "E junta tudo com o FFmpeg, um programa gratuito que monta o vídeo final."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 140.56,
+   "end": 144.96,
+   "text": "Você não instala nada disso. Tudo roda na nuvem, dentro do Claude Code."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 146.76,
+   "end": 156.04,
+   "text": "Passo seis: assista, e peça ajustes. Ficou rápido demais? Pede. A legenda cobriu o rosto? Pede. Ele corrige."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 157.84,
+   "end": 165.92,
+   "text": "Passo sete: peça o pacote de SEO. Título, descrição com capítulos, tags, palavras-chave e a thumbnail."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 166.52,
+   "end": 169.16,
+   "text": "É isso que faz o seu vídeo aparecer na busca."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 170.96,
+   "end": 175.92,
+   "text": "Passo oito: publique no YouTube Studio, em studio ponto youtube ponto com."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 176.52,
+   "end": 183.88,
+   "text": "Cole o título e a descrição, suba a thumbnail, e marque: não é conteúdo para crianças. Isso é importante."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 184.58,
+   "end": 189.86,
+   "text": "E faça shorts de um minuto, ligados ao vídeo longo. Eles trazem gente nova pro canal."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 191.66,
+   "end": 202.86,
+   "text": "E a grana? Hoje, o Programa de Parcerias do YouTube pede mil inscritos, e quatro mil horas assistidas em doze meses, ou dez milhões de visualizações em shorts em noventa dias."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 203.56,
+   "end": 208.84,
+   "text": "Essas regras mudam de tempos em tempos. O link oficial também está na descrição."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 209.64,
+   "end": 215.8,
+   "text": "E tem uma regra que derruba muito canal de inteligência artificial: o conteúdo precisa ser original."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 216.4,
+   "end": 221.92,
+   "text": "Vídeo feito em massa, repetido, ou copiado de outro canal, não é monetizado."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 222.62,
+   "end": 227.66,
+   "text": "Por isso aqui cada história é nova, cada técnica é útil, e cada vídeo é revisado."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 228.46,
+   "end": 233.74,
+   "text": "Ninguém garante dinheiro. Mas com constância e conteúdo de valor, a possibilidade é real."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 235.54,
+   "end": 243.62,
+   "text": "Resumindo: Claude pra criar. GitHub pra guardar. Speko e Cartesia pra voz. YouTube Studio pra publicar."
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 244.42,
+   "end": 249.94,
+   "text": "E a parte mais importante não é ferramenta nenhuma. É você publicar toda semana."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 251.54,
+   "end": 255.22,
+   "text": "Os links oficiais estão todos aqui embaixo, na descrição."
+  },
+  {
+   "id": 38,
+   "audio": "audio/l38.wav",
+   "start": 255.92,
+   "end": 261.44,
+   "text": "Se esse vídeo te ajudou, deixa o like, se inscreve, e comenta qual canal você vai criar."
+  },
+  {
+   "id": 39,
+   "audio": "audio/l39.wav",
+   "start": 262.24,
+   "end": 264.64,
+   "text": "Bora. Te vejo no próximo vídeo."
+  }
+ ]
+}

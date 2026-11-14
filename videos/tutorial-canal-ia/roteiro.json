@@ -1,0 +1,201 @@
+{
+ "name": "COMO-CRIAR-UM-CANAL-COM-IA",
+ "tail": 9,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Quer aprender a fazer um canal assim, e ter a possibilidade de ganhar grana com o YouTube?",
+   "gap": 1.2
+  },
+  {
+   "id": 2,
+   "text": "Fica comigo, que eu vou te mostrar o passo a passo. Literalmente.",
+   "gap": 0.6
+  },
+  {
+   "id": 3,
+   "text": "Todas as ferramentas que eu uso, com os links oficiais, estão aqui embaixo, na descrição.",
+   "gap": 0.8
+  },
+  {
+   "id": 4,
+   "text": "E não, você não precisa saber programar, nem desenhar, nem ter uma voz bonita.",
+   "gap": 0.8
+  },
+  {
+   "id": 5,
+   "text": "Passo um: o cérebro de tudo. A ferramenta se chama Claude, da empresa Anthropic.",
+   "gap": 1.8
+  },
+  {
+   "id": 6,
+   "text": "Eu uso o Claude Code, que roda direto no navegador, em claude ponto ai, barra code.",
+   "gap": 0.7
+  },
+  {
+   "id": 7,
+   "text": "Ele precisa de um plano pago do Claude. Confere o preço atual no site oficial.",
+   "gap": 0.7
+  },
+  {
+   "id": 8,
+   "text": "E é ali que eu escrevo o que eu quero, em português, como se fosse uma conversa.",
+   "gap": 0.7
+  },
+  {
+   "id": 9,
+   "text": "Passo dois: crie uma conta grátis no GitHub, e um repositório. É a pasta onde o projeto do canal fica guardado.",
+   "gap": 1.8
+  },
+  {
+   "id": 10,
+   "text": "Depois, conecte o GitHub no Claude Code, e escolha esse repositório.",
+   "gap": 0.7
+  },
+  {
+   "id": 11,
+   "text": "Passo três: a voz. Eu uso o Speko, que liga o Claude a várias vozes de inteligência artificial.",
+   "gap": 1.8
+  },
+  {
+   "id": 12,
+   "text": "A voz do narrador vem da Cartesia. E o Speko entra no Claude como um conector, nas configurações.",
+   "gap": 0.7
+  },
+  {
+   "id": 13,
+   "text": "Em voz, cada vídeo de quatro minutos custou menos de trinta centavos de dólar.",
+   "gap": 0.7
+  },
+  {
+   "id": 14,
+   "text": "Passo quatro: o pedido. Eu escrevi pro Claude mais ou menos assim:",
+   "gap": 1.8
+  },
+  {
+   "id": 15,
+   "text": "Crie um canal de curtas animados sobre disciplina. O personagem se chama Joseph, usa moletom verde, e a narração é firme e direta.",
+   "gap": 0.6
+  },
+  {
+   "id": 16,
+   "text": "Depois disso, pra cada vídeo, eu só peço o tema. Faça um vídeo de quatro minutos sobre procrastinação.",
+   "gap": 0.8
+  },
+  {
+   "id": 17,
+   "text": "E aí o Claude faz o resto. Primeiro, ele escreve o roteiro.",
+   "gap": 1.8
+  },
+  {
+   "id": 18,
+   "text": "Depois gera a narração, fala por fala, com a voz escolhida.",
+   "gap": 0.6
+  },
+  {
+   "id": 19,
+   "text": "Desenha a animação em código, e usa o navegador Chromium com uma ferramenta chamada Playwright, que tira trinta fotos por segundo do desenho.",
+   "gap": 0.6
+  },
+  {
+   "id": 20,
+   "text": "Cria a trilha e os efeitos com Python, do zero. Nenhuma música copiada.",
+   "gap": 0.6
+  },
+  {
+   "id": 21,
+   "text": "E junta tudo com o FFmpeg, um programa gratuito que monta o vídeo final.",
+   "gap": 0.6
+  },
+  {
+   "id": 22,
+   "text": "Você não instala nada disso. Tudo roda na nuvem, dentro do Claude Code.",
+   "gap": 0.8
+  },
+  {
+   "id": 23,
+   "text": "Passo seis: assista, e peça ajustes. Ficou rápido demais? Pede. A legenda cobriu o rosto? Pede. Ele corrige.",
+   "gap": 1.8
+  },
+  {
+   "id": 24,
+   "text": "Passo sete: peça o pacote de SEO. Título, descrição com capítulos, tags, palavras-chave e a thumbnail.",
+   "gap": 1.8
+  },
+  {
+   "id": 25,
+   "text": "É isso que faz o seu vídeo aparecer na busca.",
+   "gap": 0.6
+  },
+  {
+   "id": 26,
+   "text": "Passo oito: publique no YouTube Studio, em studio ponto youtube ponto com.",
+   "gap": 1.8
+  },
+  {
+   "id": 27,
+   "text": "Cole o título e a descrição, suba a thumbnail, e marque: não é conteúdo para crianças. Isso é importante.",
+   "gap": 0.6
+  },
+  {
+   "id": 28,
+   "text": "E faça shorts de um minuto, ligados ao vídeo longo. Eles trazem gente nova pro canal.",
+   "gap": 0.7
+  },
+  {
+   "id": 29,
+   "text": "E a grana? Hoje, o Programa de Parcerias do YouTube pede mil inscritos, e quatro mil horas assistidas em doze meses, ou dez milhões de visualizações em shorts em noventa dias.",
+   "gap": 1.8
+  },
+  {
+   "id": 30,
+   "text": "Essas regras mudam de tempos em tempos. O link oficial também está na descrição.",
+   "gap": 0.7
+  },
+  {
+   "id": 31,
+   "text": "E tem uma regra que derruba muito canal de inteligência artificial: o conteúdo precisa ser original.",
+   "gap": 0.8
+  },
+  {
+   "id": 32,
+   "text": "Vídeo feito em massa, repetido, ou copiado de outro canal, não é monetizado.",
+   "gap": 0.6
+  },
+  {
+   "id": 33,
+   "text": "Por isso aqui cada história é nova, cada técnica é útil, e cada vídeo é revisado.",
+   "gap": 0.7
+  },
+  {
+   "id": 34,
+   "text": "Ninguém garante dinheiro. Mas com constância e conteúdo de valor, a possibilidade é real.",
+   "gap": 0.8
+  },
+  {
+   "id": 35,
+   "text": "Resumindo: Claude pra criar. GitHub pra guardar. Speko e Cartesia pra voz. YouTube Studio pra publicar.",
+   "gap": 1.8
+  },
+  {
+   "id": 36,
+   "text": "E a parte mais importante não é ferramenta nenhuma. É você publicar toda semana.",
+   "gap": 0.8
+  },
+  {
+   "id": 37,
+   "text": "Os links oficiais estão todos aqui embaixo, na descrição.",
+   "gap": 1.6
+  },
+  {
+   "id": 38,
+   "text": "Se esse vídeo te ajudou, deixa o like, se inscreve, e comenta qual canal você vai criar.",
+   "gap": 0.7
+  },
+  {
+   "id": 39,
+   "text": "Bora. Te vejo no próximo vídeo.",
+   "gap": 0.8
+  }
+ ]
+}
