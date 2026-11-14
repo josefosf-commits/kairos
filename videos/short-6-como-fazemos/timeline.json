@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-6-COMO-FAZEMOS",
+ "duration": 58.81,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 5.46,
+   "text": "Esse canal inteiro é feito com inteligência artificial. Deixa eu te mostrar como."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.81,
+   "end": 11.57,
+   "text": "Primeiro, o roteiro. Uma história curta, com uma técnica que você usa no mesmo dia."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.92,
+   "end": 17.12,
+   "text": "Depois, a voz. Uma voz de inteligência artificial lê cada fala."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 17.47,
+   "end": 22.67,
+   "text": "A animação é desenhada em código. O Joseph, os cenários, cada movimento."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.02,
+   "end": 27.58,
+   "text": "A trilha e os efeitos também são criados do zero. Nada copiado."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 27.93,
+   "end": 34.65,
+   "text": "E o dinheiro? Pra monetizar, o YouTube pede mil inscritos e quatro mil horas assistidas em um ano."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 35.0,
+   "end": 40.44,
+   "text": "E o canal precisa ser original. Vídeo copiado ou repetido não é monetizado."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 40.79,
+   "end": 47.35,
+   "text": "Por isso cada vídeo aqui é único. Foco, sono, procrastinação, dopamina, solidão."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 47.7,
+   "end": 50.66,
+   "text": "Conteúdo de verdade, pra mudar o seu dia."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 51.01,
+   "end": 56.21,
+   "text": "Se inscreve, ajuda o Joseph a chegar nos mil, e melhora um por cento com a gente."
+  }
+ ]
+}

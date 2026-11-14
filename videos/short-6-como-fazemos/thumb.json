@@ -1,0 +1,2 @@
+{"t": 3.0, "filter": "brightness(1.1) saturate(1.15)",
+ "overlay": "<text class='hand' x='540' y='1480' font-size='118' text-anchor='middle' fill='#f4efe6' stroke='#000' stroke-width='18' paint-order='stroke'>COMO FAZEMOS</text><text class='hand' x='540' y='1620' font-size='118' text-anchor='middle' fill='#ffc53d' stroke='#000' stroke-width='18' paint-order='stroke'>ESTE CANAL</text>"}
