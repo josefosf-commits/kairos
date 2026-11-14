@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CONECTADO</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>
+    <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f7a"/>
+      <stop offset="45%" stop-color="#e0607e"/>
+      <stop offset="80%" stop-color="#ffa45c"/>
+      <stop offset="100%" stop-color="#ffd27a"/>
+    </linearGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script src="../_lib/rig.js"></script>
+<script>
+window.TL = window.TL || { lines: [], duration: 243 };
+const GOLDC = "#ffc94d", GREEN = "#30a46c", REDC = "#e5484d", TEAL = "#4fd1ff";
+const HUB = [960, 520];
+const FOLLOW = [...Array(70)].map((_, i) => { const a = (i / 70) * Math.PI * 2 + hash(i) * 0.08; const r = 0.85 + hash(i + 3) * 0.3; return [960 + Math.cos(a) * 820 * r, 470 + Math.sin(a) * 380 * r, ["#7c8cff", "#ff6b9a", "#30a46c", "#ff9f1c", "#4fd1ff", "#cfd8e3"][i % 6]]; });
+const GOLDEN = () => [{ name: "Lucas", x: 1560, y: 230, at: S(18) }, { name: "Mãe", x: 360, y: 230, at: S(29) }, { name: "Pedro", x: 1620, y: 760, at: S(29) + 0.6 }];
+
+function threads(t, mode) {
+  // mode: "thin" (only thin), "gold" (thin faded + gold)
+  let o = "";
+  const appear = seg(t, 0.8, 4.0);
+  const fade = mode === "gold" ? 0.35 : 1;
+  const wig = inR(t, S(4), E(5) + 1) ? 1 : 0;
+  FOLLOW.forEach(([x, y, c], i) => {
+    const vis = cl(appear * 70 - i);
+    if (vis <= 0) return;
+    const snapT = S(5) + 1.6;
+    if (i === 12 && t > snapT) {
+      const k = cl((t - snapT) / 1.2);
+      o += `<line x1="${HUB[0]}" y1="${HUB[1]}" x2="${lerp(HUB[0], x, 0.45)}" y2="${lerp(HUB[1], y, 0.45) + 140 * k * k}" stroke="#8f99a3" stroke-width="2" opacity="${0.6 * (1 - k)}"/>`;
+      o += `<line x1="${lerp(HUB[0], x, 0.55)}" y1="${lerp(HUB[1], y, 0.55) + 140 * k * k}" x2="${x}" y2="${y}" stroke="#8f99a3" stroke-width="2" opacity="${0.6 * (1 - k)}"/>`;
+    } else {
+      const mx = (HUB[0] + x) / 2 + (wig ? Math.sin(t * 6 + i) * 14 : 0), my = (HUB[1] + y) / 2 + (wig ? Math.cos(t * 5 + i) * 10 : 0);
+      o += `<path d="M ${HUB[0]} ${HUB[1]} Q ${mx} ${my} ${x} ${y}" fill="none" stroke="#8f99a3" stroke-width="1.6" opacity="${0.45 * vis * fade}"/>`;
+    }
+    o += `<circle cx="${x}" cy="${y}" r="13" fill="${c}" opacity="${0.85 * vis * fade}"/>`;
+  });
+  if (mode === "gold") for (const g of GOLDEN()) {
+    const k = seg(t, g.at, g.at + 1.6);
+    if (k <= 0) continue;
+    const w = 2 + 14 * k;
+    o += `<path d="M ${HUB[0]} ${HUB[1]} Q ${(HUB[0] + g.x) / 2} ${(HUB[1] + g.y) / 2 - 60} ${g.x} ${g.y}" fill="none" stroke="${GOLDC}" stroke-width="${w + 14}" opacity="${0.18 * k}" stroke-linecap="round"/>`;
+    o += `<path d="M ${HUB[0]} ${HUB[1]} Q ${(HUB[0] + g.x) / 2} ${(HUB[1] + g.y) / 2 - 60} ${g.x} ${g.y}" fill="none" stroke="${GOLDC}" stroke-width="${w}" stroke-linecap="round"/>`;
+    o += `<g transform="translate(${g.x} ${g.y}) scale(${0.5 + 0.5 * k})">`;
+    if (g.name === "Lucas") for (let i = 0; i < 9; i++) { const a = Math.PI + (i / 8) * Math.PI; o += `<circle cx="${Math.cos(a) * 44}" cy="${-18 + Math.sin(a) * 34}" r="18" fill="${FRIEND.hair}"/>`; }
+    o += `<circle r="46" fill="${g.name === "Lucas" ? FRIEND.skin : g.name === "Mãe" ? "#c88a62" : "#e0b48c"}" stroke="${GOLDC}" stroke-width="7"/><circle cx="-14" cy="-2" r="5" fill="${INK}"/><circle cx="14" cy="-2" r="5" fill="${INK}"/><path d="M -14 16 Q 0 28 14 16" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+    if (g.name === "Lucas") o += `<path d="M -40 -22 Q 0 -44 40 -22" fill="${FRIEND.hair}"/>`;
+    o += `<text class="hand" x="0" y="84" font-size="34" text-anchor="middle" fill="${GOLDC}">${g.name}</text></g>`;
+  }
+  return o;
+}
+
+function bedroomJ(t, opts = {}) {
+  let o = roomBg(0.05, 0);
+  o += clockAt(1700, 200, opts.clock || 180 + (t % 60) * 0.3);
+  o += `<rect x="700" y="380" width="520" height="380" rx="40" fill="#5a4636" stroke="${INK}" stroke-width="7"/><ellipse cx="960" cy="500" rx="190" ry="66" fill="#e9e4d8" stroke="${INK}" stroke-width="6"/>`;
+  o += threads(t, opts.gold ? "gold" : "thin");
+  const P = { x: 960, c: JOSEPH, ...face({}) };
+  P.lid = blink(t, opts.lid ?? 0.3); P.look = opts.look || [0, 9]; P.smile = opts.smile ?? -2; P.browSad = opts.sad ?? 0.6; P.bags = opts.bags ?? 0.5;
+  o += personBack(P) + personHead(P, t);
+  o += `<path d="M 560 1100 L 560 660 Q 960 600 1360 660 L 1360 1100 Z" fill="#3d5a80" stroke="${INK}" stroke-width="7"/><path d="M 600 700 Q 960 650 1320 700" fill="none" stroke="#2c4462" stroke-width="6"/>`;
+  const hR = [1000, 560], hL = [920, 560];
+  o += armF([1060, 565], hR, JOSEPH.hood) + armF([860, 565], hL, JOSEPH.hood) + phoneBody([960, 556], 1, t) + `<rect x="927" y="493" width="66" height="126" rx="7" fill="${TEAL}" opacity="0.85"/>` + handC(hR, JOSEPH.skin) + handC(hL, JOSEPH.skin);
+  o += `<rect x="-600" y="-400" width="3120" height="1900" fill="#000" opacity="0.28"/>`;
+  o += `<ellipse cx="960" cy="440" rx="170" ry="190" fill="url(#gPhone)" opacity="0.32" style="mix-blend-mode:screen"/>`;
+  if (opts.gold) o += `<ellipse cx="960" cy="470" rx="380" ry="320" fill="url(#gWarm)" opacity="${0.22 * (opts.warm || 0)}" style="mix-blend-mode:screen"/>`;
+  return o;
+}
+function chip(x, y, txt, col, op) { return op <= 0 ? "" : `<g opacity="${op}" transform="translate(${x} ${y})"><rect x="${-txt.length * 12 - 26}" y="-34" width="${txt.length * 24 + 52}" height="64" rx="32" fill="#12151c" stroke="${col}" stroke-width="4"/><text class="hand" x="0" y="11" font-size="38" text-anchor="middle" fill="${col}">${txt}</text></g>`; }
+
+// ---------- phone overlays ----------
+function bigPhone(inner, op) { return `<g opacity="${op}"><rect x="0" y="0" width="1920" height="1080" fill="#05060a" opacity="0.75"/><rect x="700" y="110" width="520" height="860" rx="56" fill="#14161a" stroke="${INK}" stroke-width="10"/><rect x="730" y="150" width="460" height="780" rx="26" fill="#eef1f4"/>${inner}</g>`; }
+function selfie(t) {
+  const op = seg(t, S(6), S(6) + 0.4) * (1 - seg(t, E(7) + 0.6, E(7) + 1.0));
+  if (op <= 0) return "";
+  let s = `<rect x="760" y="200" width="400" height="460" rx="14" fill="#cfe0ea"/><g transform="translate(${960 - 960 * 0.9} ${-40}) scale(0.9)"><g transform="translate(0 0)">${personHead({ x: 960, c: JOSEPH, ...face({ smile: 14, lid: 0, look: [0, 0], browUp: 4 }) }, t)}</g></g>`;
+  const likes = Math.round(50 * seg(t, S(7) - 0.2, S(7) + 1.6));
+  s += `<text class="sans" x="780" y="720" font-size="40" fill="${REDC}">❤ ${likes}</text><text class="hand" x="780" y="790" font-size="34" fill="#1d2228">dia incrível! 😄</text>`;
+  return bigPhone(s, op);
+}
+function typing(t) {
+  const a = S(15) - 0.6, b = E(17) + 1.6;
+  const op = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b));
+  if (op <= 0) return "";
+  let s = `<rect x="730" y="150" width="460" height="90" rx="26" fill="#d7dde3"/><circle cx="790" cy="195" r="26" fill="${FRIEND.skin}"/><text class="sans" x="830" y="205" font-size="30" font-weight="700" fill="#1d2228">Lucas</text><text class="sans" x="830" y="230" font-size="18" fill="#6b7480">visto há 3 anos</text>`;
+  const drafts = ["oi sumido", "e aí, tudo bem? faz tempo...", "lembrei de você hoje", "eita, que vergonha kkk"];
+  const final = "Ei, lembrei de você. Como você tá?";
+  let draft = "";
+  const dStart = S(15) - 0.2, dLen = (S(16) - dStart) / 4;
+  if (t < S(16)) {
+    const i = Math.min(3, Math.floor((t - dStart) / dLen)), u = (t - dStart - i * dLen) / dLen;
+    if (i >= 0) { const txt = drafts[i]; const n = u < 0.55 ? Math.floor(txt.length * u / 0.55) : Math.floor(txt.length * (1 - (u - 0.55) / 0.35)); draft = txt.slice(0, Math.max(0, n)); }
+  } else if (t < S(16) + 2.4) draft = final.slice(0, Math.floor(final.length * cl((t - S(16)) / 2.0)));
+  const sent = t > S(16) + 2.6;
+  if (!sent) s += `<rect x="750" y="840" width="420" height="70" rx="35" fill="#fff" stroke="#c9d0d7" stroke-width="3"/><text class="sans" x="775" y="884" font-size="22" fill="#1d2228">${esc(draft)}${Math.floor(t * 2.5) % 2 ? "|" : ""}</text>`;
+  if (sent) s += `<g transform="translate(0 ${-200 * (1 - seg(t, S(16) + 2.6, S(16) + 3.0))})"><rect x="770" y="620" width="400" height="90" rx="22" fill="#4fd1ff"/><text class="sans" x="790" y="660" font-size="22" fill="#07080b">Ei, lembrei de você.</text><text class="sans" x="790" y="692" font-size="22" fill="#07080b">Como você tá?</text><text class="sans" x="1140" y="700" font-size="16" text-anchor="end" fill="#07080b">✓✓</text></g>`;
+  if (inR(t, S(17) - 0.4, S(17) + 0.8)) s += `<rect x="750" y="740" width="110" height="56" rx="28" fill="#fff"/>${[0, 1, 2].map(k => `<circle cx="${780 + k * 25}" cy="768" r="7" fill="#8f99a3" opacity="${0.4 + 0.6 * Math.abs(Math.sin(t * 6 + k))}"/>`).join("")}`;
+  if (t > S(17) + 0.8) s += `<g opacity="${seg(t, S(17) + 0.8, S(17) + 1.2)}"><rect x="750" y="730" width="420" height="120" rx="22" fill="#fff" stroke="#c9d0d7" stroke-width="2"/><text class="sans" x="770" y="770" font-size="22" fill="#1d2228">Joseeeph!! Que saudade, cara.</text><text class="sans" x="770" y="804" font-size="22" fill="#1d2228">Tô bem! Bora um café? ☕</text></g>`;
+  if (t > S(17) + 0.8) s += `<text class="sans" x="760" y="300" font-size="18" fill="#6b7480">há 2 minutos</text>`;
+  return bigPhone(s, op);
+}
+
+// ---------- explainer ----------
+function eduPanel(t) {
+  const a = S(8) - 0.6, b = S(13) - 0.6;
+  const vis = seg(t, a, a + 0.5) * (1 - seg(t, b - 0.5, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="0" y="0" width="1920" height="1080" fill="#0b0d12"/>`;
+  const part = (s, e) => seg(t, s, s + 0.4) * (1 - seg(t, e - 0.4, e));
+  let p = part(S(8) - 0.4, S(10) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}"><text class="hand" x="960" y="210" font-size="64" text-anchor="middle" fill="#f4efe6">SOLIDÃO ≠ ESTAR SOZINHO</text>`;
+    o += `<text x="560" y="560" font-size="150" text-anchor="middle">🧘</text><text class="hand" x="560" y="700" font-size="44" text-anchor="middle" fill="${GREEN}">sozinho, mas em paz</text>`;
+    const crowd = seg(t, S(9), S(9) + 0.5);
+    for (let i = 0; i < 12; i++) o += `<text x="${1200 + (i % 4) * 90}" y="${420 + Math.floor(i / 4) * 100}" font-size="70" opacity="${crowd}">${i === 5 ? "😔" : "🙂"}</text>`;
+    o += `<text class="hand" x="1360" y="760" font-size="44" text-anchor="middle" fill="${REDC}" opacity="${crowd}">acompanhado, mas só</text></g>`;
+  }
+  p = part(S(10) - 0.3, S(11) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}"><text class="hand" x="960" y="210" font-size="64" text-anchor="middle" fill="#f4efe6">QUALIDADE &gt; QUANTIDADE</text>`;
+    for (let i = 0; i < 60; i++) { const a2 = (i / 60) * Math.PI * 2; o += `<line x1="560" y1="560" x2="${560 + Math.cos(a2) * 230}" y2="${560 + Math.sin(a2) * 230}" stroke="#8f99a3" stroke-width="1.5" opacity="0.5"/>`; }
+    o += `<circle cx="560" cy="560" r="20" fill="#cfd8e3"/><text class="hand" x="560" y="860" font-size="44" text-anchor="middle" fill="#8f99a3">300 fios finos</text>`;
+    for (let i = 0; i < 3; i++) { const a2 = -Math.PI / 2 + (i - 1) * 0.9; o += `<line x1="1360" y1="560" x2="${1360 + Math.cos(a2) * 230}" y2="${560 + Math.sin(a2) * 230}" stroke="${GOLDC}" stroke-width="16" stroke-linecap="round"/><circle cx="${1360 + Math.cos(a2) * 230}" cy="${560 + Math.sin(a2) * 230}" r="30" fill="${GOLDC}"/>`; }
+    o += `<circle cx="1360" cy="560" r="20" fill="#cfd8e3"/><text class="hand" x="1360" y="860" font-size="44" text-anchor="middle" fill="${GOLDC}">3 fios de ouro</text></g>`;
+  }
+  p = part(S(11) - 0.3, S(12) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}"><text class="hand" x="960" y="210" font-size="64" text-anchor="middle" fill="#f4efe6">AMIZADE É FEITA DE TEMPO</text>`;
+    const icons = ["☕", "⚽", "💬", "🎮", "🍕", "🚗", "🎂", "📞"];
+    icons.forEach((ic, i) => { const v = seg(t, S(11) + 0.4 + i * 0.5, S(11) + 0.7 + i * 0.5); o += `<text x="${560 + i * 110}" y="560" font-size="90" opacity="${v}">${ic}</text>`; });
+    o += `<text class="hand" x="960" y="740" font-size="48" text-anchor="middle" fill="${GOLDC}">muitas horas juntos</text></g>`;
+  }
+  p = part(S(12) - 0.3, b);
+  if (p > 0) o += `<g opacity="${p}"><text x="660" y="620" font-size="200" text-anchor="middle">❤️</text><text class="hand" x="960" y="600" font-size="170" text-anchor="middle" fill="${REDC}">≠</text><text x="1260" y="620" font-size="200" text-anchor="middle">🤝</text></g>`;
+  return o + `</g>`;
+}
+
+function cafe(t) {
+  let o = roomBg(0.85, 0.4);
+  o += `<rect x="760" y="140" width="400" height="200" rx="8" fill="#5a4636" stroke="${INK}" stroke-width="6"/><text class="hand" x="960" y="260" font-size="70" text-anchor="middle" fill="${GOLDC}">CAFÉ</text>`;
+  const laugh = Math.sin(t * 2) > 0.2;
+  const F = { x: 640, c: FRIEND, ...face({ look: [10, 2], smile: 12, mouthOpen: laugh ? 0.6 + 0.2 * Math.sin(t * 14) : 0, happy: laugh ? 1 : 0 }) };
+  const J = { x: 1280, c: JOSEPH, ...face({ look: [-12, 0], smile: 12, mouthOpen: laugh ? 0.5 + 0.2 * Math.sin(t * 13) : 0, happy: laugh ? 1 : 0, lid: blink(t, 0.05) }) };
+  if (laugh) { F.bob = Math.sin(t * 15) * 4; J.bob = Math.sin(t * 16) * 4; }
+  o += personBack(F) + personHead(F, t) + personBack(J) + personHead(J, t);
+  o += `<rect x="300" y="660" width="1320" height="40" rx="6" fill="#5a4636" stroke="${INK}" stroke-width="7"/>`;
+  for (const x of [760, 1160]) o += `<rect x="${x - 30}" y="600" width="60" height="64" rx="10" fill="#e9e4d8" stroke="${INK}" stroke-width="5"/><path d="M ${x + 30} 612 q 22 8 0 30" fill="none" stroke="${INK}" stroke-width="5"/>`;
+  for (let i = 0; i < 4; i++) { const k = (t * 0.6 + i / 4) % 1; o += `<path d="M ${740 + (i % 2) * 400 + i * 6} ${590 - k * 60} q 8 -10 0 -20" fill="none" stroke="#cfd8e3" stroke-width="4" opacity="${1 - k}"/>`; }
+  o += `<ellipse cx="960" cy="420" rx="700" ry="420" fill="url(#gWarm)" opacity="0.18" style="mix-blend-mode:screen"/>`;
+  return o;
+}
+
+// ---------- techniques ----------
+const ICON = {
+  msg: `<rect x="-60" y="-100" width="120" height="200" rx="18" fill="#14161a" stroke="${TEAL}" stroke-width="6"/><rect x="-45" y="-40" width="90" height="40" rx="12" fill="${TEAL}"/><text class="sans" x="0" y="-12" font-size="24" text-anchor="middle" fill="#07080b">?</text>`,
+  talk: `<text x="-120" y="30" font-size="90">❤️</text><text x="-10" y="20" font-size="60" fill="#f4efe6">→</text><text x="50" y="30" font-size="90">💬</text>`,
+  repeat: `<rect x="-110" y="-90" width="220" height="180" rx="14" fill="#f6f1e6" stroke="${INK}" stroke-width="5"/><rect x="-110" y="-90" width="220" height="40" rx="12" fill="${REDC}"/>${[...Array(12)].map((_, i) => `<circle cx="${-75 + (i % 4) * 50}" cy="${-20 + Math.floor(i / 4) * 40}" r="12" fill="${i % 4 === 3 ? GOLDC : "#d7dde3"}"/>`).join("")}`,
+  presence: `<text x="-130" y="30" font-size="90">🧑‍🤝‍🧑</text><text x="20" y="30" font-size="70" opacity="0.5">📱</text><line x1="20" y1="-30" x2="100" y2="40" stroke="${REDC}" stroke-width="10"/>`,
+};
+function panel(t, a, b, inner) { const v = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b)); return v <= 0 ? "" : `<g opacity="${v}"><rect x="360" y="300" width="1200" height="440" rx="24" fill="#0f1218" fill-opacity="0.95" stroke="#2b3240" stroke-width="3"/>${inner}</g>`; }
+function msgPanel(t) {
+  const a = S(22) + 2.4, b = E(22) + 2.0;
+  const k1 = seg(t, a + 0.3, a + 0.7), k2 = seg(t, a + 1.4, a + 1.8);
+  return panel(t, a, b, `<g opacity="${k1}"><rect x="460" y="380" width="460" height="90" rx="22" fill="#2b3036"/><text x="490" y="440" font-size="44">🐸😂</text><text class="sans" x="600" y="438" font-size="26" fill="#cfd8e3">meme</text><text class="hand" x="880" y="445" font-size="60" fill="${REDC}">✕</text></g><g opacity="${k2}"><rect x="1000" y="380" width="460" height="130" rx="22" fill="${TEAL}"/><text class="sans" x="1030" y="430" font-size="26" fill="#07080b">E aí, como você tá</text><text class="sans" x="1030" y="470" font-size="26" fill="#07080b">de verdade?</text><text class="hand" x="1420" y="610" font-size="60" fill="${GREEN}">✓</text></g><text class="hand" x="960" y="680" font-size="44" text-anchor="middle" fill="#cfd8e3" opacity="${k2}">uma pergunta abre uma conversa</text>`);
+}
+function repeatPanel(t) {
+  const a = S(24) + 1.0, b = E(25) + 1.8;
+  let s = `<text class="hand" x="960" y="370" font-size="40" text-anchor="middle" fill="#cfd8e3">D  S  T  Q  Q  S  S</text>`;
+  for (let w = 0; w < 4; w++) for (let d = 0; d < 7; d++) {
+    const x = 730 + d * 77, y = 420 + w * 70, on = seg(t, a + 0.4 + (w * 7 + d) * 0.06, a + 0.6 + (w * 7 + d) * 0.06);
+    const mark = d === 5 ? "☕" : d === 0 ? "📞" : "";
+    s += `<rect x="${x - 30}" y="${y - 28}" width="60" height="56" rx="8" fill="${mark ? "#2b2a1a" : "#1a1d24"}" stroke="${mark ? GOLDC : "#3a4150"}" stroke-width="3" opacity="${on}"/>`;
+    if (mark) s += `<text x="${x}" y="${y + 14}" font-size="32" text-anchor="middle" opacity="${on}">${mark}</text>`;
+  }
+  return panel(t, a, b, s);
+}
+function helpPanel(t) {
+  const a = S(27) - 0.3, b = E(27) + 1.8;
+  return panel(t, a, b, `<text x="760" y="580" font-size="160" text-anchor="middle">🤝</text><text class="hand" x="1180" y="500" font-size="56" text-anchor="middle" fill="${GOLDC}">pedir ajuda</text><text class="hand" x="1180" y="580" font-size="56" text-anchor="middle" fill="${GOLDC}">também é conexão</text><text class="hand" x="1180" y="670" font-size="34" text-anchor="middle" fill="#cfd8e3">fale com alguém de confiança</text>`);
+}
+
+// ---------- render ----------
+function render(t) {
+  const end = S(32) - 1.4;
+  let o = "", inner = "";
+  let cs = 1.0, fx = 960, fy = 520;
+  const lucasEnd = S(19) - 0.6, cafeEnd = S(21) - 0.6, techEnd = S(28) - 0.6, finalEnd = S(31) - 0.8;
+  if (t < end) {
+    if (t < S(13) - 0.6) inner = bedroomJ(t, { clock: 180 });
+    else if (t < lucasEnd) {
+      const gold = t > S(18) - 0.2;
+      inner = bedroomJ(t, { clock: 190, gold, warm: seg(t, S(18), S(18) + 2), smile: gold ? 8 : (t > S(17) ? 6 : 0), sad: gold ? 0 : 0.4, lid: 0.1, look: gold ? [8, -4] : [0, 9] });
+      cs = gold ? kf(t, [[S(18) - 0.2, 1.0], [S(18) + 2.5, 0.92]]) : 1.0;
+    } else if (t < cafeEnd) { inner = cafe(t); cs = 1.08; }
+    else if (t < techEnd) { inner = cafe(t); cs = 1.08; }
+    else inner = bedroomJ(t, { clock: 185, gold: true, warm: seg(t, S(29), S(30) + 1), smile: 9, sad: 0, lid: 0.08, bags: 0, look: [0, 4] });
+    o += `<g transform="translate(960 540) scale(${cs}) translate(${-fx} ${-fy})">${inner}</g>`;
+    o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+    // counters (opening)
+    const c1 = seg(t, S(1), S(1) + 0.4) * (1 - seg(t, S(4) - 0.4, S(4)));
+    o += chip(480, 160, "2.000 seguidores", "#cfd8e3", c1);
+    const c2 = seg(t, S(2), S(2) + 0.4) * (1 - seg(t, S(4) - 0.4, S(4)));
+    o += chip(1420, 160, "❤ 300   💬 40", "#ff6b9a", c2);
+    const c3 = seg(t, S(3) + 1.0, S(3) + 1.4) * (1 - seg(t, S(4) - 0.4, S(4)));
+    o += chip(960, 880, "03:00 · ninguém pra ligar", "#8f99a3", c3);
+    // final contacts
+    const c4 = seg(t, S(29) + 1.4, S(29) + 1.8) * (1 - seg(t, finalEnd - 0.4, finalEnd));
+    o += chip(960, 160, "3 pessoas pra ligar às 3h", GOLDC, c4);
+    o += selfie(t) + eduPanel(t) + typing(t);
+    // memory bubble
+    const mem = seg(t, S(13) + 0.6, S(13) + 1.0) * (1 - seg(t, S(15) - 1.0, S(15) - 0.6));
+    if (mem > 0) o += `<g opacity="${mem}"><ellipse cx="1420" cy="300" rx="320" ry="200" fill="#f6f1e6" stroke="${INK}" stroke-width="6"/><circle cx="1150" cy="500" r="22" fill="#f6f1e6" stroke="${INK}" stroke-width="5"/><circle cx="1100" cy="550" r="12" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><g transform="translate(${1330 - 960 * 0.42} 140) scale(0.42)">${personHead({ x: 960, c: JOSEPH, ...face({ smile: 14, happy: 1 }) }, t)}</g><g transform="translate(${1530 - 960 * 0.42} 140) scale(0.42)">${personHead({ x: 960, c: FRIEND, ...face({ smile: 14, happy: 1 }) }, t)}</g><text class="hand" x="1420" y="440" font-size="40" text-anchor="middle" fill="${INK}">escola · Lucas</text></g>`;
+    // weekly plans over the café
+    const pl = seg(t, S(20) + 0.2, S(20) + 0.6) * (1 - seg(t, cafeEnd - 0.4, cafeEnd));
+    o += chip(480, 200, "☕ café · sexta", GOLDC, pl) + chip(1440, 200, "⚽ futebol · sábado", GREEN, seg(t, S(20) + 1.6, S(20) + 2.0) * (1 - seg(t, cafeEnd - 0.4, cafeEnd)));
+    const big = seg(t, S(21) - 0.4, S(21)) * (1 - seg(t, S(22) - 0.6, S(22) - 0.2));
+    if (big > 0) o += `<g opacity="${big}"><rect x="0" y="0" width="1920" height="1080" fill="#07080b" opacity="0.8"/><text class="hand" x="960" y="520" font-size="90" text-anchor="middle" fill="#f4efe6">conexão não acontece por acaso.</text><text class="hand" x="960" y="660" font-size="110" text-anchor="middle" fill="${GOLDC}">ela é construída.</text></g>`;
+    o += techCard(t, S(22) - 0.2, S(22) + 2.4, E(22) + 2.0, "1", "UMA MENSAGEM DE VERDADE", "Por dia. Não um meme: uma pergunta.", ICON.msg, GOLDC) + msgPanel(t);
+    o += techCard(t, S(23) - 0.2, E(23) + 1.6, S(24) - 0.4, "2", "CONVERSA EM VEZ DE CURTIDA", "Responda com palavras.", ICON.talk, GOLDC);
+    o += techCard(t, S(24) - 0.2, S(24) + 1.0, E(25) + 1.8, "3", "ALGO QUE SE REPETE", "Café toda sexta. Ligação no domingo.", ICON.repeat, GOLDC) + repeatPanel(t);
+    o += techCard(t, S(26) - 0.2, E(26) + 0.8, S(27) - 0.3, "4", "PRESENÇA DE VERDADE", "Celular longe.", ICON.presence, GOLDC) + helpPanel(t);
+    o += recapCards(t, S(31) - 0.8, end, "COMO CONSTRUIR CONEXÃO", [
+      [S(31) + 1.2, "1 MENSAGEM", "de verdade, por dia", ICON.msg, GOLDC], [S(31) + 3.0, "CONVERSA", "no lugar de curtida", ICON.talk, GOLDC],
+      [S(31) + 4.8, "REPETIÇÃO", "encontros fixos", ICON.repeat, GOLDC], [S(31) + 6.4, "PRESENÇA", "celular longe", ICON.presence, GOLDC]]);
+  }
+  o += letterbox() + captions(t);
+  let black = Math.max(1 - seg(t, 0, 1.0), seg(t, end - 0.6, end));
+  for (const x of [lucasEnd, techEnd]) black = Math.max(black, dip(t, x - 0.3, x, x, x + 0.3));
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${black}"/>`;
+  if (t >= end) o += quotes(t, [["Conexão não se mede em seguidores.", S(32), S(33) - 0.1, "#cfc9bd", 92], ["Mande a mensagem.", S(33), E(33) + 2.2, GOLDC, 140]]);
+  o += titleCard(t, E(33) + 2.4, "CONECTADO", GOLDC);
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+</script>
+</body>
+</html>

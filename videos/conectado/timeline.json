@@ -1,0 +1,240 @@
+{
+ "name": "CONECTADO",
+ "duration": 243.0,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 2.5,
+   "end": 5.22,
+   "text": "O Joseph tinha dois mil seguidores."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.42,
+   "end": 10.82,
+   "text": "Trezentas curtidas na última foto. Quarenta mensagens no grupo."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.32,
+   "end": 16.08,
+   "text": "E, às três da manhã, não tinha ninguém pra quem ligar."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 21.08,
+   "end": 25.56,
+   "text": "Cada seguidor era um fio. Fino. Leve. Fácil de puxar."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 27.06,
+   "end": 30.74,
+   "text": "Ele tinha centenas deles. E nenhum aguentava peso."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 35.74,
+   "end": 39.34,
+   "text": "Quando o dia foi difícil, ele postou uma foto sorrindo."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 40.84,
+   "end": 44.36,
+   "text": "Ganhou cinquenta curtidas. E continuou sozinho."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 49.86,
+   "end": 54.1,
+   "text": "Solidão não é estar sozinho. É não se sentir conectado a ninguém."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 55.3,
+   "end": 60.66,
+   "text": "Dá pra se sentir só no meio de uma multidão. Ou com o celular cheio de notificações."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 61.86,
+   "end": 65.94,
+   "text": "Conexão de verdade tem a ver com qualidade, não com quantidade."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 67.14,
+   "end": 73.22,
+   "text": "E amizade é feita de tempo. Muitas horas juntos, conversas repetidas, presença."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 74.42,
+   "end": 77.3,
+   "text": "Curtir uma foto não conta como estar junto."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 82.8,
+   "end": 85.92,
+   "text": "Naquela madrugada, o Joseph lembrou do Lucas."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 87.12,
+   "end": 91.44,
+   "text": "O amigo da escola. Os dois não se falavam havia três anos."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 94.94,
+   "end": 98.38,
+   "text": "Ele escreveu e apagou a mensagem quatro vezes."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 100.88,
+   "end": 104.96,
+   "text": "Até que mandou: ei, lembrei de você. Como você tá?"
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 109.46,
+   "end": 111.86,
+   "text": "O Lucas respondeu em dois minutos."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 113.36,
+   "end": 118.56,
+   "text": "E, pela primeira vez em muito tempo, um fio ficou grosso. Dourado."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 122.56,
+   "end": 125.52,
+   "text": "Eles conversaram por uma hora. E marcaram um café."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 127.02,
+   "end": 130.94,
+   "text": "Depois, outro. Depois, um futebol no sábado."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 136.44,
+   "end": 140.2,
+   "text": "Conexão não acontece por acaso. Ela é construída."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 141.7,
+   "end": 146.9,
+   "text": "Primeiro: mande uma mensagem de verdade por dia. Não um meme. Uma pergunta."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 152.9,
+   "end": 156.1,
+   "text": "Segundo: troque uma curtida por uma conversa."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 162.1,
+   "end": 167.78,
+   "text": "Terceiro: crie algo que se repete. Um café toda sexta. Uma ligação no domingo."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 168.98,
+   "end": 172.18,
+   "text": "É a repetição que transforma um conhecido em amigo."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 178.18,
+   "end": 183.46,
+   "text": "Quarto: quando estiver com alguém, esteja de verdade. Celular longe."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 185.46,
+   "end": 189.7,
+   "text": "E se você estiver mal, fale. Pedir ajuda também é conexão."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 195.2,
+   "end": 198.16,
+   "text": "O Joseph ainda tem dois mil seguidores."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 199.36,
+   "end": 203.44,
+   "text": "Mas agora tem três pessoas pra quem ele pode ligar às três da manhã."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 204.64,
+   "end": 206.0,
+   "text": "E isso mudou tudo."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 210.0,
+   "end": 218.32,
+   "text": "Resumindo: uma mensagem de verdade por dia, conversa no lugar de curtida, encontros que se repetem e presença de verdade."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 225.32,
+   "end": 227.8,
+   "text": "Conexão não se mede em seguidores.",
+   "nocap": true
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 229.8,
+   "end": 231.0,
+   "text": "Mande a mensagem.",
+   "nocap": true
+  }
+ ]
+}
