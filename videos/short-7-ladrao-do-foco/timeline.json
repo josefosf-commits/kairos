@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-7-LADRAO-DO-FOCO",
+ "duration": 55.14,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.8,
+   "end": 4.96,
+   "text": "Tem um ladrão que entra no seu quarto toda vez que você senta pra estudar."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.41,
+   "end": 8.93,
+   "text": "Ele não quebra a janela. Ele entra pelo celular."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 9.38,
+   "end": 13.46,
+   "text": "Plim. Uma notificação. E ele leva um pedaço do seu foco."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 13.91,
+   "end": 17.19,
+   "text": "Plim. Mais um pedaço. Plim. Mais um."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 17.64,
+   "end": 25.08,
+   "text": "Uma pesquisa famosa mediu: depois de uma interrupção, a gente leva em média vinte e três minutos pra voltar ao foco total."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 25.53,
+   "end": 28.81,
+   "text": "Dez notificações por hora, e você nunca chega lá."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 29.26,
+   "end": 33.18,
+   "text": "Você acha que estudou três horas. O ladrão levou duas."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 33.63,
+   "end": 37.39,
+   "text": "Mas ele tem um ponto fraco: só entra se a porta estiver aberta."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 37.84,
+   "end": 43.2,
+   "text": "Modo não perturbe. Celular em outro cômodo. Notificações desligadas."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 43.65,
+   "end": 48.13,
+   "text": "Ele chega, encontra a porta trancada, e vai embora de mãos vazias."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 48.58,
+   "end": 51.94,
+   "text": "Qual ladrão você quer que eu mostre agora? Comenta aqui."
+  }
+ ]
+}
