@@ -1,0 +1,80 @@
+{
+ "name": "SHORT-4-TELA-CINZA",
+ "duration": 41.99,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 4.9,
+   "text": "Um truque pra largar o celular sem precisar de força de vontade."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.45,
+   "end": 7.61,
+   "text": "Deixa a tela em preto e branco."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 8.16,
+   "end": 11.36,
+   "text": "Os aplicativos usam cores fortes de propósito."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 11.91,
+   "end": 17.51,
+   "text": "Bolinha vermelha de notificação. Ícones brilhando. Cada cor é uma isca pro seu cérebro."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 18.06,
+   "end": 20.54,
+   "text": "Sem cor, o feed perde a graça."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 21.09,
+   "end": 23.57,
+   "text": "Você abre, olha, e fecha."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 24.12,
+   "end": 29.16,
+   "text": "Procura nas configurações de acessibilidade: filtro de cor, escala de cinza."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 29.71,
+   "end": 31.39,
+   "text": "Testa por uma semana."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 31.94,
+   "end": 35.62,
+   "text": "O celular continua útil. Só deixa de ser irresistível."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 36.17,
+   "end": 38.49,
+   "text": "Segue o Joseph pra mais truques assim.",
+   "nocap": true
+  }
+ ],
+ "w": 1080,
+ "h": 1920
+}

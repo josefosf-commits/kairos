@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-3-CELULAR-NO-QUARTO",
+ "duration": 46.23,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 4.58,
+   "text": "Se você dorme com o celular do lado da cama, presta atenção."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.13,
+   "end": 7.37,
+   "text": "Duas da manhã. Só mais um vídeo."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 7.92,
+   "end": 11.04,
+   "text": "A luz da tela diz pro seu cérebro que ainda é dia."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 11.59,
+   "end": 16.55,
+   "text": "O sono atrasa. Você dorme tarde, dorme mal, e acorda cansado."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 17.1,
+   "end": 21.26,
+   "text": "No dia seguinte: sem foco, sem paciência, sem energia."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 21.81,
+   "end": 24.45,
+   "text": "A solução é ridícula de simples."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 25.0,
+   "end": 29.08,
+   "text": "Carrega o celular fora do quarto. E usa um despertador barato."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 29.63,
+   "end": 35.39,
+   "text": "A primeira noite vai ser estranha. Na terceira, você vai dormir como não dormia há anos."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 35.94,
+   "end": 39.22,
+   "text": "Sono não é tempo perdido. É onde você recarrega."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 39.77,
+   "end": 42.73,
+   "text": "Hoje à noite, o celular dorme na sala."
+  }
+ ],
+ "w": 1080,
+ "h": 1920
+}

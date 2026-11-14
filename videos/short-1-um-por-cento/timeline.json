@@ -1,0 +1,80 @@
+{
+ "name": "SHORT-1-POR-CENTO",
+ "duration": 49.75,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 3.62,
+   "text": "Um por cento por dia parece nada."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 4.17,
+   "end": 5.69,
+   "text": "Mas faz a conta."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 6.24,
+   "end": 12.0,
+   "text": "Um vírgula zero um, elevado a trezentos e sessenta e cinco, dá trinta e sete vírgula oito."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 12.55,
+   "end": 15.91,
+   "text": "Trinta e sete vezes melhor. Em um ano."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 16.46,
+   "end": 20.38,
+   "text": "Agora o contrário. Um por cento pior, todo dia."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 20.93,
+   "end": 27.73,
+   "text": "Zero vírgula noventa e nove, elevado a trezentos e sessenta e cinco, dá zero vírgula zero três."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 28.28,
+   "end": 30.12,
+   "text": "Quase nada sobra de você."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 30.67,
+   "end": 37.55,
+   "text": "E a diferença entre os dois? Duas páginas de livro. Cinco minutos a menos de celular. Dormir mais cedo."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 38.1,
+   "end": 44.02,
+   "text": "No dia um, ninguém percebe. No dia trezentos e sessenta e cinco, todo mundo percebe."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 44.57,
+   "end": 46.25,
+   "text": "Qual dos dois você foi hoje?",
+   "nocap": true
+  }
+ ],
+ "w": 1080,
+ "h": 1920
+}

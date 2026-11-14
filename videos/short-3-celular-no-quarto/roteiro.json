@@ -1,0 +1,57 @@
+{
+ "name": "SHORT-3-CELULAR-NO-QUARTO",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Se você dorme com o celular do lado da cama, presta atenção.",
+   "gap": 0.9
+  },
+  {
+   "id": 2,
+   "text": "Duas da manhã. Só mais um vídeo.",
+   "gap": 0.55
+  },
+  {
+   "id": 3,
+   "text": "A luz da tela diz pro seu cérebro que ainda é dia.",
+   "gap": 0.55
+  },
+  {
+   "id": 4,
+   "text": "O sono atrasa. Você dorme tarde, dorme mal, e acorda cansado.",
+   "gap": 0.55
+  },
+  {
+   "id": 5,
+   "text": "No dia seguinte: sem foco, sem paciência, sem energia.",
+   "gap": 0.55
+  },
+  {
+   "id": 6,
+   "text": "A solução é ridícula de simples.",
+   "gap": 0.55
+  },
+  {
+   "id": 7,
+   "text": "Carrega o celular fora do quarto. E usa um despertador barato.",
+   "gap": 0.55
+  },
+  {
+   "id": 8,
+   "text": "A primeira noite vai ser estranha. Na terceira, você vai dormir como não dormia há anos.",
+   "gap": 0.55
+  },
+  {
+   "id": 9,
+   "text": "Sono não é tempo perdido. É onde você recarrega.",
+   "gap": 0.55
+  },
+  {
+   "id": 10,
+   "text": "Hoje à noite, o celular dorme na sala.",
+   "gap": 0.55
+  }
+ ]
+}

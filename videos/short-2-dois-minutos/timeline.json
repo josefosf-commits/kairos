@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-2-MINUTOS",
+ "duration": 43.99,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 3.62,
+   "text": "Você não procrastina porque é preguiçoso."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 4.17,
+   "end": 7.61,
+   "text": "Você procrastina porque a tarefa parece grande demais."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 8.16,
+   "end": 11.6,
+   "text": "O cérebro olha pra montanha, e foge pro celular."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 12.15,
+   "end": 15.35,
+   "text": "Então engana ele. Regra dos dois minutos."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 15.9,
+   "end": 19.74,
+   "text": "Não vai estudar duas horas. Vai só abrir o caderno."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 20.29,
+   "end": 23.25,
+   "text": "Não vai treinar. Vai só calçar o tênis."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 23.8,
+   "end": 27.4,
+   "text": "Dois minutos. Qualquer um consegue dois minutos."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 27.95,
+   "end": 31.95,
+   "text": "E aí acontece o segredo: começar é a parte mais difícil."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 32.5,
+   "end": 35.06,
+   "text": "Depois que você começa, você continua."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 35.61,
+   "end": 40.49,
+   "text": "O Joseph de amanhã não vai fazer por você. Dois minutos. Agora."
+  }
+ ],
+ "w": 1080,
+ "h": 1920
+}

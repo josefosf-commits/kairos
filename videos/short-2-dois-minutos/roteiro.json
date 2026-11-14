@@ -1,0 +1,57 @@
+{
+ "name": "SHORT-2-MINUTOS",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Você não procrastina porque é preguiçoso.",
+   "gap": 0.9
+  },
+  {
+   "id": 2,
+   "text": "Você procrastina porque a tarefa parece grande demais.",
+   "gap": 0.55
+  },
+  {
+   "id": 3,
+   "text": "O cérebro olha pra montanha, e foge pro celular.",
+   "gap": 0.55
+  },
+  {
+   "id": 4,
+   "text": "Então engana ele. Regra dos dois minutos.",
+   "gap": 0.55
+  },
+  {
+   "id": 5,
+   "text": "Não vai estudar duas horas. Vai só abrir o caderno.",
+   "gap": 0.55
+  },
+  {
+   "id": 6,
+   "text": "Não vai treinar. Vai só calçar o tênis.",
+   "gap": 0.55
+  },
+  {
+   "id": 7,
+   "text": "Dois minutos. Qualquer um consegue dois minutos.",
+   "gap": 0.55
+  },
+  {
+   "id": 8,
+   "text": "E aí acontece o segredo: começar é a parte mais difícil.",
+   "gap": 0.55
+  },
+  {
+   "id": 9,
+   "text": "Depois que você começa, você continua.",
+   "gap": 0.55
+  },
+  {
+   "id": 10,
+   "text": "O Joseph de amanhã não vai fazer por você. Dois minutos. Agora.",
+   "gap": 0.55
+  }
+ ]
+}

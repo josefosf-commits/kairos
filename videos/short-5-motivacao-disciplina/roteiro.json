@@ -1,0 +1,57 @@
+{
+ "name": "SHORT-5-MOTIVACAO-DISCIPLINA",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Motivação é uma chama.",
+   "gap": 0.9
+  },
+  {
+   "id": 2,
+   "text": "Ela aparece no domingo à noite. Segunda-feira eu começo.",
+   "gap": 0.55
+  },
+  {
+   "id": 3,
+   "text": "Segunda, você acorda motivado. Terça, um pouco menos.",
+   "gap": 0.55
+  },
+  {
+   "id": 4,
+   "text": "Quarta, chove.",
+   "gap": 0.55
+  },
+  {
+   "id": 5,
+   "text": "E a chama apaga.",
+   "gap": 0.55
+  },
+  {
+   "id": 6,
+   "text": "Quem depende de motivação para no primeiro dia ruim.",
+   "gap": 0.55
+  },
+  {
+   "id": 7,
+   "text": "Disciplina é diferente. Ela não liga pra como você se sente.",
+   "gap": 0.55
+  },
+  {
+   "id": 8,
+   "text": "Tá chovendo? Vai. Tá cansado? Vai mais devagar. Mas vai.",
+   "gap": 0.55
+  },
+  {
+   "id": 9,
+   "text": "Motivação te faz começar. Disciplina te faz continuar.",
+   "gap": 0.55
+  },
+  {
+   "id": 10,
+   "text": "Amanhã, quando a vontade não vier, vai mesmo assim.",
+   "gap": 0.55
+  }
+ ]
+}

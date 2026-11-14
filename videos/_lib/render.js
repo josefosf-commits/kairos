@@ -11,7 +11,7 @@ const fs = require('fs');
   const tl = JSON.parse(fs.readFileSync(path.join(dir, 'timeline.json'), 'utf8'));
   fs.mkdirSync(path.join(dir, 'build'), { recursive: true });
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: { width: tl.w || 1920, height: tl.h || 1080 }, deviceScaleFactor: 1 });
   await page.goto('file://' + path.join(dir, 'cena.html'));
   await page.evaluate(t => { window.TL = t; }, tl);
   await page.evaluate(() => document.fonts.load('700 50px Kalam'));

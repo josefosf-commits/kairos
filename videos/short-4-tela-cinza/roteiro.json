@@ -1,0 +1,58 @@
+{
+ "name": "SHORT-4-TELA-CINZA",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Um truque pra largar o celular sem precisar de força de vontade.",
+   "gap": 0.9
+  },
+  {
+   "id": 2,
+   "text": "Deixa a tela em preto e branco.",
+   "gap": 0.55
+  },
+  {
+   "id": 3,
+   "text": "Os aplicativos usam cores fortes de propósito.",
+   "gap": 0.55
+  },
+  {
+   "id": 4,
+   "text": "Bolinha vermelha de notificação. Ícones brilhando. Cada cor é uma isca pro seu cérebro.",
+   "gap": 0.55
+  },
+  {
+   "id": 5,
+   "text": "Sem cor, o feed perde a graça.",
+   "gap": 0.55
+  },
+  {
+   "id": 6,
+   "text": "Você abre, olha, e fecha.",
+   "gap": 0.55
+  },
+  {
+   "id": 7,
+   "text": "Procura nas configurações de acessibilidade: filtro de cor, escala de cinza.",
+   "gap": 0.55
+  },
+  {
+   "id": 8,
+   "text": "Testa por uma semana.",
+   "gap": 0.55
+  },
+  {
+   "id": 9,
+   "text": "O celular continua útil. Só deixa de ser irresistível.",
+   "gap": 0.55
+  },
+  {
+   "id": 10,
+   "text": "Segue o Joseph pra mais truques assim.",
+   "gap": 0.55,
+   "nocap": true
+  }
+ ]
+}

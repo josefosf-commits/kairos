@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-5-MOTIVACAO-DISCIPLINA",
+ "duration": 41.43,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.9,
+   "end": 2.74,
+   "text": "Motivação é uma chama."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 3.29,
+   "end": 7.13,
+   "text": "Ela aparece no domingo à noite. Segunda-feira eu começo."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 7.68,
+   "end": 12.48,
+   "text": "Segunda, você acorda motivado. Terça, um pouco menos."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 13.03,
+   "end": 14.47,
+   "text": "Quarta, chove."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 15.02,
+   "end": 16.3,
+   "text": "E a chama apaga."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 16.85,
+   "end": 19.97,
+   "text": "Quem depende de motivação para no primeiro dia ruim."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 20.52,
+   "end": 24.28,
+   "text": "Disciplina é diferente. Ela não liga pra como você se sente."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 24.83,
+   "end": 29.63,
+   "text": "Tá chovendo? Vai. Tá cansado? Vai mais devagar. Mas vai."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 30.18,
+   "end": 33.86,
+   "text": "Motivação te faz começar. Disciplina te faz continuar."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 34.41,
+   "end": 37.93,
+   "text": "Amanhã, quando a vontade não vier, vai mesmo assim."
+  }
+ ],
+ "w": 1080,
+ "h": 1920
+}

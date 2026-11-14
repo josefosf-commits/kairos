@@ -29,6 +29,7 @@ for L, rid in zip(spec["lines"], ids):
     out.append(item)
     t = start + d
 dur = round(t + spec.get("tail", 12), 2)
-json.dump({"name": spec["name"], "duration": dur, "fps": 30, "lines": out}, open("timeline.json", "w"), ensure_ascii=False, indent=1)
+meta = {"w": 1080, "h": 1920} if spec.get("vertical") else {}
+json.dump({"name": spec["name"], "duration": dur, "fps": 30, **meta, "lines": out}, open("timeline.json", "w"), ensure_ascii=False, indent=1)
 print(f"ok {len(out)} falas, duração {dur:.1f}s ({int(dur//60)}:{int(dur%60):02d})")
 for L in out: print(f"  {L['id']:>2} {L['start']:7.2f}-{L['end']:7.2f} {L['text'][:60]}")

@@ -1,0 +1,58 @@
+{
+ "name": "SHORT-1-POR-CENTO",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Um por cento por dia parece nada.",
+   "gap": 0.9
+  },
+  {
+   "id": 2,
+   "text": "Mas faz a conta.",
+   "gap": 0.55
+  },
+  {
+   "id": 3,
+   "text": "Um vírgula zero um, elevado a trezentos e sessenta e cinco, dá trinta e sete vírgula oito.",
+   "gap": 0.55
+  },
+  {
+   "id": 4,
+   "text": "Trinta e sete vezes melhor. Em um ano.",
+   "gap": 0.55
+  },
+  {
+   "id": 5,
+   "text": "Agora o contrário. Um por cento pior, todo dia.",
+   "gap": 0.55
+  },
+  {
+   "id": 6,
+   "text": "Zero vírgula noventa e nove, elevado a trezentos e sessenta e cinco, dá zero vírgula zero três.",
+   "gap": 0.55
+  },
+  {
+   "id": 7,
+   "text": "Quase nada sobra de você.",
+   "gap": 0.55
+  },
+  {
+   "id": 8,
+   "text": "E a diferença entre os dois? Duas páginas de livro. Cinco minutos a menos de celular. Dormir mais cedo.",
+   "gap": 0.55
+  },
+  {
+   "id": 9,
+   "text": "No dia um, ninguém percebe. No dia trezentos e sessenta e cinco, todo mundo percebe.",
+   "gap": 0.55
+  },
+  {
+   "id": 10,
+   "text": "Qual dos dois você foi hoje?",
+   "gap": 0.55,
+   "nocap": true
+  }
+ ]
+}
