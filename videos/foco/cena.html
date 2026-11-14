@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>FOCO</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLaptop" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#b9cde3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b9cde3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.75"/>
+    </radialGradient>
+    <clipPath id="eyeL"><ellipse cx="928" cy="398" rx="21" ry="25"/></clipPath>
+    <clipPath id="eyeR"><ellipse cx="992" cy="398" rx="21" ry="25"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script>
+// ======================= helpers =======================
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const sm = k => k * k * (3 - 2 * k);
+const seg = (t, a, b) => sm(cl((t - a) / (b - a)));
+const lerp2 = (p, q, k) => [lerp(p[0], q[0], k), lerp(p[1], q[1], k)];
+function kf(t, pts, linear = false) {
+  if (t <= pts[0][0]) return pts[0][1];
+  for (let i = 1; i < pts.length; i++) {
+    if (t <= pts[i][0]) {
+      const [t0, v0] = pts[i - 1], [t1, v1] = pts[i];
+      const k = (t - t0) / (t1 - t0);
+      return lerp(v0, v1, linear ? k : sm(k));
+    }
+  }
+  return pts[pts.length - 1][1];
+}
+// multi-value keyframes: rows [t, a, b, c]
+function kfm(t, rows) { return rows[0].slice(1).map((_, j) => kf(t, rows.map(r => [r[0], r[j + 1]]))); }
+function hex(c) { return [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16)); }
+function mixc(a, b, k) {
+  const A = hex(a), B = hex(b);
+  return "#" + A.map((v, i) => Math.round(lerp(v, B[i], k)).toString(16).padStart(2, "0")).join("");
+}
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+// dip to black: rises a->b, stays, falls c->d
+const dip = (t, a, b, c, d) => seg(t, a, b) * (1 - seg(t, c, d));
+const inR = (t, a, b) => t >= a && t < b;
+
+// ======================= palette =======================
+const INK = "#0e0f12";
+const SKIN = "#a86f4a";       // pardo
+const SKIN_D = "#8e5a3a";
+const HOOD = "#4f5d40", HOOD_D = "#3c4731";
+const HAIR = "#17110e";
+const ACC = "#4fd1ff";
+const RED = "#e5484d";
+
+window.TL = window.TL || { lines: [], duration: 127 };
+
+// ======================= timeline tables =======================
+const CAM = [ // t, scale, fx, fy
+  [0, 1.2, 960, 540], [9.6, 1.27, 960, 530], [10.6, 2.15, 960, 470], [15.0, 2.25, 960, 465], [15.8, 1.2, 960, 530],
+  [19.6, 1.28, 960, 530], [20.0, 1.28, 960, 530], [23.5, 1.6, 960, 460],
+  [23.96, 1.6, 960, 460], [24.0, 1.2, 960, 540], [31.0, 1.28, 960, 530],
+  [31.46, 1.28, 960, 530], [31.5, 2.2, 960, 480], [33.5, 2.4, 960, 500], [35.2, 4.6, 960, 556], [40.9, 5.0, 960, 556],
+  [40.96, 5.0, 960, 556], [41.0, 1.2, 960, 540], [43.9, 1.25, 960, 535],
+  [47.96, 1.25, 960, 535], [48.0, 2.6, 960, 420], [50.0, 2.7, 960, 420],
+  [50.06, 2.7, 960, 420], [50.1, 1.3, 940, 560], [52.6, 1.36, 940, 560],
+  [52.66, 1.36, 940, 560], [52.7, 1.6, 960, 450], [55.5, 1.65, 960, 450], [56.0, 1.5, 1060, 560], [58.8, 1.5, 1060, 560], [59.5, 1.3, 960, 540], [63.3, 1.32, 960, 540],
+  [63.36, 1.32, 960, 540], [63.4, 1.25, 1000, 560], [73.3, 1.32, 1000, 555],
+  [73.36, 1.32, 1000, 555], [73.4, 1.2, 960, 540], [84.0, 1.24, 960, 540],
+  [84.46, 1.24, 960, 540], [84.5, 1.35, 960, 520], [89.6, 1.42, 960, 520], [90.6, 1.9, 1100, 600], [91.8, 1.9, 1100, 600], [92.4, 2.6, 960, 450], [95.3, 2.85, 960, 450], [95.5, 1.5, 1050, 570], [99.5, 1.55, 1050, 565],
+  [99.96, 1.55, 1050, 565], [100.0, 1.7, 720, 590], [102.8, 1.95, 720, 600], [103.3, 1.95, 720, 600], [104.2, 1.2, 960, 540], [111.0, 1.32, 960, 500],
+];
+
+const NIGHT = [[0, 0], [15.3, 0], [18.8, 1], [24.0, 1], [25.2, 0], [26.4, 1], [27.6, 0], [28.8, 1], [40.96, 1], [41.0, 0], [52.66, 0], [52.7, 1],
+  [63.36, 1], [63.4, 0], [73.4, 0], [75.0, 1], [76.6, 0], [78.2, 1], [79.8, 0], [81.4, 1], [99.96, 1], [100.0, 0.55], [104.0, 0], [127, 0]];
+const WARM = [[0, 0], [99.96, 0], [100.0, 1], [106, 0.65], [127, 0.6]];
+const CLOCK = [[0, 540], [15, 559], [19, 1420], [24, 1422], [31, 5742], [40.9, 5755], [40.96, 5755], [41.0, 6240], [52.6, 6262], [52.66, 6262],
+  [52.7, 7380], [63.3, 7395], [63.36, 7395], [63.4, 7740], [67.1, 7760], [67.15, 20700], [69.5, 20720], [69.55, 49500], [73.4, 49520],
+  [84.0, 92100], [99.9, 92200], [99.96, 92200], [100.0, 92550], [127, 92575]];
+
+// face tables
+const SMILE = [[0, 2], [3.6, 2], [4.4, 9], [6.8, 9], [7.6, 2], [10.4, 2], [11.0, 10], [16.8, 10], [17.3, -3], [19.0, -3], [20.2, -10], [23.9, -10],
+  [24.0, 3], [31.4, 3], [31.5, 2], [34.0, 0], [35.6, -9], [40.9, -9], [41.0, 0], [47.9, 0], [48.0, -5], [52.6, -5], [52.7, -6], [55.5, -6], [56.0, -2], [63.3, -2],
+  [63.4, -1], [69.4, -1], [69.9, 5], [73.3, 5], [73.4, 5], [84.0, 5], [84.5, -3], [89.9, -3], [90.3, 0], [95.6, -2], [97.5, -2], [98.3, 3], [99.9, 3],
+  [100.0, 8], [103.4, 8], [104.2, 13], [127, 13]];
+const MOUTHW = [[0, 18], [17.0, 18], [17.3, 10], [19.0, 10], [19.6, 18], [47.9, 18], [48.0, 10], [50.0, 10], [50.1, 18], [127, 18]];
+const BROW_UP = [[0, 0], [3.6, 0], [4.4, 6], [6.8, 6], [7.6, 0], [17.0, 0], [17.3, 12], [18.8, 12], [19.4, 0], [33.4, 0], [33.7, 7], [34.6, 7], [35.2, 0],
+  [47.9, 0], [48.0, 14], [50.0, 14], [50.1, 0], [90.0, 0], [90.4, 7], [94.6, 7], [94.9, 0], [99.9, 0], [100.0, 4], [127, 4]];
+const BROW_SAD = [[0, 0], [19.6, 0], [20.4, 1], [23.9, 1], [24.0, 0.3], [35.2, 0.3], [35.8, 1], [40.9, 1], [41.0, 0], [52.6, 0], [52.7, 0.6], [55.4, 0.6], [55.8, 0],
+  [84.4, 0], [84.5, 0.5], [89.9, 0.5], [90.3, 0], [127, 0]];
+const BROW_ANG = [[0, 0], [55.4, 0], [55.9, 1], [63.3, 1], [63.4, 0.5], [69.4, 0.5], [69.9, 0.2], [73.3, 0.2], [73.4, 0.4], [84.0, 0.4], [84.5, 0],
+  [94.6, 0], [95.0, 1], [96.5, 1], [98.0, 0.5], [99.9, 0.5], [100.0, 0], [127, 0]];
+const LID = [[0, 0.1], [10.0, 0.1], [10.6, 0], [17.0, 0], [19.6, 0.05], [20.4, 0.45], [23.9, 0.45], [24.0, 0.35], [31.4, 0.35], [31.5, 0.4], [33.5, 0.4], [33.7, 0.05],
+  [35.2, 0.05], [35.8, 0.3], [40.9, 0.3], [41.0, 0.1], [47.9, 0.1], [48.0, 0], [50.0, 0], [50.1, 1], [52.6, 1], [52.7, 0], [63.3, 0], [63.4, 0.1],
+  [84.4, 0.1], [84.5, 0.45], [89.9, 0.45], [90.3, 0], [99.9, 0], [100.0, 0.05], [127, 0.05]];
+const LOOK = [ // t, x, y
+  [0, 0, 6], [7.7, 0, 6], [8.0, 9, 4], [8.6, 9, 6], [10.2, 0, 9], [17.0, 0, 9], [17.3, 10, -9], [18.8, 10, -9], [19.1, 0, 8], [20.2, 0, 8], [20.6, 0, 3], [23.9, 0, 3],
+  [24.0, 0, 9], [40.9, 0, 9], [41.0, 0, 6], [47.9, 0, 6], [48.0, 0, 0], [52.6, 0, 0], [52.7, 0, 0], [55.8, 0, 0], [56.1, 9, 8], [58.6, 9, 8], [59.0, 0, 2], [63.3, 0, 2],
+  [63.4, 0, 6], [84.4, 0, 6], [84.5, 0, 5], [89.9, 0, 5], [90.3, 9, 10], [95.6, 9, 10], [95.9, 0, 1], [99.9, 0, 1], [100.0, -6, 6], [103.3, -6, 6], [104.0, 0, -2], [127, 0, -2]];
+const BLINKS = [2.9, 6.1, 9.0, 14.2, 19.5, 22.6, 26.0, 29.5, 42.2, 54.2, 61.8, 65.2, 68.6, 71.3, 75.1, 78.9, 82.6, 86.1, 97.6, 101.6, 106.4, 109.2];
+const DRAWER_BUZZ = [64.0, 64.8, 65.6, 66.4, 68.0];
+const TYPING = [[0, 8.5], [41.0, 43.9], [63.4, 84.0], [84.5, 89.8], [99.96, 103.4]];
+
+// ======================= scene state =======================
+function state(t) {
+  const S = {};
+  S.night = kf(t, NIGHT);
+  S.warm = kf(t, WARM);
+  S.clock = kf(t, CLOCK, true);
+  let [cs, cfx, cfy] = kfm(t, CAM);
+  if (inR(t, 95.75, 96.2)) { const k = 1 - (t - 95.75) / 0.45; cfx += Math.sin(t * 90) * 9 * k; cfy += Math.cos(t * 77) * 7 * k; }
+  S.cam = [cs, cfx, cfy];
+  S.typing = TYPING.some(([a, b]) => inR(t, a, b));
+  S.laptopOn = (t < 22.3) || inR(t, 41.0, 52.66) || inR(t, 63.4, 127);
+  S.headDown = seg(t, 50.1, 50.5) * (1 - seg(t, 52.66, 52.7));
+  S.armsUp = seg(t, 103.6, 104.4);
+  S.sweat = inR(t, 91.0, 96.0) ? cl((t - 91.0) / 5) : -1;
+
+  // ---- drawer ----
+  let dOpen = 0;
+  dOpen = Math.max(dOpen, seg(t, 56.4, 56.8) * (1 - seg(t, 58.2, 58.5)));
+  dOpen = Math.max(dOpen, seg(t, 90.2, 90.9) * (1 - seg(t, 95.4, 95.75)));
+  S.dOpen = dOpen;
+  S.dShake = 0; S.dGlow = 0;
+  for (const b of DRAWER_BUZZ) if (inR(t, b, b + 0.38)) { S.dShake = Math.sin(t * 95) * 3; S.dGlow = Math.sin(Math.PI * (t - b) / 0.38); }
+  if (inR(t, 90.2, 95.75)) { S.dGlow = Math.max(S.dGlow, dOpen); S.dShake = inR(t, 90.9, 95.4) ? Math.sin(t * 60) * 1.2 : S.dShake; }
+  if (inR(t, 95.75, 96.1)) S.dShake = Math.sin(t * 120) * 6 * (1 - (t - 95.75) / 0.35);
+  S.badge = inR(t, 90.5, 95.75) ? seg(t, 90.5, 91.0) : 0;
+
+  // ---- phone & hands ----
+  const desk = [1200, 632];
+  const hold = [1000, 560];
+  const lidR = [1050, 612], lidL = [870, 612];
+  const drawerPhone = [1185, 690];
+  let hR = null, hL = null, held = 0, pc = desk.slice(), phoneOn = false, screen = "off", inDrawer = false, phoneVisible = true, faceDown = false;
+
+  if (t < 23.9) { // ACT 1 (pilot)
+    if (t >= 8.6 && t < 22.3) {
+      if (t < 9.2) hR = lerp2([1050, 610], [1195, 614], seg(t, 8.6, 9.2));
+      else if (t < 10.2) hR = lerp2([1195, 614], hold, seg(t, 9.2, 10.2));
+      else if (t < 21.0) { const low = seg(t, 17.4, 18.0) - seg(t, 19.2, 19.8); hR = [1000 + Math.sin(t * 1.3) * 3, 560 + low * 28 + Math.sin(t * 2.1) * 2]; }
+      else if (t < 21.6) hR = lerp2(hold, [1195, 614], seg(t, 21.0, 21.6));
+      else hR = lerp2([1195, 614], [1050, 612], seg(t, 21.8, 22.3));
+    }
+    if (t >= 9.9 && t < 21.1) {
+      const k = seg(t, 9.9, 10.3) * (1 - seg(t, 20.7, 21.1));
+      hL = lerp2([870, 612], hR ? [hR[0] - 80, hR[1]] : [920, 560], k);
+    }
+    held = seg(t, 9.2, 10.0) * (1 - seg(t, 21.0, 21.6));
+    if (t >= 9.2 && t < 21.6 && hR) pc = lerp2(desk, [hR[0] - 40, hR[1] - 4], held);
+    phoneOn = t > 7.6 && t < 21.7;
+    faceDown = t >= 21.6;
+    screen = t < 11.6 ? "notif" : t < 12.8 ? "video" : "feed";
+    if (t > 7.6 && t < 8.3) pc[0] += Math.sin(t * 95) * 4;
+  } else if (t < 40.96) { // MONTAGE + MIRROR
+    hR = [1000 + Math.sin(t * 1.3) * 3, 560 + Math.sin(t * 2.1) * 2];
+    hL = [hR[0] - 80, hR[1]];
+    held = 1; pc = [hR[0] - 40, hR[1] - 4];
+    phoneOn = t < 33.6;
+    screen = t < 33.0 ? "feed" : t < 33.6 ? "battery" : t < 35.0 ? "off" : "mirror";
+  } else if (t < 52.66) { // FUNDO DO POÇO
+    pc = desk.slice(); faceDown = false; screen = "off";
+  } else if (t < 63.36) { // DIA 1
+    if (inR(t, 55.9, 59.1)) {
+      if (t < 56.4) hR = lerp2(lidR, [1185, 708], seg(t, 55.9, 56.4));
+      else if (t < 56.8) hR = lerp2([1185, 708], [1185, 734], seg(t, 56.4, 56.8));
+      else if (t < 57.3) hR = lerp2([1185, 734], [1195, 616], seg(t, 56.85, 57.3));
+      else if (t < 57.9) hR = lerp2([1195, 616], [1190, 676], seg(t, 57.3, 57.9));
+      else if (t < 58.5) hR = lerp2([1190, 676], [1185, 734], seg(t, 57.95, 58.15));
+      else hR = lerp2([1185, 708], lidR, seg(t, 58.55, 59.0));
+      if (inR(t, 58.15, 58.55)) hR = lerp2([1185, 734], [1185, 708], seg(t, 58.2, 58.5));
+    }
+    if (t < 57.3) pc = desk.slice();
+    else if (t < 57.9) pc = [hR[0] - 5, hR[1] + 12];
+    else { inDrawer = true; }
+  } else { // phone stays in the drawer
+    inDrawer = true;
+    // last fight: hand reaching for the open drawer, then slamming it
+    if (inR(t, 92.6, 96.4)) {
+      if (t < 94.6) hR = lerp2(lidR, [1150, 690], seg(t, 92.6, 94.6));
+      else if (t < 95.4) hR = [1150 + Math.sin(t * 40) * 2, 690];
+      else if (t < 95.75) hR = lerp2([1150, 690], [1185, 740], seg(t, 95.4, 95.75));
+      else hR = lerp2([1185, 740], lidR, seg(t, 95.9, 96.4));
+    }
+  }
+  if (inDrawer) { pc = [drawerPhone[0], 672 + 13 * dOpen]; phoneOn = S.dGlow > 0.05; screen = "drawer"; }
+  S.hR = hR; S.hL = hL; S.held = held; S.pc = pc; S.phoneOn = phoneOn; S.screen = screen; S.inDrawer = inDrawer; S.faceDown = faceDown;
+
+  // ---- face ----
+  S.smile = kf(t, SMILE);
+  S.mouthW = kf(t, MOUTHW);
+  S.browUp = kf(t, BROW_UP);
+  S.browSad = kf(t, BROW_SAD);
+  S.browAng = kf(t, BROW_ANG);
+  let lid = kf(t, LID);
+  for (const b of BLINKS) if (t > b && t < b + 0.14) lid = 1;
+  S.lid = lid;
+  S.look = kfm(t, LOOK);
+  if (inR(t, 12.8, 17) || inR(t, 24, 33)) S.look[0] += Math.sin(t * 22) * 1.2;
+  for (const b of DRAWER_BUZZ) if (inR(t, b, b + 0.5)) { const k = Math.sin(Math.PI * (t - b) / 0.5); S.look = [lerp(S.look[0], 9, k), lerp(S.look[1], 10, k)]; }
+  S.bob = Math.sin(t * 1.7) * 2 + (S.typing ? Math.sin(t * 16) * 1.5 : 0) + seg(t, 22.2, 22.7) * (1 - seg(t, 23.9, 24)) * 6;
+
+  // ---- environment props ----
+  S.pages = t < 73.4 ? 0 : Math.round(kf(t, [[73.4, 1], [84, 14], [127, 15]]));
+  S.stamp = t >= 102.0 ? seg(t, 102.0, 102.15) : 0;
+  return S;
+}
+
+// ======================= drawing =======================
+function drawNotes(t) {
+  const notes = [
+    { x: 1080, y: 165, r: -6, c: "#e9c46a", txt: "PROJETO" },
+    { x: 1215, y: 190, r: 5, c: "#f4a261", txt: "TREINO" },
+    { x: 1120, y: 315, r: 3, c: "#a8dadc", txt: "LER" },
+  ];
+  let o = "";
+  notes.forEach((n, i) => {
+    let pop, dy = 0, rot = n.r, op = 1, check = 0;
+    if (t < 52) {
+      pop = seg(t, 4.6 + i * 0.6, 4.85 + i * 0.6);
+      const ft = 16.2 + i * 0.8, f = cl((t - ft) / 1.1);
+      dy = f * f * 760; rot = n.r + f * (i % 2 ? 50 : -45); op = 1 - seg(t, ft + 0.7, ft + 1.1);
+    } else {
+      pop = seg(t, 59.8 + i * 0.3, 60.05 + i * 0.3);
+      check = seg(t, [76, 79, 82][i], [76, 79, 82][i] + 0.3);
+    }
+    if (pop <= 0 || op <= 0) return;
+    const sc = 0.6 + 0.4 * pop + Math.sin(pop * Math.PI) * 0.12;
+    o += `<g transform="translate(${n.x + 55} ${n.y + 55 + dy}) rotate(${rot}) scale(${sc})" opacity="${op}">`;
+    o += `<rect x="-55" y="-55" width="110" height="110" fill="${n.c}" stroke="${INK}" stroke-width="5"/>`;
+    o += `<text class="hand" x="0" y="10" font-size="${n.txt.length > 5 ? 22 : 30}" text-anchor="middle" fill="${INK}">${n.txt}</text>`;
+    if (check > 0) o += `<path d="M -30 22 L -10 42 L 38 -14" fill="none" stroke="#1f8a4c" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="120" stroke-dashoffset="${120 * (1 - check)}"/>`;
+    o += `</g>`;
+  });
+  return o;
+}
+
+function drawPhoneScreen(S, t, sw, sh) {
+  let o = `<svg x="${-sw / 2}" y="${-sh / 2}" width="${sw}" height="${sh}" viewBox="0 0 ${sw} ${sh}">`;
+  if (S.screen === "notif") {
+    const d = seg(t, 10.6, 10.9);
+    o += `<rect x="5" y="${-30 + d * 42}" width="${sw - 10}" height="28" rx="6" fill="${ACC}"/>`;
+    o += `<circle cx="15" cy="${-16 + d * 42}" r="5" fill="#0f2a36"/>`;
+    o += `<rect x="25" y="${-22 + d * 42}" width="${sw - 38}" height="4" rx="2" fill="#0f2a36"/><rect x="25" y="${-13 + d * 42}" width="${sw - 48}" height="4" rx="2" fill="#0f2a36"/>`;
+  } else if (S.screen === "video") {
+    o += `<rect x="0" y="${sh / 2 - 26}" width="${sw}" height="52" fill="#1d4b5e"/>`;
+    o += `<polygon points="${sw / 2 - 9},${sh / 2 - 12} ${sw / 2 - 9},${sh / 2 + 12} ${sw / 2 + 12},${sh / 2}" fill="#fff"/>`;
+    o += `<rect x="4" y="${sh / 2 + 32}" width="${(sw - 8) * seg(t, 11.6, 12.8)}" height="4" fill="${ACC}"/>`;
+  } else if (S.screen === "feed") {
+    const speed = (t < 15.2 || t > 24) ? 240 : 120;
+    const base = t > 24 ? t - 24 : t - 12.8;
+    const off = (base * speed) % 60;
+    const cols = ["#1d4b5e", "#3a6f86", ACC, "#27566a"];
+    for (let i = -1; i < 4; i++) {
+      const idx = ((Math.floor(base * speed / 60) + i) % 4 + 4) % 4;
+      o += `<rect x="5" y="${i * 60 - off + 4}" width="${sw - 10}" height="52" rx="6" fill="${cols[idx]}"/>`;
+    }
+  } else if (S.screen === "battery") {
+    const on = Math.floor(t * 6) % 2 === 0;
+    o += `<rect x="0" y="0" width="${sw}" height="${sh}" fill="#050607"/>`;
+    o += `<g transform="translate(${sw / 2} ${sh / 2})" opacity="${on ? 1 : 0.25}"><rect x="-16" y="-9" width="30" height="18" rx="3" fill="none" stroke="${RED}" stroke-width="3"/><rect x="14" y="-4" width="4" height="8" fill="${RED}"/><rect x="-13" y="-6" width="5" height="12" fill="${RED}"/></g>`;
+  } else if (S.screen === "mirror") {
+    const k = seg(t, 35.2, 37.0);
+    o += `<rect x="0" y="0" width="${sw}" height="${sh}" fill="#07080a"/>`;
+    o += `<g opacity="${0.55 * k}" transform="translate(${sw / 2} ${sh / 2 + 8}) scale(0.24)">`;
+    o += `<rect x="-75" y="-105" width="150" height="210" rx="62" fill="#2b3036"/>`;
+    o += `<path d="M -73 -40 C -75 -110 75 -110 73 -40 C 60 -70 30 -82 0 -80 C -30 -82 -60 -70 -73 -40 Z" fill="#14171a"/>`;
+    o += `<ellipse cx="-32" cy="-2" rx="20" ry="16" fill="#4a5058"/><ellipse cx="32" cy="-2" rx="20" ry="16" fill="#4a5058"/>`;
+    o += `<circle cx="-32" cy="4" r="8" fill="#0b0c0e"/><circle cx="32" cy="4" r="8" fill="#0b0c0e"/>`;
+    o += `<line x1="-50" y1="-30" x2="-14" y2="-40" stroke="#0b0c0e" stroke-width="9" stroke-linecap="round"/><line x1="50" y1="-30" x2="14" y2="-40" stroke="#0b0c0e" stroke-width="9" stroke-linecap="round"/>`;
+    o += `<path d="M -20 60 Q 0 46 20 60" fill="none" stroke="#0b0c0e" stroke-width="7" stroke-linecap="round"/>`;
+    o += `</g>`;
+    o += `<polygon points="${sw * 0.15},0 ${sw * 0.45},0 0,${sh * 0.55} 0,${sh * 0.25}" fill="#fff" opacity="0.05"/>`;
+  } else {
+    o += `<rect x="0" y="0" width="${sw}" height="${sh}" fill="#07080a"/>`;
+  }
+  return o + `</svg>`;
+}
+
+function drawCharacterBack(S, t) {
+  // body + hood + neck, drawn behind the head
+  const hd = S.headDown;
+  let o = `<g transform="translate(${-50 * hd} ${S.bob * 0.5 + 22 * hd})">`;
+  // hood (behind the neck)
+  o += `<path d="M 858 540 C 850 470 1070 470 1062 540 Z" fill="${HOOD_D}" stroke="${INK}" stroke-width="7"/>`;
+  // torso: broad shoulders
+  o += `<path d="M 790 655 C 788 572 840 518 960 512 C 1080 518 1132 572 1130 655 Z" fill="${HOOD}" stroke="${INK}" stroke-width="7"/>`;
+  // neck
+  o += `<rect x="928" y="478" width="64" height="52" fill="${SKIN_D}" stroke="${INK}" stroke-width="6"/>`;
+  // collar / hood opening
+  o += `<path d="M 895 520 Q 960 566 1025 520" fill="${HOOD_D}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
+  // drawstrings
+  o += `<path d="M 938 540 L 934 590" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/><path d="M 982 540 L 986 590" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/>`;
+  o += `<circle cx="934" cy="592" r="5" fill="#d9d4c7" stroke="${INK}" stroke-width="2"/><circle cx="986" cy="592" r="5" fill="#d9d4c7" stroke="${INK}" stroke-width="2"/>`;
+  // shoulder seams
+  o += `<path d="M 850 560 Q 862 600 860 655" fill="none" stroke="${HOOD_D}" stroke-width="5"/><path d="M 1070 560 Q 1058 600 1060 655" fill="none" stroke="${HOOD_D}" stroke-width="5"/>`;
+  o += `</g>`;
+  return o;
+}
+
+function drawHead(S, t) {
+  const hd = S.headDown;
+  let o = `<g transform="translate(${-175 * hd} ${S.bob + 140 * hd}) rotate(${-16 * hd} 960 400)">`;
+  // ears
+  o += `<ellipse cx="884" cy="405" rx="14" ry="22" fill="${SKIN}" stroke="${INK}" stroke-width="6"/>`;
+  o += `<ellipse cx="1036" cy="405" rx="14" ry="22" fill="${SKIN}" stroke="${INK}" stroke-width="6"/>`;
+  // head: slightly squarer jaw
+  o += `<rect x="885" y="292" width="150" height="212" rx="64" fill="${SKIN}" stroke="${INK}" stroke-width="7"/>`;
+  // hair: short cut
+  o += `<path d="M 886 362 C 880 284 1040 284 1034 362 C 1022 330 992 318 960 320 C 928 318 898 330 886 362 Z" fill="${HAIR}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+  // eyes
+  const L = S.look;
+  for (const [cx, clip, side] of [[928, "eyeL", -1], [992, "eyeR", 1]]) {
+    o += `<ellipse cx="${cx}" cy="398" rx="21" ry="25" fill="#fbfaf6"/>`;
+    o += `<g clip-path="url(#${clip})">`;
+    o += `<circle cx="${cx + L[0]}" cy="${398 + L[1]}" r="10.5" fill="${INK}"/>`;
+    o += `<circle cx="${cx + L[0] + 3}" cy="${398 + L[1] - 4}" r="3" fill="#fff"/>`;
+    if (S.lid > 0) o += `<rect x="${cx - 25}" y="371" width="50" height="${54 * S.lid}" fill="${SKIN}"/><line x1="${cx - 25}" y1="${371 + 54 * S.lid}" x2="${cx + 25}" y2="${371 + 54 * S.lid}" stroke="${INK}" stroke-width="5"/>`;
+    o += `</g>`;
+    o += `<ellipse cx="${cx}" cy="398" rx="21" ry="25" fill="none" stroke="${INK}" stroke-width="5"/>`;
+    // brows: thick
+    const inner = cx - side * 18, outer = cx + side * 22;
+    const yIn = 358 - S.browUp - S.browSad * 9 + S.browAng * 10;
+    const yOut = 362 - S.browUp * 0.6 + S.browSad * 4 - S.browAng * 6;
+    o += `<line x1="${inner}" y1="${yIn}" x2="${outer}" y2="${yOut}" stroke="${HAIR}" stroke-width="10" stroke-linecap="round"/>`;
+  }
+  // nose
+  o += `<path d="M 958 412 Q 952 432 962 436" fill="none" stroke="${SKIN_D}" stroke-width="5" stroke-linecap="round"/>`;
+  // mouth
+  o += `<path d="M ${960 - S.mouthW} 462 Q 960 ${462 + S.smile * 1.6} ${960 + S.mouthW} 462" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
+  // sweat
+  if (S.sweat >= 0) {
+    const y = 350 + S.sweat * 50;
+    o += `<path d="M 1026 ${y - 14} Q 1036 ${y} 1026 ${y + 6} Q 1016 ${y} 1026 ${y - 14} Z" fill="#9fd8f0" stroke="${INK}" stroke-width="3"/>`;
+  }
+  o += `</g>`;
+  return o;
+}
+
+function arm(sh, h, layered) {
+  const ex = (sh[0] + h[0]) / 2 + (h[0] > sh[0] ? 24 : -24), ey = Math.max(sh[1], h[1]) + (layered ? -10 : 48);
+  return `<path d="M ${sh[0]} ${sh[1]} Q ${ex} ${ey} ${h[0]} ${h[1]}" fill="none" stroke="${INK}" stroke-width="48" stroke-linecap="round"/>` +
+         `<path d="M ${sh[0]} ${sh[1]} Q ${ex} ${ey} ${h[0]} ${h[1]}" fill="none" stroke="${HOOD}" stroke-width="35" stroke-linecap="round"/>`;
+}
+const handC = h => `<circle cx="${h[0]}" cy="${h[1]}" r="21" fill="${SKIN}" stroke="${INK}" stroke-width="6"/>`;
+
+function drawDrawer(S, t) {
+  const k = S.dOpen;
+  let o = `<g transform="translate(${S.dShake} 0)">`;
+  // interior
+  if (k > 0.01) o += `<rect x="1095" y="668" width="180" height="${8 + 26 * k}" fill="#060708" stroke="${INK}" stroke-width="5"/>`;
+  // glow inside / leaking
+  if (S.dGlow > 0.02) {
+    o += `<ellipse cx="1185" cy="${660 - 10 * k}" rx="${120 + 60 * k}" ry="${50 + 70 * k}" fill="url(#gPhone)" opacity="${0.5 * S.dGlow}" style="mix-blend-mode:screen"/>`;
+    if (k < 0.1) o += `<line x1="1100" y1="672" x2="1270" y2="672" stroke="${ACC}" stroke-width="4" opacity="${S.dGlow}"/>`;
+  }
+  // phone inside the drawer (glowing screen)
+  if (S.inDrawer && k > 0.01) {
+    o += `<rect x="${S.pc[0] - 46}" y="${S.pc[1] - 7}" width="92" height="14" rx="4" fill="#14161a" stroke="${INK}" stroke-width="4"/>`;
+    if (S.phoneOn) o += `<rect x="${S.pc[0] - 40}" y="${S.pc[1] - 5}" width="80" height="6" rx="3" fill="${ACC}"/>`;
+  }
+  // front panel
+  const sc = 1 + 0.1 * k, dy = 26 * k;
+  o += `<g transform="translate(1185 ${706 + dy}) scale(${sc})">`;
+  o += `<rect x="-95" y="-34" width="190" height="68" rx="4" fill="#45382f" stroke="${INK}" stroke-width="6"/>`;
+  o += `<rect x="-26" y="-6" width="52" height="12" rx="6" fill="#211b17" stroke="${INK}" stroke-width="4"/>`;
+  o += `</g>`;
+  // 99+ badge
+  if (S.badge > 0) {
+    const by = 610 - 50 * S.badge + Math.sin(t * 4) * 4;
+    o += `<g transform="translate(1250 ${by}) scale(${S.badge})"><circle r="34" fill="${RED}" stroke="${INK}" stroke-width="5"/><text class="sans" y="9" font-size="26" font-weight="800" text-anchor="middle" fill="#fff">99+</text></g>`;
+  }
+  return o + `</g>`;
+}
+
+function drawPages(S) {
+  let o = "";
+  for (let i = 0; i < S.pages; i++) {
+    const jx = Math.sin(i * 12.9898) * 6, y = 632 - i * 7;
+    o += `<rect x="${650 + jx}" y="${y}" width="140" height="8" fill="${i % 2 ? "#ece6d8" : "#f6f1e6"}" stroke="${INK}" stroke-width="3"/>`;
+  }
+  if (S.stamp > 0) {
+    const sc = lerp(1.8, 1, S.stamp), y = 632 - S.pages * 7 - 10;
+    o += `<g transform="translate(722 ${y}) rotate(-12) scale(${sc})" opacity="${S.stamp}">`;
+    o += `<rect x="-92" y="-26" width="184" height="52" rx="6" fill="none" stroke="${RED}" stroke-width="6"/>`;
+    o += `<text class="hand" y="13" font-size="38" text-anchor="middle" fill="${RED}">ENTREGUE</text></g>`;
+  }
+  return o;
+}
+
+function counterText(t) {
+  const f = (a, b) => seg(t, a, a + 0.3) * (1 - seg(t, b - 0.3, b));
+  if (inR(t, 0.6, 7.0)) return ["DIA 214", f(0.6, 7.0)];
+  if (inR(t, 24.0, 31.0)) return ["DIA " + Math.floor(lerp(215, 262, cl((t - 24) / 6.5))), f(24.0, 31.0)];
+  if (inR(t, 63.4, 67.1)) return ["DIA 1", f(63.4, 67.1)];
+  if (inR(t, 67.15, 69.5)) return ["DIA 10", f(67.15, 69.5)];
+  if (inR(t, 69.55, 73.35)) return ["DIA 30", f(69.55, 73.35)];
+  if (inR(t, 73.4, 84.0)) return ["DIA " + Math.floor(lerp(31, 58, cl((t - 73.4) / 10.2))), f(73.4, 84.0)];
+  if (inR(t, 84.5, 99.5)) return ["DIA 59", f(84.5, 99.5)];
+  if (inR(t, 100.0, 111.0)) return ["DIA 60", f(100.0, 111.0)];
+  return null;
+}
+
+function drawEmail(t) {
+  const op = seg(t, 43.9, 44.2) * (1 - seg(t, 47.7, 48.0));
+  if (op <= 0) return "";
+  const z = 1 + (t - 43.9) * 0.02;
+  const msg = "Você foi desligado do projeto.";
+  const n = Math.round(msg.length * cl((t - 44.6) / 1.6));
+  let o = `<g opacity="${op}"><rect x="0" y="0" width="1920" height="1080" fill="#0a0b0d"/>`;
+  o += `<g transform="translate(960 540) scale(${z}) translate(-960 -540)">`;
+  o += `<rect x="260" y="150" width="1400" height="800" rx="30" fill="#1b1d22" stroke="${INK}" stroke-width="10"/>`;
+  o += `<rect x="300" y="190" width="1320" height="720" rx="10" fill="#eef1f4"/>`;
+  o += `<rect x="300" y="190" width="1320" height="70" rx="10" fill="#d7dde3"/>`;
+  for (const [i, c] of [[0, "#e5484d"], [1, "#f5b400"], [2, "#30a46c"]]) o += `<circle cx="${340 + i * 36}" cy="225" r="11" fill="${c}"/>`;
+  o += `<text class="sans" x="420" y="236" font-size="30" font-weight="600" fill="#4a525c">Caixa de entrada</text>`;
+  o += `<circle cx="400" cy="340" r="40" fill="#9aa5b1"/><text class="sans" x="400" y="352" font-size="34" font-weight="700" text-anchor="middle" fill="#fff">C</text>`;
+  o += `<text class="sans" x="460" y="330" font-size="34" font-weight="700" fill="#1d2228">Coordenação do Projeto</text>`;
+  o += `<text class="sans" x="460" y="372" font-size="28" fill="#6b7480">Assunto: Sobre a sua participação</text>`;
+  o += `<line x1="360" y1="420" x2="1560" y2="420" stroke="#c9d0d7" stroke-width="3"/>`;
+  o += `<text class="sans" x="360" y="500" font-size="34" fill="#4a525c">Olá,</text>`;
+  o += `<text class="sans" x="360" y="600" font-size="58" font-weight="800" fill="#1d2228">${esc(msg.slice(0, n))}</text>`;
+  if (n < msg.length && Math.floor(t * 3) % 2 === 0) o += ``;
+  o += `<rect x="360" y="650" width="760" height="18" rx="9" fill="#d7dde3"/><rect x="360" y="690" width="620" height="18" rx="9" fill="#d7dde3"/>`;
+  o += `</g></g>`;
+  return o;
+}
+
+function render(t) {
+  const S = state(t);
+  const [cs, cfx, cfy] = S.cam;
+  const sky = mixc(mixc("#5b7fa3", "#0a0f1c", S.night), "#e9a06a", S.warm * 0.75);
+  const wall = mixc(mixc("#262a33", "#121419", S.night), "#3a2e2a", S.warm * 0.35);
+  const floor = mixc("#181a20", "#0c0d10", S.night);
+  const mins = ((S.clock % 1440) + 1440) % 1440;
+  const hA = (mins / 720) * 360, mA = ((mins % 60) / 60) * 360;
+
+  let o = `<g transform="translate(960 540) scale(${cs}) translate(${-cfx} ${-cfy})">`;
+  // room
+  o += `<rect x="-400" y="-400" width="2720" height="1260" fill="${wall}"/>`;
+  o += `<rect x="-400" y="860" width="2720" height="700" fill="${floor}"/>`;
+  o += `<line x1="-400" y1="860" x2="2320" y2="860" stroke="${INK}" stroke-width="6"/>`;
+  // window
+  o += `<rect x="260" y="200" width="360" height="360" rx="10" fill="${sky}" stroke="#2b2f38" stroke-width="14"/>`;
+  if (S.warm > 0) o += `<circle cx="360" cy="${520 - 60 * (1 - S.warm)}" r="40" fill="#ffd27a" opacity="${S.warm}"/>`;
+  o += `<circle cx="520" cy="290" r="34" fill="#e8e2d0" opacity="${S.night}"/>`;
+  for (const [sx, sy] of [[330, 260], [400, 330], [560, 420], [320, 470], [470, 250]]) o += `<circle cx="${sx}" cy="${sy}" r="3" fill="#fff" opacity="${S.night * 0.8}"/>`;
+  o += `<line x1="440" y1="200" x2="440" y2="560" stroke="#2b2f38" stroke-width="12"/>`;
+  o += `<line x1="260" y1="380" x2="620" y2="380" stroke="#2b2f38" stroke-width="12"/>`;
+  o += `<polygon points="270,860 610,860 760,1060 140,1060" fill="${S.warm > 0 ? "#ffc285" : "#9fc0e0"}" opacity="${0.06 * (1 - S.night) + 0.08 * S.warm}"/>`;
+  // clock
+  o += `<g transform="translate(1560 260)"><circle r="92" fill="#e8e2d6" stroke="${INK}" stroke-width="9"/>`;
+  for (let i = 0; i < 12; i++) { const a = i * 30 * Math.PI / 180; o += `<line x1="${Math.sin(a) * 70}" y1="${-Math.cos(a) * 70}" x2="${Math.sin(a) * 80}" y2="${-Math.cos(a) * 80}" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`; }
+  o += `<line x1="0" y1="0" x2="0" y2="-44" stroke="${INK}" stroke-width="10" stroke-linecap="round" transform="rotate(${hA})"/>`;
+  o += `<line x1="0" y1="0" x2="0" y2="-66" stroke="${INK}" stroke-width="6" stroke-linecap="round" transform="rotate(${mA})"/>`;
+  o += `<circle r="8" fill="${INK}"/></g>`;
+  o += drawNotes(t);
+
+  // character: arms raised go behind the head
+  const shR = [1060, 565 + S.bob * 0.5], shL = [860, 565 + S.bob * 0.5];
+  o += drawCharacterBack(S, t);
+  if (S.armsUp > 0) {
+    // relaxed "hands behind the head": elbows wide, hands hidden behind the head
+    const k = S.armsUp;
+    const eR = lerp2([1100, 650], [1150, 360], k), eL = lerp2([820, 650], [770, 360], k);
+    const hR2 = lerp2([1060, 660], [1010, 330], k), hL2 = lerp2([860, 660], [910, 330], k);
+    for (const [sh, e, h] of [[shR, eR, hR2], [shL, eL, hL2]]) {
+      const d = `M ${sh[0]} ${sh[1]} L ${e[0]} ${e[1]} L ${h[0]} ${h[1]}`;
+      o += `<path d="${d}" fill="none" stroke="${INK}" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>`;
+      o += `<path d="${d}" fill="none" stroke="${HOOD}" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"/>`;
+    }
+  }
+  o += drawHead(S, t);
+
+  // desk
+  o += `<rect x="600" y="668" width="26" height="194" fill="#2c241f" stroke="${INK}" stroke-width="6"/>`;
+  o += `<rect x="1294" y="668" width="26" height="194" fill="#2c241f" stroke="${INK}" stroke-width="6"/>`;
+  o += drawDrawer(S, t);
+  o += `<rect x="560" y="640" width="800" height="32" rx="4" fill="#3a2f28" stroke="${INK}" stroke-width="7"/>`;
+  o += drawPages(S);
+  // laptop lid (back faces camera)
+  o += `<rect x="868" y="556" width="184" height="84" rx="8" fill="#3b4049" stroke="${INK}" stroke-width="7"/>`;
+  o += `<circle cx="960" cy="598" r="8" fill="${S.laptopOn ? "#7b8390" : "#4a4f58"}"/>`;
+  o += `<rect x="852" y="636" width="216" height="8" rx="3" fill="#2a2e35" stroke="${INK}" stroke-width="4"/>`;
+
+  // arms in front
+  if (S.hR) o += arm(shR, S.hR, false);
+  if (S.hL) o += arm(shL, S.hL, false);
+
+  // phone (when not in drawer)
+  if (!S.inDrawer) {
+    const pw = lerp(92, 78, S.held), ph = lerp(16, 140, S.held);
+    if (S.phoneOn && S.held < 0.5) o += `<ellipse cx="${S.pc[0]}" cy="${S.pc[1] - 30}" rx="140" ry="90" fill="url(#gPhone)" opacity="${0.55 * (1 - S.held * 2)}" style="mix-blend-mode:screen"/>`;
+    o += `<g transform="translate(${S.pc[0]} ${S.pc[1]})">`;
+    o += `<rect x="${-pw / 2}" y="${-ph / 2}" width="${pw}" height="${ph}" rx="${lerp(4, 12, S.held)}" fill="#14161a" stroke="${INK}" stroke-width="6"/>`;
+    if (S.held > 0.6) o += drawPhoneScreen(S, t, pw - 12, ph - 14);
+    o += `</g>`;
+  }
+  if (S.hR) o += handC(S.hR);
+  if (S.hL) o += handC(S.hL);
+
+  // lighting
+  const extraDark = (inR(t, 52.7, 63.36) ? 0.15 : 0) + (inR(t, 84.5, 99.9) ? 0.08 : 0);
+  const endDark = seg(t, 22.2, 22.7) * (1 - seg(t, 23.9, 24.0));
+  o += `<rect x="-400" y="-400" width="2720" height="1900" fill="#000" opacity="${S.night * 0.32 + endDark * 0.3 + extraDark}"/>`;
+  const faceY = 420 + S.bob;
+  if (S.laptopOn && S.headDown < 0.5) o += `<ellipse cx="960" cy="${faceY}" rx="150" ry="170" fill="url(#gLaptop)" opacity="${(0.22 + S.night * 0.1) * (1 - S.held)}" style="mix-blend-mode:screen"/>`;
+  if (S.phoneOn && !S.inDrawer) o += `<ellipse cx="960" cy="${445 + S.bob}" rx="170" ry="190" fill="url(#gPhone)" opacity="${S.held * (0.3 + S.night * 0.25)}" style="mix-blend-mode:screen"/>`;
+  if (S.inDrawer && S.dOpen > 0.3) o += `<ellipse cx="1000" cy="${470 + S.bob}" rx="200" ry="220" fill="url(#gPhone)" opacity="${0.28 * S.dOpen}" style="mix-blend-mode:screen"/>`;
+  if (S.warm > 0) o += `<ellipse cx="760" cy="430" rx="700" ry="520" fill="url(#gWarm)" opacity="${0.22 * S.warm}" style="mix-blend-mode:screen"/>`;
+  o += `</g>`;
+
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+
+  // day counter
+  const ct = counterText(t);
+  if (!window.THUMB && ct && ct[1] > 0) o += `<text class="hand" x="150" y="170" font-size="48" fill="#e4ded2" stroke="#000" stroke-width="8" paint-order="stroke" opacity="${ct[1]}">${ct[0]}</text>`;
+  // big DIA 1.
+  const big = seg(t, 59.6, 59.75) * (1 - seg(t, 62.9, 63.3));
+  if (big > 0) o += `<text class="hand" x="150" y="${250 - (1 - big) * 20}" font-size="150" fill="#f4efe6" stroke="#000" stroke-width="12" paint-order="stroke" opacity="${big}">DIA 1.</text>`;
+
+  o += drawEmail(t);
+
+  // letterbox
+  if (!window.THUMB) o += `<rect x="0" y="0" width="1920" height="70" fill="#000"/><rect x="0" y="1010" width="1920" height="70" fill="#000"/>`;
+
+  // captions
+  for (const L of window.TL.lines) {
+    if (L.nocap) continue;
+    const a = L.start - 0.1, b = L.end + 0.35;
+    if (t < a || t > b) continue;
+    const op = seg(t, a, a + 0.15) * (1 - seg(t, b - 0.2, b));
+    const col = L.voice === "tentacao" ? ACC : "#f4efe6";
+    o += `<text class="hand" x="960" y="955" font-size="56" text-anchor="middle" fill="${col}" stroke="#000" stroke-width="10" paint-order="stroke" opacity="${op}" ${L.italic ? 'font-style="italic"' : ""}>${esc(L.text)}</text>`;
+  }
+
+  // fades / cuts to black
+  const black = Math.max(
+    1 - seg(t, 0, 0.9),
+    dip(t, 23.3, 24.0, 24.0, 24.4),
+    dip(t, 40.0, 40.9, 41.0, 41.5),
+    dip(t, 51.8, 52.6, 52.7, 53.3),
+    dip(t, 62.9, 63.35, 63.4, 63.7),
+    dip(t, 83.6, 84.4, 84.4, 84.9),
+    dip(t, 98.8, 99.9, 100.0, 100.8),
+    seg(t, 110.3, 111.3)
+  );
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${black}"/>`;
+
+  // closing quote
+  if (t >= 111.3) {
+    const q1 = seg(t, 112.0, 112.5), q2 = seg(t, 113.9, 114.4), qo = 1 - seg(t, 116.0, 116.6);
+    o += `<g opacity="${qo}">`;
+    o += `<text class="hand" x="960" y="500" font-size="84" text-anchor="middle" fill="#cfc9bd" opacity="${q1}">Distração é fácil.</text>`;
+    o += `<text class="hand" x="960" y="620" font-size="96" text-anchor="middle" fill="#f4efe6" opacity="${q2}">Foco é escolha.</text>`;
+    o += `</g>`;
+    const h1 = seg(t, 117.0, 117.3), ho = 1 - seg(t, 119.2, 119.8);
+    o += `<text class="hand" x="960" y="580" font-size="130" text-anchor="middle" fill="#f4efe6" opacity="${h1 * ho}">Hoje. Não amanhã.</text>`;
+  }
+  // title card
+  if (t >= 120) {
+    const tIn = seg(t, 120.2, 121.0), sIn = seg(t, 121.0, 121.8), nIn = seg(t, 121.8, 122.5);
+    const out = 1 - seg(t, 126.2, 127.0);
+    o += `<g opacity="${out}">`;
+    o += `<text class="hand" x="960" y="${560 + (1 - tIn) * 20}" font-size="210" text-anchor="middle" fill="#f4efe6" opacity="${tIn}">FOCO</text>`;
+    o += `<text class="sans" x="960" y="640" font-size="30" font-weight="500" letter-spacing="12" text-anchor="middle" fill="#8f99a3" opacity="${sIn}">UM CURTA ANIMADO</text>`;
+    o += `<line x1="900" y1="600" x2="1020" y2="600" stroke="${ACC}" stroke-width="4" opacity="${sIn}"/>`;
+    o += `<text class="hand" x="960" y="900" font-size="40" text-anchor="middle" fill="#cfc9bd" opacity="${nIn}">JOSEPH</text>`;
+    o += `</g>`;
+  }
+
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+render(0);
+</script>
+</body>
+</html>

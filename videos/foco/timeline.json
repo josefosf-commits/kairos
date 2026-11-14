@@ -1,0 +1,160 @@
+{
+ "duration": 127.0,
+ "fps": 30,
+ "lines": [
+  {
+   "audio": "audio/l1.wav",
+   "start": 0.8,
+   "end": 2.56,
+   "text": "Todo dia começava igual."
+  },
+  {
+   "audio": "audio/l2.wav",
+   "start": 3.4,
+   "end": 6.76,
+   "text": "Ele sentava para trabalhar. Cheio de planos."
+  },
+  {
+   "audio": "audio/l3.wav",
+   "start": 7.8,
+   "end": 9.48,
+   "text": "Só uma olhadinha no celular."
+  },
+  {
+   "audio": "audio/l4.wav",
+   "start": 10.6,
+   "end": 13.48,
+   "text": "Uma notificação. Um vídeo. Mais um."
+  },
+  {
+   "audio": "audio/l5.wav",
+   "start": 15.8,
+   "end": 18.76,
+   "text": "Quando olhou de novo... o dia tinha acabado."
+  },
+  {
+   "audio": "audio/l6.wav",
+   "start": 20.2,
+   "end": 23.16,
+   "text": "Amanhã, ele dizia. Sempre amanhã."
+  },
+  {
+   "audio": "audio/l7.wav",
+   "start": 24.0,
+   "end": 27.76,
+   "text": "E o amanhã virava semana. A semana virava mês."
+  },
+  {
+   "audio": "audio/l8.wav",
+   "start": 31.5,
+   "end": 34.46,
+   "text": "Até que, uma noite, a bateria acabou."
+  },
+  {
+   "audio": "audio/l9.wav",
+   "start": 35.4,
+   "end": 38.84,
+   "text": "E na tela preta... ele viu quem tinha se tornado."
+  },
+  {
+   "audio": "audio/l10.wav",
+   "start": 41.2,
+   "end": 43.92,
+   "text": "Na manhã seguinte, a mensagem chegou."
+  },
+  {
+   "audio": "audio/l11.wav",
+   "start": 44.6,
+   "end": 46.6,
+   "text": "Você foi desligado do projeto."
+  },
+  {
+   "audio": "audio/l12.wav",
+   "start": 53.0,
+   "end": 55.08,
+   "text": "Naquela noite, ele não dormiu."
+  },
+  {
+   "audio": "audio/l13.wav",
+   "start": 56.0,
+   "end": 61.04,
+   "text": "Abriu a gaveta. Guardou o celular. E disse: hoje. Não amanhã."
+  },
+  {
+   "audio": "audio/l14.wav",
+   "start": 63.5,
+   "end": 66.7,
+   "text": "No primeiro dia, a gaveta chamava a cada minuto."
+  },
+  {
+   "audio": "audio/l15.wav",
+   "start": 67.2,
+   "end": 69.04,
+   "text": "No décimo, a cada hora."
+  },
+  {
+   "audio": "audio/l16.wav",
+   "start": 69.6,
+   "end": 72.72,
+   "text": "No trigésimo, ele quase esqueceu que ela existia."
+  },
+  {
+   "audio": "audio/l17.wav",
+   "start": 73.4,
+   "end": 77.96,
+   "text": "Página por página. Hora por hora. Ele foi se reconstruindo."
+  },
+  {
+   "audio": "audio/l18.wav",
+   "start": 84.5,
+   "end": 86.82,
+   "text": "Até a noite antes da entrega."
+  },
+  {
+   "audio": "audio/l19.wav",
+   "start": 87.6,
+   "end": 91.36,
+   "text": "Cansado. Sozinho. E a gaveta se abriu."
+  },
+  {
+   "audio": "audio/l20.wav",
+   "start": 92.2,
+   "end": 94.36,
+   "text": "Só uma olhadinha... você merece.",
+   "voice": "tentacao",
+   "italic": true
+  },
+  {
+   "audio": "audio/l21.wav",
+   "start": 96.8,
+   "end": 98.08,
+   "text": "Ele fechou a gaveta."
+  },
+  {
+   "audio": "audio/l22.wav",
+   "start": 100.5,
+   "end": 102.66,
+   "text": "Na manhã seguinte, ele entregou."
+  },
+  {
+   "audio": "audio/l23.wav",
+   "start": 103.6,
+   "end": 108.32,
+   "text": "Não porque teve vontade. Mas porque decidiu. Todos os dias."
+  },
+  {
+   "audio": "audio/l24.wav",
+   "start": 112.0,
+   "end": 115.52,
+   "text": "Distração é fácil. Foco é escolha.",
+   "nocap": true
+  },
+  {
+   "audio": "audio/l25.wav",
+   "start": 117.0,
+   "end": 118.68,
+   "text": "Hoje. Não amanhã.",
+   "nocap": true
+  }
+ ]
+}
