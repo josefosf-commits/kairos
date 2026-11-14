@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SHORT-10-LADRAO-DA-ENERGIA</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1080px; height: 1920px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>
+    <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f7a"/>
+      <stop offset="45%" stop-color="#e0607e"/>
+      <stop offset="80%" stop-color="#ffa45c"/>
+      <stop offset="100%" stop-color="#ffd27a"/>
+    </linearGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script src="../_lib/rig.js"></script>
+<script src="../_lib/short.js"></script>
+<script src="../_lib/ladrao.js"></script>
+<script src="cena.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+ "name": "SHORT-10-LADRAO-DA-ENERGIA",
+ "duration": 69.95,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.7,
+   "end": 5.5,
+   "text": "Tem um ladrão que não leva nada da sua casa. Ele leva a sua energia."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.95,
+   "end": 11.31,
+   "text": "Você acorda cansado. Toma café. E mesmo assim chega na tarde se arrastando."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.76,
+   "end": 16.16,
+   "text": "Aí você acha que é preguiça. Mas é ele, trabalhando a noite toda."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.61,
+   "end": 23.25,
+   "text": "Primeiro truque: te deixar no celular até tarde. Cada hora de sono que você perde, ele guarda no saco."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.7,
+   "end": 29.46,
+   "text": "Segundo truque: o açúcar. Um pico de energia, e logo depois, a queda."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 29.91,
+   "end": 35.83,
+   "text": "Terceiro truque: te deixar parado. Quanto menos você se mexe, mais cansado você fica."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 36.28,
+   "end": 39.88,
+   "text": "Parece contraditório, mas movimento gera energia."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 40.33,
+   "end": 43.93,
+   "text": "Pra pegar esse ladrão, você não precisa de nada caro."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 44.38,
+   "end": 49.02,
+   "text": "Dorme no mesmo horário todo dia. Bebe um copo de água assim que acordar."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 49.47,
+   "end": 55.07,
+   "text": "Troca o doce da tarde por uma fruta. E caminha dez minutos depois do almoço."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 55.52,
+   "end": 60.64,
+   "text": "Em uma semana, você sente a diferença. E ele vai embora de mãos vazias."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 61.09,
+   "end": 66.45,
+   "text": "Esse foi o quarto ladrão. Qual é o próximo? Comenta aqui, e segue pra não perder."
+  }
+ ]
+}

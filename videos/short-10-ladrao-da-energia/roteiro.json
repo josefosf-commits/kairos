@@ -1,0 +1,67 @@
+{
+ "name": "SHORT-10-LADRAO-DA-ENERGIA",
+ "tail": 3.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Tem um ladrão que não leva nada da sua casa. Ele leva a sua energia.",
+   "gap": 0.7
+  },
+  {
+   "id": 2,
+   "text": "Você acorda cansado. Toma café. E mesmo assim chega na tarde se arrastando.",
+   "gap": 0.45
+  },
+  {
+   "id": 3,
+   "text": "Aí você acha que é preguiça. Mas é ele, trabalhando a noite toda.",
+   "gap": 0.45
+  },
+  {
+   "id": 4,
+   "text": "Primeiro truque: te deixar no celular até tarde. Cada hora de sono que você perde, ele guarda no saco.",
+   "gap": 0.45
+  },
+  {
+   "id": 5,
+   "text": "Segundo truque: o açúcar. Um pico de energia, e logo depois, a queda.",
+   "gap": 0.45
+  },
+  {
+   "id": 6,
+   "text": "Terceiro truque: te deixar parado. Quanto menos você se mexe, mais cansado você fica.",
+   "gap": 0.45
+  },
+  {
+   "id": 7,
+   "text": "Parece contraditório, mas movimento gera energia.",
+   "gap": 0.45
+  },
+  {
+   "id": 8,
+   "text": "Pra pegar esse ladrão, você não precisa de nada caro.",
+   "gap": 0.45
+  },
+  {
+   "id": 9,
+   "text": "Dorme no mesmo horário todo dia. Bebe um copo de água assim que acordar.",
+   "gap": 0.45
+  },
+  {
+   "id": 10,
+   "text": "Troca o doce da tarde por uma fruta. E caminha dez minutos depois do almoço.",
+   "gap": 0.45
+  },
+  {
+   "id": 11,
+   "text": "Em uma semana, você sente a diferença. E ele vai embora de mãos vazias.",
+   "gap": 0.45
+  },
+  {
+   "id": 12,
+   "text": "Esse foi o quarto ladrão. Qual é o próximo? Comenta aqui, e segue pra não perder.",
+   "gap": 0.45
+  }
+ ]
+}
