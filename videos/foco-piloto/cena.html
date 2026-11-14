@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>FOCO — piloto</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLaptop" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#b9cde3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b9cde3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.75"/>
+    </radialGradient>
+    <clipPath id="eyeL"><ellipse cx="930" cy="395" rx="21" ry="25"/></clipPath>
+    <clipPath id="eyeR"><ellipse cx="994" cy="395" rx="21" ry="25"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script>
+// ---------- helpers ----------
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const sm = k => k * k * (3 - 2 * k);
+const seg = (t, a, b) => sm(cl((t - a) / (b - a)));
+function kf(t, pts) {
+  if (t <= pts[0][0]) return pts[0][1];
+  for (let i = 1; i < pts.length; i++) {
+    if (t <= pts[i][0]) {
+      const [t0, v0] = pts[i - 1], [t1, v1] = pts[i];
+      return lerp(v0, v1, sm((t - t0) / (t1 - t0)));
+    }
+  }
+  return pts[pts.length - 1][1];
+}
+function hex(c) { return [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16)); }
+function mixc(a, b, k) {
+  const A = hex(a), B = hex(b);
+  return "#" + A.map((v, i) => Math.round(lerp(v, B[i], k)).toString(16).padStart(2, "0")).join("");
+}
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+// ---------- palette ----------
+const INK = "#0e0f12", SKIN = "#e0c4a0", HOOD = "#5b6b4a", HAIR = "#2a2420", ACC = "#4fd1ff";
+
+// timeline (overwritten by the renderer from timeline.json)
+window.TL = window.TL || { lines: [], duration: 28.5 };
+
+function render(t) {
+  const night = seg(t, 15.3, 18.8);
+  const endDark = seg(t, 22.2, 22.7);
+  const fadeIn = 1 - seg(t, 0, 0.9);
+  const fadeOut = seg(t, 23.3, 24.0);
+
+  // ---- camera ----
+  const s = kf(t, [[0, 1.2], [9.6, 1.27], [10.6, 2.15], [15.0, 2.25], [15.8, 1.2], [19.6, 1.28], [20.0, 1.28], [23.5, 1.6]]);
+  const fx = kf(t, [[0, 960], [9.6, 960], [10.6, 960], [15.0, 960], [15.8, 960], [20.0, 960], [23.5, 960]]);
+  const fy = kf(t, [[0, 540], [9.6, 530], [10.6, 470], [15.0, 465], [15.8, 530], [20.0, 530], [23.5, 460]]);
+
+  // ---- clock ----
+  let mins;
+  if (t < 15) mins = 540 + t * 1.3;
+  else if (t < 19) mins = lerp(559.5, 1420, seg(t, 15, 19));
+  else mins = 1420 + (t - 19) * 0.5;
+  const hA = (mins / 720) * 360, mA = ((mins % 60) / 60) * 360;
+
+  // ---- phone / hands ----
+  const typing = t < 8.5;
+  const laptopOn = t < 22.3;
+  const desk = [1200, 632];
+  let hR = null;
+  if (t >= 8.6 && t < 22.3) {
+    if (t < 9.2) { const k = seg(t, 8.6, 9.2); hR = [lerp(1050, 1195, k), lerp(610, 614, k)]; }
+    else if (t < 10.2) { const k = seg(t, 9.2, 10.2); hR = [lerp(1195, 1000, k), lerp(614, 560, k)]; }
+    else if (t < 21.0) {
+      const low = seg(t, 17.4, 18.0) - seg(t, 19.2, 19.8);
+      hR = [1000 + Math.sin(t * 1.3) * 3, 560 + low * 28 + Math.sin(t * 2.1) * 2];
+    }
+    else if (t < 21.6) { const k = seg(t, 21.0, 21.6); hR = [lerp(1000, 1195, k), lerp(560, 614, k)]; }
+    else { const k = seg(t, 21.8, 22.3); hR = [lerp(1195, 1050, k), lerp(614, 612, k)]; }
+  }
+  let hL = null;
+  if (t >= 9.9 && t < 21.1) {
+    const kin = seg(t, 9.9, 10.3), kout = seg(t, 20.7, 21.1);
+    const k = kin * (1 - kout);
+    const base = hR ? [hR[0] - 80, hR[1]] : [920, 560];
+    hL = [lerp(870, base[0], k), lerp(612, base[1], k)];
+  }
+  const held = seg(t, 9.2, 10.0) * (1 - seg(t, 21.0, 21.6));
+  const attached = t >= 9.2 && t < 21.6;
+  let pc = desk.slice();
+  if (attached && hR) pc = [lerp(desk[0], hR[0] - 40, held), lerp(desk[1], hR[1] - 4, held)];
+  const buzz = (t > 7.6 && t < 8.3) ? Math.sin(t * 95) * 4 : 0;
+  pc[0] += buzz;
+  const pw = lerp(92, 78, held), ph = lerp(16, 140, held);
+  const phoneOn = t > 7.6 && t < 21.7;
+
+  // ---- face ----
+  const look = [
+    kf(t, [[0, 0], [7.7, 0], [8.0, 9], [8.6, 9], [10.2, 0], [17.0, 0], [17.3, 10], [18.8, 10], [19.1, 0], [20.2, 0]]),
+    kf(t, [[0, 6], [7.7, 6], [8.0, 4], [8.6, 6], [10.2, 9], [17.0, 9], [17.3, -9], [18.8, -9], [19.1, 8], [20.2, 8], [20.6, 3]])
+  ];
+  const swipeJit = (t > 12.8 && t < 17) ? Math.sin(t * 22) * 1.2 : 0;
+  look[0] += swipeJit;
+  // smile: + happy, - sad
+  const smile = kf(t, [[0, 2], [3.6, 2], [4.4, 9], [6.8, 9], [7.6, 2], [10.4, 2], [11.0, 10], [16.8, 10], [17.3, -3], [19.0, -3], [20.2, -10]]);
+  const mouthW = kf(t, [[0, 18], [17.0, 18], [17.3, 10], [19.0, 10], [19.6, 18]]);
+  const browRaise = kf(t, [[0, 0], [3.6, 0], [4.4, 6], [6.8, 6], [7.6, 0], [17.0, 0], [17.3, 12], [18.8, 12], [19.4, 0]]);
+  const browSad = kf(t, [[0, 0], [19.6, 0], [20.4, 1]]);
+  let lid = kf(t, [[0, 0.1], [10.0, 0.1], [10.6, 0], [17.0, 0], [19.6, 0.05], [20.4, 0.45]]);
+  const blinkTimes = [2.9, 6.1, 9.0, 14.2, 19.5, 22.6];
+  for (const b of blinkTimes) if (t > b && t < b + 0.14) lid = 1;
+  const bobY = Math.sin(t * 1.7) * 2 + (typing ? Math.sin(t * 16) * 1.5 : 0) + endDark * 6;
+
+  // ---- sticky notes ----
+  const notes = [
+    { x: 1080, y: 165, r: -6, c: "#e9c46a", txt: "PROJETO", in: 4.6 },
+    { x: 1215, y: 190, r: 5, c: "#f4a261", txt: "TREINO", in: 5.2 },
+    { x: 1120, y: 315, r: 3, c: "#a8dadc", txt: "LER", in: 5.8 },
+  ];
+
+  const sky = mixc("#5b7fa3", "#0a0f1c", night);
+  const wall = mixc("#262a33", "#121419", night);
+  const floor = mixc("#181a20", "#0c0d10", night);
+
+  let o = "";
+  // ===== camera group =====
+  o += `<g transform="translate(960 540) scale(${s}) translate(${-fx} ${-fy})">`;
+  // wall & floor
+  o += `<rect x="-400" y="-400" width="2720" height="1260" fill="${wall}"/>`;
+  o += `<rect x="-400" y="860" width="2720" height="700" fill="${floor}"/>`;
+  o += `<line x1="-400" y1="860" x2="2320" y2="860" stroke="${INK}" stroke-width="6"/>`;
+  // window
+  o += `<rect x="260" y="200" width="360" height="360" rx="10" fill="${sky}" stroke="#2b2f38" stroke-width="14"/>`;
+  o += `<circle cx="520" cy="290" r="34" fill="#e8e2d0" opacity="${night}"/>`;
+  for (const [sx, sy] of [[330, 260], [400, 330], [560, 420], [320, 470], [470, 250]]) o += `<circle cx="${sx}" cy="${sy}" r="3" fill="#fff" opacity="${night * 0.8}"/>`;
+  o += `<line x1="440" y1="200" x2="440" y2="560" stroke="#2b2f38" stroke-width="12"/>`;
+  o += `<line x1="260" y1="380" x2="620" y2="380" stroke="#2b2f38" stroke-width="12"/>`;
+  // light patch from window (day)
+  o += `<polygon points="270,860 610,860 760,1060 140,1060" fill="#9fc0e0" opacity="${0.06 * (1 - night)}"/>`;
+  // clock
+  o += `<g transform="translate(1560 260)">`;
+  o += `<circle r="92" fill="#e8e2d6" stroke="${INK}" stroke-width="9"/>`;
+  for (let i = 0; i < 12; i++) { const a = i * 30 * Math.PI / 180; o += `<line x1="${Math.sin(a) * 70}" y1="${-Math.cos(a) * 70}" x2="${Math.sin(a) * 80}" y2="${-Math.cos(a) * 80}" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`; }
+  o += `<line x1="0" y1="0" x2="0" y2="-44" stroke="${INK}" stroke-width="10" stroke-linecap="round" transform="rotate(${hA})"/>`;
+  o += `<line x1="0" y1="0" x2="0" y2="-66" stroke="${INK}" stroke-width="6" stroke-linecap="round" transform="rotate(${mA})"/>`;
+  o += `<circle r="8" fill="${INK}"/></g>`;
+  // sticky notes
+  notes.forEach((n, i) => {
+    const pop = seg(t, n.in, n.in + 0.25);
+    if (pop <= 0) return;
+    const ft = 16.2 + i * 0.8;
+    const f = cl((t - ft) / 1.1);
+    const dy = f * f * 760, rot = n.r + f * (i % 2 ? 50 : -45), op = 1 - seg(t, ft + 0.7, ft + 1.1);
+    const sc = 0.6 + 0.4 * pop + Math.sin(pop * Math.PI) * 0.12;
+    o += `<g transform="translate(${n.x + 55} ${n.y + 55 + dy}) rotate(${rot}) scale(${sc})" opacity="${op}">`;
+    o += `<rect x="-55" y="-55" width="110" height="110" fill="${n.c}" stroke="${INK}" stroke-width="5"/>`;
+    o += `<text class="hand" x="0" y="10" font-size="${n.txt.length > 5 ? 22 : 30}" text-anchor="middle" fill="${INK}">${n.txt}</text></g>`;
+  });
+
+  // character body (behind desk)
+  o += `<g transform="translate(0 ${bobY * 0.5})">`;
+  o += `<path d="M 830 652 C 830 590 860 525 960 518 C 1060 525 1090 590 1090 652 Z" fill="${HOOD}" stroke="${INK}" stroke-width="7"/>`;
+  o += `<path d="M 905 528 Q 960 565 1015 528" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
+  o += `</g>`;
+  // head
+  o += `<g transform="translate(0 ${bobY})">`;
+  o += `<rect x="890" y="298" width="140" height="205" rx="68" fill="${SKIN}" stroke="${INK}" stroke-width="7"/>`;
+  o += `<path d="M 940 302 C 935 270 975 262 968 288 C 990 270 1010 290 990 304" fill="${HAIR}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+  // eyes
+  for (const [cx, clip, side] of [[930, "eyeL", -1], [994, "eyeR", 1]]) {
+    o += `<ellipse cx="${cx}" cy="395" rx="21" ry="25" fill="#fbfaf6" stroke="${INK}" stroke-width="5"/>`;
+    o += `<g clip-path="url(#${clip})">`;
+    o += `<circle cx="${cx + look[0]}" cy="${395 + look[1]}" r="10" fill="${INK}"/>`;
+    o += `<circle cx="${cx + look[0] + 3}" cy="${395 + look[1] - 4}" r="3" fill="#fff"/>`;
+    if (lid > 0) o += `<rect x="${cx - 25}" y="368" width="50" height="${54 * lid}" fill="${SKIN}"/><line x1="${cx - 25}" y1="${368 + 54 * lid}" x2="${cx + 25}" y2="${368 + 54 * lid}" stroke="${INK}" stroke-width="5"/>`;
+    o += `</g>`;
+    o += `<ellipse cx="${cx}" cy="395" rx="21" ry="25" fill="none" stroke="${INK}" stroke-width="5"/>`;
+    // brows: inner end near nose
+    const inner = cx - side * 18, outer = cx + side * 20;
+    const yIn = 356 - browRaise - browSad * 9 + (smile < 0 ? 0 : 0);
+    const yOut = 360 - browRaise * 0.6 + browSad * 4;
+    o += `<line x1="${inner}" y1="${yIn}" x2="${outer}" y2="${yOut}" stroke="${INK}" stroke-width="7" stroke-linecap="round"/>`;
+  }
+  // mouth
+  o += `<path d="M ${962 - mouthW} 455 Q 962 ${455 + smile * 1.6} ${962 + mouthW} 455" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
+  o += `</g>`;
+
+  // desk
+  o += `<rect x="600" y="668" width="26" height="194" fill="#2c241f" stroke="${INK}" stroke-width="6"/>`;
+  o += `<rect x="1294" y="668" width="26" height="194" fill="#2c241f" stroke="${INK}" stroke-width="6"/>`;
+  o += `<rect x="560" y="640" width="800" height="32" rx="4" fill="#3a2f28" stroke="${INK}" stroke-width="7"/>`;
+  // laptop lid (back faces camera)
+  o += `<rect x="860" y="540" width="200" height="100" rx="8" fill="#3b4049" stroke="${INK}" stroke-width="7"/>`;
+  o += `<circle cx="960" cy="590" r="9" fill="${laptopOn ? "#6b7380" : "#4a4f58"}"/>`;
+  o += `<rect x="845" y="636" width="230" height="8" rx="3" fill="#2a2e35" stroke="${INK}" stroke-width="4"/>`;
+
+  // arms (in front of lid, only when visible)
+  const arm = (sh, h) => {
+    const ex = (sh[0] + h[0]) / 2 + (h[0] > sh[0] ? 20 : -20), ey = Math.max(sh[1], h[1]) + 45;
+    return `<path d="M ${sh[0]} ${sh[1]} Q ${ex} ${ey} ${h[0]} ${h[1]}" fill="none" stroke="${INK}" stroke-width="40" stroke-linecap="round"/>` +
+           `<path d="M ${sh[0]} ${sh[1]} Q ${ex} ${ey} ${h[0]} ${h[1]}" fill="none" stroke="${HOOD}" stroke-width="27" stroke-linecap="round"/>`;
+  };
+  const shR = [1045, 560 + bobY * 0.5], shL = [875, 560 + bobY * 0.5];
+  if (hR) o += arm(shR, hR);
+  if (hL) o += arm(shL, hL);
+
+  // phone glow on desk while buzzing / lying
+  if (phoneOn && held < 0.5) o += `<ellipse cx="${pc[0]}" cy="${pc[1] - 30}" rx="140" ry="90" fill="url(#gPhone)" opacity="${0.55 * (1 - held * 2)}" style="mix-blend-mode:screen"/>`;
+  // phone
+  o += `<g transform="translate(${pc[0]} ${pc[1]})">`;
+  o += `<rect x="${-pw / 2}" y="${-ph / 2}" width="${pw}" height="${ph}" rx="${lerp(4, 12, held)}" fill="#14161a" stroke="${INK}" stroke-width="6"/>`;
+  if (held > 0.6 && phoneOn) {
+    const sw = pw - 12, sh = ph - 14;
+    o += `<rect x="${-sw / 2}" y="${-sh / 2}" width="${sw}" height="${sh}" rx="7" fill="#0f2a36"/>`;
+    o += `<svg x="${-sw / 2}" y="${-sh / 2}" width="${sw}" height="${sh}" viewBox="0 0 ${sw} ${sh}">`;
+    if (t < 11.6) {
+      const d = seg(t, 10.6, 10.9);
+      o += `<rect x="5" y="${-30 + d * 42}" width="${sw - 10}" height="28" rx="6" fill="${ACC}"/>`;
+      o += `<circle cx="15" cy="${-16 + d * 42}" r="5" fill="#0f2a36"/>`;
+      o += `<rect x="25" y="${-22 + d * 42}" width="${sw - 38}" height="4" rx="2" fill="#0f2a36"/><rect x="25" y="${-13 + d * 42}" width="${sw - 48}" height="4" rx="2" fill="#0f2a36"/>`;
+    } else if (t < 12.8) {
+      o += `<rect x="0" y="${sh / 2 - 26}" width="${sw}" height="52" fill="#1d4b5e"/>`;
+      o += `<polygon points="${sw / 2 - 9},${sh / 2 - 12} ${sw / 2 - 9},${sh / 2 + 12} ${sw / 2 + 12},${sh / 2}" fill="#fff"/>`;
+      o += `<rect x="4" y="${sh / 2 + 32}" width="${(sw - 8) * seg(t, 11.6, 12.8)}" height="4" fill="${ACC}"/>`;
+    } else {
+      const speed = t < 15.2 ? 260 : 120;
+      const off = ((t - 12.8) * speed) % 60;
+      const cols = ["#1d4b5e", "#3a6f86", ACC, "#27566a"];
+      for (let i = -1; i < 4; i++) {
+        const y = i * 60 - off + 4;
+        const idx = ((Math.floor((t - 12.8) * speed / 60) + i) % 4 + 4) % 4;
+        o += `<rect x="5" y="${y}" width="${sw - 10}" height="52" rx="6" fill="${cols[idx]}"/>`;
+      }
+    }
+    o += `</svg>`;
+  }
+  o += `</g>`;
+  // hands
+  const handC = h => `<circle cx="${h[0]}" cy="${h[1]}" r="19" fill="${SKIN}" stroke="${INK}" stroke-width="6"/>`;
+  if (hR) o += handC(hR);
+  if (hL) o += handC(hL);
+
+  // night darkness
+  o += `<rect x="-400" y="-400" width="2720" height="1900" fill="#000" opacity="${night * 0.32 + endDark * 0.3}"/>`;
+  // light on face
+  if (laptopOn) o += `<ellipse cx="960" cy="${420 + bobY}" rx="150" ry="170" fill="url(#gLaptop)" opacity="${0.22 * (1 - held) + night * 0.1 * (1 - held)}" style="mix-blend-mode:screen"/>`;
+  if (phoneOn) o += `<ellipse cx="960" cy="${445 + bobY}" rx="170" ry="190" fill="url(#gPhone)" opacity="${held * (0.3 + night * 0.25)}" style="mix-blend-mode:screen"/>`;
+  o += `</g>`; // camera
+
+  // vignette
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+
+  // day counter
+  const dOp = seg(t, 0.6, 1.2) * (1 - seg(t, 6.5, 7.0));
+  if (dOp > 0) o += `<text class="hand" x="130" y="160" font-size="46" fill="#cfc9bd" opacity="${dOp}">DIA 214</text>`;
+
+  // letterbox
+  o += `<rect x="0" y="0" width="1920" height="70" fill="#000"/><rect x="0" y="1010" width="1920" height="70" fill="#000"/>`;
+
+  // captions
+  for (const L of window.TL.lines) {
+    const a = L.start - 0.1, b = L.end + 0.35;
+    if (t < a || t > b) continue;
+    const op = seg(t, a, a + 0.15) * (1 - seg(t, b - 0.2, b));
+    o += `<text class="hand" x="960" y="955" font-size="56" text-anchor="middle" fill="#f4efe6" stroke="#000" stroke-width="10" paint-order="stroke" opacity="${op}">${esc(L.text)}</text>`;
+  }
+
+  // fades
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${Math.max(fadeIn, fadeOut)}"/>`;
+
+  // title card
+  if (t >= 24) {
+    const tIn = seg(t, 24.2, 25.0), sIn = seg(t, 25.0, 25.8), nIn = seg(t, 25.8, 26.5);
+    const out = 1 - seg(t, 27.8, 28.5);
+    o += `<g opacity="${out}">`;
+    o += `<text class="hand" x="960" y="${560 + (1 - tIn) * 20}" font-size="210" text-anchor="middle" fill="#f4efe6" opacity="${tIn}">FOCO</text>`;
+    o += `<text class="sans" x="960" y="640" font-size="30" font-weight="500" letter-spacing="12" text-anchor="middle" fill="#8f99a3" opacity="${sIn}">UM CURTA ANIMADO</text>`;
+    o += `<line x1="900" y1="600" x2="1020" y2="600" stroke="${ACC}" stroke-width="4" opacity="${sIn}"/>`;
+    o += `<text class="hand" x="960" y="900" font-size="40" text-anchor="middle" fill="#cfc9bd" opacity="${nIn}">JOSEPH</text>`;
+    o += `</g>`;
+  }
+
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+render(0);
+</script>
+</body>
+</html>

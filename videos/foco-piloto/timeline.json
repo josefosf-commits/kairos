@@ -1,0 +1,12 @@
+{
+  "duration": 28.5,
+  "fps": 30,
+  "lines": [
+    {"audio": "audio/l1.wav", "start": 0.8,  "end": 2.56,  "text": "Todo dia começava igual."},
+    {"audio": "audio/l2.wav", "start": 3.4,  "end": 6.76,  "text": "Ele sentava para trabalhar. Cheio de planos."},
+    {"audio": "audio/l3.wav", "start": 7.8,  "end": 9.48,  "text": "Só uma olhadinha no celular."},
+    {"audio": "audio/l4.wav", "start": 10.6, "end": 13.48, "text": "Uma notificação. Um vídeo. Mais um."},
+    {"audio": "audio/l5.wav", "start": 15.8, "end": 18.76, "text": "Quando olhou de novo... o dia tinha acabado."},
+    {"audio": "audio/l6.wav", "start": 20.2, "end": 23.16, "text": "Amanhã, ele dizia. Sempre amanhã."}
+  ]
+}
