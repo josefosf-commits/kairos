@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-9-LADRAO-DA-AUTOESTIMA",
+ "duration": 53.62,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.7,
+   "end": 4.78,
+   "text": "Tem um ladrão que não entra pela porta. Ele entra pelo seu feed."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.18,
+   "end": 10.14,
+   "text": "Ele te mostra a viagem perfeita, o corpo perfeito, a vida perfeita."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.54,
+   "end": 13.58,
+   "text": "E enquanto você olha, ele leva um pedaço de você."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 13.98,
+   "end": 19.18,
+   "text": "Você se olha no espelho e pensa: eu tô atrasado. Eu não sou suficiente."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 19.58,
+   "end": 25.5,
+   "text": "Mas presta atenção no truque dele: ele só te mostra o palco. Nunca os bastidores."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 25.9,
+   "end": 31.42,
+   "text": "A foto perfeita teve trinta tentativas. A viagem foi parcelada em doze vezes."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 31.82,
+   "end": 35.66,
+   "text": "Você tá comparando os seus bastidores com o palco dos outros."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 36.06,
+   "end": 40.14,
+   "text": "Pra pegar esse ladrão: deixa de seguir quem te faz se sentir menor."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 40.54,
+   "end": 43.98,
+   "text": "E se compara com uma pessoa só: quem você era ontem."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 44.38,
+   "end": 47.66,
+   "text": "Cada vez que você faz isso, ele devolve um pedaço."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 48.06,
+   "end": 50.62,
+   "text": "Qual é o próximo ladrão? Comenta aqui."
+  }
+ ]
+}
