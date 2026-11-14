@@ -1,0 +1,110 @@
+{
+ "duration": 90.5,
+ "fps": 30,
+ "lines": [
+  {
+   "audio": "audio/l1.wav",
+   "start": 1.0,
+   "end": 3.64,
+   "text": "No primeiro dia, ele tinha companhia."
+  },
+  {
+   "audio": "audio/l2.wav",
+   "start": 4.4,
+   "end": 10.24,
+   "text": "A motivação corria ao lado dele. Gritava, empurrava, fazia tudo parecer fácil."
+  },
+  {
+   "audio": "audio/l3.wav",
+   "start": 10.8,
+   "end": 12.8,
+   "text": "Ele se sentia invencível."
+  },
+  {
+   "audio": "audio/l4.wav",
+   "start": 14.8,
+   "end": 17.44,
+   "text": "No sétimo dia, ela chegou atrasada."
+  },
+  {
+   "audio": "audio/l5.wav",
+   "start": 18.4,
+   "end": 20.24,
+   "text": "No décimo, veio a chuva."
+  },
+  {
+   "audio": "audio/l6.wav",
+   "start": 21.6,
+   "end": 24.64,
+   "text": "E no décimo segundo... ela não veio mais."
+  },
+  {
+   "audio": "audio/l7.wav",
+   "start": 25.4,
+   "end": 29.0,
+   "text": "Ele ficou parado na porta. Sem vontade nenhuma."
+  },
+  {
+   "audio": "audio/l8.wav",
+   "start": 29.8,
+   "end": 31.08,
+   "text": "E foi assim mesmo."
+  },
+  {
+   "audio": "audio/l9.wav",
+   "start": 33.0,
+   "end": 36.6,
+   "text": "Sem vontade. Sem plateia. Sem aplausos."
+  },
+  {
+   "audio": "audio/l10.wav",
+   "start": 37.8,
+   "end": 41.96,
+   "text": "Alguns dias, ele corria. Outros, só não parava."
+  },
+  {
+   "audio": "audio/l11.wav",
+   "start": 43.2,
+   "end": 45.04,
+   "text": "Mas ia. Todo dia."
+  },
+  {
+   "audio": "audio/l12.wav",
+   "start": 53.0,
+   "end": 57.24,
+   "text": "No dia da prova, no último quilômetro, as pernas pediram para parar."
+  },
+  {
+   "audio": "audio/l13.wav",
+   "start": 58.4,
+   "end": 60.4,
+   "text": "Mas ele não precisava de vontade."
+  },
+  {
+   "audio": "audio/l14.wav",
+   "start": 61.2,
+   "end": 63.76,
+   "text": "Fazia sessenta dias que ele ia sem ela."
+  },
+  {
+   "audio": "audio/l15.wav",
+   "start": 67.0,
+   "end": 69.8,
+   "text": "E na linha de chegada... adivinha quem apareceu?"
+  },
+  {
+   "audio": "audio/l16.wav",
+   "start": 75.0,
+   "end": 78.52,
+   "text": "Motivação é visita. Disciplina é morada.",
+   "nocap": true
+  },
+  {
+   "audio": "audio/l17.wav",
+   "start": 80.0,
+   "end": 82.48,
+   "text": "Não espere ter vontade. Vá.",
+   "nocap": true
+  }
+ ]
+}

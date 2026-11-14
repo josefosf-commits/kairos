@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>DISCIPLINA</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("assets/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gFlame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe066"/>
+      <stop offset="60%" stop-color="#ff9f1c"/>
+      <stop offset="100%" stop-color="#ff5d2e"/>
+    </linearGradient>
+    <radialGradient id="gGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb347" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.7"/>
+    </radialGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script>
+// ======================= helpers =======================
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const sm = k => k * k * (3 - 2 * k);
+const seg = (t, a, b) => sm(cl((t - a) / (b - a)));
+const inR = (t, a, b) => t >= a && t < b;
+const dip = (t, a, b, c, d) => seg(t, a, b) * (1 - seg(t, c, d));
+const D2R = Math.PI / 180;
+function kf(t, pts, linear = false) {
+  if (t <= pts[0][0]) return pts[0][1];
+  for (let i = 1; i < pts.length; i++) {
+    if (t <= pts[i][0]) {
+      const [t0, v0] = pts[i - 1], [t1, v1] = pts[i];
+      const k = (t - t0) / (t1 - t0);
+      return lerp(v0, v1, linear ? k : sm(k));
+    }
+  }
+  return pts[pts.length - 1][1];
+}
+function kfm(t, rows) { return rows[0].slice(1).map((_, j) => kf(t, rows.map(r => [r[0], r[j + 1]]))); }
+function hex(c) { return [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16)); }
+function mixc(a, b, k) {
+  const A = hex(a), B = hex(b);
+  return "#" + A.map((v, i) => Math.round(lerp(v, B[i], k)).toString(16).padStart(2, "0")).join("");
+}
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const hash = i => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+
+// ======================= palette =======================
+const INK = "#0e0f12";
+const SKIN = "#a86f4a", SKIN_D = "#8e5a3a";
+const HOOD = "#4f5d40", HOOD_D = "#3c4731";
+const HAIR = "#17110e";
+const PANTS = "#2c3140", PANTS_D = "#20242f";
+const SHOE = "#eeeeee";
+
+const MOODS = {
+  sunrise: { top: "#f2a65a", bot: "#ffd79a", far: "#b86e4c", mid: "#7a4535", ground: "#3b302f", road: "#272022", night: 0 },
+  morning: { top: "#7fa7c9", bot: "#cfe0ea", far: "#7d93a8", mid: "#556b7d", ground: "#3a3d44", road: "#2b2d33", night: 0 },
+  rain:    { top: "#353f4b", bot: "#59646f", far: "#323a44", mid: "#252b33", ground: "#20242a", road: "#171a1e", night: 0.5 },
+  night:   { top: "#070a14", bot: "#18203a", far: "#141a2a", mid: "#0e121c", ground: "#15171c", road: "#0e1013", night: 1 },
+  race:    { top: "#5aa0d8", bot: "#bfe3f5", far: "#6f9bb8", mid: "#4d7590", ground: "#45454b", road: "#333338", night: 0 },
+};
+const MOOD_TL = [[0, "sunrise"], [14.3, "morning"], [18.0, "rain"], [43.6, "night"], [45.2, "rain"], [46.8, "sunrise"], [48.4, "night"], [50.0, "morning"], [52.4, "race"]];
+function mood(t) {
+  let i = 0;
+  while (i + 1 < MOOD_TL.length && t >= MOOD_TL[i + 1][0]) i++;
+  const cur = MOODS[MOOD_TL[i][1]];
+  if (i === 0) return cur;
+  const prev = MOODS[MOOD_TL[i - 1][1]];
+  const k = seg(t, MOOD_TL[i][0], MOOD_TL[i][0] + 0.9);
+  const m = {};
+  for (const key of Object.keys(cur)) m[key] = typeof cur[key] === "number" ? lerp(prev[key], cur[key], k) : mixc(prev[key], cur[key], k);
+  return m;
+}
+
+window.TL = window.TL || { lines: [], duration: 90.5 };
+
+// ======================= motion tables =======================
+const SPEED = [[0, 750], [21.2, 750], [21.3, 0], [31.9, 0], [32.0, 720], [39.6, 720], [40.2, 280], [42.8, 280], [43.3, 760], [52.3, 760], [52.6, 520], [58.6, 520], [60.4, 1050], [64.5, 1050], [66.4, 0], [91, 0]];
+const GAIT = [[0, 1], [21.2, 1], [21.3, 0], [30.5, 0], [30.7, 0.45], [31.9, 0.45], [32.0, 1], [39.6, 1], [40.2, 0.45], [42.8, 0.45], [43.3, 1], [52.3, 1], [52.6, 0.8], [58.6, 0.8], [60.4, 1.15], [64.5, 1.15], [66.0, 0.25], [66.4, 0], [91, 0]];
+// integrate distance and stride phase once
+const DT = 1 / 120, TMAX = 92;
+const DIST = [0], PHASE = [0];
+for (let i = 1; i <= TMAX / DT; i++) {
+  const t = i * DT, v = kf(t, SPEED), g = kf(t, GAIT);
+  DIST.push(DIST[i - 1] + v * DT);
+  const rate = v > 1 ? v / 250 : (g > 0.05 ? 1.3 : 0);
+  PHASE.push(PHASE[i - 1] + rate * 2 * Math.PI * DT);
+}
+const sample = (arr, t) => { const x = cl(t, 0, TMAX) / DT, i = Math.floor(x); return lerp(arr[i], arr[Math.min(i + 1, arr.length - 1)], x - i); };
+const FINISH_X = sample(DIST, 64.5) + 40;
+const KM_X = sample(DIST, 55.0) + 900;
+
+const CAM = [ // t, scale, fx, fy
+  [0, 1.0, 960, 540], [10.6, 1.05, 960, 540], [10.8, 2.3, 900, 340], [14.0, 2.4, 900, 340],
+  [14.06, 2.4, 900, 340], [14.1, 1.0, 960, 540], [18.8, 1.0, 960, 540], [20.6, 1.15, 960, 500],
+  [21.26, 1.15, 960, 500], [21.3, 1.0, 960, 540], [25.2, 1.0, 960, 540], [26.2, 2.1, 800, 360], [29.2, 2.2, 800, 360], [29.9, 1.15, 900, 520], [31.9, 1.15, 900, 520],
+  [31.96, 1.15, 900, 520], [32.0, 1.0, 960, 540], [52.3, 1.0, 960, 540],
+  [52.56, 1.0, 960, 540], [52.6, 1.0, 960, 540], [54.0, 1.0, 960, 540], [56.8, 1.8, 900, 380], [58.3, 1.85, 900, 380], [58.5, 2.6, 920, 320], [60.3, 2.7, 920, 320],
+  [60.4, 1.0, 960, 540], [66.6, 1.0, 960, 540], [67.6, 1.25, 960, 500], [69.6, 1.25, 960, 500], [70.2, 1.6, 1000, 400], [73.5, 1.65, 1000, 400],
+];
+const COUNTER = t => {
+  const f = (a, b) => seg(t, a, a + 0.3) * (1 - seg(t, b - 0.3, b));
+  if (inR(t, 0.5, 13.8)) return ["DIA 1", f(0.5, 13.8)];
+  if (inR(t, 14.4, 17.7)) return ["DIA 7", f(14.4, 17.7)];
+  if (inR(t, 18.2, 20.9)) return ["DIA 10", f(18.2, 20.9)];
+  if (inR(t, 21.4, 31.4)) return ["DIA 12", f(21.4, 31.4)];
+  if (inR(t, 32.0, 52.2)) return ["DIA " + Math.floor(lerp(13, 59, cl((t - 32) / 19.5))), f(32.0, 52.2)];
+  if (inR(t, 52.6, 72.6)) return ["DIA 60 · A PROVA", f(52.6, 72.6)];
+  return null;
+};
+
+// face / body tables
+const SMILE = [[0, 4], [3.0, 8], [8.0, 12], [14.0, 12], [14.1, 4], [18.0, 3], [19.0, -2], [21.2, -2], [21.3, -3], [25.4, -3], [26.0, -7], [29.2, -7], [29.8, -1],
+  [31.9, -1], [32.0, -1], [52.3, -1], [52.6, -4], [58.4, -4], [58.8, -1], [64.5, -1], [64.8, 14], [69.4, 14], [69.8, 0], [71.4, 0], [71.9, 5], [91, 5]];
+const BROW_SAD = [[0, 0], [18.6, 0], [19.4, 0.4], [21.2, 0.4], [21.3, 0.5], [25.4, 0.5], [26.0, 1], [29.2, 1], [29.6, 0], [52.6, 0], [53.4, 0.7], [58.3, 0.7], [58.6, 0], [91, 0]];
+const BROW_ANG = [[0, 0], [29.2, 0], [29.7, 0.8], [43.0, 0.8], [43.4, 0.5], [52.3, 0.5], [52.6, 0], [58.3, 0], [58.7, 1], [64.4, 1], [64.8, 0], [69.6, 0], [70.0, 0.35], [71.4, 0.35], [71.9, 0], [91, 0]];
+const BROW_UP = [[0, 3], [3.0, 6], [14.0, 6], [14.1, 0], [64.5, 0], [64.8, 6], [69.4, 6], [69.8, 0], [91, 0]];
+const LID = [[0, 0], [18.6, 0], [19.4, 0.3], [21.2, 0.3], [21.3, 0.2], [25.4, 0.2], [26.0, 0.5], [29.2, 0.5], [29.7, 0.1], [40.0, 0.1], [40.4, 0.4], [43.0, 0.4], [43.4, 0.1],
+  [52.6, 0.1], [53.4, 0.45], [58.3, 0.45], [58.6, 0], [64.5, 0], [64.8, 0.55], [67.0, 0.55], [67.4, 0], [69.6, 0], [70.0, 0.45], [71.4, 0.45], [71.9, 0.1], [91, 0.1]];
+const LOOK = [[0, 3, 0], [69.6, 3, 0], [70.0, -11, 2], [71.4, -11, 2], [71.9, -4, 0], [91, -4, 0]];
+const PANT = [[0, 0], [40.2, 0], [40.6, 1], [42.8, 1], [43.2, 0], [52.6, 0], [53.2, 1], [58.4, 1], [58.7, 0], [64.6, 0], [65.0, 1], [67.2, 0.6], [69.0, 0], [91, 0]];
+const LEAN = [[0, 10], [21.2, 10], [21.3, 0], [25.4, 0], [26.0, 9], [29.2, 9], [29.7, 0], [31.9, 4], [32.0, 10], [40.0, 10], [40.4, 4], [42.8, 4], [43.3, 10], [52.3, 10], [52.6, 13], [58.4, 13], [60.4, 14], [64.5, 14], [66.4, 0], [91, 0]];
+const HOOD_UP = [[0, 0], [29.9, 0], [30.4, 1], [45.6, 1], [46.8, 0], [91, 0]];
+const RAIN = [[0, 0], [18.3, 0], [19.2, 1], [43.6, 1], [44.4, 0.3], [45.4, 1], [46.8, 0], [91, 0]];
+const BLINKS = [2.2, 6.6, 12.0, 16.3, 20.2, 23.5, 27.7, 34.6, 39.1, 45.8, 49.4, 55.1, 62.4, 68.2, 72.1];
+
+// ======================= state =======================
+function state(t) {
+  const S = {};
+  S.scene = t < 21.3 ? "run" : t < 32.0 ? "door" : t < 52.6 ? "run" : t < 73.6 ? "race" : "end";
+  S.dist = sample(DIST, t);
+  S.phase = sample(PHASE, t);
+  S.gait = kf(t, GAIT);
+  S.mood = mood(t);
+  S.rain = kf(t, RAIN);
+  let [cs, cfx, cfy] = kfm(t, CAM);
+  if (S.scene === "race" && inR(t, 53.0, 58.4)) { cfx += Math.sin(t * 2.3) * 6; cfy += Math.sin(t * 1.7) * 4; }
+  S.cam = [cs, cfx, cfy];
+  S.x = S.scene === "door" ? lerp(760, 1080, seg(t, 30.6, 31.9)) : 860;
+  S.smile = kf(t, SMILE); S.browSad = kf(t, BROW_SAD); S.browAng = kf(t, BROW_ANG); S.browUp = kf(t, BROW_UP);
+  let lid = kf(t, LID);
+  for (const b of BLINKS) if (t > b && t < b + 0.13) lid = 1;
+  S.lid = lid;
+  S.look = kfm(t, LOOK);
+  S.pant = kf(t, PANT);
+  S.lean = kf(t, LEAN) + (S.scene === "door" ? 0 : 0);
+  S.hoodUp = kf(t, HOOD_UP);
+  S.sweat = (inR(t, 40.4, 43.0) || inR(t, 53.0, 67.0)) ? ((t * 0.7) % 1) : -1;
+  S.victory = seg(t, 64.7, 65.2) * (1 - seg(t, 67.6, 68.2));
+  S.bib = S.scene === "race";
+  S.wobble = inR(t, 53.0, 58.4) ? Math.sin(t * 7) * 3 : 0;
+  // head drop (sigh at the door)
+  S.headDrop = seg(t, 26.0, 26.8) * (1 - seg(t, 29.2, 29.7));
+
+  // ---- the flame (Motivação) ----
+  const F = { on: false };
+  if (t < 14.06) {
+    const pop = seg(t, 2.6, 2.9);
+    if (pop > 0) {
+      F.on = true; F.size = pop * (1 + Math.sin(cl((t - 2.6) / 0.3) * Math.PI) * 0.25);
+      let p = [1120, 430];
+      // pushing his back while "empurrava"
+      const push = seg(t, 6.2, 6.8) * (1 - seg(t, 8.0, 8.6));
+      p = [lerp(p[0], 700, push), lerp(p[1], 470, push)];
+      F.x = p[0] + Math.sin(t * 3.1) * 14; F.y = p[1] + Math.sin(t * 5.3) * 12;
+      F.mood = "happy"; F.cheer = inR(t, 4.4, 6.2) || inR(t, 8.6, 14) ? 1 : 0.3; F.push = push; F.bright = 1;
+    }
+  } else if (t < 21.26) {
+    if (t >= 15.6) {
+      F.on = true;
+      const arrive = seg(t, 15.6, 17.0);
+      F.x = lerp(-120, 1110, arrive) + Math.sin(t * 3) * 8; F.y = 450 + Math.sin(t * 6) * 10;
+      F.size = t < 18.2 ? 0.8 : lerp(0.8, 0.5, seg(t, 18.4, 20.2));
+      F.mood = t < 18.2 ? "tired" : "sad"; F.cheer = 0; F.bright = t < 18.2 ? 0.8 : lerp(0.8, 0.45, seg(t, 18.4, 20.2));
+      F.sputter = t >= 18.4;
+    }
+  } else if (inR(t, 68.6, 73.6)) {
+    const pop = seg(t, 68.6, 68.9);
+    F.on = true; F.size = 1.2 * pop * (1 + Math.sin(cl((t - 68.6) / 0.3) * Math.PI) * 0.3);
+    F.x = 640 + Math.sin(t * 4) * 16; F.y = 420 + Math.sin(t * 7) * 16;
+    F.mood = "party"; F.cheer = 1; F.bright = 1.1;
+  }
+  S.flame = F;
+  return S;
+}
+
+// ======================= background =======================
+function drawStreet(S, t) {
+  const M = S.mood;
+  let o = `<defs><linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${M.top}"/><stop offset="100%" stop-color="${M.bot}"/></linearGradient></defs>`;
+  o += `<rect x="-600" y="-400" width="3120" height="1240" fill="url(#gSky)"/>`;
+  // sun / moon
+  if (M.night < 0.4) o += `<circle cx="1500" cy="300" r="70" fill="#fff1c9" opacity="${0.55 * (1 - M.night * 2)}"/>`;
+  if (M.night > 0.6) o += `<circle cx="1500" cy="220" r="40" fill="#e8e2d0" opacity="${(M.night - 0.6) * 2.5 * (1 - S.rain)}"/>`;
+  // far buildings (parallax 0.15)
+  const off1 = (S.dist * 0.15) % 2400;
+  for (let rep = -1; rep < 2; rep++) {
+    for (let i = 0; i < 16; i++) {
+      const w = 110 + hash(i) * 90, h = 160 + hash(i + 40) * 260, x = i * 150 - off1 + rep * 2400;
+      if (x > 2200 || x + w < -400) continue;
+      o += `<rect x="${x}" y="${640 - h}" width="${w}" height="${h + 200}" fill="${M.far}"/>`;
+      // lit windows at night
+      if (M.night > 0.3) for (let j = 0; j < 4; j++) if (hash(i * 7 + j) > 0.55) o += `<rect x="${x + 18 + (j % 2) * 40}" y="${640 - h + 30 + Math.floor(j / 2) * 50}" width="18" height="24" fill="#ffd38a" opacity="${M.night * 0.6}"/>`;
+    }
+  }
+  // mid layer: trees + lamps (parallax 0.5)
+  const off2 = (S.dist * 0.5) % 1800;
+  for (let rep = -1; rep < 2; rep++) {
+    for (let i = 0; i < 6; i++) {
+      const x = i * 300 - off2 + rep * 1800;
+      if (x > 2300 || x < -500) continue;
+      if (i % 2 === 0) {
+        o += `<rect x="${x - 10}" y="580" width="20" height="200" fill="${M.mid}"/>`;
+        o += `<circle cx="${x}" cy="560" r="${80 + hash(i) * 30}" fill="${M.mid}"/>`;
+      } else {
+        o += `<rect x="${x - 6}" y="420" width="12" height="380" fill="${M.mid}"/>`;
+        o += `<path d="M ${x} 425 Q ${x + 40} 405 ${x + 60} 430" fill="none" stroke="${M.mid}" stroke-width="10"/>`;
+        o += `<rect x="${x + 44}" y="428" width="32" height="14" rx="4" fill="${M.night > 0.3 ? "#ffd38a" : M.mid}"/>`;
+        if (M.night > 0.3) o += `<ellipse cx="${x + 60}" cy="520" rx="120" ry="160" fill="url(#gLamp)" opacity="${M.night * 0.5}" style="mix-blend-mode:screen"/>`;
+      }
+    }
+  }
+  // sidewalk + road (parallax 1)
+  o += `<rect x="-600" y="780" width="3120" height="60" fill="${M.ground}"/>`;
+  o += `<line x1="-600" y1="780" x2="2520" y2="780" stroke="${INK}" stroke-width="5"/>`;
+  const off3 = S.dist % 160;
+  for (let i = -4; i < 18; i++) { const x = i * 160 - off3; o += `<line x1="${x}" y1="780" x2="${x - 30}" y2="840" stroke="${INK}" stroke-width="3" opacity="0.5"/>`; }
+  o += `<rect x="-600" y="840" width="3120" height="18" fill="${mixc(M.ground, "#000000", 0.35)}"/>`;
+  o += `<rect x="-600" y="858" width="3120" height="300" fill="${M.road}"/>`;
+  const off4 = S.dist % 320;
+  for (let i = -3; i < 10; i++) { const x = i * 320 - off4; o += `<rect x="${x}" y="950" width="150" height="10" fill="#d9d4c7" opacity="0.35"/>`; }
+  // puddle reflections when raining
+  if (S.rain > 0.2) for (let i = -2; i < 8; i++) { const x = i * 520 - (S.dist % 520) + 140; o += `<ellipse cx="${x}" cy="810" rx="70" ry="9" fill="#8fa3b5" opacity="${0.18 * S.rain}"/>`; }
+  return o;
+}
+
+function drawRace(S, t) {
+  let o = "";
+  // barrier + crowd behind it (moves with ground)
+  const off = S.dist % 90;
+  for (let i = -3; i < 26; i++) {
+    const x = i * 90 - off, h = hash(i + Math.floor(S.dist / 90)) ;
+    const seed = i + Math.floor(S.dist / 90);
+    const hh = 150 + hash(seed) * 50, jump = Math.abs(Math.sin(t * 6 + seed)) * 10;
+    const col = ["#2f3b4a", "#3d2f4a", "#4a3a2f", "#2f4a3c"][Math.abs(seed) % 4];
+    o += `<g transform="translate(${x} ${-jump})">`;
+    o += `<rect x="-26" y="${760 - hh + 50}" width="52" height="${hh}" rx="22" fill="${col}"/>`;
+    o += `<circle cx="0" cy="${760 - hh + 26}" r="26" fill="${col}"/>`;
+    if (hash(seed + 9) > 0.45) o += `<line x1="18" y1="${760 - hh + 70}" x2="${34}" y2="${760 - hh - 10 + Math.sin(t * 9 + seed) * 10}" stroke="${col}" stroke-width="14" stroke-linecap="round"/>`;
+    o += `</g>`;
+  }
+  o += `<rect x="-600" y="700" width="3120" height="80" fill="#e9e4d8" stroke="${INK}" stroke-width="5"/>`;
+  for (let i = -3; i < 26; i++) { const x = i * 180 - (S.dist % 180); o += `<rect x="${x}" y="700" width="90" height="80" fill="#e5484d" opacity="0.85"/>`; }
+  // KM sign
+  const kx = 860 + (KM_X - S.dist);
+  if (kx > -300 && kx < 2300) {
+    o += `<rect x="${kx - 8}" y="520" width="16" height="260" fill="#2a2e35" stroke="${INK}" stroke-width="4"/>`;
+    o += `<rect x="${kx - 90}" y="470" width="180" height="90" rx="8" fill="#f5b400" stroke="${INK}" stroke-width="6"/>`;
+    o += `<text class="hand" x="${kx}" y="530" font-size="48" text-anchor="middle" fill="${INK}">KM 10</text>`;
+  }
+  return o;
+}
+
+function drawFinish(S, t, front) {
+  const fx = 860 + (FINISH_X - S.dist);
+  if (fx < -600 || fx > 2600) return "";
+  let o = "";
+  if (!front) { // far post + banner
+    o += `<rect x="${fx - 18}" y="120" width="36" height="690" fill="#2a2e35" stroke="${INK}" stroke-width="6"/>`;
+    o += `<rect x="${fx - 340}" y="80" width="680" height="110" rx="10" fill="#1f8a4c" stroke="${INK}" stroke-width="7"/>`;
+    o += `<text class="hand" x="${fx}" y="160" font-size="74" text-anchor="middle" fill="#fff">CHEGADA</text>`;
+  } else {
+    // tape
+    if (t < 64.5) o += `<line x1="${fx}" y1="560" x2="${fx}" y2="${810}" stroke="#ffffff" stroke-width="10" stroke-dasharray="26 14"/>`;
+    else {
+      const k = cl((t - 64.5) / 1.2);
+      o += `<path d="M ${fx} 560 Q ${fx - 60 * k} ${620 + 60 * k} ${fx - 140 * k} ${640 + 160 * k}" fill="none" stroke="#ffffff" stroke-width="10" stroke-dasharray="26 14"/>`;
+      o += `<path d="M ${fx} 810 Q ${fx + 50 * k} ${760} ${fx + 120 * k} ${800}" fill="none" stroke="#ffffff" stroke-width="10" stroke-dasharray="26 14" opacity="${1 - k * 0.5}"/>`;
+    }
+    o += `<rect x="${fx + 60}" y="190" width="30" height="630" fill="#2a2e35" stroke="${INK}" stroke-width="6"/>`;
+  }
+  return o;
+}
+
+function drawDoor(S, t) {
+  const M = S.mood;
+  let o = `<rect x="-600" y="-400" width="3120" height="1600" fill="#1d1a1c"/>`;
+  // outside through the door
+  o += `<g><clipPath id="cDoor"><rect x="1000" y="220" width="420" height="590"/></clipPath><g clip-path="url(#cDoor)">`;
+  o += `<rect x="1000" y="220" width="420" height="590" fill="${M.top}"/>`;
+  o += `<rect x="1000" y="560" width="420" height="250" fill="${M.far}"/>`;
+  o += `<rect x="1040" y="420" width="120" height="390" fill="${M.far}"/><rect x="1240" y="380" width="140" height="430" fill="${M.far}"/>`;
+  o += `<rect x="1000" y="760" width="420" height="50" fill="${M.ground}"/>`;
+  o += drawRain(S, t, 1000, 1420, 220, 810, 1);
+  o += `</g></g>`;
+  // light spilling in
+  o += `<polygon points="1000,810 1420,810 1300,1010 760,1010" fill="#8fa3b5" opacity="0.10"/>`;
+  // frame
+  o += `<rect x="985" y="205" width="450" height="615" fill="none" stroke="#3a3034" stroke-width="30"/>`;
+  o += `<rect x="985" y="205" width="450" height="615" fill="none" stroke="${INK}" stroke-width="6"/>`;
+  // floor
+  o += `<rect x="-600" y="810" width="3120" height="400" fill="#141214"/><line x1="-600" y1="810" x2="2520" y2="810" stroke="${INK}" stroke-width="6"/>`;
+  // coat hook with nothing on it, and running shoes by the wall
+  o += `<rect x="560" y="360" width="60" height="14" rx="6" fill="#3a3034" stroke="${INK}" stroke-width="4"/>`;
+  // smoke wisp where the flame used to be
+  const w = seg(t, 23.0, 23.4) * (1 - seg(t, 24.6, 25.4));
+  if (w > 0) {
+    const r = (t - 23.0) * 40;
+    o += `<path d="M 930 ${620 - r} q 20 -30 0 -60 q -20 -30 0 -60" fill="none" stroke="#9aa3ad" stroke-width="8" stroke-linecap="round" opacity="${0.5 * w}"/>`;
+  }
+  return o;
+}
+
+function drawRain(S, t, x0 = -600, x1 = 2520, y0 = -200, y1 = 1100, extra = 0) {
+  const a = Math.max(S.rain, extra);
+  if (a <= 0.02) return "";
+  let o = `<g stroke="#c9d6e3" stroke-width="3" stroke-linecap="round" opacity="${0.55 * a}">`;
+  const n = 130;
+  for (let i = 0; i < n; i++) {
+    const sx = x0 + hash(i) * (x1 - x0 + 300);
+    const sp = 1400 + hash(i + 5) * 600;
+    const y = y0 + ((hash(i + 9) * (y1 - y0) + t * sp) % (y1 - y0));
+    const x = sx - (y - y0) * 0.25 - (S.dist * 0.6) % 300;
+    o += `<line x1="${x}" y1="${y}" x2="${x - 10}" y2="${y + 40}"/>`;
+  }
+  return o + `</g>`;
+}
+
+// ======================= Joseph (side view) =======================
+function limb(a, b, c, w1, w2, col) {
+  const d = `M ${a[0]} ${a[1]} L ${b[0]} ${b[1]} L ${c[0]} ${c[1]}`;
+  return `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w1}" stroke-linecap="round" stroke-linejoin="round"/>` +
+         `<path d="${d}" fill="none" stroke="${col}" stroke-width="${w2}" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+const dirv = (deg, len) => [Math.sin(deg * D2R) * len, Math.cos(deg * D2R) * len];
+
+function legPose(phase, amp) {
+  const th = 38 * amp * Math.sin(phase);
+  const bend = amp * (12 + 75 * Math.max(0, -Math.sin(phase - 0.9))) + (amp > 0 ? 0 : 2);
+  const knee = dirv(th, 115);
+  const shin = dirv(th - bend, 115);
+  return { knee, foot: [knee[0] + shin[0], knee[1] + shin[1]], footAng: th - bend };
+}
+
+function drawJoseph(S, t) {
+  const g = S.gait;
+  const L1 = legPose(S.phase, g), L2 = legPose(S.phase + Math.PI, g);
+  const lowest = Math.max(L1.foot[1], L2.foot[1]);
+  const groundY = S.scene === "door" ? 810 : 800;
+  const hipY = groundY - lowest - 10 + S.wobble;
+  let o = `<g transform="translate(${S.x} ${hipY})">`;
+  const shoe = (L, far) => {
+    const f = L.foot, a = Math.max(-30, Math.min(30, L.footAng * 0.4));
+    return `<g transform="translate(${f[0]} ${f[1]}) rotate(${-a})"><path d="M -14 -12 L 38 -12 Q 52 -10 50 6 L -16 6 Z" fill="${far ? "#cfcfcf" : SHOE}" stroke="${INK}" stroke-width="5"/><rect x="-16" y="2" width="66" height="6" fill="#e5484d"/></g>`;
+  };
+  // far leg
+  o += limb([0, 0], L2.knee, L2.foot, 46, 34, PANTS_D) + shoe(L2, true);
+
+  // upper body
+  const lean = S.lean;
+  o += `<g transform="rotate(${lean})">`;
+  // arms: opposite to legs
+  const armAmp = g * 1.0;
+  const sh = [6, -160];
+  const armPose = (ph, near) => {
+    let up = -45 * armAmp * Math.sin(ph), fore = up + (armAmp > 0.1 ? 85 : 12);
+    // fist pump (near arm) at the finish line; far arm relaxes
+    if (S.victory > 0) {
+      const pump = near ? Math.sin(t * 9) * 8 : 0;
+      up = lerp(up, near ? 62 + pump : 10, S.victory); fore = lerp(fore, near ? 155 + pump : 30, S.victory);
+    }
+    const e = [sh[0] + dirv(up, 92)[0], sh[1] + dirv(up, 92)[1]];
+    const h = [e[0] + dirv(fore, 82)[0], e[1] + dirv(fore, 82)[1]];
+    return [e, h];
+  };
+  const [eF, hF] = armPose(S.phase, false);
+  o += limb(sh, eF, hF, 40, 28, HOOD_D) + `<circle cx="${hF[0]}" cy="${hF[1]}" r="17" fill="${SKIN_D}" stroke="${INK}" stroke-width="5"/>`;
+  // hood (down) behind the neck
+  if (S.hoodUp < 1) o += `<path d="M -66 -150 C -80 -205 -20 -222 0 -190 L -10 -150 Z" fill="${HOOD_D}" stroke="${INK}" stroke-width="6" opacity="${1 - S.hoodUp}"/>`;
+  // torso
+  o += `<rect x="-58" y="-188" width="118" height="200" rx="44" fill="${HOOD}" stroke="${INK}" stroke-width="7"/>`;
+  o += `<path d="M 10 -60 L 56 -60" stroke="${HOOD_D}" stroke-width="5"/>`;
+  o += `<path d="M 36 -178 L 40 -128" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/><circle cx="40" cy="-126" r="5" fill="#d9d4c7" stroke="${INK}" stroke-width="2"/>`;
+  if (S.bib) {
+    o += `<rect x="-8" y="-120" width="62" height="56" rx="4" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/>`;
+    o += `<text class="sans" x="23" y="-80" font-size="30" font-weight="800" text-anchor="middle" fill="${INK}">60</text>`;
+  }
+  // neck
+  o += `<rect x="-16" y="-214" width="40" height="36" fill="${SKIN_D}" stroke="${INK}" stroke-width="5"/>`;
+
+  // head
+  const hd = S.headDrop;
+  o += `<g transform="translate(${8 * hd} ${22 * hd}) rotate(${14 * hd} 0 -220)">`;
+  o += `<rect x="-58" y="-395" width="140" height="205" rx="62" fill="${SKIN}" stroke="${INK}" stroke-width="7"/>`;
+  o += `<ellipse cx="-4" cy="-285" rx="13" ry="21" fill="${SKIN}" stroke="${INK}" stroke-width="5"/>`;
+  o += `<path d="M -58 -265 C -68 -360 -10 -410 50 -393 C 72 -388 82 -372 84 -350 C 52 -364 20 -362 0 -342 C -20 -322 -40 -298 -58 -265 Z" fill="${HAIR}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+  // eye
+  o += `<ellipse cx="50" cy="-300" rx="15" ry="20" fill="#fbfaf6"/>`;
+  o += `<g clip-path="url(#eyeS)"><circle cx="${54 + S.look[0]}" cy="${-300 + S.look[1]}" r="8.5" fill="${INK}"/><circle cx="${57 + S.look[0]}" cy="${-304 + S.look[1]}" r="2.6" fill="#fff"/>`;
+  if (S.lid > 0) o += `<rect x="30" y="-322" width="40" height="${44 * S.lid}" fill="${SKIN}"/><line x1="30" y1="${-322 + 44 * S.lid}" x2="70" y2="${-322 + 44 * S.lid}" stroke="${INK}" stroke-width="4"/>`;
+  if (S.lid > 0.5 && S.smile > 10) o += `<path d="M 36 -300 Q 50 -312 64 -300" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+  o += `</g><ellipse cx="50" cy="-300" rx="15" ry="20" fill="none" stroke="${INK}" stroke-width="5"/>`;
+  // brow
+  const by1 = -334 - S.browUp - S.browSad * 2 + S.browAng * 8, by2 = -337 - S.browUp + S.browSad * 6 - S.browAng * 4;
+  o += `<line x1="34" y1="${by2}" x2="70" y2="${by1}" stroke="${HAIR}" stroke-width="9" stroke-linecap="round"/>`;
+  // nose
+  o += `<path d="M 80 -292 Q 98 -274 80 -264" fill="${SKIN}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+  // mouth
+  if (S.pant > 0.05) o += `<ellipse cx="66" cy="-232" rx="${8 + 3 * S.pant}" ry="${4 + 9 * S.pant * (0.6 + 0.4 * Math.abs(Math.sin(t * 9)))}" fill="#3a1f1a" stroke="${INK}" stroke-width="4"/>`;
+  else o += `<path d="M 44 -234 Q ${60} ${-234 + S.smile * 1.1} 78 ${-236 - S.smile * 0.2}" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+  // sweat
+  if (S.sweat >= 0) { const y = -340 + S.sweat * 60; o += `<path d="M -30 ${y - 12} Q -22 ${y} -30 ${y + 5} Q -38 ${y} -30 ${y - 12} Z" fill="#9fd8f0" stroke="${INK}" stroke-width="3" opacity="${1 - S.sweat}"/>`; }
+  // hood up
+  if (S.hoodUp > 0) {
+    const k = S.hoodUp;
+    o += `<g transform="rotate(${-110 * (1 - k)} -30 -190)" opacity="${cl(k * 3)}">`;
+    o += `<path d="M -72 -185 C -96 -300 -50 -425 52 -408 C 84 -402 98 -378 96 -340 L 76 -346 C 66 -384 6 -392 -26 -350 C -44 -316 -44 -240 -34 -190 Z" fill="${HOOD}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
+    o += `</g>`;
+  }
+  o += `</g>`; // head
+
+  // near arm
+  const [eN, hN] = armPose(S.phase + Math.PI, true);
+  o += limb(sh, eN, hN, 44, 31, HOOD) + `<circle cx="${hN[0]}" cy="${hN[1]}" r="18" fill="${SKIN}" stroke="${INK}" stroke-width="5"/>`;
+  o += `</g>`; // upper body
+
+  // near leg
+  o += limb([0, 0], L1.knee, L1.foot, 50, 37, PANTS) + shoe(L1, false);
+  o += `</g>`;
+  return o;
+}
+
+// ======================= the flame =======================
+function drawFlame(F, t) {
+  if (!F.on || F.size <= 0.01) return "";
+  const s = F.size, flick = Math.sin(t * 17) * 6 + Math.sin(t * 29) * 3 + (F.sputter ? Math.sin(t * 41) * 10 : 0);
+  let o = `<g transform="translate(${F.x} ${F.y}) scale(${s})">`;
+  o += `<ellipse cx="0" cy="0" rx="150" ry="150" fill="url(#gGlow)" opacity="${0.55 * F.bright}" style="mix-blend-mode:screen"/>`;
+  // arms
+  if (F.cheer > 0.5) {
+    const w = Math.sin(t * 14) * 18;
+    o += `<path d="M -36 10 Q -66 ${-20 + w} -70 ${-50 + w}" fill="none" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M -36 10 Q -66 ${-20 + w} -70 ${-50 + w}" fill="none" stroke="#ff9f1c" stroke-width="7" stroke-linecap="round"/>`;
+    o += `<path d="M 36 10 Q 66 ${-20 - w} 70 ${-50 - w}" fill="none" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M 36 10 Q 66 ${-20 - w} 70 ${-50 - w}" fill="none" stroke="#ff9f1c" stroke-width="7" stroke-linecap="round"/>`;
+  } else if (F.push > 0.3) {
+    o += `<path d="M 30 10 L 80 0" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M 30 10 L 80 0" stroke="#ff9f1c" stroke-width="7" stroke-linecap="round"/>`;
+  }
+  // body
+  const tip = -95 + flick;
+  o += `<path d="M ${flick * 0.6} ${tip} C 30 -50 50 -10 48 22 A 48 48 0 0 1 -48 22 C -50 -10 -28 -50 ${flick * 0.6} ${tip} Z" fill="url(#gFlame)" stroke="${INK}" stroke-width="6" opacity="${cl(F.bright)}"/>`;
+  o += `<path d="M ${flick * 0.3} ${tip + 50} C 16 -20 24 0 22 22 A 22 22 0 0 1 -22 22 C -24 0 -12 -20 ${flick * 0.3} ${tip + 50} Z" fill="#fff3b0" opacity="${0.8 * cl(F.bright)}"/>`;
+  // face
+  const ey = 8;
+  if (F.mood === "happy" || F.mood === "party") {
+    o += `<path d="M -22 ${ey} q 8 -10 16 0" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><path d="M 6 ${ey} q 8 -10 16 0" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+    o += `<path d="M -16 ${ey + 14} Q 0 ${ey + 36} 16 ${ey + 14} Z" fill="#7a1f12" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`;
+  } else {
+    const droop = F.mood === "sad" ? 1 : 0.5;
+    o += `<circle cx="-13" cy="${ey}" r="5" fill="${INK}"/><circle cx="13" cy="${ey}" r="5" fill="${INK}"/>`;
+    o += `<line x1="-22" y1="${ey - 6 - 4 * droop}" x2="-6" y2="${ey - 9 + 3 * droop}" stroke="${INK}" stroke-width="4" stroke-linecap="round"/><line x1="22" y1="${ey - 6 - 4 * droop}" x2="6" y2="${ey - 9 + 3 * droop}" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`;
+    o += `<path d="M -10 ${ey + 24} Q 0 ${ey + 24 - 8 * droop} 10 ${ey + 24}" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`;
+    if (F.mood === "tired") o += `<ellipse cx="0" cy="${ey + 22}" rx="6" ry="${4 + 3 * Math.abs(Math.sin(t * 8))}" fill="#7a1f12"/>`;
+  }
+  // steam puffs when sputtering in the rain
+  if (F.sputter) for (let i = 0; i < 3; i++) { const k = ((t * 0.8 + i / 3) % 1); o += `<circle cx="${-20 + i * 20 + Math.sin(t * 3 + i) * 10}" cy="${-90 - k * 80}" r="${8 + k * 14}" fill="#c9d1d9" opacity="${0.5 * (1 - k)}"/>`; }
+  o += `</g>`;
+  return o;
+}
+
+function drawSparkles(F, t) {
+  if (!F.on || F.mood !== "happy") return "";
+  let o = "";
+  for (let i = 0; i < 10; i++) {
+    const k = (t * 0.9 + hash(i)) % 1;
+    const x = F.x - 40 - k * 260 + hash(i + 3) * 40, y = F.y + (hash(i + 7) - 0.5) * 120 - k * 30;
+    o += `<path d="M ${x} ${y - 8} L ${x + 3} ${y} L ${x} ${y + 8} L ${x - 3} ${y} Z" fill="#ffe066" opacity="${(1 - k) * F.size}"/>`;
+  }
+  return o;
+}
+
+function drawConfetti(t) {
+  if (t < 68.7 || t > 73.6) return "";
+  let o = "";
+  const cols = ["#ffe066", "#ff5d2e", "#4fd1ff", "#30a46c", "#f4f0e6"];
+  for (let i = 0; i < 70; i++) {
+    const tt = t - 68.7;
+    const vx = (hash(i) - 0.5) * 900, vy = -500 - hash(i + 2) * 600;
+    const x = 640 + vx * tt, y = 420 + vy * tt + 700 * tt * tt;
+    if (y > 1100) continue;
+    o += `<rect x="${x}" y="${y}" width="14" height="8" fill="${cols[i % 5]}" transform="rotate(${tt * 400 + i * 30} ${x + 7} ${y + 4})"/>`;
+  }
+  return o;
+}
+
+// ======================= render =======================
+function render(t) {
+  const S = state(t);
+  const [cs, cfx, cfy] = S.cam;
+  let o = "";
+  if (S.scene !== "end") {
+    o += `<g transform="translate(960 540) scale(${cs}) translate(${-cfx} ${-cfy})">`;
+    if (S.scene === "door") o += drawDoor(S, t);
+    else {
+      o += drawStreet(S, t);
+      if (S.scene === "race") { o += drawRace(S, t); o += drawFinish(S, t, false); }
+    }
+    // flame behind Joseph while pushing
+    const behind = S.flame.on && S.flame.push > 0.3;
+    if (behind) o += drawSparkles(S.flame, t) + drawFlame(S.flame, t);
+    o += drawJoseph(S, t);
+    if (S.scene === "race") o += drawFinish(S, t, true);
+    if (!behind) o += drawSparkles(S.flame, t) + drawFlame(S.flame, t);
+    if (S.scene !== "door") o += drawRain(S, t);
+    // night / rain darkening
+    o += `<rect x="-600" y="-400" width="3120" height="1600" fill="#000" opacity="${S.mood.night * 0.25}"/>`;
+    o += `</g>`;
+    o += drawConfetti(t);
+  }
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+
+  const ct = COUNTER(t);
+  if (!window.THUMB && ct && ct[1] > 0) o += `<text class="hand" x="150" y="170" font-size="48" fill="#f4efe6" stroke="#000" stroke-width="8" paint-order="stroke" opacity="${ct[1]}">${ct[0]}</text>`;
+
+  if (!window.THUMB) o += `<rect x="0" y="0" width="1920" height="70" fill="#000"/><rect x="0" y="1010" width="1920" height="70" fill="#000"/>`;
+
+  for (const L of window.TL.lines) {
+    if (L.nocap) continue;
+    const a = L.start - 0.1, b = L.end + 0.35;
+    if (t < a || t > b) continue;
+    const op = seg(t, a, a + 0.15) * (1 - seg(t, b - 0.2, b));
+    o += `<text class="hand" x="960" y="955" font-size="56" text-anchor="middle" fill="#f4efe6" stroke="#000" stroke-width="10" paint-order="stroke" opacity="${op}">${esc(L.text)}</text>`;
+  }
+
+  const black = Math.max(
+    1 - seg(t, 0, 0.8),
+    dip(t, 13.6, 14.06, 14.1, 14.5),
+    dip(t, 17.5, 17.95, 18.0, 18.4),
+    dip(t, 20.8, 21.26, 21.3, 21.8),
+    dip(t, 31.5, 31.95, 32.0, 32.5),
+    dip(t, 51.9, 52.5, 52.6, 53.1),
+    seg(t, 72.6, 73.6)
+  );
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${black}"/>`;
+
+  if (t >= 73.6) {
+    const q1 = seg(t, 75.0, 75.5), q2 = seg(t, 76.8, 77.3), qo = 1 - seg(t, 78.9, 79.5);
+    o += `<g opacity="${qo}">`;
+    o += `<text class="hand" x="960" y="500" font-size="84" text-anchor="middle" fill="#ffb347" opacity="${q1}">Motivação é visita.</text>`;
+    o += `<text class="hand" x="960" y="620" font-size="96" text-anchor="middle" fill="#f4efe6" opacity="${q2}">Disciplina é morada.</text>`;
+    o += `</g>`;
+    const h1 = seg(t, 80.0, 80.3), ho = 1 - seg(t, 82.8, 83.4);
+    o += `<text class="hand" x="960" y="560" font-size="96" text-anchor="middle" fill="#cfc9bd" opacity="${h1 * ho}">Não espere ter vontade.</text>`;
+    const h2 = seg(t, 81.7, 81.9);
+    o += `<text class="hand" x="960" y="690" font-size="140" text-anchor="middle" fill="#f4efe6" opacity="${h2 * ho}">Vá.</text>`;
+  }
+  if (t >= 84) {
+    const tIn = seg(t, 84.2, 85.0), sIn = seg(t, 85.0, 85.8), nIn = seg(t, 85.8, 86.5), out = 1 - seg(t, 89.7, 90.5);
+    o += `<g opacity="${out}">`;
+    o += `<text class="hand" x="960" y="${560 + (1 - tIn) * 20}" font-size="190" text-anchor="middle" fill="#f4efe6" opacity="${tIn}">DISCIPLINA</text>`;
+    o += `<text class="sans" x="960" y="640" font-size="30" font-weight="500" letter-spacing="12" text-anchor="middle" fill="#8f99a3" opacity="${sIn}">UM CURTA ANIMADO</text>`;
+    o += `<line x1="900" y1="600" x2="1020" y2="600" stroke="#ff9f1c" stroke-width="4" opacity="${sIn}"/>`;
+    o += `<text class="hand" x="960" y="900" font-size="40" text-anchor="middle" fill="#cfc9bd" opacity="${nIn}">JOSEPH</text>`;
+    o += `</g>`;
+  }
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+render(0);
+</script>
+</body>
+</html>
