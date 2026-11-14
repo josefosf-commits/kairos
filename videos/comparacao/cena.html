@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>A VIDA DOS OUTROS</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>
+    <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f7a"/>
+      <stop offset="45%" stop-color="#e0607e"/>
+      <stop offset="80%" stop-color="#ffa45c"/>
+      <stop offset="100%" stop-color="#ffd27a"/>
+    </linearGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script src="../_lib/rig.js"></script>
+<script>
+window.TL = window.TL || { lines: [], duration: 243 };
+const PINK = "#ff6b9a", GREEN = "#30a46c", REDC = "#e5484d", GOLD = "#ffd27a", TEAL = "#4fd1ff";
+const POSTS = [
+  { k: "viagem", who: "@amigo", col: "#4fd1ff", icon: "🏝️", cap: "melhor viagem!", back: ["30 tentativas", "🤬 briga no carro"] },
+  { k: "carro", who: "@vizinho", col: "#ff9f1c", icon: "🚗", cap: "carro novo ✨", back: ["60 parcelas", "📄📄📄📄"] },
+  { k: "promo", who: "@colega", col: "#7c8cff", icon: "💼", cap: "PROMOVIDO!", back: ["12h por dia", "😰 sem férias"] },
+  { k: "maratona", who: "@amigo2", col: GREEN, icon: "🏅", cap: "42 km!", back: ["2 anos de treino", "🤕 3 lesões"] },
+  { k: "empresa", who: "@colega2", col: PINK, icon: "🏪", cap: "INAUGURAÇÃO", back: ["noites sem dormir", "☕☕☕ 3h"] },
+  { k: "apto", who: "@primo", col: GOLD, icon: "🏢🔑", cap: "casa própria", back: ["30 anos de", "financiamento"] },
+];
+const postIn = () => [S(2) + 1.0, S(2) + 2.4, S(2) + 3.6, S(4) + 0.3, S(4) + 2.0, S(4) + 4.0];
+const flipAt = () => [S(7) + 0.4, S(8) + 0.4, S(10) + 0.3, S(10) + 0.6, S(9) + 0.4, S(10) + 0.9];
+
+function postCard(p, flip, sc = 1) {
+  // flip 0 = front, 1 = back
+  const sx = Math.abs(Math.cos(flip * Math.PI)), back = flip > 0.5;
+  let o = `<g transform="scale(${sx * sc} ${sc})">`;
+  if (!back) {
+    o += `<rect x="-150" y="-185" width="300" height="370" rx="18" fill="#f6f1e6" stroke="${INK}" stroke-width="6"/>`;
+    o += `<circle cx="-110" cy="-150" r="18" fill="${p.col}" stroke="${INK}" stroke-width="3"/><text class="sans" x="-84" y="-142" font-size="22" font-weight="700" fill="${INK}">${p.who}</text>`;
+    o += `<rect x="-130" y="-120" width="260" height="210" rx="10" fill="${p.col}" opacity="0.35"/><text x="0" y="20" font-size="110" text-anchor="middle">${p.icon}</text>`;
+    o += `<text class="hand" x="-130" y="130" font-size="30" fill="${INK}">${p.cap}</text><text class="sans" x="-130" y="168" font-size="22" fill="${REDC}">❤ 2,4 mil</text>`;
+  } else {
+    o += `<rect x="-150" y="-185" width="300" height="370" rx="18" fill="#2b2f38" stroke="${INK}" stroke-width="6"/>`;
+    o += `<text class="hand" x="0" y="-140" font-size="28" text-anchor="middle" fill="#8f99a3">BASTIDORES</text>`;
+    if (p.k === "viagem") for (let i = 0; i < 30; i++) o += `<rect x="${-120 + (i % 6) * 40}" y="${-110 + Math.floor(i / 6) * 34}" width="32" height="26" rx="3" fill="#4a5058"/><line x1="${-118 + (i % 6) * 40}" y1="${-108 + Math.floor(i / 6) * 34}" x2="${-90 + (i % 6) * 40}" y2="${-86 + Math.floor(i / 6) * 34}" stroke="${REDC}" stroke-width="3" opacity="${i < 29 ? 1 : 0}"/>`;
+    else o += `<text x="0" y="0" font-size="90" text-anchor="middle">${p.k === "carro" ? "💳" : p.k === "promo" ? "⏰" : p.k === "maratona" ? "🩹" : p.k === "empresa" ? "🌙" : "📑"}</text>`;
+    o += `<text class="hand" x="0" y="${p.k === "viagem" ? 100 : 90}" font-size="32" text-anchor="middle" fill="#f4efe6">${p.back[0]}</text><text class="hand" x="0" y="${p.k === "viagem" ? 145 : 140}" font-size="30" text-anchor="middle" fill="#cfd8e3">${p.back[1]}</text>`;
+  }
+  return o + `</g>`;
+}
+
+const shrinkAt = t => kf(t, [[0, 0], [S(3), 0], [E(3), 0.18], [E(4), 0.32], [E(30), 0.44], [S(24), 0.44], [E(24) + 1.0, 0]]);
+
+function room(t) {
+  const sh = shrinkAt(t);
+  const calm = t > S(24);
+  let o = roomBg(0.85, calm ? seg(t, S(24), E(26)) * 0.5 : 0);
+  o += `<rect x="200" y="620" width="1520" height="80" rx="20" fill="#7a4a3a" stroke="${INK}" stroke-width="7"/>`;
+  const P = { x: 960, c: JOSEPH, ...face({}) };
+  const phoneUse = t < S(22) - 0.6;
+  P.lid = blink(t, phoneUse ? 0.2 + sh * 0.5 : 0.05);
+  P.look = phoneUse ? [0, 9] : [0, 7];
+  P.smile = phoneUse ? 2 - sh * 18 : (t > S(24) ? 10 : 4);
+  P.browSad = phoneUse ? sh * 2 : 0;
+  o += personBack(P) + personHead(P, t);
+  // couch front
+  o += `<rect x="560" y="650" width="800" height="200" rx="40" fill="#8a5a46" stroke="${INK}" stroke-width="7"/><rect x="520" y="600" width="90" height="260" rx="30" fill="#7a4a3a" stroke="${INK}" stroke-width="7"/><rect x="1310" y="600" width="90" height="260" rx="30" fill="#7a4a3a" stroke="${INK}" stroke-width="7"/>`;
+  const hR = [1000, 560], hL = [920, 560];
+  o += armF([1060, 565], hR, JOSEPH.hood) + armF([860, 565], hL, JOSEPH.hood);
+  if (phoneUse) o += phoneBody([960, 556], 1, t) + `<rect x="927" y="493" width="66" height="126" rx="7" fill="${TEAL}" opacity="0.85"/>`;
+  else o += book([960, 585], 190, 150);
+  o += handC(hR, JOSEPH.skin) + handC(hL, JOSEPH.skin);
+  if (phoneUse) o += `<ellipse cx="960" cy="440" rx="170" ry="190" fill="url(#gPhone)" opacity="0.3" style="mix-blend-mode:screen"/>`;
+  return { o, sh };
+}
+
+function feedPosts(t) {
+  let o = "";
+  const ins = postIn(), flips = flipAt();
+  const stage = seg(t, S(6) - 0.4, S(6) + 0.6) * (1 - seg(t, S(11) - 1.0, S(11) - 0.4));
+  const away = seg(t, S(24), S(25) + 2);
+  const pos = [[330, 330], [1590, 330], [330, 720], [1590, 720], [600, 210], [1320, 210]];
+  POSTS.forEach((p, i) => {
+    const a = ins[i];
+    if (t < a) return;
+    const pop = seg(t, a, a + 0.35);
+    // floating around Joseph, then lined up on the stage
+    let [x, y] = pos[i];
+    x += Math.sin(t * 0.8 + i) * 12; y += Math.cos(t * 0.7 + i * 2) * 10;
+    const sx = 285 + i * 270, sy = 520;
+    x = lerp(x, sx, stage); y = lerp(y, sy, stage);
+    const sc = lerp(0.75 + 0.1 * shrinkAt(t), 0.82, stage) * (1 - away * 0.7);
+    if (away > 0) { x = lerp(x, 960, away); y = lerp(y, 560, away); }
+    const flip = seg(t, flips[i], flips[i] + 0.5) * (1 - seg(t, S(11) - 1.0, S(11) - 0.4));
+    const rot = (1 - stage) * (i % 2 ? 6 : -5);
+    o += `<g opacity="${pop * (1 - away)}" transform="translate(${x} ${y}) rotate(${rot})">${postCard(p, flip, sc * (0.8 + 0.2 * pop))}</g>`;
+  });
+  return o;
+}
+function stageDeco(t) {
+  const s = seg(t, S(6) - 0.4, S(6) + 0.6) * (1 - seg(t, S(11) - 1.0, S(11) - 0.4));
+  if (s <= 0) return "";
+  let o = `<g opacity="${s}"><rect x="0" y="0" width="1920" height="1080" fill="#07080b" opacity="0.7"/>`;
+  o += `<rect x="40" y="800" width="1840" height="40" fill="#5a4636" stroke="${INK}" stroke-width="6"/>`;
+  for (let i = 0; i < 2; i++) { const x = i ? 1920 - 180 : 0; o += `<path d="M ${x} 70 L ${x + 180} 70 L ${x + 180 - (i ? 180 : 0)} 800 L ${x + (i ? 180 : 0)} 800 Z" fill="#8c2f3a" opacity="0.9"/>`; }
+  for (let i = 0; i < 6; i++) o += `<polygon points="${285 + i * 270 - 30},70 ${285 + i * 270 + 30},70 ${285 + i * 270 + 160},800 ${285 + i * 270 - 160},800" fill="#fff6c9" opacity="0.06"/>`;
+  o += `<text class="hand" x="960" y="160" font-size="64" text-anchor="middle" fill="${GOLD}" opacity="${seg(t, S(6), S(6) + 0.5) * (1 - seg(t, S(7), S(7) + 0.4))}">O PALCO</text>`;
+  o += `<text class="hand" x="960" y="160" font-size="64" text-anchor="middle" fill="#cfd8e3" opacity="${seg(t, S(10), S(10) + 0.5)}">NINGUÉM POSTA OS BASTIDORES</text>`;
+  return o + `</g>`;
+}
+
+// ---------- explainer ----------
+function eduPanel(t) {
+  const a = S(11) - 0.6, b = S(16) - 0.6;
+  const vis = seg(t, a, a + 0.5) * (1 - seg(t, b - 0.5, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="0" y="0" width="1920" height="1080" fill="#0b0d12"/>`;
+  const part = (s, e) => seg(t, s, s + 0.4) * (1 - seg(t, e - 0.4, e));
+  let p = part(S(11) - 0.4, S(13) - 0.3);
+  if (p > 0) {
+    const tilt = Math.sin(t * 1.4) * 8;
+    o += `<g opacity="${p}"><g transform="translate(960 560) rotate(${tilt})"><line x1="-360" y1="0" x2="360" y2="0" stroke="#cfd8e3" stroke-width="12" stroke-linecap="round"/><circle cx="-360" cy="0" r="16" fill="#cfd8e3"/><circle cx="360" cy="0" r="16" fill="#cfd8e3"/><text x="-360" y="-30" font-size="120" text-anchor="middle">🧍</text><text x="360" y="-30" font-size="120" text-anchor="middle">🧍</text></g><polygon points="960,560 920,660 1000,660" fill="#8f99a3"/>`;
+    o += `<text class="hand" x="960" y="260" font-size="60" text-anchor="middle" fill="#f4efe6">comparar é natural</text>`;
+    o += `<text class="hand" x="960" y="820" font-size="66" text-anchor="middle" fill="${GOLD}" opacity="${seg(t, S(12), S(12) + 0.4)}">o problema é: com quem?</text></g>`;
+  }
+  p = part(S(13) - 0.3, S(31) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}">`;
+    for (let i = 0; i < 48; i++) {
+      const x = 180 + (i % 8) * 120, y = 220 + Math.floor(i / 8) * 110, on = 0.5 + 0.5 * Math.sin(t * 3 + i * 1.7);
+      const ic = ["🏝️", "🚗", "💼", "🏅", "🏪", "💍", "🎓", "🏋️"][i % 8];
+      o += `<rect x="${x - 50}" y="${y - 45}" width="100" height="90" rx="10" fill="#f6f1e6" opacity="${0.6 + 0.4 * on}"/><text x="${x}" y="${y + 18}" font-size="44" text-anchor="middle">${ic}</text>`;
+    }
+    o += `<text class="hand" x="660" y="140" font-size="40" text-anchor="middle" fill="${GOLD}">os melhores momentos de centenas de pessoas</text>`;
+    const me = seg(t, S(14), S(14) + 0.5);
+    o += `<g opacity="${me}" transform="translate(1520 560)"><rect x="-150" y="-180" width="300" height="360" rx="18" fill="#3a3f48" stroke="${INK}" stroke-width="6"/><text x="0" y="0" font-size="110" text-anchor="middle">😩</text><text class="hand" x="0" y="110" font-size="36" text-anchor="middle" fill="#cfd8e3">a sua segunda-feira</text></g>`;
+    o += `<text class="hand" x="1160" y="560" font-size="90" text-anchor="middle" fill="${REDC}" opacity="${me}">×</text></g>`;
+  }
+  p = part(S(31) - 0.3, S(15) - 0.3);
+  if (p > 0) {
+    const ang = t * 120;
+    o += `<g opacity="${p}"><g transform="translate(960 520)"><g transform="rotate(${ang})"><circle r="90" fill="none" stroke="${TEAL}" stroke-width="22" stroke-dasharray="40 30"/></g><circle r="50" fill="${TEAL}"/></g>`;
+    for (let i = 0; i < 4; i++) { const k = ((t * 0.6) + i / 4) % 1, a2 = i * Math.PI / 2 + k * 1.2; o += `<text x="${960 + Math.cos(a2) * (180 + 200 * k)}" y="${520 + Math.sin(a2) * (180 + 200 * k)}" font-size="${50 + 30 * k}" text-anchor="middle" opacity="${1 - k}">${["🏝️", "🚗", "💼", "🏅"][i]}</text>`; }
+    o += `<text class="hand" x="960" y="830" font-size="56" text-anchor="middle" fill="#f4efe6">mostra mais do que mexe com você</text></g>`;
+  }
+  p = part(S(15) - 0.3, b);
+  if (p > 0) {
+    o += `<g opacity="${p}"><rect x="560" y="360" width="800" height="300" rx="24" fill="#12151c" stroke="${REDC}" stroke-width="6"/>`;
+    o += `<text class="hand" x="760" y="470" font-size="54" text-anchor="middle" fill="#cfd8e3">VOCÊ</text><text class="hand" x="1160" y="470" font-size="54" text-anchor="middle" fill="#cfd8e3">O FEED</text>`;
+    o += `<text class="hand" x="760" y="600" font-size="120" text-anchor="middle" fill="#f4efe6">0</text><text class="hand" x="960" y="590" font-size="80" text-anchor="middle" fill="#8f99a3">×</text><text class="hand" x="1160" y="600" font-size="120" text-anchor="middle" fill="${REDC}">300</text>`;
+    o += `<text class="hand" x="960" y="790" font-size="60" text-anchor="middle" fill="${GOLD}">uma disputa que ninguém ganha</text></g>`;
+  }
+  return o + `</g>`;
+}
+
+// ---------- techniques ----------
+const ICON = {
+  ruler: `<rect x="-160" y="-30" width="320" height="60" rx="8" fill="${GOLD}" stroke="${INK}" stroke-width="5"/>${[...Array(9)].map((_, i) => `<line x1="${-140 + i * 35}" y1="-30" x2="${-140 + i * 35}" y2="${i % 2 ? -10 : 0}" stroke="${INK}" stroke-width="4"/>`).join("")}`,
+  follow: `<rect x="-120" y="-40" width="240" height="80" rx="40" fill="#3a3f48" stroke="#8f99a3" stroke-width="5"/><text class="sans" x="0" y="12" font-size="34" font-weight="700" text-anchor="middle" fill="#cfd8e3">Seguir</text>`,
+  compass: `<circle r="100" fill="#12151c" stroke="${GOLD}" stroke-width="10"/><polygon points="0,-80 18,0 0,80 -18,0" fill="${REDC}" transform="rotate(35)"/><circle r="10" fill="${GOLD}"/>`,
+  list: `<rect x="-110" y="-120" width="220" height="240" rx="12" fill="#f6f1e6" stroke="${INK}" stroke-width="5"/>${[0, 1, 2].map(i => `<text x="-80" y="${-50 + i * 70}" font-size="40">${["☕", "🏃", "💬"][i]}</text><line x1="-20" y1="${-62 + i * 70}" x2="80" y2="${-62 + i * 70}" stroke="#8f99a3" stroke-width="6"/>`).join("")}`,
+};
+function panel(t, a, b, inner) { const v = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b)); return v <= 0 ? "" : `<g opacity="${v}"><rect x="360" y="300" width="1200" height="440" rx="24" fill="#0f1218" fill-opacity="0.95" stroke="#2b3240" stroke-width="3"/>${inner}</g>`; }
+function rulerPanel(t) {
+  const a = S(17) + 3.0, b = E(17) + 1.8;
+  const k = seg(t, a + 0.6, a + 1.6);
+  let s = `<text class="hand" x="620" y="380" font-size="40" text-anchor="middle" fill="#8f99a3">os outros</text><line x1="440" y1="400" x2="800" y2="400" stroke="${REDC}" stroke-width="6"/><line x1="480" y1="360" x2="760" y2="440" stroke="${REDC}" stroke-width="10" opacity="${k}"/>`;
+  s += `<g transform="translate(532 300) scale(0.55)">${personHead({ x: 960, c: JOSEPH, ...face({ smile: 2 }) }, t)}</g><g transform="translate(852 300) scale(0.55)">${personHead({ x: 960, c: JOSEPH, ...face({ smile: 10 }) }, t)}</g>`;
+  s += `<text class="hand" x="1528" y="690" font-size="40" text-anchor="middle" fill="#cfd8e3" opacity="${k}">ontem</text>`;
+  s += `<text class="hand" x="1060" y="700" font-size="44" text-anchor="middle" fill="#8f99a3" opacity="${k}">você ontem</text><text class="hand" x="1380" y="700" font-size="44" text-anchor="middle" fill="${GREEN}" opacity="${k}">você hoje +1</text>`;
+  return panel(t, a, b, s.replace(`<text class="hand" x="1528" y="690" font-size="40" text-anchor="middle" fill="#cfd8e3" opacity="${k}">ontem</text>`, ""));
+}
+function followPanel(t) {
+  const a = S(18) - 0.3, b = E(18) + 2.4;
+  let s = `<rect x="760" y="320" width="400" height="400" rx="30" fill="#14161a" stroke="${INK}" stroke-width="6"/>`;
+  [["@quem_te_apoia", 0], ["@vida_perfeita", 1], ["@amigo_de_verdade", 0], ["@ostentação", 1]].forEach(([n, bad], i) => {
+    const off = bad ? seg(t, a + 1.6 + i * 0.6, a + 1.9 + i * 0.6) : 0;
+    s += `<circle cx="810" cy="${380 + i * 90}" r="24" fill="${["#30a46c", "#ff6b9a", "#4fd1ff", "#ff9f1c"][i]}"/><text class="sans" x="850" y="${388 + i * 90}" font-size="22" fill="#f4efe6">${n}</text>`;
+    s += `<rect x="1040" y="${360 + i * 90}" width="100" height="40" rx="20" fill="${off > 0.5 ? "#3a3f48" : "#4fd1ff"}"/><text class="sans" x="1090" y="${387 + i * 90}" font-size="18" font-weight="700" text-anchor="middle" fill="${off > 0.5 ? "#cfd8e3" : "#07080b"}">${off > 0.5 ? "Seguir" : "Seguindo"}</text>`;
+  });
+  s += `<text class="hand" x="1360" y="560" font-size="44" text-anchor="middle" fill="${GREEN}" opacity="${seg(t, S(18) + 3.5, S(18) + 4)}">por cuidado,</text><text class="hand" x="1360" y="620" font-size="44" text-anchor="middle" fill="${GREEN}" opacity="${seg(t, S(18) + 3.5, S(18) + 4)}">não por raiva</text>`;
+  return panel(t, a, b, s);
+}
+function compassPanel(t) {
+  const a = S(20) - 0.3, b = E(21) + 1.6;
+  const ang = kf(t, [[a, -60], [S(20) + 2.0, -60], [S(20) + 4.0, 40], [S(21), 40], [S(21) + 0.8, 0]]);
+  let s = `<g transform="translate(720 520)"><circle r="150" fill="#12151c" stroke="${GOLD}" stroke-width="12"/><polygon points="0,-120 24,0 0,120 -24,0" fill="${REDC}" transform="rotate(${ang})"/><circle r="14" fill="${GOLD}"/></g>`;
+  s += `<text class="hand" x="1260" y="420" font-size="44" text-anchor="middle" fill="#8f99a3" opacity="${seg(t, S(20) + 0.5, S(20) + 1.0) * (1 - seg(t, S(20) + 3.2, S(20) + 3.6))}">por que eu não tenho isso?</text>`;
+  s += `<text class="hand" x="1260" y="500" font-size="52" text-anchor="middle" fill="${GOLD}" opacity="${seg(t, S(20) + 4.0, S(20) + 4.5)}">o que eu quero de verdade?</text>`;
+  s += `<text class="hand" x="1260" y="620" font-size="52" text-anchor="middle" fill="${GREEN}" opacity="${seg(t, S(21), S(21) + 0.5)}">1º passo: ______</text>`;
+  return panel(t, a, b, s);
+}
+function listPanel(t) {
+  const a = S(23) - 0.3, b = E(32) + 1.6;
+  let s = `<g transform="rotate(-2 960 520)"><rect x="660" y="320" width="600" height="400" rx="14" fill="#f6f1e6" stroke="${INK}" stroke-width="6"/>`;
+  s += `<text class="hand" x="700" y="390" font-size="44" fill="#1d2228">3 coisas boas de hoje</text>`;
+  [["☕", "café com o pai"], ["🏃", "um treino"], ["💬", "uma conversa boa"]].forEach(([ic, tx], i) => { const v = seg(t, S(23) + 1.2 + i * 1.3, S(23) + 1.6 + i * 1.3); s += `<g opacity="${v}"><text x="710" y="${480 + i * 80}" font-size="46">${ic}</text><text class="hand" x="780" y="${478 + i * 80}" font-size="44" fill="#1d2228">${tx}</text></g>`; });
+  s += `</g>`;
+  return panel(t, a, b, s);
+}
+
+// ---------- render ----------
+function render(t) {
+  const end = S(28) - 1.4;
+  let o = "";
+  if (t < end) {
+    const R = room(t);
+    const sh = R.sh, sat = 1 - sh * 1.6;
+    const sc = 1 - sh;
+    o += `<g transform="translate(960 560) scale(${sc}) translate(-960 -560)"><g style="filter: saturate(${Math.max(0.2, sat)})">${R.o}</g></g>`;
+    // walls closing in
+    if (sh > 0) o += `<rect x="0" y="0" width="${960 * sh + 20}" height="1080" fill="#07080b"/><rect x="${1920 - 960 * sh - 20}" y="0" width="${960 * sh + 20}" height="1080" fill="#07080b"/><rect x="0" y="0" width="1920" height="${540 * sh}" fill="#07080b"/><rect x="0" y="${1080 - 540 * sh}" width="1920" height="${540 * sh}" fill="#07080b"/>`;
+    o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+    o += stageDeco(t) + feedPosts(t) + eduPanel(t);
+    o += techCard(t, S(17) - 0.2, S(17) + 3.0, E(17) + 1.8, "1", "TROQUE A RÉGUA", "Compare-se com quem você era ontem.", ICON.ruler, GOLD) + rulerPanel(t);
+    o += techCard(t, S(18) - 0.2, S(18) - 0.3 + 0.0001, E(18) + 2.4, "2", "CUIDE DO QUE VOCÊ SEGUE", "", ICON.follow, GOLD) + followPanel(t);
+    o += techCard(t, S(19) - 0.2, S(20) - 0.3, E(21) + 1.6, "3", "A INVEJA É UMA BÚSSOLA", "Ela aponta o que você quer.", ICON.compass, GOLD) + compassPanel(t);
+    o += techCard(t, S(22) - 0.2, S(23) - 0.3, E(32) + 1.6, "4", "3 COISAS BOAS POR DIA", "Anote toda noite.", ICON.list, GOLD) + listPanel(t);
+    o += recapCards(t, S(27) - 0.8, end, "COMO SAIR DA COMPARAÇÃO", [
+      [S(27) + 1.4, "TROQUE A RÉGUA", "você de ontem", ICON.ruler, GOLD], [S(27) + 3.4, "CUIDE DO FEED", "deixe de seguir", ICON.follow, GOLD],
+      [S(27) + 5.0, "INVEJA = BÚSSOLA", "o que eu quero?", ICON.compass, GOLD], [S(27) + 6.4, "3 COISAS BOAS", "toda noite", ICON.list, GOLD]]);
+  }
+  o += letterbox() + captions(t);
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${Math.max(1 - seg(t, 0, 1.0), seg(t, end - 0.6, end))}"/>`;
+  if (t >= end) o += quotes(t, [["Você está comparando os seus bastidores", S(28), S(29) - 0.1, "#cfc9bd", 72, 500], ["com o palco dos outros.", S(28) + 1.6, S(29) - 0.1, "#f4efe6", 80, 610], ["Volte para a sua vida.", S(29), E(29) + 2.2, GOLD, 130]]);
+  o += titleCard(t, E(29) + 2.4, "A VIDA DOS OUTROS", GOLD, 160);
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+</script>
+</body>
+</html>
