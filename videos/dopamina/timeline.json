@@ -1,0 +1,330 @@
+{
+ "duration": 245.0,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 2.0,
+   "end": 6.0,
+   "text": "Antes mesmo de abrir os olhos, a mão dele já procurava o celular."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.0,
+   "end": 11.0,
+   "text": "Uma notificação. Uma curtida. Um vídeo curto."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.8,
+   "end": 15.8,
+   "text": "E a cada toque, o cérebro recebia uma pequena dose de dopamina."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.8,
+   "end": 20.72,
+   "text": "Dopamina não é a molécula do prazer. É a molécula da busca."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 21.8,
+   "end": 26.04,
+   "text": "Ela não diz: isso é bom. Ela diz: quero mais."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 27.0,
+   "end": 30.2,
+   "text": "E o celular foi feito para essa busca nunca terminar."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 33.0,
+   "end": 35.8,
+   "text": "O problema é que o cérebro se adapta."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 36.6,
+   "end": 41.96,
+   "text": "Quanto mais estímulo ele recebe, mais estímulo ele precisa para sentir a mesma coisa."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 43.0,
+   "end": 46.04,
+   "text": "E tudo o que é lento começa a perder a graça."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 47.6,
+   "end": 48.4,
+   "text": "Um livro."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 53.6,
+   "end": 54.72,
+   "text": "Uma conversa."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 60.6,
+   "end": 61.72,
+   "text": "Um pôr do sol."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 67.6,
+   "end": 69.76,
+   "text": "Até o silêncio virou um incômodo."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 73.4,
+   "end": 76.52,
+   "text": "À noite, ele rolava a tela até as duas da manhã."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 77.8,
+   "end": 81.88,
+   "text": "E acordava cansado, ansioso... sem entender por quê."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 84.6,
+   "end": 86.92,
+   "text": "Um dia, ele olhou o tempo de tela."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 87.6,
+   "end": 92.24,
+   "text": "Sete horas por dia. Quase metade do tempo acordado, dentro de uma tela."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 93.2,
+   "end": 96.64,
+   "text": "Então ele decidiu fazer um teste. Trinta dias."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 97.8,
+   "end": 103.08,
+   "text": "Celular fora do quarto. Notificações desligadas. Tela em preto e branco."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 104.0,
+   "end": 107.04,
+   "text": "E a primeira hora do dia, sem tela nenhuma."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 109.2,
+   "end": 111.52,
+   "text": "Os primeiros dias foram os piores."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 112.8,
+   "end": 116.56,
+   "text": "Ele sentia o celular vibrar no bolso... e o bolso estava vazio."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 117.9,
+   "end": 121.26,
+   "text": "Ficava inquieto. Irritado. Entediado."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 122.2,
+   "end": 124.68,
+   "text": "Era o cérebro pedindo a dose de sempre."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 125.4,
+   "end": 129.32,
+   "text": "Mas tédio não é perigo. É o cérebro se reajustando."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 132.0,
+   "end": 134.48,
+   "text": "Na segunda semana, alguma coisa mudou."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 135.8,
+   "end": 139.96,
+   "text": "Ele começou a dormir de verdade. E a acordar descansado."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 141.0,
+   "end": 144.12,
+   "text": "Conseguiu ler um capítulo inteiro. Depois outro."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 145.8,
+   "end": 147.0,
+   "text": "Voltou a correr."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 151.8,
+   "end": 156.28,
+   "text": "Numa conversa com um amigo, ele ouviu de verdade. E riu de verdade."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 158.0,
+   "end": 160.32,
+   "text": "E o pôr do sol voltou a ter cor."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 165.2,
+   "end": 168.08,
+   "text": "Ele não ficou mais feliz porque ganhou algo novo."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 168.8,
+   "end": 173.2,
+   "text": "Ficou mais feliz porque as coisas simples voltaram a ser suficientes."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 175.2,
+   "end": 178.32,
+   "text": "No dia trinta, ele pegou o celular de volta."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 179.4,
+   "end": 181.32,
+   "text": "Mas agora era diferente."
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 182.2,
+   "end": 185.64,
+   "text": "Ele usava o celular. O celular não usava mais ele."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 186.8,
+   "end": 190.56,
+   "text": "O problema nunca foi a tela. Era quem estava no controle."
+  },
+  {
+   "id": 40,
+   "audio": "audio/l40.wav",
+   "start": 194.0,
+   "end": 197.2,
+   "text": "Em trinta dias, ele recuperou cinco coisas."
+  },
+  {
+   "id": 41,
+   "audio": "audio/l41.wav",
+   "start": 198.0,
+   "end": 202.4,
+   "text": "Sono. Sem tela na cama, o corpo voltou a entender quando é noite."
+  },
+  {
+   "id": 42,
+   "audio": "audio/l42.wav",
+   "start": 203.6,
+   "end": 208.16,
+   "text": "Foco. A atenção, que vivia picotada, voltou a durar."
+  },
+  {
+   "id": 43,
+   "audio": "audio/l43.wav",
+   "start": 209.0,
+   "end": 213.32,
+   "text": "Presença. As pessoas voltaram a ter a atenção inteira dele."
+  },
+  {
+   "id": 44,
+   "audio": "audio/l44.wav",
+   "start": 214.4,
+   "end": 217.92,
+   "text": "Energia. O tempo que ia para a tela virou movimento."
+  },
+  {
+   "id": 45,
+   "audio": "audio/l45.wav",
+   "start": 219.2,
+   "end": 223.36,
+   "text": "Calma. Sem a busca constante, a ansiedade dele baixou."
+  },
+  {
+   "id": 46,
+   "audio": "audio/l46.wav",
+   "start": 225.0,
+   "end": 227.96,
+   "text": "E tudo isso começou com uma decisão simples."
+  },
+  {
+   "id": 38,
+   "audio": "audio/l38.wav",
+   "start": 231.0,
+   "end": 232.84,
+   "text": "Desligue o automático.",
+   "nocap": true
+  },
+  {
+   "id": 39,
+   "audio": "audio/l39.wav",
+   "start": 234.0,
+   "end": 235.6,
+   "text": "Recupere a sua atenção.",
+   "nocap": true
+  }
+ ]
+}
