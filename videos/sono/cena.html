@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>O LADRÃO DAS 2 DA MANHÃ</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>
+    <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f7a"/>
+      <stop offset="45%" stop-color="#e0607e"/>
+      <stop offset="80%" stop-color="#ffa45c"/>
+      <stop offset="100%" stop-color="#ffd27a"/>
+    </linearGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script src="../_lib/rig.js"></script>
+<script>
+window.TL = window.TL || { lines: [], duration: 247 };
+const PURPLE = "#8b6ad8", GOLD = "#ffd27a", GREEN = "#30a46c", REDC = "#e5484d", MOONC = "#7c8cff";
+const JARS = [["MEMÓRIA", "#7c8cff"], ["PACIÊNCIA", "#30a46c"], ["FOCO", "#4fd1ff"], ["HUMOR", "#ffd27a"], ["ENERGIA", "#ff9f1c"]];
+const JX = i => 700 + i * 130, JY = 250;
+// steal schedule [jar, start]  (thief grabs ~1.6s after start)
+const stealT = () => [[0, S(5) - 0.4], [1, S(7) - 0.4], [2, S(9) - 0.5], [3, S(10) - 0.4], [4, S(10) + 0.4]];
+function jarState(t, i) {
+  const st = stealT().find(s => s[0] === i);
+  const taken = t > st[1] + 1.7 && t < S(32) + i * 0.95;
+  const back = seg(t, S(32) + i * 0.95, S(32) + i * 0.95 + 0.5);
+  return { full: taken ? 0 : (t >= S(32) ? back : 1), grab: inR(t, st[1] + 1.4, st[1] + 1.9) ? (t - st[1] - 1.4) / 0.5 : 0 };
+}
+
+// ---------- the thief ----------
+function thief(x, y, sc, dir, alpha, t, opts = {}) {
+  if (alpha <= 0) return "";
+  const bob = Math.sin(t * 3) * 6;
+  let o = `<g opacity="${alpha}" transform="translate(${x} ${y + bob}) scale(${sc * dir} ${sc})">`;
+  o += `<ellipse cx="0" cy="40" rx="160" ry="200" fill="#6b4fa0" opacity="0.18" style="mix-blend-mode:screen"/>`;
+  // sack on the back
+  const fill = opts.sack || 0;
+  o += `<g transform="translate(-70 -20) rotate(-12)"><path d="M -50 -40 Q -70 60 -20 80 Q 40 90 50 30 Q 40 -40 0 -50 Z" fill="#4a4258" stroke="${INK}" stroke-width="6"/>`;
+  for (let i = 0; i < fill; i++) o += `<circle cx="${-14 + (i % 3) * 16}" cy="${10 + Math.floor(i / 3) * 20}" r="10" fill="${JARS[i][1]}" opacity="0.8"/>`;
+  o += `<path d="M -10 -50 L 10 -70" stroke="${INK}" stroke-width="6"/></g>`;
+  // legs (dangling, hovering)
+  o += `<path d="M -20 90 Q -30 140 -18 180" fill="none" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M -20 90 Q -30 140 -18 180" fill="none" stroke="#241c3a" stroke-width="14" stroke-linecap="round"/>`;
+  o += `<path d="M 22 90 Q 30 140 34 176" fill="none" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M 22 90 Q 30 140 34 176" fill="none" stroke="#241c3a" stroke-width="14" stroke-linecap="round"/>`;
+  // body
+  o += `<path d="M -60 100 C -70 0 -50 -70 0 -80 C 50 -70 70 0 60 100 Z" fill="#241c3a" stroke="${INK}" stroke-width="7"/>`;
+  // arm (reaching or sneaky)
+  const reach = opts.reach || 0;
+  const hx = lerp(55, 150, reach), hy = lerp(30, -110, reach);
+  o += `<path d="M 40 -30 Q ${lerp(90, 110, reach)} ${lerp(20, -60, reach)} ${hx} ${hy}" fill="none" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M 40 -30 Q ${lerp(90, 110, reach)} ${lerp(20, -60, reach)} ${hx} ${hy}" fill="none" stroke="#241c3a" stroke-width="14" stroke-linecap="round"/>`;
+  o += `<circle cx="${hx}" cy="${hy}" r="14" fill="#241c3a" stroke="${INK}" stroke-width="5"/>`;
+  // head + mask + glowing eyes
+  o += `<circle cx="0" cy="-120" r="62" fill="#241c3a" stroke="${INK}" stroke-width="7"/>`;
+  o += `<path d="M -64 -134 Q 0 -150 64 -134 L 64 -106 Q 0 -120 -64 -106 Z" fill="#6b4fa0" stroke="${INK}" stroke-width="5"/>`;
+  const look = opts.look || 0, sh = opts.shrug || 0;
+  o += `<ellipse cx="${-22 + look}" cy="-122" rx="10" ry="${8 - 4 * sh}" fill="${GOLD}"/><ellipse cx="${22 + look}" cy="-122" rx="10" ry="${8 - 4 * sh}" fill="${GOLD}"/>`;
+  o += `<ellipse cx="${-22 + look}" cy="-122" rx="22" ry="18" fill="${GOLD}" opacity="0.25" style="mix-blend-mode:screen"/><ellipse cx="${22 + look}" cy="-122" rx="22" ry="18" fill="${GOLD}" opacity="0.25" style="mix-blend-mode:screen"/>`;
+  if (sh > 0) o += `<path d="M -30 -84 Q 0 ${-84 + 10 * sh} 30 -84" fill="none" stroke="${GOLD}" stroke-width="5" stroke-linecap="round"/>`;
+  return o + `</g>`;
+}
+
+// ---------- bedroom ----------
+function bedroom(t, mode) {
+  // mode: night (phone), protected (asleep), morning
+  const night = mode !== "morning";
+  const warm = mode === "morning" ? seg(t, S(31) - 0.6, S(31) + 2) : 0;
+  let o = roomBg(night ? 0.05 : 0.9, warm);
+  // curtains (closed when protected)
+  const cur = mode === "protected" ? 1 : (inR(t, S(23) - 0.4, S(27) - 0.8) ? seg(t, S(23) + 1.0, S(23) + 2.5) : 0);
+  if (cur > 0) o += `<rect x="252" y="192" width="${188 * cur}" height="376" fill="#3a2f48" stroke="${INK}" stroke-width="5"/><rect x="${628 - 188 * cur}" y="192" width="${188 * cur}" height="376" fill="#3a2f48" stroke="${INK}" stroke-width="5"/>`;
+  o += clockAt(1580, 230, mode === "morning" ? 420 + (t - S(31)) * 2 : (mode === "protected" ? 120 : 125 + (t % 60) * 0.3));
+  // shelf + jars
+  o += `<rect x="620" y="300" width="680" height="16" fill="#5a4636" stroke="${INK}" stroke-width="4"/>`;
+  JARS.forEach(([name, col], i) => {
+    const s = jarState(t, i), x = JX(i), y = JY;
+    o += `<rect x="${x - 34}" y="${y - 40}" width="68" height="88" rx="14" fill="#cfd8e3" fill-opacity="0.15" stroke="#cfd8e3" stroke-width="4"/><rect x="${x - 22}" y="${y - 52}" width="44" height="14" rx="4" fill="#5d6675" stroke="${INK}" stroke-width="3"/>`;
+    if (s.full > 0) o += `<rect x="${x - 28}" y="${y - 34 + 76 * (1 - s.full)}" width="56" height="${76 * s.full}" rx="10" fill="${col}" opacity="0.85"/><ellipse cx="${x}" cy="${y}" rx="70" ry="70" fill="${col}" opacity="${0.18 * s.full}" style="mix-blend-mode:screen"/>`;
+    o += `<text class="hand" x="${x}" y="${y + 92}" font-size="22" text-anchor="middle" fill="#cfd8e3" opacity="${seg(t, S(4), S(4) + 0.5)}">${name}</text>`;
+  });
+  // headboard, pillow, nightstand
+  o += `<rect x="700" y="380" width="520" height="380" rx="40" fill="#5a4636" stroke="${INK}" stroke-width="7"/><ellipse cx="960" cy="500" rx="190" ry="66" fill="#e9e4d8" stroke="${INK}" stroke-width="6"/>`;
+  o += `<rect x="1310" y="640" width="200" height="220" rx="8" fill="#45382f" stroke="${INK}" stroke-width="6"/><path d="M 1350 580 L 1470 580 L 1440 520 L 1380 520 Z" fill="#e9c46a" stroke="${INK}" stroke-width="5"/><rect x="1395" y="580" width="30" height="60" fill="#d9d4c7" stroke="${INK}" stroke-width="4"/>`;
+  const lampOn = mode === "protected" ? 0 : (inR(t, S(21) - 0.4, S(27) - 0.8) ? 1 : 0);
+  if (lampOn) o += `<ellipse cx="1410" cy="560" rx="260" ry="200" fill="url(#gLamp)" opacity="0.6" style="mix-blend-mode:screen"/>`;
+  const P = { x: 960, c: JOSEPH, ...face({}) };
+  let phone = mode === "night", glow = phone;
+  if (mode === "night" && inR(t, S(21) - 0.4, S(27) - 0.8)) { phone = t < S(22) - 0.6; glow = phone; }
+  if (mode === "protected") {
+    // asleep, lying: head turned on the pillow, blanket up to the chin
+    P.lid = 1; P.smile = 4; P.zzz = true;
+    o += `<g transform="rotate(-72 960 470) translate(0 70)">${personHead(P, t)}</g>`;
+    o += `<path d="M 560 1100 L 560 560 Q 960 520 1360 560 L 1360 1100 Z" fill="#3d5a80" stroke="${INK}" stroke-width="7"/><path d="M 600 600 Q 960 560 1320 600" fill="none" stroke="#2c4462" stroke-width="6"/>`;
+  } else {
+    if (mode === "morning") { P.smile = 11; P.lid = blink(t, 0.05); P.look = [-4, -2]; P.browUp = 3; }
+    else { P.look = phone ? [0, 9] : [0, 5]; P.lid = blink(t, 0.3); P.bags = cl((t - S(5)) / 40); P.smile = phone ? 2 : 4; }
+    o += personBack(P);
+    if (mode === "morning") o += armsBehindHead(P, seg(t, S(33) - 1, S(33)));
+    o += personHead(P, t);
+    o += `<path d="M 560 1100 L 560 660 Q 960 600 1360 660 L 1360 1100 Z" fill="#3d5a80" stroke="${INK}" stroke-width="7"/><path d="M 600 700 Q 960 650 1320 700" fill="none" stroke="#2c4462" stroke-width="6"/>`;
+    if (mode !== "morning") {
+      const hR = [1000, 560], hL = [920, 560];
+      if (phone) o += armF([1060, 565], hR, JOSEPH.hood) + armF([860, 565], hL, JOSEPH.hood) + phoneBody([960, 556], 1, t) + handC(hR, JOSEPH.skin) + handC(hL, JOSEPH.skin);
+      else o += armF([1060, 565], [1040, 600], JOSEPH.hood) + armF([860, 565], [880, 600], JOSEPH.hood) + book([960, 590], 190, 150) + handC([1040, 600], JOSEPH.skin) + handC([880, 600], JOSEPH.skin);
+      if (glow) o += `<rect x="927" y="493" width="66" height="126" rx="7" fill="#4fd1ff" opacity="0.85"/><ellipse cx="960" cy="440" rx="170" ry="190" fill="url(#gPhone)" opacity="0.35" style="mix-blend-mode:screen"/>`;
+    }
+  }
+  o += `<rect x="-600" y="-400" width="3120" height="1900" fill="#000" opacity="${night ? 0.32 : 0}"/>`;
+  if (warm > 0) o += `<ellipse cx="500" cy="420" rx="700" ry="520" fill="url(#gWarm)" opacity="${0.22 * warm}" style="mix-blend-mode:screen"/>`;
+  // jar glows over the darkness
+  JARS.forEach(([n, col], i) => { const s = jarState(t, i); if (s.full > 0 && night) o += `<ellipse cx="${JX(i)}" cy="${JY}" rx="46" ry="52" fill="${col}" opacity="${0.25 * s.full}" style="mix-blend-mode:screen"/>`; });
+  return o;
+}
+
+function thiefLayer(t) {
+  let o = "";
+  // intro: emerges from the phone light
+  if (inR(t, S(2) + 0.6, S(5) - 0.6)) {
+    const k = seg(t, S(2) + 0.6, S(2) + 2.4);
+    o += thief(lerp(960, 1420, k), lerp(560, 600, k), lerp(0.2, 1, k), -1, seg(t, S(2) + 0.6, S(2) + 1.2) * (1 - seg(t, S(5) - 1.2, S(5) - 0.6)), t, { look: -8 });
+    // label
+    const lab = seg(t, S(3), S(3) + 0.4) * (1 - seg(t, S(5) - 1.2, S(5) - 0.6));
+    if (lab > 0) o += `<g opacity="${lab}" transform="translate(1420 300)"><rect x="-190" y="-36" width="380" height="64" rx="32" fill="#12151c" stroke="${PURPLE}" stroke-width="4"/><text class="hand" x="0" y="10" font-size="38" text-anchor="middle" fill="${PURPLE}">LADRÃO DO SONO</text></g>`;
+  }
+  // thefts
+  for (const [i, a] of stealT()) {
+    if (!inR(t, a, a + 3.4)) continue;
+    const u = t - a, jx = JX(i), jy = JY + 150;
+    let x, y, dir = -1, reach = 0;
+    if (u < 1.2) { const k = sm(u / 1.2); x = lerp(1450, jx + 150, k); y = lerp(600, jy, k); }
+    else if (u < 2.0) { x = jx + 150; y = jy; reach = Math.sin(cl((u - 1.2) / 0.8) * Math.PI); }
+    else { const k = sm((u - 2.0) / 1.4); x = lerp(jx + 150, 260, k); y = lerp(jy, 360, k); dir = 1; }
+    const alpha = seg(t, a, a + 0.3) * (1 - seg(t, a + 3.0, a + 3.4));
+    o += thief(x, y, 0.85, dir, alpha, t, { reach, sack: i + (u > 1.7 ? 1 : 0) });
+    if (inR(u, 1.4, 1.9)) { const k = (u - 1.4) / 0.5; o += `<circle cx="${lerp(jx, x - 60, k)}" cy="${lerp(JY, y - 20, k)}" r="${24 * (1 - k * 0.5)}" fill="${JARS[i][1]}" opacity="${1 - k * 0.3}"/>`; }
+  }
+  // protected night: comes, finds nothing, leaves
+  if (inR(t, S(27) + 0.2, S(31) - 0.8)) {
+    const a = S(27) + 0.2;
+    const x = kf(t, [[a, 260], [a + 2.0, 700], [S(28) + 1.0, 1100], [S(29), 1150], [S(30), 1150], [E(30) + 1.0, 260]]);
+    const y = kf(t, [[a, 360], [a + 2.0, 520], [S(28) + 1.0, 420], [S(29), 400], [S(30), 400], [E(30) + 1.0, 360]]);
+    const reach = inR(t, S(29) - 0.6, S(29) + 0.8) ? Math.sin(cl((t - S(29) + 0.6) / 1.4) * Math.PI) * 0.7 : 0;
+    const shrug = seg(t, S(30) - 0.2, S(30) + 0.4) * (1 - seg(t, E(30) + 0.2, E(30) + 0.6));
+    const alpha = seg(t, a, a + 0.6) * (1 - seg(t, E(30) + 0.6, E(30) + 1.2));
+    const look = Math.sin(t * 2.5) * 10;
+    o += thief(x, y, 0.85, t > S(30) + 0.4 ? 1 : -1, alpha, t, { reach, look, shrug, sack: 0 });
+    if (shrug > 0.5) o += `<text class="hand" x="${x}" y="${y - 230}" font-size="60" text-anchor="middle" fill="${GOLD}" opacity="${shrug}">?</text>`;
+  }
+  return o;
+}
+
+// ---------- day vignettes ----------
+function dayDesk(t, kind) {
+  let o = roomBg(0.9, 0);
+  o += clockAt(1560, 250, 600 + (t % 60));
+  const P = { x: 960, c: JOSEPH, ...face({}) };
+  P.bags = 0.8; P.lid = blink(t, 0.3);
+  let hR = [1040, 610], hL = [880, 610], extra = "", bk = null, mug = 0;
+  if (kind === "memory") {
+    P.look = [Math.sin(t * 2) * 10, -4]; P.browUp = 10; P.mouthW = 10; P.smile = -3;
+    hR = [1150, 500]; hL = [770, 500];
+    extra += `<text class="hand" x="1220" y="330" font-size="90" fill="${MOONC}">?</text><text class="hand" x="660" y="300" font-size="70" fill="${MOONC}">?</text>`;
+    const b1 = seg(t, S(6) + 0.6, S(6) + 1.0), b2 = seg(t, S(6) + 2.8, S(6) + 3.2);
+    extra += chipText(1350, 470, "🔑 cadê?", MOONC, b1) + chipText(600, 470, "Oi, éé... ???", MOONC, b2);
+  } else if (kind === "patience") {
+    P.browAng = 1; P.smile = -7; P.look = [Math.sin(t * 4) * 8, 0]; P.bob = Math.sin(t * 20) * 2;
+    for (let i = 0; i < 3; i++) { const a = S(8) + 0.8 + i * 1.1; const op = seg(t, a, a + 0.3); extra += chipText([620, 1300, 960][i], [420, 420, 220][i], ["📢 barulho", "❓ pergunta", "🚗 trânsito"][i], REDC, op); }
+    for (let i = 0; i < 4; i++) { const a = (i / 4) * Math.PI * 2 + t * 3; extra += `<path d="M ${960 + Math.cos(a) * 150} ${330 + Math.sin(a) * 30} l 14 -18" stroke="${REDC}" stroke-width="7" stroke-linecap="round"/>`; }
+  } else if (kind === "focus") {
+    P.look = [0, 9]; P.browSad = 0.6; bk = [960, 590];
+    const n = Math.min(3, 1 + Math.floor((t - (S(9) + 1.6)) / 1.0));
+    for (let i = 0; i < n; i++) extra += `<g transform="translate(1220 ${300 + i * 70})"><rect x="-10" y="-36" width="430" height="56" rx="12" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><text class="hand" x="10" y="2" font-size="30" fill="${INK}">"a mesma frase..."  ×${i + 1}</text></g>`;
+  } else { // gloom + coffee
+    P.lid = blink(t, 0.5); P.smile = -6; P.browSad = 0.8; P.look = [0, 4];
+    const bat = 0.12;
+    extra += `<g transform="translate(960 230)"><rect x="-60" y="-28" width="110" height="56" rx="8" fill="none" stroke="${REDC}" stroke-width="6"/><rect x="50" y="-12" width="12" height="24" fill="${REDC}"/><rect x="-52" y="-20" width="${94 * bat}" height="40" fill="${REDC}"/></g>`;
+    mug = t > S(11) ? Math.min(5, 1 + Math.floor((t - S(11)) / 0.9)) : 0;
+    if (t > S(11)) { hR = [1010, 520]; }
+  }
+  o += personBack(P) + personHead(P, t) + deskFront(false);
+  for (let i = 0; i < mug; i++) o += `<g transform="translate(${1150 + i * 40} ${600 - (i % 2) * 6})"><rect x="-22" y="-30" width="44" height="50" rx="8" fill="#e9e4d8" stroke="${INK}" stroke-width="4"/><path d="M 22 -20 q 16 6 0 22" fill="none" stroke="${INK}" stroke-width="4"/></g>`;
+  o += armF([1060, 565], hR, JOSEPH.hood) + armF([860, 565], hL, JOSEPH.hood);
+  if (bk) o += book(bk, 190, 150);
+  if (mug) o += `<rect x="985" y="480" width="50" height="60" rx="8" fill="#e9e4d8" stroke="${INK}" stroke-width="5"/>`;
+  o += handC(hR, JOSEPH.skin) + handC(hL, JOSEPH.skin) + extra;
+  return o;
+}
+function chipText(x, y, txt, col, op) { return op <= 0 ? "" : `<g opacity="${op}" transform="translate(${x} ${y})"><rect x="${-txt.length * 11 - 24}" y="-32" width="${txt.length * 22 + 48}" height="60" rx="30" fill="#12151c" stroke="${col}" stroke-width="4"/><text class="hand" x="0" y="10" font-size="34" text-anchor="middle" fill="${col}">${txt}</text></g>`; }
+
+// ---------- explainer ----------
+function eduPanel(t) {
+  const a = S(12) - 0.6, b = S(18) - 0.6;
+  const vis = seg(t, a, a + 0.5) * (1 - seg(t, b - 0.5, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="0" y="0" width="1920" height="1080" fill="#0a0c14"/>`;
+  for (let i = 0; i < 40; i++) o += `<circle cx="${hash(i) * 1920}" cy="${hash(i + 7) * 1000}" r="${1 + hash(i + 3) * 2}" fill="#fff" opacity="${0.3 + 0.3 * Math.sin(t + i)}"/>`;
+  const part = (s, e) => seg(t, s, s + 0.4) * (1 - seg(t, e - 0.4, e));
+  // 12: coffee ≠ sleep
+  let p = part(S(12) - 0.4, S(13) - 0.3);
+  if (p > 0) o += `<g opacity="${p}"><text x="560" y="600" font-size="200">☕</text><text class="hand" x="960" y="580" font-size="160" text-anchor="middle" fill="${REDC}">≠</text><text x="1180" y="600" font-size="200">😴</text></g>`;
+  // 13: memory filing
+  p = part(S(13) - 0.3, S(14) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}"><text class="hand" x="960" y="230" font-size="64" text-anchor="middle" fill="${MOONC}">MEMÓRIA</text><path d="M 760 560 C 700 420 860 340 960 380 C 1060 330 1220 420 1160 560 C 1180 660 1020 700 960 650 C 900 700 740 660 760 560 Z" fill="#e9a6c0" stroke="${INK}" stroke-width="8"/><path d="M 960 390 Q 940 500 960 640" fill="none" stroke="#b97a95" stroke-width="6"/>`;
+    for (let i = 0; i < 5; i++) { const k = ((t - S(13)) * 0.8 + i / 5) % 1; o += `<text x="${lerp(380, 860, k)}" y="${lerp(420 + i * 30, 520, k)}" font-size="44" opacity="${1 - k * 0.6}">📄</text>`; }
+    o += `<rect x="1300" y="440" width="200" height="200" rx="12" fill="#5a4636" stroke="${INK}" stroke-width="6"/><rect x="1320" y="460" width="160" height="70" rx="6" fill="#6a5442" stroke="${INK}" stroke-width="4"/><rect x="1320" y="550" width="160" height="70" rx="6" fill="#6a5442" stroke="${INK}" stroke-width="4"/><path d="M 1180 540 L 1290 540" stroke="${MOONC}" stroke-width="8" stroke-linecap="round"/></g>`;
+  }
+  // 14: emotions
+  p = part(S(14) - 0.3, S(15) - 0.3);
+  if (p > 0) {
+    const k = seg(t, S(14) + 2.2, S(14) + 3.2);
+    o += `<g opacity="${p}"><text class="hand" x="960" y="230" font-size="64" text-anchor="middle" fill="${GREEN}">EMOÇÕES</text>`;
+    o += `<text class="hand" x="560" y="360" font-size="44" text-anchor="middle" fill="#cfd8e3">noite boa</text><text x="${560 - 60}" y="560" font-size="${130}">🙂</text><text class="hand" x="560" y="700" font-size="40" text-anchor="middle" fill="#cfd8e3">problema = pequeno</text>`;
+    o += `<text class="hand" x="1360" y="360" font-size="44" text-anchor="middle" fill="#cfd8e3" opacity="${k}">noite ruim</text><text x="${1360 - 60 - 30 * k}" y="560" font-size="${130 + 60 * k}" opacity="${k}">😫</text><text class="hand" x="1360" y="700" font-size="${40 + 20 * k}" text-anchor="middle" fill="${REDC}" opacity="${k}">problema = ENORME</text></g>`;
+  }
+  // 15: body
+  p = part(S(15) - 0.3, S(16) - 0.3);
+  if (p > 0) {
+    o += `<g opacity="${p}"><text class="hand" x="960" y="230" font-size="64" text-anchor="middle" fill="#ff9f1c">O CORPO SE RECUPERA</text>`;
+    [["💪", "músculos"], ["🛡️", "defesas"], ["🍽️", "apetite"]].forEach(([ic, lab], i) => { const s = seg(t, S(15) + 1.0 + i * 0.8, S(15) + 1.4 + i * 0.8); o += `<g opacity="${s}"><text x="${520 + i * 400}" y="560" font-size="150" text-anchor="middle">${ic}</text><text class="hand" x="${520 + i * 400}" y="680" font-size="48" text-anchor="middle" fill="#cfd8e3">${lab}</text></g>`; });
+    o += `</g>`;
+  }
+  // 16-17: hours
+  p = part(S(16) - 0.3, b);
+  if (p > 0) {
+    const X0 = 360, X1 = 1560, hx = h => lerp(X0, X1, h / 10);
+    o += `<g opacity="${p}"><text class="hand" x="960" y="260" font-size="64" text-anchor="middle" fill="${MOONC}">HORAS DE SONO POR NOITE</text>`;
+    o += `<rect x="${X0}" y="480" width="${X1 - X0}" height="60" rx="30" fill="#1a1d24" stroke="#3a4150" stroke-width="4"/>`;
+    const band = seg(t, S(16) + 1.0, S(16) + 2.0);
+    o += `<rect x="${hx(7)}" y="480" width="${(hx(9) - hx(7)) * band}" height="60" rx="30" fill="${GREEN}"/><text class="hand" x="${hx(8)}" y="450" font-size="52" text-anchor="middle" fill="${GREEN}" opacity="${band}">7 a 9 h</text>`;
+    for (let h = 0; h <= 10; h++) o += `<line x1="${hx(h)}" y1="550" x2="${hx(h)}" y2="570" stroke="#8f99a3" stroke-width="3"/><text class="sans" x="${hx(h)}" y="600" font-size="22" text-anchor="middle" fill="#8f99a3">${h}h</text>`;
+    const j = seg(t, S(17), S(17) + 0.5);
+    o += `<g opacity="${j}"><path d="M ${hx(5)} 470 L ${hx(5) - 20} 420 L ${hx(5) + 20} 420 Z" fill="${REDC}"/><text class="hand" x="${hx(5)}" y="400" font-size="48" text-anchor="middle" fill="${REDC}">JOSEPH: 5 h</text></g></g>`;
+  }
+  return o + `</g>`;
+}
+
+// ---------- techniques ----------
+const ICON = {
+  clock: `<circle r="90" fill="none" stroke="${MOONC}" stroke-width="12"/><line y2="-55" stroke="#f4efe6" stroke-width="10" stroke-linecap="round"/><line y2="-70" stroke="#f4efe6" stroke-width="6" stroke-linecap="round" transform="rotate(330)"/>`,
+  screen: `<rect x="-40" y="-75" width="80" height="150" rx="14" fill="#14161a" stroke="#4fd1ff" stroke-width="6"/><line x1="-80" y1="-80" x2="80" y2="80" stroke="${REDC}" stroke-width="12" stroke-linecap="round"/>`,
+  dark: `<text x="-120" y="30" font-size="90">🌙</text><text x="0" y="30" font-size="90">🔇</text>`,
+  coffee: `<text x="-60" y="30" font-size="110">☕</text>`,
+  sun: `<circle r="60" fill="${GOLD}"/>${[...Array(8)].map((_, i) => `<line x1="${Math.cos(i * 0.785) * 80}" y1="${Math.sin(i * 0.785) * 80}" x2="${Math.cos(i * 0.785) * 110}" y2="${Math.sin(i * 0.785) * 110}" stroke="${GOLD}" stroke-width="10" stroke-linecap="round"/>`).join("")}`,
+};
+function weekPanel(t, a, b) {
+  const vis = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b)); if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="300" y="380" width="1320" height="260" rx="24" fill="#0f1218" fill-opacity="0.94" stroke="#2b3240" stroke-width="3"/>`;
+  "SEG TER QUA QUI SEX SÁB DOM".split(" ").forEach((d, i) => { const s = seg(t, a + 0.4 + i * 0.3, a + 0.7 + i * 0.3); o += `<g opacity="${s}"><text class="hand" x="${400 + i * 185}" y="460" font-size="40" text-anchor="middle" fill="#cfd8e3">${d}</text><text class="hand" x="${400 + i * 185}" y="520" font-size="34" text-anchor="middle" fill="${MOONC}">23h</text><text class="hand" x="${400 + i * 185}" y="575" font-size="34" text-anchor="middle" fill="${GOLD}">7h</text></g>`; });
+  return o + `</g>`;
+}
+function coffeePanel(t, a, b) {
+  const vis = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b)); if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="300" y="360" width="1320" height="300" rx="24" fill="#0f1218" fill-opacity="0.94" stroke="#2b3240" stroke-width="3"/>`;
+  const X0 = 380, X1 = 1540, hx = h => lerp(X0, X1, (h - 6) / 18);
+  o += `<rect x="${X0}" y="480" width="${hx(14) - X0}" height="40" rx="20" fill="${GREEN}"/><rect x="${hx(14)}" y="480" width="${X1 - hx(14)}" height="40" rx="20" fill="${REDC}" opacity="0.8"/>`;
+  for (const h of [6, 10, 14, 18, 22]) o += `<text class="sans" x="${hx(h)}" y="570" font-size="26" text-anchor="middle" fill="#8f99a3">${h}h</text>`;
+  o += `<text x="${hx(8) - 30}" y="460" font-size="56">☕</text><text x="${hx(12) - 30}" y="460" font-size="56">☕</text><text x="${hx(17) - 30}" y="460" font-size="56" opacity="0.5">☕</text><text class="hand" x="${hx(17)}" y="440" font-size="60" text-anchor="middle" fill="${REDC}">✕</text>`;
+  o += `<text class="hand" x="960" y="630" font-size="38" text-anchor="middle" fill="#cfd8e3" opacity="${seg(t, S(25), S(25) + 0.4)}">a cafeína fica horas no corpo</text>`;
+  return o + `</g>`;
+}
+
+// ---------- render ----------
+function render(t) {
+  const st = stealT();
+  const end = S(35) - 1.5;
+  let o = "", scene;
+  if (t < S(6) - 0.6) scene = ["bed", "night"];
+  else if (t < S(7) - 0.6) scene = ["day", "memory"];
+  else if (t < S(8) - 0.5) scene = ["bed", "night"];
+  else if (t < S(9) - 0.6) scene = ["day", "patience"];
+  else if (t < S(9) + 1.6) scene = ["bed", "night"];
+  else if (t < S(10) - 0.5) scene = ["day", "focus"];
+  else if (t < S(10) + 2.2) scene = ["bed", "night"];
+  else if (t < S(12) - 0.6) scene = ["day", "gloom"];
+  else if (t < S(18) - 0.6) scene = ["edu"];
+  else if (t < S(27) - 0.8) scene = ["bed", "night"];
+  else if (t < S(31) - 0.8) scene = ["bed", "protected"];
+  else scene = ["bed", "morning"];
+  if (t < end) {
+    let cs = 1.12, fx = 960, fy = 500;
+    if (scene[0] === "day") { cs = 1.25; fy = 520; }
+    let inner = scene[0] === "bed" ? bedroom(t, scene[1]) : scene[0] === "day" ? dayDesk(t, scene[1]) : "";
+    if (scene[0] === "bed") inner += thiefLayer(t);
+    o += `<g transform="translate(960 540) scale(${cs}) translate(${-fx} ${-fy})">${inner}</g>`;
+    o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+    o += eduPanel(t);
+    o += techCard(t, S(19) - 0.2, S(20) - 0.3, E(20) + 2.0, "1", "HORÁRIO FIXO", "Dormir e acordar na mesma hora.", ICON.clock, MOONC) + weekPanel(t, S(20) - 0.3, E(20) + 2.0);
+    o += techCard(t, S(21) - 0.2, S(22) - 0.3, E(22) + 2.4, "2", "TELAS FORA 1 HORA ANTES", "A luz diz ao cérebro que é dia.", ICON.screen, MOONC);
+    o += techCard(t, S(23) - 0.2, S(23) + 1.0, S(24) - 0.5, "3", "ESCURO, SILENCIOSO E FRESCO", "Cortina fechada, quarto calmo.", ICON.dark, MOONC);
+    o += techCard(t, S(24) - 0.2, S(25) - 0.3, E(25) + 2.4, "4", "CAFÉ SÓ ATÉ A TARDE", "A cafeína fica horas no corpo.", ICON.coffee, MOONC) + coffeePanel(t, S(25) - 0.3, E(25) + 2.4);
+    o += techCard(t, S(26) - 0.2, S(26) + 2.6, E(26) + 2.6, "5", "SOL DE MANHÃ", "Acerta o relógio do corpo.", ICON.sun, MOONC);
+    o += recapCards(t, S(34) - 0.8, end, "COMO PROTEGER O SEU SONO", [
+      [S(34) + 1.2, "HORÁRIO FIXO", "todo dia", ICON.clock, MOONC], [S(34) + 2.6, "SEM TELA", "1 h antes", ICON.screen, MOONC],
+      [S(34) + 4.2, "ESCURO", "e fresco", ICON.dark, MOONC], [S(34) + 5.6, "CAFÉ", "só até a tarde", ICON.coffee, MOONC], [S(34) + 6.8, "SOL", "de manhã", ICON.sun, MOONC]]);
+    o += cornerLabel(scene[0] === "bed" && scene[1] !== "morning" ? "02:00" : "", 0);
+  }
+  o += letterbox() + captions(t);
+  let black = Math.max(1 - seg(t, 0, 1.2), seg(t, end - 0.6, end));
+  for (const x of [S(6) - 0.6, S(7) - 0.6, S(8) - 0.5, S(9) - 0.6, S(9) + 1.6, S(10) - 0.5, S(10) + 2.2, S(12) - 0.6, S(18) - 0.6, S(27) - 0.8, S(31) - 0.8]) black = Math.max(black, dip(t, x - 0.3, x, x, x + 0.3));
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${black}"/>`;
+  if (t >= end) o += quotes(t, [["Dormir não é perder tempo.", S(35), S(36) - 0.1, "#cfc9bd", 100], ["É onde você se recupera.", S(36), S(37) - 0.1, "#f4efe6", 100], ["Proteja o seu sono.", S(37), E(37) + 2.0, MOONC, 130]]);
+  o += titleCard(t, E(37) + 2.2, "O LADRÃO DAS 2 DA MANHÃ", MOONC, 120);
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+</script>
+</body>
+</html>

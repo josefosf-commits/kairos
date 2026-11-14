@@ -1,0 +1,2 @@
+{"t": 196.44, "filter": "brightness(1.25) saturate(1.2)",
+ "overlay": "<text class='hand' x='480' y='300' font-size='210' text-anchor='middle' fill='#30a46c' stroke='#000' stroke-width='24' paint-order='stroke'>+1%</text><text class='hand' x='1440' y='300' font-size='210' text-anchor='middle' fill='#e5484d' stroke='#000' stroke-width='24' paint-order='stroke'>−1%</text><text class='hand' x='960' y='990' font-size='120' text-anchor='middle' fill='#f4efe6' stroke='#000' stroke-width='18' paint-order='stroke'>365 DIAS DEPOIS</text>"}

@@ -1,0 +1,269 @@
+{
+ "name": "O-LADRAO-DAS-2-DA-MANHA",
+ "duration": 246.86,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 2.5,
+   "end": 6.9,
+   "text": "Toda noite, por volta das duas da manhã, alguém entrava no quarto do Joseph."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 8.1,
+   "end": 12.1,
+   "text": "Ele não arrombava a porta. Entrava pela luz da tela."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 13.6,
+   "end": 15.04,
+   "text": "Era o Ladrão do Sono."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.24,
+   "end": 20.08,
+   "text": "E ele só conseguia roubar enquanto o Joseph continuava acordado."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 24.08,
+   "end": 26.96,
+   "text": "Na primeira noite, ele levou um pouco de memória."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.46,
+   "end": 33.34,
+   "text": "No dia seguinte, o Joseph esqueceu onde deixou as chaves. E o nome de um colega."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 37.34,
+   "end": 39.9,
+   "text": "Na segunda noite, levou a paciência."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 41.4,
+   "end": 46.04,
+   "text": "Qualquer coisa irritava. Um barulho. Uma pergunta. O trânsito."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 50.04,
+   "end": 54.68,
+   "text": "Depois, o foco. Ele lia a mesma frase três vezes."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 56.68,
+   "end": 59.8,
+   "text": "Depois, o humor. E a energia."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 61.3,
+   "end": 65.38,
+   "text": "E o Joseph achava que era só cansaço. Que o café resolvia."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 69.38,
+   "end": 72.42,
+   "text": "Mas o que o sono faz, o café não faz."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 73.92,
+   "end": 79.2,
+   "text": "Enquanto você dorme, o cérebro organiza o que aprendeu no dia e guarda na memória."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 80.7,
+   "end": 86.38,
+   "text": "Ele regula as emoções. Por isso, depois de uma noite ruim, tudo parece maior do que é."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 87.88,
+   "end": 92.04,
+   "text": "E o corpo se recupera: músculos, defesas, apetite."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 93.54,
+   "end": 98.26,
+   "text": "Um adulto precisa, em geral, de sete a nove horas por noite."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 99.46,
+   "end": 101.38,
+   "text": "O Joseph dormia cinco."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 105.88,
+   "end": 108.28,
+   "text": "Até que ele decidiu proteger o quarto."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 110.28,
+   "end": 115.72,
+   "text": "Primeiro: horário fixo. Dormir e acordar na mesma hora, até no fim de semana."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 116.92,
+   "end": 120.76,
+   "text": "O corpo tem um relógio. E ele funciona melhor com rotina."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 125.76,
+   "end": 130.0,
+   "text": "Segundo: uma hora antes de dormir, as telas saem de cena."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 131.2,
+   "end": 135.2,
+   "text": "A luz e o estímulo dizem pro cérebro que ainda é dia."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 140.2,
+   "end": 144.36,
+   "text": "Terceiro: quarto escuro, silencioso e fresco."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 149.36,
+   "end": 152.64,
+   "text": "Quarto: café só até o começo da tarde."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 153.84,
+   "end": 157.84,
+   "text": "A cafeína fica horas no corpo, mesmo quando você não sente."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 162.84,
+   "end": 167.88,
+   "text": "E de manhã, luz do sol. Ela acerta o relógio para a noite seguinte."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 172.88,
+   "end": 176.72,
+   "text": "Naquela noite, o Ladrão chegou às duas da manhã, como sempre."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 178.22,
+   "end": 181.66,
+   "text": "Mas não tinha tela acesa. Não tinha porta aberta."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 183.16,
+   "end": 184.92,
+   "text": "Só o Joseph, dormindo."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 186.42,
+   "end": 188.9,
+   "text": "E o Ladrão foi embora de mãos vazias."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 192.9,
+   "end": 196.5,
+   "text": "Nas semanas seguintes, as coisas voltaram, uma por uma."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 197.7,
+   "end": 202.58,
+   "text": "A memória. A paciência. O foco. O humor. A energia."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 204.08,
+   "end": 207.92,
+   "text": "Ele não virou outra pessoa. Só voltou a ser ele mesmo."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 211.92,
+   "end": 219.84,
+   "text": "Resumindo: horário fixo, telas fora uma hora antes, quarto escuro e fresco, café só até a tarde e sol pela manhã."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 226.84,
+   "end": 228.92,
+   "text": "Dormir não é perder tempo.",
+   "nocap": true
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 230.42,
+   "end": 232.02,
+   "text": "É onde você se recupera.",
+   "nocap": true
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 234.02,
+   "end": 235.86,
+   "text": "Proteja o seu sono.",
+   "nocap": true
+  }
+ ]
+}

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>1% POR DIA</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  svg { display: block; width: 1920px; height: 1080px; }
+  .hand { font-family: "Kalam", cursive; font-weight: 700; }
+  .sans { font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+<svg id="root" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gPhone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gLamp" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd38a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd38a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>
+    <linearGradient id="gSunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f7a"/>
+      <stop offset="45%" stop-color="#e0607e"/>
+      <stop offset="80%" stop-color="#ffa45c"/>
+      <stop offset="100%" stop-color="#ffd27a"/>
+    </linearGradient>
+    <clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+  </defs>
+  <g id="frame"></g>
+</svg>
+<script src="../_lib/rig.js"></script>
+<script>
+window.TL = window.TL || { lines: [], duration: 245 };
+const GREEN = "#30a46c", REDC = "#e5484d", ORANGE = "#ff9f1c";
+const dayAt = t => kf(t, [[0, 1], [S(9) - 0.6, 1], [S(9) + 0.9, 30], [S(15) - 0.6, 30], [S(15) + 1.3, 100], [E(18) + 1.0, 100], [S(31) - 1.2, 300], [S(31) + 1.4, 365]]);
+const qOf = d => Math.pow((Math.pow(1.01, d) - 1) / (Math.pow(1.01, 365) - 1), 0.35);
+const chip = (x, y, txt, col, op) => op <= 0 ? "" : `<g opacity="${op}" transform="translate(${x} ${y})"><rect x="${-txt.length * 11 - 24}" y="-30" width="${txt.length * 22 + 48}" height="56" rx="28" fill="#12151c" stroke="${col}" stroke-width="4"/><text class="hand" x="0" y="10" font-size="32" text-anchor="middle" fill="${col}">${txt}</text></g>`;
+
+function half(t, side, q) {
+  const good = side === "L";
+  const day = 1 - (good ? 0 : 0.55 * q);
+  let o = "";
+  // room
+  const wall = good ? mixc("#262a33", "#3a4250", q) : mixc("#262a33", "#14151a", q);
+  o += `<rect x="0" y="0" width="960" height="1080" fill="${wall}"/><rect x="0" y="800" width="960" height="280" fill="${good ? mixc("#181a20", "#2a2620", q) : "#101114"}"/><line x1="0" y1="800" x2="960" y2="800" stroke="${INK}" stroke-width="6"/>`;
+  const sky = good ? mixc("#5b7fa3", "#8ec5ea", q) : mixc("#5b7fa3", "#2a3442", q);
+  o += `<rect x="70" y="150" width="240" height="240" rx="8" fill="${sky}" stroke="#2b2f38" stroke-width="12"/><line x1="190" y1="150" x2="190" y2="390" stroke="#2b2f38" stroke-width="10"/>`;
+  if (good && q > 0.2) o += `<circle cx="260" cy="210" r="${26 * q}" fill="#ffe7a3" opacity="${q}"/>`;
+  if (!good) o += `<rect x="70" y="150" width="${120 * q}" height="240" fill="#4a3a3a" stroke="${INK}" stroke-width="4"/><rect x="${310 - 120 * q}" y="150" width="${120 * q}" height="240" fill="#4a3a3a" stroke="${INK}" stroke-width="4"/>`;
+  // shelf with books (left grows), dusty (right)
+  o += `<rect x="560" y="300" width="330" height="14" fill="#5a4636" stroke="${INK}" stroke-width="4"/>`;
+  const nb = good ? 2 + Math.round(q * 13) : 2;
+  const cols = ["#e5484d", "#4fd1ff", "#e9c46a", "#30a46c", "#a8dadc", "#f4a261", "#7c8cff"];
+  for (let i = 0; i < nb; i++) o += `<rect x="${570 + i * 21}" y="${300 - 60 - (i % 3) * 8}" width="18" height="${60 + (i % 3) * 8}" fill="${cols[i % 7]}" stroke="${INK}" stroke-width="3"/>`;
+  // plant
+  const ph = good ? 40 + 90 * q : 60 - 20 * q, pc = good ? "#30a46c" : mixc("#30a46c", "#8a6a3a", q);
+  o += `<g transform="translate(820 ${560})"><rect x="-30" y="0" width="60" height="50" rx="6" fill="#b5651d" stroke="${INK}" stroke-width="5"/>`;
+  for (let k = -1; k <= 1; k++) { const droop = good ? 0 : 50 * q; o += `<path d="M 0 0 Q ${k * 20} ${-ph * 0.6} ${k * (30 + droop)} ${-ph + droop * 1.4}" fill="none" stroke="${pc}" stroke-width="9" stroke-linecap="round"/>`; }
+  o += `</g>`;
+  // floor props
+  if (good) {
+    if (q > 0.25) o += `<g transform="translate(130 820)" opacity="${seg(q, 0.25, 0.35)}"><path d="M 0 0 L 70 0 Q 86 2 84 18 L -4 18 Z" fill="#eee" stroke="${INK}" stroke-width="4"/><rect x="-4" y="14" width="88" height="5" fill="${REDC}"/><path d="M 90 0 L 160 0 Q 176 2 174 18 L 86 18 Z" fill="#eee" stroke="${INK}" stroke-width="4"/></g>`;
+    if (q > 0.4) o += `<g transform="translate(780 840)" opacity="${seg(q, 0.4, 0.5)}"><rect x="-60" y="-10" width="120" height="20" rx="8" fill="#5d6675" stroke="${INK}" stroke-width="4"/><rect x="-80" y="-26" width="26" height="52" rx="6" fill="#2b3036" stroke="${INK}" stroke-width="4"/><rect x="54" y="-26" width="26" height="52" rx="6" fill="#2b3036" stroke="${INK}" stroke-width="4"/></g>`;
+  } else {
+    const np = Math.round(q * 6);
+    for (let i = 0; i < np; i++) o += `<rect x="${90 + (i % 2) * 6}" y="${850 - i * 22}" width="150" height="22" fill="#c9a26b" stroke="${INK}" stroke-width="3"/>`;
+    const nc = Math.round(q * 7);
+    for (let i = 0; i < nc; i++) o += `<rect x="${700 + i * 26}" y="${840 + (i % 2) * 14}" width="20" height="34" rx="4" fill="${REDC}" stroke="${INK}" stroke-width="3" transform="rotate(${(i % 3 - 1) * 30} ${710 + i * 26} ${857})"/>`;
+    if (q > 0.3) o += `<path d="M 380 870 q 60 -60 140 -20 q 60 -30 100 20 Z" fill="#5d6675" stroke="${INK}" stroke-width="4" opacity="${seg(q, 0.3, 0.4)}"/>`;
+  }
+  // Joseph (frontal, scaled)
+  const s = 0.8, dx = 480 - 960 * s;
+  const P = { x: 960, c: JOSEPH, ...face({}) };
+  P.lid = blink(t, good ? 0.05 : 0.08 + 0.4 * q, good ? 0 : 1.3);
+  P.smile = good ? 4 + 9 * q : 3 - 10 * q; P.bags = good ? 0 : q; P.browSad = good ? 0 : 0.8 * q; P.browUp = good ? 3 * q : 0;
+  let hold = null;
+  if (inR(t, S(6) - 0.4, S(7))) hold = good ? "book" : "phone";
+  else if (inR(t, S(7), S(7) + 2.8)) hold = good ? "water" : "soda";
+  else if (!good && q > 0.2) hold = "phone";
+  else if (good && q > 0.25) hold = "book";
+  P.look = hold === "book" || hold === "phone" ? [0, 9] : [good ? 4 : -4, 2];
+  const slouch = good ? 0 : 26 * q, wide = good ? 1 : 1 + 0.16 * q;
+  o += `<g transform="translate(${dx} ${110}) scale(${s})">`;
+  o += `<g transform="translate(960 0) scale(${wide} 1) translate(-960 0)">${personBack(P)}</g>`;
+  o += `<g transform="translate(0 ${slouch})">${personHead(P, t)}</g>`;
+  o += deskFront(false);
+  if (good && q > 0.15) o += `<rect x="1180" y="560" width="40" height="80" rx="10" fill="#8ec5ea" stroke="${INK}" stroke-width="5" opacity="0.9"/>`;
+  const hR = [1040, 590], hL = [880, 590];
+  o += armF([1060, 565], hR, JOSEPH.hood) + armF([860, 565], hL, JOSEPH.hood);
+  if (hold === "book") o += book([960, 585], 190, 140);
+  if (hold === "phone") o += phoneBody([960, 560], 1, t) + `<ellipse cx="960" cy="${440 + slouch}" rx="170" ry="190" fill="url(#gPhone)" opacity="0.3" style="mix-blend-mode:screen"/>`;
+  if (hold === "water") o += `<rect x="930" y="500" width="60" height="100" rx="8" fill="#8ec5ea" stroke="${INK}" stroke-width="5" opacity="0.9"/>`;
+  if (hold === "soda") o += `<rect x="935" y="510" width="50" height="90" rx="8" fill="${REDC}" stroke="${INK}" stroke-width="5"/>`;
+  o += handC(hR, JOSEPH.skin) + handC(hL, JOSEPH.skin) + `</g>`;
+  // light / gloom
+  if (good) o += `<ellipse cx="300" cy="400" rx="600" ry="500" fill="url(#gWarm)" opacity="${0.18 * q}" style="mix-blend-mode:screen"/>`;
+  else o += `<rect x="0" y="0" width="960" height="1080" fill="#000" opacity="${0.35 * q}"/>`;
+  return o;
+}
+
+// ---------- overlays ----------
+function graphPanel(t) {
+  const vis = seg(t, S(10) - 0.3, S(10) + 0.3) * (1 - seg(t, E(14) + 1.2, E(14) + 1.8));
+  if (vis <= 0) return "";
+  const X = 360, Y = 230, W = 1200, H = 560;
+  let o = `<g opacity="${vis}"><rect x="0" y="0" width="1920" height="1080" fill="#07080b" opacity="0.85"/>`;
+  o += `<rect x="${X}" y="${Y}" width="${W}" height="${H}" rx="20" fill="#0f1218" stroke="#2b3240" stroke-width="3"/>`;
+  const ax0 = X + 80, ax1 = X + W - 60, ay0 = Y + H - 70, ay1 = Y + 60;
+  o += `<line x1="${ax0}" y1="${ay0}" x2="${ax1}" y2="${ay0}" stroke="#5d6675" stroke-width="3"/><line x1="${ax0}" y1="${ay0}" x2="${ax0}" y2="${ay1}" stroke="#5d6675" stroke-width="3"/>`;
+  o += `<text class="hand" x="${ax1}" y="${ay0 + 46}" font-size="30" text-anchor="end" fill="#8f99a3">dias →</text>`;
+  if (t < S(11) - 0.2) {
+    // expectation vs reality
+    const k = seg(t, S(10), S(10) + 3);
+    let d1 = "", d2 = "";
+    for (let i = 0; i <= 60; i++) { const u = i / 60 * k, x = lerp(ax0, ax1, u); d1 += (i ? "L" : "M") + x + " " + lerp(ay0, ay1, u) + " "; d2 += (i ? "L" : "M") + x + " " + lerp(ay0, ay1, Math.pow(u, 3.2)) + " "; }
+    o += `<path d="${d1}" fill="none" stroke="#8f99a3" stroke-width="5" stroke-dasharray="12 10"/><path d="${d2}" fill="none" stroke="${GREEN}" stroke-width="7"/>`;
+    o += `<text class="hand" x="${ax0 + 380}" y="${ay0 - 330}" font-size="36" fill="#8f99a3" opacity="${seg(t, S(10) + 1, S(10) + 1.5)}">o que você espera</text>`;
+    o += `<text class="hand" x="${ax0 + 480}" y="${ay0 - 40}" font-size="36" fill="${GREEN}" opacity="${seg(t, S(10) + 2, S(10) + 2.5)}">o que acontece</text>`;
+    const v = seg(t, S(10) + 3.0, S(10) + 3.5);
+    o += `<ellipse cx="${ax0 + 380}" cy="${ay0 - 60}" rx="200" ry="70" fill="none" stroke="${ORANGE}" stroke-width="5" opacity="${v}"/><text class="hand" x="${ax0 + 380}" y="${ay0 - 150}" font-size="38" text-anchor="middle" fill="${ORANGE}" opacity="${v}">aqui a maioria desiste</text>`;
+  } else {
+    o += `<text class="hand" x="${X + W / 2}" y="${Y - 30}" font-size="56" text-anchor="middle" fill="#f4efe6">JUROS COMPOSTOS DOS HÁBITOS</text>`;
+    const k = seg(t, S(11) + 1, S(12) + 4);
+    const ymap = v => ay0 - (ay0 - ay1) * Math.min(1, v / 40);
+    let dg = "", dr = "";
+    for (let i = 0; i <= 120; i++) { const d = 365 * (i / 120) * k, x = lerp(ax0, ax1, d / 365); dg += (i ? "L" : "M") + x + " " + ymap(Math.pow(1.01, d)) + " "; dr += (i ? "L" : "M") + x + " " + ymap(Math.pow(0.99, d)) + " "; }
+    o += `<line x1="${ax0}" y1="${ymap(1)}" x2="${ax1}" y2="${ymap(1)}" stroke="#5d6675" stroke-width="2" stroke-dasharray="8 8"/>`;
+    o += `<path d="${dg}" fill="none" stroke="${GREEN}" stroke-width="7"/><path d="${dr}" fill="none" stroke="${REDC}" stroke-width="7"/>`;
+    o += `<text class="hand" x="${ax0 + 20}" y="${ymap(1) - 14}" font-size="28" fill="#8f99a3">você hoje (1×)</text>`;
+    const a = seg(t, S(13), S(13) + 0.4), b = seg(t, S(14), S(14) + 0.4);
+    o += `<text class="hand" x="${ax1 - 10}" y="${ymap(37.8) + 50}" font-size="80" text-anchor="end" fill="${GREEN}" opacity="${a}">37,8×</text><text class="hand" x="${ax1 - 220}" y="${ymap(37.8) + 90}" font-size="30" text-anchor="end" fill="${GREEN}" opacity="${a}">1,01 elevado a 365</text>`;
+    o += `<text class="hand" x="${ax1 - 10}" y="${ay0 - 20}" font-size="64" text-anchor="end" fill="${REDC}" opacity="${b}">0,03×</text>`;
+  }
+  return o + `</g>`;
+}
+function badges(t) {
+  let o = "";
+  const L = [["📚 1 livro por mês", 0], ["😴 dorme bem", 1], ["🏃 3x por semana", 2]], R = [["😩 cansado", 0], ["😰 ansioso", 1], ["📱 6h por dia", 2]];
+  const a = S(16), b = S(17), out = 1 - seg(t, E(18) + 0.4, E(18) + 1.0);
+  L.forEach(([txt, i]) => o += chip(300, 300 + i * 80, txt, GREEN, seg(t, a + 0.8 + i * 1.2, a + 1.2 + i * 1.2) * out));
+  R.forEach(([txt, i]) => o += chip(1600, 300 + i * 80, txt, REDC, seg(t, b + 0.8 + i * 1.3, b + 1.2 + i * 1.3) * out));
+  // day 1 micro-choices
+  const c1 = seg(t, S(6), S(6) + 0.3) * (1 - seg(t, S(7) - 0.3, S(7)));
+  o += chip(480, 230, "📖 2 páginas", GREEN, c1) + chip(1440, 230, "📱 +5 min", REDC, c1);
+  const c2 = seg(t, S(7), S(7) + 0.3) * (1 - seg(t, S(7) + 2.6, S(7) + 2.9)), c3 = seg(t, S(7) + 2.9, S(7) + 3.2) * (1 - seg(t, E(8), E(8) + 0.4));
+  o += chip(480, 230, "💧 água", GREEN, c2) + chip(1440, 230, "🥤 refri", REDC, c2) + chip(480, 230, "🌙 23h", GREEN, c3) + chip(1440, 230, "🌙 1h", REDC, c3);
+  return o;
+}
+const ICON = {
+  small: `<circle r="22" fill="${GREEN}"/><circle r="50" fill="none" stroke="${GREEN}" stroke-width="6" stroke-dasharray="10 10"/><circle r="90" fill="none" stroke="${GREEN}" stroke-width="4" stroke-dasharray="6 14" opacity="0.6"/>`,
+  stack: `<text x="-110" y="20" font-size="80">☕</text><text x="-20" y="10" font-size="50" fill="#f4efe6">→</text><text x="40" y="20" font-size="80">📖</text>`,
+  easy: `<text x="-120" y="20" font-size="80">📖</text><text x="-10" y="10" font-size="50" fill="${GREEN}">✓</text><text x="40" y="20" font-size="80" opacity="0.5">📱</text><line x1="40" y1="-40" x2="130" y2="40" stroke="${REDC}" stroke-width="10"/>`,
+  twice: `<g>${[0, 1, 2, 3, 4].map(i => `<circle cx="${-140 + i * 70}" cy="0" r="26" fill="${i === 2 ? "none" : GREEN}" stroke="${i === 2 ? REDC : GREEN}" stroke-width="6"/>`).join("")}</g>`,
+};
+function chainPanel(t, a, b, missing) {
+  const vis = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="360" y="380" width="1200" height="260" rx="24" fill="#0f1218" fill-opacity="0.93" stroke="#2b3240" stroke-width="3"/>`;
+  const n = 14;
+  for (let i = 0; i < n; i++) {
+    const on = seg(t, a + 0.4 + i * 0.22, a + 0.6 + i * 0.22);
+    const x = 440 + i * 76, miss = missing.includes(i);
+    if (i > 0) o += `<line x1="${x - 76 + 26}" y1="510" x2="${x - 26}" y2="510" stroke="${miss || missing.includes(i - 1) ? "#3a4150" : GREEN}" stroke-width="8" opacity="${on}"/>`;
+    o += `<circle cx="${x}" cy="510" r="26" fill="${miss ? "none" : GREEN}" stroke="${miss ? REDC : GREEN}" stroke-width="6" opacity="${on}"/>`;
+    if (miss) o += `<text class="hand" x="${x}" y="522" font-size="36" text-anchor="middle" fill="${REDC}" opacity="${on}">✕</text>`;
+  }
+  o += `<text class="hand" x="960" y="450" font-size="40" text-anchor="middle" fill="#cfd8e3">${missing.length ? (missing.length > 1 && missing[1] - missing[0] === 1 ? "dois seguidos: a corrente quebra" : "um dia perdido: segue a corrente") : "não quebre a corrente"}</text>`;
+  return o + `</g>`;
+}
+function stackPanel(t, a, b) {
+  const vis = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="460" y="330" width="1000" height="360" rx="24" fill="#0f1218" fill-opacity="0.93" stroke="#2b3240" stroke-width="3"/>`;
+  const rows = [["☕ café", "📖 1 página"], ["🪥 dentes", "🧘 alongar"]];
+  rows.forEach(([x1, x2], i) => { const s = seg(t, a + 0.5 + i * 2.2, a + 0.9 + i * 2.2); o += `<g opacity="${s}"><text class="hand" x="560" y="${470 + i * 130}" font-size="56" fill="#cfd8e3">depois do ${x1}</text><text class="hand" x="1060" y="${470 + i * 130}" font-size="56" fill="${GREEN}">→ ${x2}</text></g>`; });
+  return o + `</g>`;
+}
+function easyPanel(t, a, b) {
+  const vis = seg(t, a, a + 0.4) * (1 - seg(t, b - 0.4, b));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="460" y="330" width="1000" height="360" rx="24" fill="#0f1218" fill-opacity="0.93" stroke="#2b3240" stroke-width="3"/>`;
+  const s1 = seg(t, a + 0.5, a + 0.9), s2 = seg(t, a + 2.4, a + 2.8);
+  o += `<g opacity="${s1}"><text class="hand" x="560" y="470" font-size="56" fill="#cfd8e3">📖 no travesseiro</text><text class="hand" x="1300" y="470" font-size="56" fill="${GREEN}">fácil</text></g>`;
+  o += `<g opacity="${s2}"><text class="hand" x="560" y="600" font-size="56" fill="#cfd8e3">📱 carregando na sala</text><text class="hand" x="1300" y="600" font-size="56" fill="${REDC}">difícil</text></g>`;
+  return o + `</g>`;
+}
+function identityPanel(t) {
+  const vis = seg(t, S(28) - 0.2, S(28) + 0.3) * (1 - seg(t, E(30) + 1.0, E(30) + 1.6));
+  if (vis <= 0) return "";
+  let o = `<g opacity="${vis}"><rect x="0" y="0" width="1920" height="1080" fill="#07080b" opacity="0.88"/>`;
+  if (t < S(30)) {
+    const a = seg(t, S(29), S(29) + 0.4), x = seg(t, S(29) + 1.6, S(29) + 2.0), b = seg(t, S(29) + 2.4, S(29) + 2.8);
+    o += `<text class="hand" x="960" y="430" font-size="76" text-anchor="middle" fill="#8f99a3" opacity="${a}">o que eu quero conseguir?</text><line x1="560" y1="405" x2="${560 + 800 * x}" y2="405" stroke="${REDC}" stroke-width="12" stroke-linecap="round"/>`;
+    o += `<text class="hand" x="960" y="620" font-size="104" text-anchor="middle" fill="${GREEN}" opacity="${b}">quem eu quero ser?</text>`;
+  } else {
+    o += `<g transform="translate(960 640)"><rect x="-170" y="-120" width="340" height="240" rx="16" fill="#1a1d24" stroke="${GREEN}" stroke-width="6"/><rect x="-90" y="-128" width="180" height="16" rx="8" fill="#07080b" stroke="${GREEN}" stroke-width="4"/><text class="hand" x="0" y="40" font-size="42" text-anchor="middle" fill="${GREEN}">QUEM EU SOU</text></g>`;
+    const votes = [["LEITOR", 0.6], ["LEITOR", 1.4], ["SE CUIDA", 3.2], ["SE CUIDA", 4.0], ["LEITOR", 4.8]];
+    votes.forEach(([lab, d], i) => { const k = cl((t - S(30) - d) / 0.8); if (k <= 0 || k >= 1) return; const y = lerp(220, 510, k * k); o += `<g transform="translate(${900 + (i % 2) * 120} ${y}) rotate(${(i % 2 ? 8 : -6)})"><rect x="-80" y="-34" width="160" height="68" rx="8" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><text class="hand" x="0" y="12" font-size="32" text-anchor="middle" fill="${INK}">✓ ${lab}</text></g>`; });
+    o += `<text class="hand" x="960" y="260" font-size="56" text-anchor="middle" fill="#f4efe6">cada ação é um voto</text>`;
+  }
+  return o + `</g>`;
+}
+
+function render(t) {
+  let o = "";
+  const end = S(35) - 1.2;
+  if (t < end) {
+    const d = dayAt(t), q = qOf(d);
+    // during the intro both sides are identical (q=0)
+    o += `<g><svg x="0" y="0" width="960" height="1080" viewBox="0 0 960 1080">${half(t, "L", q)}</svg></g>`;
+    o += `<g><svg x="960" y="0" width="960" height="1080" viewBox="0 0 960 1080">${half(t, "R", q)}</svg></g>`;
+    o += `<rect x="952" y="0" width="16" height="1080" fill="#07080b"/>`;
+    const hd = seg(t, S(3), S(3) + 0.4), hd2 = seg(t, S(4), S(4) + 0.4);
+    if (!window.THUMB) o += chip(480, 130, "+1% POR DIA", GREEN, hd) + chip(1440, 130, "−1% POR DIA", REDC, hd2);
+    // day counter (centre)
+    const flash = Math.max(dip(t, S(9) - 0.6, S(9) - 0.2, S(9) - 0.2, S(9) + 0.6), dip(t, S(15) - 0.6, S(15) - 0.2, S(15) - 0.2, S(15) + 0.6), dip(t, S(31) - 1.2, S(31) - 0.6, S(31) - 0.6, S(31) + 0.8));
+    if (t > S(5) - 0.6) o += `<g transform="translate(960 ${window.THUMB ? 120 : 140})"><rect x="-130" y="-46" width="260" height="92" rx="46" fill="#07080b" stroke="#f4efe6" stroke-width="4"/><text class="hand" x="0" y="18" font-size="54" text-anchor="middle" fill="#f4efe6">DIA ${Math.round(d)}</text></g>`;
+    if (flash > 0) o += `<rect x="0" y="0" width="1920" height="1080" fill="#f4efe6" opacity="${flash * 0.25}"/>`;
+    o += `<rect x="0" y="0" width="1920" height="1080" fill="url(#gVignette)"/>`;
+    o += badges(t) + graphPanel(t);
+    // technique cards + demos
+    o += techCard(t, S(20) - 0.2, S(21) - 0.3, E(21) + 1.2, "1", "COMECE PEQUENO", "Uma flexão. Uma página. Um minuto.", ICON.small, GREEN);
+    o += chainPanel(t, S(21) - 0.3, E(21) + 1.2, []);
+    o += techCard(t, S(22) - 0.2, S(23) - 0.3, E(23) + 1.6, "2", "EMPILHE OS HÁBITOS", "Cole o novo num que você já tem.", ICON.stack, GREEN);
+    o += stackPanel(t, S(23) - 0.3, E(23) + 1.6);
+    o += techCard(t, S(24) - 0.2, S(25) - 0.3, E(25) + 1.6, "3", "FACILITE O BOM", "E dificulte o ruim.", ICON.easy, GREEN);
+    o += easyPanel(t, S(25) - 0.3, E(25) + 1.6);
+    o += techCard(t, S(26) - 0.2, S(27) - 0.3, E(27) + 1.6, "4", "NUNCA FALHE DUAS VEZES", "Um dia perdido é acidente.", ICON.twice, GREEN);
+    o += chainPanel(t, S(27) - 0.3, S(27) + 2.6, [5]) + chainPanel(t, S(27) + 2.6, E(27) + 1.6, [5, 6]);
+    o += identityPanel(t);
+    // day 365 caption chips
+    const fin = seg(t, S(32) + 1, S(32) + 1.5) * (1 - seg(t, E(33) + 1, E(33) + 1.5));
+    o += chip(480, 300, "a mesma idade", GREEN, fin) + chip(1440, 300, "a mesma idade", REDC, fin);
+    o += recapCards(t, S(34) - 0.6, S(35) - 1.0, "COMO MANTER UM HÁBITO", [
+      [S(34) + 1.0, "COMECE PEQUENO", "1 página, 1 minuto", ICON.small, GREEN],
+      [S(34) + 2.6, "EMPILHE", "cole num hábito antigo", ICON.stack, GREEN],
+      [S(34) + 4.4, "FACILITE", "o bom perto, o ruim longe", ICON.easy, GREEN],
+      [S(34) + 5.8, "NÃO FALHE 2×", "um dia é acidente", ICON.twice, GREEN]]);
+  }
+  o += letterbox() + captions(t);
+  o += `<rect x="0" y="0" width="1920" height="1080" fill="#000" opacity="${Math.max(1 - seg(t, 0, 1.0), seg(t, end - 0.6, end))}"/>`;
+  if (t >= end) o += quotes(t, [["Seus dias viram seus anos.", S(35), E(35) + 1.6, "#f4efe6", 110], ["Melhore 1%. Hoje.", S(36), E(36) + 2.0, GREEN, 150]]);
+  o += titleCard(t, E(36) + 2.2, "1% POR DIA", GREEN);
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+</script>
+</body>
+</html>

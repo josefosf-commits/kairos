@@ -1,0 +1,261 @@
+{
+ "name": "UM-POR-CENTO",
+ "duration": 245.22,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 2.0,
+   "end": 7.76,
+   "text": "Dois Josephs. Mesma idade. Mesmo quarto. Mesmo ponto de partida."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 8.96,
+   "end": 13.28,
+   "text": "A única diferença? Uma escolha pequena, todos os dias."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 14.48,
+   "end": 18.0,
+   "text": "O da esquerda decidiu ficar um por cento melhor por dia."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.8,
+   "end": 21.36,
+   "text": "O da direita... um por cento pior."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.86,
+   "end": 26.74,
+   "text": "No dia um, ninguém percebe a diferença."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 27.94,
+   "end": 32.42,
+   "text": "Um leu duas páginas. O outro passou mais cinco minutos no celular."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 33.92,
+   "end": 39.76,
+   "text": "Um bebeu água. O outro, refrigerante. Um dormiu às onze. O outro, à uma."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 40.96,
+   "end": 44.08,
+   "text": "Nada grave. Nada que alguém fosse notar."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 47.58,
+   "end": 50.7,
+   "text": "Dia trinta. Ainda parece tudo igual."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 51.9,
+   "end": 57.42,
+   "text": "E é exatamente aqui que a maioria desiste. Porque o resultado de um hábito demora pra aparecer."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 58.62,
+   "end": 62.3,
+   "text": "Mas ele está acumulando. Pensa nos juros compostos."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 63.8,
+   "end": 69.96,
+   "text": "Um por cento melhor por dia, durante um ano, não te deixa trezentos e sessenta e cinco por cento melhor."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 70.76,
+   "end": 73.48,
+   "text": "Te deixa quase trinta e oito vezes melhor."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 74.98,
+   "end": 78.42,
+   "text": "E um por cento pior por dia leva quase tudo embora."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 82.92,
+   "end": 85.64,
+   "text": "Dia cem. Agora a diferença aparece."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 86.84,
+   "end": 92.36,
+   "text": "O da esquerda lê um livro por mês, dorme melhor e corre três vezes por semana."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 93.56,
+   "end": 99.32,
+   "text": "O da direita está mais cansado, mais ansioso, e não sabe dizer quando isso começou."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 100.52,
+   "end": 104.04,
+   "text": "Porque não começou num dia. Começou em todos."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 108.04,
+   "end": 110.92,
+   "text": "Mas como manter um hábito por um ano inteiro?"
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 112.42,
+   "end": 118.9,
+   "text": "Primeiro: comece ridiculamente pequeno. Uma flexão. Uma página. Um minuto."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 120.1,
+   "end": 124.02,
+   "text": "O objetivo não é fazer muito. É não quebrar a corrente."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 129.02,
+   "end": 132.94,
+   "text": "Segundo: cole o hábito novo em um que você já tem."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 134.14,
+   "end": 139.1,
+   "text": "Depois do café, eu leio uma página. Depois de escovar os dentes, eu alongo."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 144.1,
+   "end": 147.46,
+   "text": "Terceiro: facilite o bom e dificulte o ruim."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 148.66,
+   "end": 153.06,
+   "text": "O livro em cima do travesseiro. O celular carregando na sala."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 158.06,
+   "end": 160.94,
+   "text": "Quarto: nunca falhe duas vezes."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 162.14,
+   "end": 166.86,
+   "text": "Perder um dia é um acidente. Perder dois é o começo de um hábito novo."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 171.36,
+   "end": 174.0,
+   "text": "E o mais importante: mude a pergunta."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 175.2,
+   "end": 179.6,
+   "text": "Não é: o que eu quero conseguir? É: quem eu quero ser?"
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 180.8,
+   "end": 186.96,
+   "text": "Cada página lida é um voto para ser um leitor. Cada treino, um voto para ser alguém que se cuida."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 191.46,
+   "end": 193.94,
+   "text": "Dia trezentos e sessenta e cinco."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 195.94,
+   "end": 201.46,
+   "text": "Mesma idade. Mesmo quarto. Duas vidas completamente diferentes."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 202.96,
+   "end": 208.88,
+   "text": "E nenhum dos dois teve um grande dia de virada. Só trezentas e sessenta e cinco escolhas pequenas."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 212.88,
+   "end": 220.32,
+   "text": "Resumindo: comece pequeno, cole num hábito que já existe, facilite o caminho e nunca falhe duas vezes."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 227.32,
+   "end": 229.4,
+   "text": "Seus dias viram seus anos.",
+   "nocap": true
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 231.9,
+   "end": 234.22,
+   "text": "Melhore um por cento. Hoje.",
+   "nocap": true
+  }
+ ]
+}
