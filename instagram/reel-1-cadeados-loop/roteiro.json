@@ -1,0 +1,67 @@
+{
+ "name": "REEL-4-CADEADOS-LOOP",
+ "tail": 0.3,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Os ladrões só entram porque a porta tá aberta. E existem quatro cadeados pra trancar ela.",
+   "gap": 0.15
+  },
+  {
+   "id": 2,
+   "text": "Cadeado número um: o celular dorme fora do quarto.",
+   "gap": 0.65
+  },
+  {
+   "id": 3,
+   "text": "Sem tela na cama, o Ladrão do Sono não entra. E o da Energia fica sem trabalho.",
+   "gap": 0.65
+  },
+  {
+   "id": 4,
+   "text": "Cadeado número dois: modo não perturbe no horário de estudo.",
+   "gap": 0.65
+  },
+  {
+   "id": 5,
+   "text": "A notificação não toca. E o Ladrão do Foco bate na porta à toa.",
+   "gap": 0.65
+  },
+  {
+   "id": 6,
+   "text": "Cadeado número três: limite nos aplicativos que mais roubam.",
+   "gap": 0.65
+  },
+  {
+   "id": 7,
+   "text": "Acabou o tempo, o app trava. E o Ladrão do Tempo vai embora de mãos vazias.",
+   "gap": 0.65
+  },
+  {
+   "id": 8,
+   "text": "Cadeado número quatro: deixa de seguir quem te faz se sentir menor.",
+   "gap": 0.65
+  },
+  {
+   "id": 9,
+   "text": "E se compara com uma pessoa só: quem você era ontem. O Ladrão da Autoestima perde a chave.",
+   "gap": 0.65
+  },
+  {
+   "id": 10,
+   "text": "Você não precisa dos quatro hoje. Escolhe um. Fecha. Amanhã, o próximo.",
+   "gap": 0.65
+  },
+  {
+   "id": 11,
+   "text": "Segue o Joseph pra fechar uma porta por dia.",
+   "gap": 0.65
+  },
+  {
+   "id": 12,
+   "text": "E toda vez que o celular te chamar, lembra:",
+   "gap": 1.1
+  }
+ ]
+}

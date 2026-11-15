@@ -14,6 +14,12 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - Playlist(s) e tela final (para shorts: vídeo relacionado)
 - Configurações comuns: Educação, pt-BR, "não é conteúdo para crianças"
 
+## Plataforma: siga exatamente o que o usuário pedir
+
+- **"YouTube"**: formato YouTube. Longo em 16:9 1920x1080, short vertical; SEO do YouTube (título, descrição com capítulos, tags, #shorts).
+- **"Instagram"**: formato Instagram. Reel vertical 1080x1920 com o conteúdo importante no centro 3:4, para a grade do perfil; carrossel em 4:5, 1080x1350. Legenda do Instagram com gancho na 1ª linha, CTA e hashtags (sem #shorts). Arquivos em `instagram/`.
+- Não misturar: não entregar formato de YouTube quando o pedido for Instagram, e vice-versa.
+
 ## Estrutura
 
 - `videos/_lib/`: biblioteca comum (rig.js, short.js, som.py, render.js, montar.sh, collect.py, fila.sh)

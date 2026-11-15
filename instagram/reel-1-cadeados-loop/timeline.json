@@ -1,0 +1,93 @@
+{
+ "name": "REEL-4-CADEADOS-LOOP",
+ "duration": 61.25,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.15,
+   "end": 5.51,
+   "text": "Os ladrões só entram porque a porta tá aberta. E existem quatro cadeados pra trancar ela."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.16,
+   "end": 9.44,
+   "text": "Cadeado número um: o celular dorme fora do quarto."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.09,
+   "end": 15.21,
+   "text": "Sem tela na cama, o Ladrão do Sono não entra. E o da Energia fica sem trabalho."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 15.86,
+   "end": 19.54,
+   "text": "Cadeado número dois: modo não perturbe no horário de estudo."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 20.19,
+   "end": 24.75,
+   "text": "A notificação não toca. E o Ladrão do Foco bate na porta à toa."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 25.4,
+   "end": 29.4,
+   "text": "Cadeado número três: limite nos aplicativos que mais roubam."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 30.05,
+   "end": 35.33,
+   "text": "Acabou o tempo, o app trava. E o Ladrão do Tempo vai embora de mãos vazias."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 35.98,
+   "end": 40.14,
+   "text": "Cadeado número quatro: deixa de seguir quem te faz se sentir menor."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 40.79,
+   "end": 47.27,
+   "text": "E se compara com uma pessoa só: quem você era ontem. O Ladrão da Autoestima perde a chave."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 47.92,
+   "end": 53.36,
+   "text": "Você não precisa dos quatro hoje. Escolhe um. Fecha. Amanhã, o próximo."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 54.01,
+   "end": 56.73,
+   "text": "Segue o Joseph pra fechar uma porta por dia."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 57.83,
+   "end": 60.87,
+   "text": "E toda vez que o celular te chamar, lembra:"
+  }
+ ]
+}
