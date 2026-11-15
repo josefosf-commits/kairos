@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-12-DESAFIO-30-DIAS-EP1",
+ "duration": 59.73,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.91,
+   "text": "O Joseph fez um desafio: trinta dias sem celular na primeira hora do dia. Hoje é o dia um."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.19,
+   "end": 11.99,
+   "text": "Seis e meia. O despertador toca. E a mão vai sozinha até o celular."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.27,
+   "end": 16.27,
+   "text": "Ele para. O celular fica na sala. Regra é regra."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.55,
+   "end": 22.39,
+   "text": "Os primeiros minutos são estranhos. Silêncio. Parece que tá faltando alguma coisa."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 22.67,
+   "end": 26.75,
+   "text": "Ele toma café olhando pela janela. Coisa que não fazia há anos."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 27.2,
+   "end": 33.6,
+   "text": "Dia dois. Mais difícil. A cabeça inventa desculpa: e se alguém mandou mensagem importante?"
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 33.88,
+   "end": 37.4,
+   "text": "Ninguém mandou. Nunca é tão urgente quanto parece."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 37.85,
+   "end": 43.61,
+   "text": "Dia três. O pior de todos. Irritado, inquieto, contando os minutos."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 43.89,
+   "end": 48.53,
+   "text": "É o cérebro pedindo a recompensa de sempre. E é aqui que a maioria desiste."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 48.81,
+   "end": 54.73,
+   "text": "O Joseph quase desistiu. Mas no dia quatro, aconteceu uma coisa que ele não esperava."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 55.01,
+   "end": 58.13,
+   "text": "Episódio dois em breve. Segue pra não perder."
+  }
+ ]
+}

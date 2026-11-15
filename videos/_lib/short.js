@@ -48,8 +48,11 @@ function chunksOf(L) {
 function capShort(t, y = 1480, hi = GOLD) {
   if (window.THUMB) return "";
   let o = "";
-  for (const L of window.TL.lines) {
-    if (L.nocap || t < L.start - 0.05 || t > L.end + 0.3) continue;
+  const LS = window.TL.lines;
+  for (let li = 0; li < LS.length; li++) {
+    const L = LS[li], next = LS[li + 1];
+    const until = next ? Math.min(L.end + 0.3, next.start - 0.06) : L.end + 0.3;
+    if (L.nocap || t < L.start - 0.05 || t > until) continue;
     const cs = chunksOf(L);
     let c = cs.find(c => t >= c.a - 0.05 && t < c.b) || (t >= L.end ? cs[cs.length - 1] : cs[0]);
     const idx = cs.indexOf(c);

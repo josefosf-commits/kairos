@@ -1,0 +1,62 @@
+{
+ "name": "SHORT-12-DESAFIO-30-DIAS-EP1",
+ "tail": 1.6,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "O Joseph fez um desafio: trinta dias sem celular na primeira hora do dia. Hoje é o dia um.",
+   "gap": 0.35
+  },
+  {
+   "id": 2,
+   "text": "Seis e meia. O despertador toca. E a mão vai sozinha até o celular.",
+   "gap": 0.28
+  },
+  {
+   "id": 3,
+   "text": "Ele para. O celular fica na sala. Regra é regra.",
+   "gap": 0.28
+  },
+  {
+   "id": 4,
+   "text": "Os primeiros minutos são estranhos. Silêncio. Parece que tá faltando alguma coisa.",
+   "gap": 0.28
+  },
+  {
+   "id": 5,
+   "text": "Ele toma café olhando pela janela. Coisa que não fazia há anos.",
+   "gap": 0.28
+  },
+  {
+   "id": 6,
+   "text": "Dia dois. Mais difícil. A cabeça inventa desculpa: e se alguém mandou mensagem importante?",
+   "gap": 0.45
+  },
+  {
+   "id": 7,
+   "text": "Ninguém mandou. Nunca é tão urgente quanto parece.",
+   "gap": 0.28
+  },
+  {
+   "id": 8,
+   "text": "Dia três. O pior de todos. Irritado, inquieto, contando os minutos.",
+   "gap": 0.45
+  },
+  {
+   "id": 9,
+   "text": "É o cérebro pedindo a recompensa de sempre. E é aqui que a maioria desiste.",
+   "gap": 0.28
+  },
+  {
+   "id": 10,
+   "text": "O Joseph quase desistiu. Mas no dia quatro, aconteceu uma coisa que ele não esperava.",
+   "gap": 0.28
+  },
+  {
+   "id": 11,
+   "text": "Episódio dois em breve. Segue pra não perder.",
+   "gap": 0.28
+  }
+ ]
+}
