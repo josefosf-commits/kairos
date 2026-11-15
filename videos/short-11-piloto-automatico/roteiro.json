@@ -1,0 +1,62 @@
+{
+ "name": "SHORT-11-PILOTO-AUTOMATICO",
+ "tail": 3.0,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Esse é o chefe dos cinco ladrões. O nome dele é Piloto Automático.",
+   "gap": 0.7
+  },
+  {
+   "id": 2,
+   "text": "Ele não rouba nada. Ele só aperta três botões, e deixa os ladrões entrarem.",
+   "gap": 0.4
+  },
+  {
+   "id": 3,
+   "text": "Botão um: soneca. Seis e meia, ele aperta por você. Três vezes.",
+   "gap": 0.4
+  },
+  {
+   "id": 4,
+   "text": "Botão dois: abrir o aplicativo. Você nem decidiu, e o dedo já tá no feed.",
+   "gap": 0.4
+  },
+  {
+   "id": 5,
+   "text": "Botão três: só mais um. Mais um vídeo. Mais um episódio. Mais cinco minutos.",
+   "gap": 0.4
+  },
+  {
+   "id": 6,
+   "text": "Ele manda toda vez que você não decide nada.",
+   "gap": 0.4
+  },
+  {
+   "id": 7,
+   "text": "Então o truque é decidir antes. Uma frase só: quando acontecer isso, eu faço aquilo.",
+   "gap": 0.4
+  },
+  {
+   "id": 8,
+   "text": "Quando o despertador tocar, eu levanto e bebo água. Quando eu pegar o celular, eu pergunto: pra quê?",
+   "gap": 0.4
+  },
+  {
+   "id": 9,
+   "text": "Decisão tomada antes, o botão para de funcionar.",
+   "gap": 0.4
+  },
+  {
+   "id": 10,
+   "text": "Os ladrões continuam lá fora. Mas agora quem aperta os botões é você.",
+   "gap": 0.4
+  },
+  {
+   "id": 11,
+   "text": "Qual botão te pega mais? Comenta aqui.",
+   "gap": 0.4
+  }
+ ]
+}

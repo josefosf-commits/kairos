@@ -26,3 +26,24 @@ function thief(x, y, sc, dir, alpha, t, opts = {}) {
   return o + `</g>`;
 }
 
+
+// O chefe da quadrilha (de A QUADRILHA): Piloto Automático
+// ---------- the boss: PILOTO AUTOMÁTICO ----------
+function piloto(x, y, s, t, o = {}) {
+  const glow = 0.6 + 0.4 * Math.sin(t * 3);
+  let g = `<g transform="translate(${x} ${y + Math.sin(t * 1.6) * 6}) scale(${s})">`;
+  g += `<ellipse cx="0" cy="60" rx="260" ry="300" fill="#3e63dd" opacity="0.12" style="mix-blend-mode:screen"/>`;
+  g += `<path d="M -150 230 C -175 40 -120 -60 0 -70 C 120 -60 175 40 150 230 Z" fill="#141a2e" stroke="#000" stroke-width="9"/>`;
+  g += `<path d="M -40 -30 L 0 60 L 40 -30" fill="none" stroke="#2c3a66" stroke-width="12"/>`;
+  g += `<circle cx="0" cy="-150" r="105" fill="#141a2e" stroke="#000" stroke-width="9"/>`;
+  // pilot cap
+  g += `<path d="M -120 -190 Q 0 -300 120 -190 L 130 -170 L -130 -170 Z" fill="#0d1120" stroke="#000" stroke-width="8"/><rect x="-140" y="-180" width="280" height="26" rx="10" fill="#0d1120" stroke="#000" stroke-width="7"/>`;
+  g += `<g transform="translate(0 -232)"><path d="M -60 0 Q -30 -16 -10 0 M 60 0 Q 30 -16 10 0" stroke="#ffc53d" stroke-width="8" fill="none" stroke-linecap="round"/><circle r="12" fill="#ffc53d"/></g>`;
+  // autoplay eyes ▶▶
+  for (const ex of [-42, 42]) g += `<path d="M ${ex - 18} -168 L ${ex + 20} -148 L ${ex - 18} -128 Z" fill="#9fd8ff" opacity="${glow}"/><ellipse cx="${ex}" cy="-148" rx="34" ry="26" fill="#4fd1ff" opacity="${0.25 * glow}" style="mix-blend-mode:screen"/>`;
+  // arm + remote
+  const press = o.press || 0;
+  g += `<path d="M 120 60 Q 220 ${40 - 30 * press} 250 ${-10 - 20 * press}" fill="none" stroke="#000" stroke-width="44" stroke-linecap="round"/><path d="M 120 60 Q 220 ${40 - 30 * press} 250 ${-10 - 20 * press}" fill="none" stroke="#141a2e" stroke-width="32" stroke-linecap="round"/>`;
+  g += `<g transform="translate(270 ${-40 - 20 * press}) rotate(-15)"><rect x="-38" y="-90" width="76" height="170" rx="18" fill="#2a2e35" stroke="#000" stroke-width="6"/><circle cx="0" cy="-48" r="22" fill="#e5484d" stroke="#000" stroke-width="5"/>${[0, 1, 2].map(i => `<rect x="-22" y="${-10 + i * 28}" width="44" height="16" rx="6" fill="#8f99a3"/>`).join("")}</g>`;
+  return g + `</g>`;
+}

@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-11-PILOTO-AUTOMATICO",
+ "duration": 59.54,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.7,
+   "end": 4.94,
+   "text": "Esse é o chefe dos cinco ladrões. O nome dele é Piloto Automático."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.34,
+   "end": 10.3,
+   "text": "Ele não rouba nada. Ele só aperta três botões, e deixa os ladrões entrarem."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.7,
+   "end": 16.22,
+   "text": "Botão um: soneca. Seis e meia, ele aperta por você. Três vezes."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.62,
+   "end": 21.82,
+   "text": "Botão dois: abrir o aplicativo. Você nem decidiu, e o dedo já tá no feed."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 22.22,
+   "end": 28.14,
+   "text": "Botão três: só mais um. Mais um vídeo. Mais um episódio. Mais cinco minutos."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.54,
+   "end": 31.34,
+   "text": "Ele manda toda vez que você não decide nada."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 31.74,
+   "end": 37.42,
+   "text": "Então o truque é decidir antes. Uma frase só: quando acontecer isso, eu faço aquilo."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 37.82,
+   "end": 44.22,
+   "text": "Quando o despertador tocar, eu levanto e bebo água. Quando eu pegar o celular, eu pergunto: pra quê?"
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 44.62,
+   "end": 48.22,
+   "text": "Decisão tomada antes, o botão para de funcionar."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 48.62,
+   "end": 53.42,
+   "text": "Os ladrões continuam lá fora. Mas agora quem aperta os botões é você."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 53.82,
+   "end": 56.54,
+   "text": "Qual botão te pega mais? Comenta aqui."
+  }
+ ]
+}
