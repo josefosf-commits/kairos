@@ -1,0 +1,266 @@
+{
+ "name": "A-QUADRILHA",
+ "duration": 244.84,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.0,
+   "end": 5.64,
+   "text": "Todo dia, cinco ladrões entram na vida do Joseph. E ele nem percebe."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.44,
+   "end": 12.12,
+   "text": "Eles não levam a televisão. Não levam a carteira. Levam coisas muito mais caras."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.92,
+   "end": 18.2,
+   "text": "Hoje você vai conhecer todos eles. E, no final, o chefe da quadrilha."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 23.7,
+   "end": 29.78,
+   "text": "Seis e meia da manhã. O despertador toca. O Joseph aperta a soneca. Três vezes."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 30.58,
+   "end": 35.14,
+   "text": "O primeiro ladrão passou a noite toda trabalhando. O Ladrão da Energia."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 35.84,
+   "end": 42.08,
+   "text": "Ele levou as horas de sono que o Joseph trocou por vídeos. E agora o Joseph acorda com a bateria no vermelho."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 43.88,
+   "end": 48.2,
+   "text": "Nove horas. Hora de estudar. O Joseph abre o caderno."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 49.0,
+   "end": 52.36,
+   "text": "Plim. Entra o segundo ladrão: o Ladrão do Foco."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 53.06,
+   "end": 61.3,
+   "text": "Cada notificação leva um pedaço da concentração. E pra voltar ao foco total, a gente leva, em média, mais de vinte minutos."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 62.0,
+   "end": 65.68,
+   "text": "No fim da manhã, o caderno continua aberto na mesma página."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 67.48,
+   "end": 70.76,
+   "text": "Hora do almoço. Só cinco minutinhos no celular."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 71.46,
+   "end": 76.74,
+   "text": "É assim que trabalha o terceiro: o Ladrão do Tempo. Cinco minutos aqui. Cinco ali."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 77.44,
+   "end": 80.96,
+   "text": "Quando o Joseph olha de novo, já são quatro da tarde."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 82.76,
+   "end": 90.12,
+   "text": "À noite, o Joseph abre o feed. Viagens, corpos, carros. A vida perfeita de todo mundo."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 90.82,
+   "end": 97.7,
+   "text": "E o quarto ladrão aproveita: o Ladrão da Autoestima. A cada post, ele leva um pedaço do Joseph."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 98.4,
+   "end": 102.4,
+   "text": "O Joseph deita pensando: todo mundo tá na frente. Menos eu."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 104.2,
+   "end": 106.68,
+   "text": "Duas da manhã. Só mais um vídeo."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 107.38,
+   "end": 112.74,
+   "text": "E o quinto ladrão, o mais antigo de todos, entra no quarto: o Ladrão do Sono."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 113.54,
+   "end": 117.14,
+   "text": "E o ciclo recomeça. Todo dia. Igual."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 119.94,
+   "end": 124.34,
+   "text": "Mas um dia, o Joseph segue os ladrões. E descobre o esconderijo."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 125.14,
+   "end": 127.54,
+   "text": "Todos eles trabalham pro mesmo chefe."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 130.14,
+   "end": 132.46,
+   "text": "O nome dele é Piloto Automático."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 133.26,
+   "end": 143.18,
+   "text": "O Piloto Automático decide por você toda vez que você não decide nada. Ele abre o aplicativo sozinho. Ele aperta a soneca. Ele diz: só mais um."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 143.98,
+   "end": 149.74,
+   "text": "Os ladrões só entram porque a porta fica aberta. E quem deixa a porta aberta é ele."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 151.74,
+   "end": 157.18,
+   "text": "Então o Joseph para de lutar contra cinco ladrões. E começa a lutar contra um só."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 157.88,
+   "end": 160.52,
+   "text": "Ele decide o dia antes do dia começar."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 161.72,
+   "end": 168.52,
+   "text": "Primeira armadilha: o celular dorme fora do quarto. O Ladrão do Sono e o da Energia ficam sem entrada."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 169.42,
+   "end": 176.22,
+   "text": "Segunda: no horário de estudo, modo não perturbe. O Ladrão do Foco bate na porta, e não entra."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 177.12,
+   "end": 184.96,
+   "text": "Terceira: limite nos aplicativos. Acabou o tempo, o app trava. O Ladrão do Tempo fica de mãos vazias."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 185.86,
+   "end": 191.94,
+   "text": "Quarta: deixar de seguir quem faz ele se sentir menor. E se comparar só com quem ele era ontem."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 193.94,
+   "end": 198.98,
+   "text": "Na primeira semana, os ladrões ainda tentam. Toda noite, testam a porta."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 199.78,
+   "end": 202.74,
+   "text": "Na segunda semana, eles começam a desistir."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 203.74,
+   "end": 210.62,
+   "text": "Trinta dias depois, o Joseph acorda antes do despertador. Termina o capítulo. Dorme às onze."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 211.62,
+   "end": 216.34,
+   "text": "Ele não ficou mais forte que os ladrões. Ele só parou de deixar a porta aberta."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 218.34,
+   "end": 221.86,
+   "text": "E na sua casa? Quantos desses ladrões entraram hoje?"
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 222.76,
+   "end": 227.24,
+   "text": "Você não precisa vencer os cinco de uma vez. Escolhe uma porta. E fecha."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 228.24,
+   "end": 233.84,
+   "text": "Se esse vídeo te ajudou, se inscreve. Os ladrões voltam amanhã. O Joseph também."
+  }
+ ]
+}

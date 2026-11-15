@@ -17,7 +17,7 @@ function thief(x, y, sc, dir, alpha, t, opts = {}) {
   o += `<path d="M 40 -30 Q ${lerp(90, 110, reach)} ${lerp(20, -60, reach)} ${hx} ${hy}" fill="none" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M 40 -30 Q ${lerp(90, 110, reach)} ${lerp(20, -60, reach)} ${hx} ${hy}" fill="none" stroke="#241c3a" stroke-width="14" stroke-linecap="round"/>`;
   o += `<circle cx="${hx}" cy="${hy}" r="14" fill="#241c3a" stroke="${INK}" stroke-width="5"/>`;
   o += `<circle cx="0" cy="-120" r="62" fill="#241c3a" stroke="${INK}" stroke-width="7"/>`;
-  o += `<path d="M -64 -134 Q 0 -150 64 -134 L 64 -106 Q 0 -120 -64 -106 Z" fill="#6b4fa0" stroke="${INK}" stroke-width="5"/>`;
+  o += `<path d="M -64 -134 Q 0 -150 64 -134 L 64 -106 Q 0 -120 -64 -106 Z" fill="${opts.mask || '#6b4fa0'}" stroke="${INK}" stroke-width="5"/>`;
   const look = opts.look || 0, sh = opts.shrug || 0;
   o += `<ellipse cx="${-22 + look}" cy="-122" rx="10" ry="${8 - 4 * sh}" fill="${THIEF_EYE}"/><ellipse cx="${22 + look}" cy="-122" rx="10" ry="${8 - 4 * sh}" fill="${THIEF_EYE}"/>`;
   o += `<ellipse cx="${-22 + look}" cy="-122" rx="22" ry="18" fill="${THIEF_EYE}" opacity="0.25" style="mix-blend-mode:screen"/><ellipse cx="${22 + look}" cy="-122" rx="22" ry="18" fill="${THIEF_EYE}" opacity="0.25" style="mix-blend-mode:screen"/>`;
