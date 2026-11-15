@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-13-DESAFIO-30-DIAS-EP2",
+ "duration": 50.46,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 4.67,
+   "text": "Dia quatro. O Joseph acordou, e percebeu uma coisa estranha."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 4.97,
+   "end": 9.53,
+   "text": "Ele não tava cansado. Pela primeira vez em anos, a cabeça tava leve."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 9.83,
+   "end": 14.23,
+   "text": "O que tinha atrás da porta era isso: uma manhã inteira, só dele."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 14.68,
+   "end": 19.96,
+   "text": "Dia cinco. Ele leu dez páginas antes do café. Dia seis, vinte."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 20.26,
+   "end": 25.06,
+   "text": "A ansiedade foi baixando. E a paz, que tava lá embaixo, começou a subir."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 25.51,
+   "end": 30.15,
+   "text": "Dia sete. Uma semana. Ele já nem procura o celular quando acorda."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 30.45,
+   "end": 33.33,
+   "text": "É o hábito novo começando a ganhar do antigo."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 33.78,
+   "end": 37.14,
+   "text": "Dia oito. Dia nove. Tudo funcionando."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 37.59,
+   "end": 41.91,
+   "text": "Até que, no dia dez, o celular tocou às seis e meia da manhã."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 42.21,
+   "end": 44.93,
+   "text": "E era uma ligação que ele não podia ignorar."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 45.38,
+   "end": 48.66,
+   "text": "Episódio três em breve. Segue pra não perder."
+  }
+ ]
+}
