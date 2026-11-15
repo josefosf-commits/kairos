@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Carrossel 5 ladrões</title>
+<style>
+@font-face { font-family: "Kalam"; font-weight: 700; src: url("../../videos/_lib/kalam-700.woff2") format("woff2"); }
+html, body { margin: 0; background: #000; overflow: hidden; }
+svg { display: block; width: 1080px; height: 1350px; }
+.hand { font-family: "Kalam", cursive; font-weight: 700; }
+.sans { font-family: "Inter", sans-serif; }
+</style></head>
+<body>
+<svg id="root" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg"><defs>
+<radialGradient id="gVignette" cx="50%" cy="50%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.6"/></radialGradient>
+<radialGradient id="gPhone" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4fd1ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#4fd1ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="gWarm" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/><stop offset="100%" stop-color="#ffb366" stop-opacity="0"/></radialGradient>
+<clipPath id="eyeS"><ellipse cx="50" cy="-300" rx="15" ry="20"/></clipPath>
+</defs><g id="frame"></g></svg>
+<script src="../../videos/_lib/rig.js"></script>
+<script src="../../videos/_lib/short.js"></script>
+<script src="../../videos/_lib/ladrao.js"></script>
+<script>
+window.TL = { lines: [], duration: 1 };
+const T = 1.3, N = 8;
+const TH = [
+  { k: "energia", name: "LADRÃO DA ENERGIA", c: "#c6f135", hora: "06:30", rouba: ["As horas de sono que você", "troca por vídeos.", "Você acorda já sem bateria."], tranca: ["Mesmo horário pra dormir", "todo dia + água ao acordar."] },
+  { k: "foco", name: "LADRÃO DO FOCO", c: "#4fd1ff", hora: "09:00", rouba: ["Um pedaço da concentração", "a cada notificação.", "E +20 min pra voltar."], tranca: ["Modo não perturbe no", "horário de estudo."] },
+  { k: "tempo", name: "LADRÃO DO TEMPO", c: "#ffc53d", hora: "12:00", rouba: ["5 minutinhos aqui, 5 ali...", "4h por dia = 60 dias", "por ano na tela."], tranca: ["Limite nos apps que mais", "roubam. Acabou, trava."] },
+  { k: "autoestima", name: "LADRÃO DA AUTOESTIMA", c: "#ff6fae", hora: "21:00", rouba: ["Um pedaço de você a cada", "\"vida perfeita\" do feed.", "Ele só mostra o palco."], tranca: ["Deixa de seguir quem te faz", "se sentir menor. Compare-se", "só com quem você era ontem."] },
+  { k: "sono", name: "LADRÃO DO SONO", c: "#8b6ad8", hora: "02:00", rouba: ["\"Só mais um vídeo\".", "Seu descanso, seu humor", "e a energia de amanhã."], tranca: ["Celular carrega na sala.", "Use um despertador barato."] },
+];
+const th = (d, x, y, s, dir = 1, o = {}) => thief(x, y, s, dir, 1, T, Object.assign({ mask: d.c, loot: d.c }, o));
+function base(n) {
+  let o = `<rect width="1080" height="1350" fill="#0d0f14"/><rect width="1080" height="1350" fill="url(#gVignette)"/>`;
+  o += `<text class="hand" x="60" y="80" font-size="34" fill="#8f99a3">@josephdisciplinado</text><text class="sans" x="1020" y="80" font-size="30" font-weight="700" text-anchor="end" fill="#8f99a3">${n}/${N}</text>`;
+  for (let i = 1; i <= N; i++) o += `<circle cx="${540 - (N - 1) * 14 + (i - 1) * 28}" cy="1300" r="${i === n ? 9 : 6}" fill="${i === n ? "#f4efe6" : "#3a4150"}"/>`;
+  return o;
+}
+const T_ = (s, x, y, size, col = "#f4efe6", anchor = "middle") => `<text class="hand" x="${x}" y="${y}" font-size="${size}" text-anchor="${anchor}" fill="${col}" stroke="#000" stroke-width="${Math.max(6, size * 0.12)}" paint-order="stroke">${s}</text>`;
+const lock = (x, y, s, c) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M -24 -14 v -22 a 24 24 0 0 1 48 0 v 22" fill="none" stroke="${c}" stroke-width="10"/><rect x="-36" y="-16" width="72" height="60" rx="10" fill="${c}" stroke="#000" stroke-width="5"/></g>`;
+function cover() {
+  let o = base(1);
+  o += T_("OS 5 LADRÕES", 540, 250, 130) + T_("QUE ROUBAM", 540, 390, 110, "#ffc53d") + T_("SEU DIA", 540, 520, 130);
+  TH.forEach((d, i) => { o += th(d, 140 + i * 200, 820, 0.78, i % 2 ? -1 : 1, { look: 4 }); });
+  o += T_("quantos entraram na sua casa hoje?", 540, 1080, 50, "#cfd8e3");
+  o += `<g transform="translate(540 1190)"><rect x="-200" y="-45" width="400" height="90" rx="45" fill="#12151c" stroke="#ffc53d" stroke-width="5"/><text class="hand" x="0" y="15" font-size="44" text-anchor="middle" fill="#ffc53d">arrasta →</text></g>`;
+  return o;
+}
+function slideThief(n, d) {
+  let o = base(n);
+  o += `<g transform="translate(60 120)"><rect width="200" height="72" rx="36" fill="#07080b" stroke="${d.c}" stroke-width="4"/><text class="sans" x="100" y="49" font-size="38" font-weight="800" text-anchor="middle" fill="${d.c}">${d.hora}</text></g>`;
+  o += T_(`#${n - 1}`, 980, 190, 90, d.c, "end");
+  o += T_(d.name, 540, 300, d.name.length > 18 ? 76 : 88, d.c);
+  o += `<ellipse cx="540" cy="560" rx="230" ry="200" fill="${d.c}" opacity="0.08"/>` + th(d, 540, 560, 1.25, 1, { sack: 5, grin: 1, look: 6 });
+  o += `<g transform="translate(70 800)"><rect width="940" height="${80 + d.rouba.length * 56}" rx="30" fill="#12151c" stroke="#e5484d" stroke-width="5"/><text class="hand" x="40" y="62" font-size="46" fill="#e5484d">ROUBA:</text>`;
+  d.rouba.forEach((s, i) => { o += `<text class="hand" x="230" y="${62 + i * 56}" font-size="44" fill="#f4efe6">${s}</text>`; });
+  const y2 = 800 + 80 + d.rouba.length * 56 + 30;
+  o += `</g><g transform="translate(70 ${y2})"><rect width="940" height="${70 + d.tranca.length * 56}" rx="30" fill="#12151c" stroke="#30a46c" stroke-width="5"/>${lock(70, 58, 0.9, "#30a46c")}<text class="hand" x="120" y="62" font-size="46" fill="#30a46c">TRANCA:</text>`;
+  d.tranca.forEach((s, i) => { o += `<text class="hand" x="${i ? 120 : 320}" y="${62 + i * 56}" font-size="44" fill="#f4efe6">${s}</text>`; });
+  return o + `</g>`;
+}
+function bossSlide() {
+  let o = base(7);
+  o += T_("E QUEM MANDA", 540, 230, 100) + T_("NA QUADRILHA?", 540, 350, 100, "#9fd8ff");
+  // boss (same design as the video)
+  o += `<g transform="translate(540 700) scale(1.05)"><ellipse cx="0" cy="60" rx="260" ry="300" fill="#3e63dd" opacity="0.14"/><path d="M -150 230 C -175 40 -120 -60 0 -70 C 120 -60 175 40 150 230 Z" fill="#141a2e" stroke="#000" stroke-width="9"/><path d="M -40 -30 L 0 60 L 40 -30" fill="none" stroke="#2c3a66" stroke-width="12"/><circle cx="0" cy="-150" r="105" fill="#141a2e" stroke="#000" stroke-width="9"/><path d="M -120 -190 Q 0 -300 120 -190 L 130 -170 L -130 -170 Z" fill="#0d1120" stroke="#000" stroke-width="8"/><rect x="-140" y="-180" width="280" height="26" rx="10" fill="#0d1120" stroke="#000" stroke-width="7"/><g transform="translate(0 -232)"><path d="M -60 0 Q -30 -16 -10 0 M 60 0 Q 30 -16 10 0" stroke="#ffc53d" stroke-width="8" fill="none" stroke-linecap="round"/><circle r="12" fill="#ffc53d"/></g><path d="M -60 -168 L -22 -148 L -60 -128 Z" fill="#9fd8ff"/><path d="M 24 -168 L 62 -148 L 24 -128 Z" fill="#9fd8ff"/><path d="M 120 60 Q 220 40 250 -10" fill="none" stroke="#000" stroke-width="44" stroke-linecap="round"/><path d="M 120 60 Q 220 40 250 -10" fill="none" stroke="#141a2e" stroke-width="32" stroke-linecap="round"/><g transform="translate(270 -40) rotate(-15)"><rect x="-38" y="-90" width="76" height="170" rx="18" fill="#2a2e35" stroke="#000" stroke-width="6"/><circle cx="0" cy="-48" r="22" fill="#e5484d" stroke="#000" stroke-width="5"/></g></g>`;
+  o += `<g transform="translate(540 1030)"><rect x="-380" y="-55" width="760" height="110" rx="55" fill="#12151c" stroke="#3e63dd" stroke-width="6"/>${T_("PILOTO AUTOMÁTICO", 0, 22, 62, "#9fd8ff")}</g>`;
+  o += T_("é ele que deixa a porta aberta.", 540, 1180, 52, "#cfd8e3");
+  return o;
+}
+function ctaSlide() {
+  let o = base(8);
+  o += T_("A HISTÓRIA COMPLETA", 540, 220, 84) + T_("ESTÁ NO YOUTUBE", 540, 330, 90, "#ffc53d");
+  o += `<g transform="translate(540 600)"><rect x="-400" y="-225" width="800" height="450" rx="30" fill="#07080b" stroke="#f4efe6" stroke-width="6"/>${TH.map((d, i) => th(d, -300 + i * 150, 60, 0.5, i % 2 ? -1 : 1)).join("")}${T_("A QUADRILHA", 0, -130, 80)}<g transform="translate(0 150)"><rect x="-70" y="-46" width="140" height="92" rx="24" fill="#e5484d"/><path d="M -18 -24 L 26 0 L -18 24 Z" fill="#fff"/></g></g>`;
+  o += T_("link na bio 🔗", 540, 930, 70, "#f4efe6");
+  const items = [["💾", "SALVA pra lembrar"], ["💬", "COMENTA qual ladrão te pega"], ["➕", "SEGUE pro próximo episódio"]];
+  items.forEach(([ic, s], i) => { o += `<g transform="translate(540 ${1030 + i * 82})"><rect x="-380" y="-36" width="760" height="72" rx="36" fill="#12151c" stroke="#3a4150" stroke-width="3"/><text x="-330" y="14" font-size="40" text-anchor="middle">${ic}</text><text class="hand" x="20" y="14" font-size="40" text-anchor="middle" fill="#f4efe6">${s}</text></g>`; });
+  return o;
+}
+window.draw = n => { document.getElementById("frame").innerHTML = n === 1 ? cover() : n <= 6 ? slideThief(n, TH[n - 2]) : n === 7 ? bossSlide() : ctaSlide(); };
+</script></body></html>
