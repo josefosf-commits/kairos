@@ -190,6 +190,7 @@ function sidePerson(S, t) {
   if (S.bib) o += `<rect x="-34" y="-112" width="76" height="56" rx="6" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><text class="sans" x="4" y="-74" font-size="28" font-weight="800" text-anchor="middle" fill="${INK}">${S.bib}</text>`;
   o += `<rect x="-16" y="-214" width="40" height="36" fill="${c.skinD}" stroke="${INK}" stroke-width="5"/>`;
   // head
+  if (S.bun) o += `<circle cx="-62" cy="-330" r="34" fill="${c.hair}" stroke="${INK}" stroke-width="6"/>`;
   o += `<rect x="-58" y="-395" width="140" height="205" rx="62" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
   o += `<ellipse cx="-4" cy="-285" rx="13" ry="21" fill="${c.skin}" stroke="${INK}" stroke-width="5"/>`;
   o += `<path d="M -58 -265 C -68 -360 -10 -410 50 -393 C 72 -388 82 -372 84 -350 C 52 -364 20 -362 0 -342 C -20 -322 -40 -298 -58 -265 Z" fill="${c.hair}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;

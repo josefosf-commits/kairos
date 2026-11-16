@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-15-A-MAE-DO-JOSEPH",
+ "duration": 53.75,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.59,
+   "text": "A mãe do Joseph tem quarenta e um anos. Trabalha o dia todo, cuida da casa, e nunca tem tempo pra ela."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.99,
+   "end": 12.51,
+   "text": "Toda noite ela dizia: amanhã eu começo a caminhar. E o amanhã nunca chegava."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.91,
+   "end": 18.11,
+   "text": "Até que ela percebeu: tempo que sobra não existe. Tempo a gente guarda."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.51,
+   "end": 23.55,
+   "text": "Cinco e quarenta da manhã. A casa inteira dormindo. Vinte minutos só dela."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.95,
+   "end": 27.71,
+   "text": "No primeiro dia, ela quase voltou pra cama. Mas foi."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.11,
+   "end": 33.95,
+   "text": "Na primeira semana, ela caminhou cinco vezes. No primeiro mês, vinte e duas."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 34.35,
+   "end": 38.19,
+   "text": "Seis meses depois, ela sobe a ladeira do trabalho sem parar."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 38.59,
+   "end": 43.47,
+   "text": "E o Joseph? Começou a acordar cedo também. Ninguém mandou. Ele só viu."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 43.87,
+   "end": 47.95,
+   "text": "Disciplina se ensina assim: fazendo, na frente de quem te olha."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 48.35,
+   "end": 51.95,
+   "text": "Se você também nunca tem tempo pra você, segue o canal."
+  }
+ ]
+}
