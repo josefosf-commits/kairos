@@ -1,0 +1,287 @@
+{
+ "name": "LEVANTA",
+ "duration": 248.16,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.2,
+   "end": 3.12,
+   "text": "Todo mundo começa motivado."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 3.92,
+   "end": 9.84,
+   "text": "O Joseph também. Ele se inscreveu numa corrida de dez quilômetros. Faltavam noventa dias."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.84,
+   "end": 15.56,
+   "text": "No primeiro treino, ele correu quinhentos metros. E parou, sem ar."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.36,
+   "end": 18.92,
+   "text": "Quinhentos metros. De dez mil."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 19.82,
+   "end": 22.78,
+   "text": "Ele pensou: talvez isso não seja pra mim."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.78,
+   "end": 35.26,
+   "text": "Na primeira semana, a Motivação foi junto. Acordava cedo, música no ouvido, foto pro story."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 36.16,
+   "end": 39.76,
+   "text": "Mas a Motivação é visita. E visita vai embora."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 40.76,
+   "end": 48.68,
+   "text": "Na segunda semana, choveu. Na terceira, ele dormiu mal. Na quarta, simplesmente não teve vontade."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 49.88,
+   "end": 55.72,
+   "text": "E é aí que a maioria faz uma conta errada: se eu não posso fazer o treino inteiro, não faço nada."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 56.52,
+   "end": 58.84,
+   "text": "O Joseph quase fez essa conta."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 60.34,
+   "end": 62.9,
+   "text": "Mas ele criou três regras simples."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 63.8,
+   "end": 71.0,
+   "text": "Regra um: nos dias ruins, diminui. Não pula. Sem vontade de correr cinco quilômetros? Corre um."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 72.2,
+   "end": 80.2,
+   "text": "Regra dois: nunca falhar dois dias seguidos. Um dia perdido é acidente. Dois é o começo de um hábito novo."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 81.4,
+   "end": 86.76,
+   "text": "Regra três: marcar um X no calendário a cada treino. E não quebrar a corrente."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 89.36,
+   "end": 93.44,
+   "text": "Dia vinte: dois quilômetros. Devagar. Mas foi."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 94.44,
+   "end": 98.36,
+   "text": "Dia quarenta: cinco quilômetros. Debaixo de chuva."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 99.36,
+   "end": 103.12,
+   "text": "Dia sessenta: ele já nem pensava se ia. Só ia."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 104.02,
+   "end": 108.26,
+   "text": "Os dias ruins continuaram existindo. Mas eles pararam de decidir por ele."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 109.26,
+   "end": 113.82,
+   "text": "Disciplina é isso: transformar uma decisão difícil numa coisa automática."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 117.32,
+   "end": 119.72,
+   "text": "Dia noventa. Dia da prova."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 120.72,
+   "end": 126.32,
+   "text": "Os primeiros cinco quilômetros foram perfeitos. Ritmo bom, respiração controlada."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 127.52,
+   "end": 131.36,
+   "text": "Quilômetro sete. Começou a chover. E a perna travou."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 133.86,
+   "end": 135.06,
+   "text": "O Joseph caiu."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 137.66,
+   "end": 140.62,
+   "text": "Um por um, os outros corredores passaram por ele."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 141.82,
+   "end": 147.18,
+   "text": "E a voz apareceu: desiste. Ninguém vai lembrar. Você já fez muito."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 150.18,
+   "end": 153.22,
+   "text": "Ele olhou pro chão molhado. E lembrou de cada manhã."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 154.02,
+   "end": 159.62,
+   "text": "Das manhãs de chuva. Dos dias de um quilômetro só. Dos noventa X no calendário."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 160.82,
+   "end": 164.74,
+   "text": "Ele não tinha treinado noventa dias pra parar no quilômetro sete."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 169.34,
+   "end": 170.14,
+   "text": "Levantou."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 172.34,
+   "end": 176.18,
+   "text": "Primeiro andando. Depois devagar. Depois correndo."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 177.38,
+   "end": 180.18,
+   "text": "Quilômetro oito. Quilômetro nove."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 182.18,
+   "end": 184.58,
+   "text": "E lá estava a linha de chegada."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 188.58,
+   "end": 191.7,
+   "text": "Ele chegou entre os últimos. Mas chegou."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 192.7,
+   "end": 197.1,
+   "text": "Com a perna doendo, ensopado, e com um sorriso que não cabia no rosto."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 200.6,
+   "end": 203.08,
+   "text": "Ninguém lembra quem chegou primeiro naquela manhã."
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 203.88,
+   "end": 208.2,
+   "text": "Mas o Joseph nunca mais esqueceu que, quando caiu, levantou."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 211.3,
+   "end": 215.7,
+   "text": "Na sua vida também vai ter um quilômetro sete. Um dia em que você cai."
+  },
+  {
+   "id": 38,
+   "audio": "audio/l38.wav",
+   "start": 216.7,
+   "end": 224.3,
+   "text": "Nesse dia, lembra das três regras: diminui, mas não pula. Nunca falha dois dias. E não quebra a corrente."
+  },
+  {
+   "id": 39,
+   "audio": "audio/l39.wav",
+   "start": 225.5,
+   "end": 226.3,
+   "text": "E levanta."
+  },
+  {
+   "id": 40,
+   "audio": "audio/l40.wav",
+   "start": 228.8,
+   "end": 234.16,
+   "text": "Se esse vídeo te ajudou, se inscreve. E comenta: qual é o seu quilômetro sete?"
+  }
+ ]
+}

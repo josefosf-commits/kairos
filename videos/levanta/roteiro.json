@@ -1,0 +1,206 @@
+{
+ "name": "LEVANTA",
+ "tail": 14,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Todo mundo começa motivado.",
+   "gap": 1.2
+  },
+  {
+   "id": 2,
+   "text": "O Joseph também. Ele se inscreveu numa corrida de dez quilômetros. Faltavam noventa dias.",
+   "gap": 0.8
+  },
+  {
+   "id": 3,
+   "text": "No primeiro treino, ele correu quinhentos metros. E parou, sem ar.",
+   "gap": 1.0
+  },
+  {
+   "id": 4,
+   "text": "Quinhentos metros. De dez mil.",
+   "gap": 0.8
+  },
+  {
+   "id": 5,
+   "text": "Ele pensou: talvez isso não seja pra mim.",
+   "gap": 0.9
+  },
+  {
+   "id": 6,
+   "text": "Na primeira semana, a Motivação foi junto. Acordava cedo, música no ouvido, foto pro story.",
+   "gap": 6.0
+  },
+  {
+   "id": 7,
+   "text": "Mas a Motivação é visita. E visita vai embora.",
+   "gap": 0.9
+  },
+  {
+   "id": 8,
+   "text": "Na segunda semana, choveu. Na terceira, ele dormiu mal. Na quarta, simplesmente não teve vontade.",
+   "gap": 1.0
+  },
+  {
+   "id": 9,
+   "text": "E é aí que a maioria faz uma conta errada: se eu não posso fazer o treino inteiro, não faço nada.",
+   "gap": 1.2
+  },
+  {
+   "id": 10,
+   "text": "O Joseph quase fez essa conta.",
+   "gap": 0.8
+  },
+  {
+   "id": 11,
+   "text": "Mas ele criou três regras simples.",
+   "gap": 1.5
+  },
+  {
+   "id": 12,
+   "text": "Regra um: nos dias ruins, diminui. Não pula. Sem vontade de correr cinco quilômetros? Corre um.",
+   "gap": 0.9
+  },
+  {
+   "id": 13,
+   "text": "Regra dois: nunca falhar dois dias seguidos. Um dia perdido é acidente. Dois é o começo de um hábito novo.",
+   "gap": 1.2
+  },
+  {
+   "id": 14,
+   "text": "Regra três: marcar um X no calendário a cada treino. E não quebrar a corrente.",
+   "gap": 1.2
+  },
+  {
+   "id": 15,
+   "text": "Dia vinte: dois quilômetros. Devagar. Mas foi.",
+   "gap": 2.6
+  },
+  {
+   "id": 16,
+   "text": "Dia quarenta: cinco quilômetros. Debaixo de chuva.",
+   "gap": 1.0
+  },
+  {
+   "id": 17,
+   "text": "Dia sessenta: ele já nem pensava se ia. Só ia.",
+   "gap": 1.0
+  },
+  {
+   "id": 18,
+   "text": "Os dias ruins continuaram existindo. Mas eles pararam de decidir por ele.",
+   "gap": 0.9
+  },
+  {
+   "id": 19,
+   "text": "Disciplina é isso: transformar uma decisão difícil numa coisa automática.",
+   "gap": 1.0
+  },
+  {
+   "id": 20,
+   "text": "Dia noventa. Dia da prova.",
+   "gap": 3.5
+  },
+  {
+   "id": 21,
+   "text": "Os primeiros cinco quilômetros foram perfeitos. Ritmo bom, respiração controlada.",
+   "gap": 1.0
+  },
+  {
+   "id": 22,
+   "text": "Quilômetro sete. Começou a chover. E a perna travou.",
+   "gap": 1.2
+  },
+  {
+   "id": 23,
+   "text": "O Joseph caiu.",
+   "gap": 2.5
+  },
+  {
+   "id": 24,
+   "text": "Um por um, os outros corredores passaram por ele.",
+   "gap": 2.6
+  },
+  {
+   "id": 25,
+   "text": "E a voz apareceu: desiste. Ninguém vai lembrar. Você já fez muito.",
+   "gap": 1.2
+  },
+  {
+   "id": 26,
+   "text": "Ele olhou pro chão molhado. E lembrou de cada manhã.",
+   "gap": 3.0
+  },
+  {
+   "id": 27,
+   "text": "Das manhãs de chuva. Dos dias de um quilômetro só. Dos noventa X no calendário.",
+   "gap": 0.8
+  },
+  {
+   "id": 28,
+   "text": "Ele não tinha treinado noventa dias pra parar no quilômetro sete.",
+   "gap": 1.2
+  },
+  {
+   "id": 29,
+   "text": "Levantou.",
+   "gap": 4.6
+  },
+  {
+   "id": 30,
+   "text": "Primeiro andando. Depois devagar. Depois correndo.",
+   "gap": 2.2
+  },
+  {
+   "id": 31,
+   "text": "Quilômetro oito. Quilômetro nove.",
+   "gap": 1.2
+  },
+  {
+   "id": 32,
+   "text": "E lá estava a linha de chegada.",
+   "gap": 2.0
+  },
+  {
+   "id": 33,
+   "text": "Ele chegou entre os últimos. Mas chegou.",
+   "gap": 4.0
+  },
+  {
+   "id": 34,
+   "text": "Com a perna doendo, ensopado, e com um sorriso que não cabia no rosto.",
+   "gap": 1.0
+  },
+  {
+   "id": 35,
+   "text": "Ninguém lembra quem chegou primeiro naquela manhã.",
+   "gap": 3.5
+  },
+  {
+   "id": 36,
+   "text": "Mas o Joseph nunca mais esqueceu que, quando caiu, levantou.",
+   "gap": 0.8
+  },
+  {
+   "id": 37,
+   "text": "Na sua vida também vai ter um quilômetro sete. Um dia em que você cai.",
+   "gap": 3.1
+  },
+  {
+   "id": 38,
+   "text": "Nesse dia, lembra das três regras: diminui, mas não pula. Nunca falha dois dias. E não quebra a corrente.",
+   "gap": 1.0
+  },
+  {
+   "id": 39,
+   "text": "E levanta.",
+   "gap": 1.2
+  },
+  {
+   "id": 40,
+   "text": "Se esse vídeo te ajudou, se inscreve. E comenta: qual é o seu quilômetro sete?",
+   "gap": 2.5
+  }
+ ]
+}

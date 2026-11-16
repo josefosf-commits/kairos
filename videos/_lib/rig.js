@@ -168,12 +168,12 @@ function limb(a, b, c, w1, w2, col) {
   return `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w1}" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="${col}" stroke-width="${w2}" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
 function sidePerson(S, t) {
-  const c = JOSEPH, g = S.gait;
-  const L1 = legPose(S.phase, g), L2 = legPose(S.phase + Math.PI, g);
+  const c = S.c || JOSEPH, g = S.gait;
+  const L1 = S.legs ? S.legs[0] : legPose(S.phase, g), L2 = S.legs ? S.legs[1] : legPose(S.phase + Math.PI, g);
   const hipY = S.groundY - Math.max(L1.foot[1], L2.foot[1]) - 10;
   let o = `<g transform="translate(${S.x} ${hipY}) scale(${S.dir} 1)">`;
   const shoe = (L, far) => { const f = L.foot, a = Math.max(-30, Math.min(30, L.footAng * 0.4)); return `<g transform="translate(${f[0]} ${f[1]}) rotate(${-a})"><path d="M -14 -12 L 38 -12 Q 52 -10 50 6 L -16 6 Z" fill="${far ? "#cfcfcf" : "#eee"}" stroke="${INK}" stroke-width="5"/><rect x="-16" y="2" width="66" height="6" fill="${RED}"/></g>`; };
-  o += limb([0, 0], L2.knee, L2.foot, 46, 34, PANTS_D) + shoe(L2, true);
+  o += limb([0, 0], L2.knee, L2.foot, 46, 34, S.pantsD || PANTS_D) + shoe(L2, true);
   o += `<g transform="rotate(${S.lean})">`;
   const sh = [6, -160];
   const armPose = (ph, near) => {
@@ -187,6 +187,7 @@ function sidePerson(S, t) {
   o += `<path d="M -66 -150 C -80 -205 -20 -222 0 -190 L -10 -150 Z" fill="${c.hoodD}" stroke="${INK}" stroke-width="6"/>`;
   o += `<rect x="-58" y="-188" width="118" height="200" rx="44" fill="${c.hood}" stroke="${INK}" stroke-width="7"/>`;
   o += `<path d="M 36 -178 L 40 -128" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/><circle cx="40" cy="-126" r="5" fill="#d9d4c7" stroke="${INK}" stroke-width="2"/>`;
+  if (S.bib) o += `<rect x="-34" y="-112" width="76" height="56" rx="6" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><text class="sans" x="4" y="-74" font-size="28" font-weight="800" text-anchor="middle" fill="${INK}">${S.bib}</text>`;
   o += `<rect x="-16" y="-214" width="40" height="36" fill="${c.skinD}" stroke="${INK}" stroke-width="5"/>`;
   // head
   o += `<rect x="-58" y="-395" width="140" height="205" rx="62" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
@@ -207,7 +208,7 @@ function sidePerson(S, t) {
   if (S.phoneInHand) o += `<rect x="${hN[0] - 6}" y="${hN[1] - 70}" width="16" height="96" rx="5" fill="#14161a" stroke="${INK}" stroke-width="5"/>`;
   o += `<circle cx="${hN[0]}" cy="${hN[1]}" r="18" fill="${c.skin}" stroke="${INK}" stroke-width="5"/>`;
   o += `</g>`;
-  o += limb([0, 0], L1.knee, L1.foot, 50, 37, PANTS) + shoe(L1, false);
+  o += limb([0, 0], L1.knee, L1.foot, 50, 37, S.pants || PANTS) + shoe(L1, false);
   o += `</g>`;
   S.handWorld = [S.x + S.dir * (Math.cos(S.lean * D2R) * hN[0] - Math.sin(S.lean * D2R) * hN[1]), hipY + Math.sin(S.lean * D2R) * hN[0] + Math.cos(S.lean * D2R) * hN[1]];
   return o;
