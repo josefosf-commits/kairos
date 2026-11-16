@@ -1,0 +1,2 @@
+{"t": 183.6, "filter": "brightness(1.15) saturate(1.25) contrast(1.05)",
+ "overlay": "<text class='hand' x='960' y='190' font-size='200' text-anchor='middle' fill='#ffd38a' stroke='#000' stroke-width='26' paint-order='stroke' stroke-linejoin='round'>NINGUÉM VIU.</text><g transform='translate(1580 800) rotate(-6)'><rect x='-200' y='-60' width='400' height='120' rx='60' fill='#07080b' stroke='#30a46c' stroke-width='8'/><text class='hand' x='0' y='26' font-size='72' text-anchor='middle' fill='#30a46c'>APROVADO</text></g>"}
