@@ -28,7 +28,9 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - **Mulheres: 39% do público**, concentradas em 35 a 44 anos. Incluir personagens femininas fortes nas histórias.
 - Homens: 61%. 25 a 34 anos: 21%. 45+: 13%.
 - Formato que mais performa nos longos: história emocional de esforço, título curto e imperativo, thumbnail com rosto + 1 a 3 palavras, e chamada para se inscrever dentro da história.
-- Ainda falta confirmar, no Studio, filtrando por tipo de conteúdo (Shorts × Vídeos), que os adolescentes vêm dos shorts e os adultos dos longos. Revisar estes números a cada mês.
+- **Checado em 16/11/2026: o filtro "Shorts" mostra exatamente os mesmos números do total.** Quase todas as views vêm dos shorts, e o Studio ainda não mostra idade para os vídeos longos (poucas views). Ou seja: **os adultos de 35 a 44 anos também chegam pelos shorts.** Então os shorts devem alternar temas de adolescente (escola, celular) e de adulto (trabalho, família, saúde, acordar cedo, dinheiro), e cada short adulto é uma porta para os vídeos longos. Por enquanto, ainda é uma aposta que os longos agradam mais aos adultos. Confirmar quando a aba "Vídeos" tiver dados de idade.
+- Regiões (shorts): Brasil 46,7%, Portugal 3,3%, Angola 0,8%, Moçambique 0,5%. Manter o pt-BR, mas evitar gíria regional pesada, para não afastar o público lusófono.
+- Revisar estes números a cada mês.
 
 ## Estrutura
 
