@@ -1,0 +1,86 @@
+{
+ "name": "SHORT-14-DESAFIO-30-DIAS-EP3",
+ "duration": 52.68,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 5.23,
+   "text": "Dia dez. Seis e meia. O celular tocando na sala. Era a mãe dele."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.53,
+   "end": 10.97,
+   "text": "Ele atendeu. Porque a regra nunca foi fugir das pessoas. Era fugir da tela."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.27,
+   "end": 15.43,
+   "text": "A mãe falou: filho, você tá diferente. Tá mais calmo."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 15.73,
+   "end": 19.01,
+   "text": "Ele desligou sorrindo. E aí veio a armadilha."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 19.36,
+   "end": 24.4,
+   "text": "O celular desbloqueado na mão. Trinta notificações. Só uma olhadinha."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 24.7,
+   "end": 27.26,
+   "text": "O dedo foi sozinho até o aplicativo."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 27.71,
+   "end": 31.79,
+   "text": "Ele parou. Atender, sim. Rolar, não."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 32.09,
+   "end": 35.77,
+   "text": "O celular voltou pra sala. E a manhã continuou sendo dele."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 36.22,
+   "end": 41.1,
+   "text": "Dia doze. Dia catorze. Dia quinze: metade do desafio."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 41.55,
+   "end": 46.91,
+   "text": "Mas no dia dezessete, o Lucas apareceu com um convite: quebra a regra só hoje."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 47.36,
+   "end": 50.88,
+   "text": "Episódio quatro em breve. Segue pra não perder."
+  }
+ ]
+}
