@@ -20,6 +20,16 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - **"Instagram"**: formato Instagram. Reel vertical 1080x1920 com o conteúdo importante no centro 3:4, para a grade do perfil; carrossel em 4:5, 1080x1350. Legenda do Instagram com gancho na 1ª linha, CTA e hashtags (sem #shorts). Arquivos em `instagram/`.
 - Não misturar: não entregar formato de YouTube quando o pedido for Instagram, e vice-versa.
 
+## Público (YouTube Studio, 28 dias até 15/11/2026): use ao escolher temas
+
+- **35 a 44 anos: 30% das views e 31% do tempo de exibição.** É o maior público e o mais valioso (anúncios pagam mais). **Vídeos longos** devem falar com ele: recomeçar depois dos 35, trabalho, família e filhos, saúde e treino, acordar cedo, dinheiro. Personagens adultos da família do Joseph (pai, mãe) funcionam.
+- **13 a 17 anos: 25% das views.** Escola, prova, celular, foco. Funciona nos **shorts** e nas séries (Ladrões, Desafio 30 Dias).
+- **18 a 24 anos: só 11%.** É o ponto fraco. Às vezes, testar temas de faculdade, primeiro emprego e morar sozinho.
+- **Mulheres: 39% do público**, concentradas em 35 a 44 anos. Incluir personagens femininas fortes nas histórias.
+- Homens: 61%. 25 a 34 anos: 21%. 45+: 13%.
+- Formato que mais performa nos longos: história emocional de esforço, título curto e imperativo, thumbnail com rosto + 1 a 3 palavras, e chamada para se inscrever dentro da história.
+- Ainda falta confirmar, no Studio, filtrando por tipo de conteúdo (Shorts × Vídeos), que os adolescentes vêm dos shorts e os adultos dos longos. Revisar estes números a cada mês.
+
 ## Estrutura
 
 - `videos/_lib/`: biblioteca comum (rig.js, short.js, som.py, render.js, montar.sh, collect.py, fila.sh)
