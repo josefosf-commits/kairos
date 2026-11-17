@@ -1453,7 +1453,7 @@ acordar cedo, rotina matinal, tempo para mim, mãe sem tempo, caminhada, discipl
 - Aos 43, o Médico Ficou em Silêncio. Seis Meses Depois…
 - Nunca É Tarde Pra Recomeçar: 3 Combinados Que Mudaram Tudo
 
-**Texto da thumbnail:** AOS 43. RECOMEÇA. (frame: o pai do Joseph sorrindo, 3:10)
+**Texto da thumbnail:** AOS 43. + ANTES / DEPOIS + PRESSÃO ALTA ⚠ + −12 KG (thumbnail-2.png, a principal). Alternativa: AOS 43. RECOMEÇA. (thumbnail.png)
 
 ### Descrição
 ```
