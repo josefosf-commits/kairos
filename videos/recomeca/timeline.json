@@ -1,0 +1,266 @@
+{
+ "name": "RECOMECA",
+ "duration": 244.76,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.2,
+   "end": 6.48,
+   "text": "O pai do Joseph tem quarenta e três anos. E há dez anos ele diz a mesma frase."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.38,
+   "end": 8.98,
+   "text": "Na segunda eu começo."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 9.88,
+   "end": 16.36,
+   "text": "Trabalho, conta, filho, cansaço. Sempre tinha um motivo. E sempre era um motivo bom."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.26,
+   "end": 23.22,
+   "text": "Até que, numa terça-feira, o médico olhou os exames e ficou em silêncio."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 24.12,
+   "end": 30.6,
+   "text": "Pressão alta. Glicose no limite. E um conselho: ou muda agora, ou o corpo muda por você."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 36.6,
+   "end": 38.76,
+   "text": "Naquela noite, ele não dormiu."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 39.66,
+   "end": 44.54,
+   "text": "Ele pensou: na minha idade, não dá mais. Já passou o tempo."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 46.44,
+   "end": 52.68,
+   "text": "Foi aí que o Joseph sentou do lado dele e disse: pai, a gente começa junto. Mas começa pequeno."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 53.58,
+   "end": 59.02,
+   "text": "Porque o erro de quem recomeça depois dos quarenta é querer recuperar dez anos em uma semana."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 59.92,
+   "end": 65.04,
+   "text": "Academia todo dia, dieta radical, e na segunda semana, desiste."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 66.24,
+   "end": 68.64,
+   "text": "Então eles fizeram três combinados."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 70.44,
+   "end": 75.48,
+   "text": "Primeiro: dez minutos de caminhada depois do jantar. Só dez. Todo dia."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 77.18,
+   "end": 83.66,
+   "text": "Segundo: trocar em vez de cortar. Refrigerante virou água com limão. O pão da noite virou ovo."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 85.36,
+   "end": 91.36,
+   "text": "Terceiro: dormir antes das onze. Porque o corpo de quarenta anos se conserta é dormindo."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 92.76,
+   "end": 98.04,
+   "text": "Na primeira semana, os dez minutos pareciam uma maratona. Ele voltava ofegante."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 98.94,
+   "end": 103.82,
+   "text": "Na terceira, o joelho doeu. Ele diminuiu o passo. Mas não parou."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 104.72,
+   "end": 110.0,
+   "text": "No primeiro mês, os dez minutos viraram vinte. Ninguém pediu. Ele quis."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 110.9,
+   "end": 116.42,
+   "text": "Teve dia de chuva. Teve churrasco de domingo. Teve hora extra até as nove da noite."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 117.32,
+   "end": 122.76,
+   "text": "Nesses dias, ele seguia uma regra: pode falhar um dia. Dois, nunca."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 124.66,
+   "end": 128.02,
+   "text": "No terceiro mês, a mãe do Joseph começou a ir junto."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 128.92,
+   "end": 133.72,
+   "text": "E a caminhada depois do jantar virou a conversa que a família não tinha há anos."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 134.62,
+   "end": 140.14,
+   "text": "Ninguém fala disso. Mas recomeçar muda mais do que o corpo. Muda a casa inteira."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 143.84,
+   "end": 147.68,
+   "text": "Seis meses depois. A mesma sala. O mesmo médico."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 148.58,
+   "end": 151.06,
+   "text": "Ele entregou os exames com a mão suando."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 153.96,
+   "end": 157.24,
+   "text": "O médico leu. Leu de novo. E sorriu."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 159.24,
+   "end": 165.08,
+   "text": "A pressão estava controlada. A glicose tinha voltado pro normal. Doze quilos a menos."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 165.98,
+   "end": 168.78,
+   "text": "Mas o melhor resultado não estava no papel."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 171.38,
+   "end": 175.78,
+   "text": "Naquele domingo, ele correu cinco quilômetros. Do lado do filho."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 176.68,
+   "end": 180.68,
+   "text": "No último quilômetro, o Joseph diminuiu o passo pra esperar o pai."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 183.08,
+   "end": 187.0,
+   "text": "E o pai disse: não precisa. Hoje eu te alcanço."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 187.9,
+   "end": 192.7,
+   "text": "Ele tinha quarenta e três anos. E nunca tinha se sentido tão novo."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 195.3,
+   "end": 199.86,
+   "text": "Se você tem mais de trinta e cinco e acha que já passou do tempo, escuta isso."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 200.76,
+   "end": 205.72,
+   "text": "O tempo que passou não volta. Mas o tempo que falta ainda é seu."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 206.62,
+   "end": 212.94,
+   "text": "Começa pequeno: dez minutos por dia. Troca em vez de cortar. E dorme antes das onze."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 213.84,
+   "end": 217.76,
+   "text": "E se falhar um dia, tudo bem. Dois, nunca."
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 218.96,
+   "end": 222.96,
+   "text": "Nunca é tarde pra recomeçar. Mas é sempre cedo pra desistir."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 224.16,
+   "end": 229.76,
+   "text": "Se esse vídeo falou com você, se inscreve. E comenta: o que você vai recomeçar essa semana?"
+  }
+ ]
+}

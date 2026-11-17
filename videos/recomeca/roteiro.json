@@ -1,0 +1,191 @@
+{
+ "name": "RECOMECA",
+ "tail": 15,
+ "lines": [
+  {
+   "id": 1,
+   "text": "O pai do Joseph tem quarenta e três anos. E há dez anos ele diz a mesma frase.",
+   "gap": 1.2
+  },
+  {
+   "id": 2,
+   "text": "Na segunda eu começo.",
+   "gap": 0.9
+  },
+  {
+   "id": 3,
+   "text": "Trabalho, conta, filho, cansaço. Sempre tinha um motivo. E sempre era um motivo bom.",
+   "gap": 0.9
+  },
+  {
+   "id": 4,
+   "text": "Até que, numa terça-feira, o médico olhou os exames e ficou em silêncio.",
+   "gap": 1.9
+  },
+  {
+   "id": 5,
+   "text": "Pressão alta. Glicose no limite. E um conselho: ou muda agora, ou o corpo muda por você.",
+   "gap": 0.9
+  },
+  {
+   "id": 6,
+   "text": "Naquela noite, ele não dormiu.",
+   "gap": 6.0
+  },
+  {
+   "id": 7,
+   "text": "Ele pensou: na minha idade, não dá mais. Já passou o tempo.",
+   "gap": 0.9
+  },
+  {
+   "id": 8,
+   "text": "Foi aí que o Joseph sentou do lado dele e disse: pai, a gente começa junto. Mas começa pequeno.",
+   "gap": 1.9
+  },
+  {
+   "id": 9,
+   "text": "Porque o erro de quem recomeça depois dos quarenta é querer recuperar dez anos em uma semana.",
+   "gap": 0.9
+  },
+  {
+   "id": 10,
+   "text": "Academia todo dia, dieta radical, e na segunda semana, desiste.",
+   "gap": 0.9
+  },
+  {
+   "id": 11,
+   "text": "Então eles fizeram três combinados.",
+   "gap": 1.2
+  },
+  {
+   "id": 12,
+   "text": "Primeiro: dez minutos de caminhada depois do jantar. Só dez. Todo dia.",
+   "gap": 1.8
+  },
+  {
+   "id": 13,
+   "text": "Segundo: trocar em vez de cortar. Refrigerante virou água com limão. O pão da noite virou ovo.",
+   "gap": 1.7
+  },
+  {
+   "id": 14,
+   "text": "Terceiro: dormir antes das onze. Porque o corpo de quarenta anos se conserta é dormindo.",
+   "gap": 1.7
+  },
+  {
+   "id": 15,
+   "text": "Na primeira semana, os dez minutos pareciam uma maratona. Ele voltava ofegante.",
+   "gap": 1.4
+  },
+  {
+   "id": 16,
+   "text": "Na terceira, o joelho doeu. Ele diminuiu o passo. Mas não parou.",
+   "gap": 0.9
+  },
+  {
+   "id": 17,
+   "text": "No primeiro mês, os dez minutos viraram vinte. Ninguém pediu. Ele quis.",
+   "gap": 0.9
+  },
+  {
+   "id": 18,
+   "text": "Teve dia de chuva. Teve churrasco de domingo. Teve hora extra até as nove da noite.",
+   "gap": 0.9
+  },
+  {
+   "id": 19,
+   "text": "Nesses dias, ele seguia uma regra: pode falhar um dia. Dois, nunca.",
+   "gap": 0.9
+  },
+  {
+   "id": 20,
+   "text": "No terceiro mês, a mãe do Joseph começou a ir junto.",
+   "gap": 1.9
+  },
+  {
+   "id": 21,
+   "text": "E a caminhada depois do jantar virou a conversa que a família não tinha há anos.",
+   "gap": 0.9
+  },
+  {
+   "id": 22,
+   "text": "Ninguém fala disso. Mas recomeçar muda mais do que o corpo. Muda a casa inteira.",
+   "gap": 0.9
+  },
+  {
+   "id": 23,
+   "text": "Seis meses depois. A mesma sala. O mesmo médico.",
+   "gap": 3.7
+  },
+  {
+   "id": 24,
+   "text": "Ele entregou os exames com a mão suando.",
+   "gap": 0.9
+  },
+  {
+   "id": 25,
+   "text": "O médico leu. Leu de novo. E sorriu.",
+   "gap": 2.9
+  },
+  {
+   "id": 26,
+   "text": "A pressão estava controlada. A glicose tinha voltado pro normal. Doze quilos a menos.",
+   "gap": 2.0
+  },
+  {
+   "id": 27,
+   "text": "Mas o melhor resultado não estava no papel.",
+   "gap": 0.9
+  },
+  {
+   "id": 28,
+   "text": "Naquele domingo, ele correu cinco quilômetros. Do lado do filho.",
+   "gap": 2.6
+  },
+  {
+   "id": 29,
+   "text": "No último quilômetro, o Joseph diminuiu o passo pra esperar o pai.",
+   "gap": 0.9
+  },
+  {
+   "id": 30,
+   "text": "E o pai disse: não precisa. Hoje eu te alcanço.",
+   "gap": 2.4
+  },
+  {
+   "id": 31,
+   "text": "Ele tinha quarenta e três anos. E nunca tinha se sentido tão novo.",
+   "gap": 0.9
+  },
+  {
+   "id": 32,
+   "text": "Se você tem mais de trinta e cinco e acha que já passou do tempo, escuta isso.",
+   "gap": 2.6
+  },
+  {
+   "id": 33,
+   "text": "O tempo que passou não volta. Mas o tempo que falta ainda é seu.",
+   "gap": 0.9
+  },
+  {
+   "id": 34,
+   "text": "Começa pequeno: dez minutos por dia. Troca em vez de cortar. E dorme antes das onze.",
+   "gap": 0.9
+  },
+  {
+   "id": 35,
+   "text": "E se falhar um dia, tudo bem. Dois, nunca.",
+   "gap": 0.9
+  },
+  {
+   "id": 36,
+   "text": "Nunca é tarde pra recomeçar. Mas é sempre cedo pra desistir.",
+   "gap": 1.2
+  },
+  {
+   "id": 37,
+   "text": "Se esse vídeo falou com você, se inscreve. E comenta: o que você vai recomeçar essa semana?",
+   "gap": 1.2
+  }
+ ]
+}

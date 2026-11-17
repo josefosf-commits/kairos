@@ -1,0 +1,2 @@
+{"t": 190.5, "filter": "brightness(1.12) saturate(1.25) contrast(1.05)",
+ "overlay": "<text class='hand' x='1500' y='420' font-size='190' text-anchor='middle' fill='#f4efe6' stroke='#000' stroke-width='24' paint-order='stroke' stroke-linejoin='round'>AOS 43.</text><text class='hand' x='1500' y='640' font-size='150' text-anchor='middle' fill='#30a46c' stroke='#000' stroke-width='22' paint-order='stroke' stroke-linejoin='round'>RECOMEÇA.</text>"}
