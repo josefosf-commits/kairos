@@ -1,0 +1,170 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP02",
+ "duration": 142.37,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.35,
+   "end": 4.75,
+   "text": "Um leilão beneficente. Às nove da noite em ponto, a luz acabou."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 5.15,
+   "end": 10.03,
+   "text": "Sessenta segundos de escuro. Quando a luz voltou, a moldura estava vazia."
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 10.43,
+   "end": 13.31,
+   "text": "O quadro de três milhões tinha sumido."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 13.91,
+   "end": 18.31,
+   "text": "Presta atenção em tudo. No final, eu vou te pedir pra apontar o culpado."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 18.81,
+   "end": 20.25,
+   "text": "Três suspeitos."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 20.65,
+   "end": 26.17,
+   "text": "O segurança. Nervoso, suando. E o único que desceu até o quadro de luz."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 26.57,
+   "end": 32.81,
+   "text": "A colecionadora. Perdeu o lance e gritou na frente de todo mundo: esse quadro ainda vai ser meu."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 33.21,
+   "end": 42.65,
+   "text": "E a leiloeira, Dona Zélia. Setenta e dois anos, fundadora do orfanato. Todo mundo ouviu a voz dela no palco, o tempo inteiro."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 43.35,
+   "end": 47.11,
+   "text": "A polícia já algemava o segurança. Mas aí chegou o Joseph."
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 48.01,
+   "end": 52.81,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 53.21,
+   "end": 59.53,
+   "text": "Primeiro detalhe: o apagão não foi acidente. Tinha um timer no quadro de luz, marcado pra nove em ponto."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 59.93,
+   "end": 67.53,
+   "text": "Segundo: o pano que cobria o quadro estava dobrado. Com capricho. Ladrão com pressa não dobra pano."
+  },
+  {
+   "id": 13,
+   "audio": "audio-grave/l13.wav",
+   "start": 67.93,
+   "end": 73.77,
+   "text": "Terceiro: no escuro, a leiloeira disse: calma, ninguém sai do lugar. E tossiu."
+  },
+  {
+   "id": 14,
+   "audio": "audio-grave/l14.wav",
+   "start": 74.37,
+   "end": 81.57,
+   "text": "Trinta segundos depois, ela disse de novo. A mesma frase. E a mesma tosse, no mesmo segundo."
+  },
+  {
+   "id": 15,
+   "audio": "audio-grave/l15.wav",
+   "start": 82.37,
+   "end": 86.61,
+   "text": "Agora é com você. Pausa o vídeo e comenta: quem roubou o quadro?"
+  },
+  {
+   "id": 16,
+   "audio": "audio-grave/l16.wav",
+   "start": 87.01,
+   "end": 91.65,
+   "text": "O segurança, a colecionadora, ou a Dona Zélia? Valendo."
+  },
+  {
+   "id": 17,
+   "audio": "audio-grave/l17.wav",
+   "start": 97.65,
+   "end": 101.17,
+   "text": "Ninguém tosse igual duas vezes. Aquilo era uma gravação."
+  },
+  {
+   "id": 18,
+   "audio": "audio-grave/l18.wav",
+   "start": 101.67,
+   "end": 105.19,
+   "text": "A voz estava no palco. A Dona Zélia, não."
+  },
+  {
+   "id": 19,
+   "audio": "audio-grave/l19.wav",
+   "start": 105.59,
+   "end": 110.87,
+   "text": "Sessenta segundos de escuro. Oito passos até a moldura. Ela ensaiou cada um."
+  },
+  {
+   "id": 20,
+   "audio": "audio-grave/l20.wav",
+   "start": 111.37,
+   "end": 118.01,
+   "text": "Embaixo do púlpito, um celular repetindo a gravação. E dentro da bengala oca, a tela enrolada."
+  },
+  {
+   "id": 21,
+   "audio": "audio-grave/l21.wav",
+   "start": 118.71,
+   "end": 127.51,
+   "text": "O motivo? O orfanato estava falindo. Ela ia vender o mesmo quadro duas vezes: uma no leilão, e outra escondida."
+  },
+  {
+   "id": 22,
+   "audio": "audio-grave/l22.wav",
+   "start": 128.41,
+   "end": 132.01,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 23,
+   "audio": "audio-grave/l23.wav",
+   "start": 132.61,
+   "end": 140.37,
+   "text": "Caso dois, resolvido. Se você acertou, comenta: eu sabia. O caso três sai em breve. Segue pra não perder."
+  }
+ ]
+}

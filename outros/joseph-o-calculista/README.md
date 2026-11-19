@@ -13,6 +13,12 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
    `ffmpeg -i audio/lN.wav -af "asetrate=24000*0.79,aresample=24000,atempo=1.2658,aecho=0.8:0.7:40:0.18,volume=1.25" -ar 24000 audio-grave/lN.wav`
 3. No `timeline.json`, trocar `audio/` por `audio-grave/` antes de rodar o `montar.sh`.
 
+## Formato "comenta antes do fim" (desde o Caso 2)
+- Logo no começo: "No final, eu vou te pedir pra apontar o culpado."
+- Antes da revelação: tela "COMENTA AGORA" com os suspeitos marcados A, B e C e contagem de 5 s.
+- O culpado é quem parece menos suspeito. As pistas são justas, mas as primeiras apontam para os suspeitos óbvios.
+- No fim: "Se você acertou, comenta: eu sabia."
+
 ## Estilo
 - Noir: noite, chuva, trovões, fundo azul-escuro (#0b0f1a), dourado (GOLD) e vermelho (#e5484d).
 - Estrutura do episódio: crime → 3 suspeitos com álibi → entrada do Joseph (título "JOSEPH, O CALCULISTA") → 3 pistas numeradas → teste que entrega o culpado → quadro com a conta ("= MENTIU") → "Os números não mentem. As pessoas, sim." → "CASO N · RESOLVIDO" + gancho do próximo caso.
@@ -20,6 +26,7 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 
 ## Episódios
 - `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
+- `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
 
 ## Como rodar (dentro da pasta do episódio)
 `node ../../../videos/_lib/render.js` e depois `bash ../../../videos/_lib/montar.sh` → `build/<NOME>.mp4`
