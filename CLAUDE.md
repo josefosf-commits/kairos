@@ -41,6 +41,7 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 6. **Converter em inscritos:** gancho de série no fim ("o próximo ladrão sai amanhã") em vez de "se inscreva" genérico. Comentário fixado com resposta curta (SIM/NÃO, um número). Lembrar que 39% assistem na TV, onde é difícil se inscrever: pedir para seguir "pra não perder o próximo episódio".
 7. Formato que mais performa nos longos: história emocional de esforço, título curto, thumbnail com rosto + 1 a 3 palavras ou um número forte ("7 HORAS POR DIA", "AOS 43", antes/depois).
 8. Revisar estes números toda semana enquanto o canal é novo.
+9. **Checado em 19/11 (prints de 22/10 a 18/11):** "Tudo" ≈ "Shorts". A aba "Vídeos" mostrou 13–17 = 100%, mas com poucas views: é amostra pequena, não é conclusão. Junto com o desempenho (longos jovens/universais: 117 a 189 views; RECOMEÇA., adulto: 23 views em 2 dias), o sinal é que **o público dos longos é mais jovem do que se apostou**. Por enquanto: longos com tema jovem/universal (escola, prova, celular, sono, foco, primeiro emprego) ou compilação dos Ladrões; o tema adulto fica nos shorts. Reavaliar a aba "Vídeos" em 1 a 2 semanas.
 
 ## Plano de publicação (combinado em 19/11/2026)
 
