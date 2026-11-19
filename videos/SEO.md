@@ -152,62 +152,70 @@ disciplina, motivação, autodisciplina, motivação x disciplina, como ter disc
 ---
 
 <!-- pasta: dopamina -->
-## DOPAMINA
+## DOPAMINA (vídeo longo, 4:05) · SEO v2 (republicação)
 
-**Título:** DOPAMINA | Como Vencer o Vício no Celular em 30 Dias (Curta Animado)
+**Título:** Vício em Celular: 7 Horas Por Dia Até Ele Fazer Isso | DOPAMINA
 
-**Alternativas:**
-- Eu Larguei o Celular Por 30 Dias. Isso Aconteceu. | DOPAMINA
-- Como Fazer Detox de Dopamina (Curta Animado)
+**Alternativas (teste A/B):**
+- Larguei o Celular Por 30 Dias. Meu Cérebro Mudou | Dopamina
+- Detox de Dopamina: O Que Acontece em 30 Dias Sem Celular
 
-**Texto da thumbnail:** ANTES × 30 DIAS DEPOIS
+**Texto da thumbnail:** 7 HORAS POR DIA + cartão "Tempo de uso · 7h 12min" (thumbnail-2.png, a principal; frame: Joseph às 02:13 iluminado pelo celular). Alternativa: ANTES × 30 DIAS DEPOIS (thumbnail.png)
 
 ### Descrição
 ```
-Vício em celular não é falta de caráter: é dopamina. Neste curta animado, o Joseph sai do ciclo da rolagem infinita e mostra o que recuperou em 30 dias.
+Vício em celular: sete horas por dia, quase metade do tempo acordado dentro de uma tela. Neste curta animado, o Joseph descobre o que a dopamina faz com o cérebro e faz um teste de 30 dias para retomar o controle.
 
-Por que a gente não consegue largar o celular? O que a dopamina tem a ver com isso? E o que muda quando você retoma o controle: sono, foco, conversas e tempo de volta.
+Dopamina não é a molécula do prazer. É a molécula da busca. E o celular foi feito para essa busca nunca terminar.
 
 ⏱️ Capítulos
-0:00 O ciclo
-0:32 O preço
-1:24 A decisão
-1:48 Os piores dias
-2:11 As cores voltam
-2:54 No controle
-3:12 O que ele recuperou em 30 dias
-3:50 Recupere a sua atenção
+0:00 O ciclo da dopamina
+0:33 O preço: tudo que é lento perde a graça
+1:24 7 horas por dia: a decisão
+1:49 Os primeiros dias foram os piores
+2:12 As cores voltam
+2:55 Ele usa o celular, o celular não usa ele
+3:14 O que ele recuperou em 30 dias
+3:51 Recupere a sua atenção
 
-✅ 4 técnicas do vídeo
+✅ O teste de 30 dias (4 regras)
 1. Celular fora do quarto
 2. Notificações desligadas
 3. Tela em preto e branco
 4. Primeira hora do dia sem tela
 
-▶️ Continue: O LADRÃO DAS 2 DA MANHÃ (sono) · Short: TELA CINZA
+🧠 O que ele recuperou: sono, foco, presença, energia e calma.
 
-Este vídeo é uma história, não aconselhamento médico.
-Cada quadro, som e nota deste filme foi feito do zero.
-🔔 Inscreva-se e acompanhe o Joseph.
+▶️ Quer ver na prática? Série "O Desafio de 30 Dias" (shorts): 30 dias sem celular na primeira hora do dia.
+▶️ Assista também: NINGUÉM VIU. (disciplina quando ninguém está olhando)
 
-#dopamina #víciodecelular #detoxdedopamina #foco #curtaanimado
+⚠️ Este vídeo é uma história com fins educativos, não aconselhamento médico. Se a ansiedade estiver forte ou atrapalhando sua vida, procure um profissional de saúde. Precisa conversar agora? CVV: ligue 188 (gratuito, 24h).
+
+🔔 Se inscreve: aqui tem um curta novo sobre disciplina e foco toda semana.
+
+#víciodecelular #dopamina #detoxdedopamina #foco #curtaanimado
 ```
 
 **Tags:**
 ```
-dopamina, vício em celular, detox de dopamina, como largar o celular, tempo de tela, dependência de celular, rolagem infinita, redes sociais, foco, atenção, notificações, escala de cinza, disciplina, produtividade, desenvolvimento pessoal, curta animado, joseph
+vício em celular, dopamina, detox de dopamina, como largar o celular, tempo de tela, 30 dias sem celular, dependência de celular, rolagem infinita, como parar de mexer no celular, ansiedade e celular, foco, atenção, notificações, tela preto e branco, disciplina, curta animado, joseph
 ```
 
 **Palavras-chave:**
 - Principal: vício em celular
-- Secundárias: dopamina, detox de dopamina, tempo de tela
-- Frases longas: como vencer o vício no celular, como diminuir o tempo de tela, o que acontece quando você larga o celular
+- Secundárias: dopamina, detox de dopamina, tempo de tela, 30 dias sem celular
+- Frases longas: como vencer o vício no celular, como diminuir o tempo de tela, o que acontece quando você larga o celular por 30 dias
 
-**Comentário fixado:** "Quanto tempo de tela você teve ontem? Fala a verdade 👇 (Ajustes > Tempo de uso)"
+**Comentário fixado:** "Quanto deu o seu tempo de tela ontem? 📱 Fala a verdade 👇 (Ajustes > Tempo de uso). Quem tiver coragem de fazer o teste de 30 dias, comenta EU TOPO."
 
-**Playlist:** Curtas animados do Joseph + Celular, dopamina e foco
+**Playlist:** Celular, dopamina e foco + Curtas animados do Joseph
 
-**Tela final:** O LADRÃO DAS 2 DA MANHÃ + inscrever-se
+**Tela final (3:52 a 4:05):** EP 1 do "Desafio de 30 Dias" (ou a playlist da série) no quadro da direita + inscrever-se
+
+**Configurações:** Educação · pt-BR · "Não, não é conteúdo para crianças" · Conteúdo alterado ou sintético: Não
+
+**Dica de republicação:** se o vídeo antigo ficou como rascunho ou privado, publique este novo upload e apague o antigo, para o YouTube não dividir as views entre dois vídeos iguais.
+
 
 ---
 
