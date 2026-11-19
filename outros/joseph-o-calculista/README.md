@@ -19,6 +19,10 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - O culpado é quem parece menos suspeito. As pistas são justas, mas as primeiras apontam para os suspeitos óbvios.
 - No fim: "Se você acertou, comenta: eu sabia."
 
+## Capa (padrão desde o Caso 2)
+- Copiar `ep02-o-quadro/capa.html` e trocar só os textos. Sempre com o número do caso em destaque: faixa dourada grande "MISTÉRIO N" no alto, carimbo "CASO Nº N" e um "N" gigante e apagado atrás do Joseph.
+- Pergunta do caso no alto ("Quem roubou...?"), JOSEPH / O CALCULISTA e a frase no rodapé. Sem entregar o culpado.
+
 ## Estilo
 - Noir: noite, chuva, trovões, fundo azul-escuro (#0b0f1a), dourado (GOLD) e vermelho (#e5484d).
 - Estrutura do episódio: crime → 3 suspeitos com álibi → entrada do Joseph (título "JOSEPH, O CALCULISTA") → 3 pistas numeradas → teste que entrega o culpado → quadro com a conta ("= MENTIU") → "Os números não mentem. As pessoas, sim." → "CASO N · RESOLVIDO" + gancho do próximo caso.
