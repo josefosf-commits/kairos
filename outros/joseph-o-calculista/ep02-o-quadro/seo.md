@@ -6,7 +6,7 @@
 - 60 segundos de escuro e um quadro de 3 milhões sumiu | Joseph, o Calculista
 - A tosse que entregou o ladrão | Caso 2 · Joseph, o Calculista
 
-**Texto da capa:** QUEM FOI? A, B OU C? (frame: os 3 suspeitos)
+**Capa:** `capa.html` → `build/capa.png` (modelo: `ep01-o-colar/capa-modelo.png`). Alternativa: `thumb.json` (os 3 suspeitos + "QUEM FOI? A, B OU C?").
 
 ### Descrição
 ```
