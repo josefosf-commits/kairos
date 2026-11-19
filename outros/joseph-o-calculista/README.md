@@ -19,7 +19,7 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - Série original: não copiar nomes, personagens, vilões ou casos de outras séries.
 
 ## Episódios
-- `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
+- `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, SEO e amostras de voz. **Capa oficial (estilo pôster de série):** `capa.js` → `build/capa-serie.png`. Nome "JOSEPH / O CALCULISTA" em serifa dourada, contas ao fundo, selos "SÉRIE · EP. 1" e "CASO Nº 1", pergunta do caso no topo, frase-assinatura embaixo. Usar esse modelo em todos os episódios.
 
 ## Como rodar (dentro da pasta do episódio)
 `node ../../../videos/_lib/render.js` e depois `bash ../../../videos/_lib/montar.sh` → `build/<NOME>.mp4`
