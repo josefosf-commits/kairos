@@ -15,7 +15,11 @@ window.draw=(mode,guide)=>{
  if(mode==='perfil'){ // 800x800
   R.innerHTML=`<div style="position:relative;width:800px;height:800px;overflow:hidden">${bg(800,800,50,40)}
   <div style="position:absolute;left:400px;top:400px;width:740px;height:740px;margin:-370px;border-radius:50%;border:12px solid #c9a54a;box-shadow:0 0 40px rgba(201,165,74,.5)"></div>
-  <img src="../ep01-o-colar/assets/joseph.png" style="position:absolute;left:${400-330}px;top:60px;width:660px;${glow}">
+  <img src="../ep01-o-colar/assets/joseph.png" style="position:absolute;left:${400-260}px;top:40px;width:520px;${glow}">
+  <div style="position:absolute;left:0;right:0;top:470px;height:330px;background:linear-gradient(transparent,#070a12 40%)"></div>
+  <div class="serif" style="position:absolute;top:548px;width:100%;text-align:center;font-size:96px;line-height:1;letter-spacing:10px;color:#f4efe6;text-shadow:0 5px 0 #000">JOSEPH</div>
+  <div style="position:absolute;top:660px;left:230px;width:340px;height:3px;background:linear-gradient(90deg,transparent,#c9a54a,transparent)"></div>
+  <div class="serif" style="position:absolute;top:676px;width:100%;text-align:center;font-size:40px;line-height:1;letter-spacing:9px;color:#c9a54a">O CALCULISTA</div>
 </div>`;
  } else { // banner 2560x1440, safe area 1546x423 centred (507..2053, 508..931)
   R.innerHTML=`<div style="position:relative;width:2560px;height:1440px;overflow:hidden">${bg(2560,1440,62,48)}
