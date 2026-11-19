@@ -6,7 +6,7 @@
 - Quem roubou o colar de 2 milhões? O detetive fez a conta #shorts
 - O sapato molhado entregou o ladrão | Joseph, o Calculista #shorts
 
-**Texto da capa:** QUEM ROUBOU O COLAR? (frame: o Joseph em close)
+**Texto da capa:** capa de série (`capa.js` → `build/capa-serie.png`): "JOSEPH / O CALCULISTA", "SÉRIE · EP. 1", "CASO Nº 1", "Quem roubou o colar de 2 milhões?" e a frase "Os números não mentem. As pessoas, sim."
 
 ### Descrição
 ```
