@@ -34,6 +34,11 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 ## Episódios
 - `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
 - `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
+- `especial01-o-elevador/`: Caso Especial 1, O Homem que Sumiu do Elevador (vídeo longo 16:9, 6:05). Duas pausas para o palpite (A–D e depois A–E); o culpado é a própria "vítima". Cena horizontal em `cena.js` com `capLong` (legenda grande para TV); capa em `capa.html` (1280x720).
+
+## Vídeo longo semanal
+- 1 por semana, 6 a 7 min, 16:9, história própria (não precisa ser dos shorts). Mesma estrutura dos shorts, mas com 4 suspeitos, 6 pistas, uma reviravolta no meio e 2 pausas para comentar.
+- Para o próximo: copiar `especial01-o-elevador/cena.js` (funções `cctv`, `card`, `countdown`, `logTable`, `capLong`) e trocar só o `render`.
 
 ## Como rodar (dentro da pasta do episódio)
 `node ../../../videos/_lib/render.js` e depois `bash ../../../videos/_lib/montar.sh` → `build/<NOME>.mp4`

@@ -1,0 +1,441 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-ESPECIAL01",
+ "duration": 365.56,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.4,
+   "end": 5.84,
+   "text": "Três e dezessete da manhã. Um homem entra no elevador do décimo segundo andar de um hotel."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 6.24,
+   "end": 12.0,
+   "text": "A câmera do corredor mostra a porta se fechando. Ele está lá dentro. Sozinho."
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 12.6,
+   "end": 16.12,
+   "text": "Setenta e dois segundos depois, a porta abre no térreo."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 17.12,
+   "end": 19.04,
+   "text": "E o elevador está vazio."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 19.64,
+   "end": 23.0,
+   "text": "Ninguém entra num elevador e simplesmente desaparece."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 23.4,
+   "end": 29.08,
+   "text": "Hoje você vai investigar junto com o Joseph. Duas vezes eu vou parar o vídeo e pedir o seu palpite."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 32.08,
+   "end": 36.56,
+   "text": "Presta atenção em cada detalhe. Porque nesse caso, nada é o que parece."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 36.96,
+   "end": 43.76,
+   "text": "O homem do elevador se chama Otávio Brandão. Empresário. Hóspede do quarto mil duzentos e quatro."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 44.16,
+   "end": 50.16,
+   "text": "Na mão, uma maleta. Dentro dela, diamantes avaliados em dez milhões de reais."
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 50.56,
+   "end": 54.32,
+   "text": "Às nove da manhã, ele ia fechar o maior negócio da vida dele."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 55.02,
+   "end": 58.86,
+   "text": "Mas às três e dezessete, ele sumiu. E a maleta também."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 59.26,
+   "end": 65.42,
+   "text": "Naquela noite, chovia sem parar. As portas da rua estavam trancadas. Ninguém saiu do hotel."
+  },
+  {
+   "id": 13,
+   "audio": "audio-grave/l13.wav",
+   "start": 66.02,
+   "end": 69.78,
+   "text": "Ou seja: quem fez isso ainda estava dentro do prédio."
+  },
+  {
+   "id": 14,
+   "audio": "audio-grave/l14.wav",
+   "start": 70.38,
+   "end": 72.86,
+   "text": "Quatro pessoas estavam acordadas."
+  },
+  {
+   "id": 15,
+   "audio": "audio-grave/l15.wav",
+   "start": 73.36,
+   "end": 83.12,
+   "text": "A: Rui, o técnico de manutenção. Tem a chave de todas as portas. Disse que estava no porão consertando a caldeira. Sozinho. Sem testemunha."
+  },
+  {
+   "id": 16,
+   "audio": "audio-grave/l16.wav",
+   "start": 83.62,
+   "end": 94.42,
+   "text": "B: Bianca Torres, a sócia do Otávio. No jantar, os dois brigaram feio. Ela gritou: você vai se arrepender. Disse que estava dormindo no quarto dela."
+  },
+  {
+   "id": 17,
+   "audio": "audio-grave/l17.wav",
+   "start": 94.92,
+   "end": 105.64,
+   "text": "C: Seu Aurélio, o recepcionista da noite. Trinta anos de hotel. Foi ele quem chamou a polícia. A câmera da recepção mostra ele no balcão a noite toda."
+  },
+  {
+   "id": 18,
+   "audio": "audio-grave/l18.wav",
+   "start": 106.24,
+   "end": 112.48,
+   "text": "D: Lia, a camareira do sétimo andar. Disse que estava na cozinha, no intervalo dela."
+  },
+  {
+   "id": 19,
+   "audio": "audio-grave/l19.wav",
+   "start": 113.28,
+   "end": 117.36,
+   "text": "A polícia não sabia por onde começar. Então chamaram o Joseph."
+  },
+  {
+   "id": 20,
+   "audio": "audio-grave/l20.wav",
+   "start": 118.36,
+   "end": 123.72,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 21,
+   "audio": "audio-grave/l21.wav",
+   "start": 124.12,
+   "end": 128.12,
+   "text": "Primeira conta: esse elevador desce três segundos por andar."
+  },
+  {
+   "id": 22,
+   "audio": "audio-grave/l22.wav",
+   "start": 128.52,
+   "end": 133.0,
+   "text": "Doze andares, vezes três segundos: trinta e seis segundos."
+  },
+  {
+   "id": 23,
+   "audio": "audio-grave/l23.wav",
+   "start": 133.5,
+   "end": 138.06,
+   "text": "Mas a viagem durou setenta e dois. Sobraram trinta e seis segundos."
+  },
+  {
+   "id": 24,
+   "audio": "audio-grave/l24.wav",
+   "start": 138.66,
+   "end": 141.14,
+   "text": "O elevador parou em algum lugar no caminho."
+  },
+  {
+   "id": 25,
+   "audio": "audio-grave/l25.wav",
+   "start": 141.64,
+   "end": 149.16,
+   "text": "Segundo detalhe: o registro do elevador. Uma parada às três e dezessete e quinze. No sétimo andar."
+  },
+  {
+   "id": 26,
+   "audio": "audio-grave/l26.wav",
+   "start": 149.66,
+   "end": 157.82,
+   "text": "Terceiro detalhe: a câmera do sétimo andar estava desligada desde as três da manhã. Na tela, só uma palavra: manutenção."
+  },
+  {
+   "id": 27,
+   "audio": "audio-grave/l27.wav",
+   "start": 158.62,
+   "end": 161.26,
+   "text": "Quem sabia que essa câmera estava desligada?"
+  },
+  {
+   "id": 28,
+   "audio": "audio-grave/l28.wav",
+   "start": 161.66,
+   "end": 164.46,
+   "text": "Primeira pausa. Agora é com você."
+  },
+  {
+   "id": 29,
+   "audio": "audio-grave/l29.wav",
+   "start": 164.86,
+   "end": 172.78,
+   "text": "O Otávio desceu no sétimo andar. E alguém estava esperando por ele. Quem? Rui, Bianca, Seu Aurélio ou Lia?"
+  },
+  {
+   "id": 30,
+   "audio": "audio-grave/l30.wav",
+   "start": 173.18,
+   "end": 178.22,
+   "text": "Comenta a letra agora. A, B, C ou D. Valendo."
+  },
+  {
+   "id": 31,
+   "audio": "audio-grave/l31.wav",
+   "start": 185.22,
+   "end": 192.26,
+   "text": "Às seis da manhã, uma camareira ouviu batidas vindo do quarto setecentos e sete. Um quarto fechado para reforma."
+  },
+  {
+   "id": 32,
+   "audio": "audio-grave/l32.wav",
+   "start": 192.76,
+   "end": 198.44,
+   "text": "Lá dentro, estava o Otávio. Vivo. Amarrado numa cadeira, com um galo na cabeça."
+  },
+  {
+   "id": 33,
+   "audio": "audio-grave/l33.wav",
+   "start": 199.04,
+   "end": 200.8,
+   "text": "E a maleta? Sumiu."
+  },
+  {
+   "id": 34,
+   "audio": "audio-grave/l34.wav",
+   "start": 201.4,
+   "end": 208.44,
+   "text": "Ele contou: fui atacado por trás, no corredor. Não vi o rosto. Só senti um cheiro forte de graxa."
+  },
+  {
+   "id": 35,
+   "audio": "audio-grave/l35.wav",
+   "start": 208.94,
+   "end": 211.5,
+   "text": "Graxa. O cheiro das mãos do Rui."
+  },
+  {
+   "id": 36,
+   "audio": "audio-grave/l36.wav",
+   "start": 212.0,
+   "end": 218.72,
+   "text": "E só duas chaves abrem o quarto setecentos e sete: a da manutenção, e a chave mestra da recepção."
+  },
+  {
+   "id": 37,
+   "audio": "audio-grave/l37.wav",
+   "start": 219.52,
+   "end": 222.72,
+   "text": "A polícia algemou o Rui na hora. Caso encerrado."
+  },
+  {
+   "id": 38,
+   "audio": "audio-grave/l38.wav",
+   "start": 223.52,
+   "end": 228.08,
+   "text": "Mas o Joseph não estava satisfeito. Uma conta não fechava."
+  },
+  {
+   "id": 39,
+   "audio": "audio-grave/l39.wav",
+   "start": 228.48,
+   "end": 230.64,
+   "text": "Quarto detalhe: o galo."
+  },
+  {
+   "id": 40,
+   "audio": "audio-grave/l40.wav",
+   "start": 231.24,
+   "end": 236.12,
+   "text": "O Otávio disse que foi atacado por trás. Mas o galo estava na testa."
+  },
+  {
+   "id": 41,
+   "audio": "audio-grave/l41.wav",
+   "start": 236.52,
+   "end": 238.68,
+   "text": "Quinto detalhe: as cordas."
+  },
+  {
+   "id": 42,
+   "audio": "audio-grave/l42.wav",
+   "start": 239.28,
+   "end": 246.96,
+   "text": "Amarradas na frente do corpo, com um nó que aperta quando você puxa uma ponta com os dentes. Um nó que dá pra fazer sozinho."
+  },
+  {
+   "id": 43,
+   "audio": "audio-grave/l43.wav",
+   "start": 247.46,
+   "end": 252.9,
+   "text": "Sexto detalhe, e o mais importante: o registro do elevador mostrava mais uma coisa."
+  },
+  {
+   "id": 44,
+   "audio": "audio-grave/l44.wav",
+   "start": 253.5,
+   "end": 259.9,
+   "text": "A parada no sétimo andar não foi chamada do corredor. O botão sete foi apertado por dentro do elevador."
+  },
+  {
+   "id": 45,
+   "audio": "audio-grave/l45.wav",
+   "start": 260.9,
+   "end": 264.02,
+   "text": "E dentro do elevador, só tinha uma pessoa."
+  },
+  {
+   "id": 46,
+   "audio": "audio-grave/l46.wav",
+   "start": 264.52,
+   "end": 268.12,
+   "text": "Última pausa. Muda o seu palpite? Ou mantém?"
+  },
+  {
+   "id": 47,
+   "audio": "audio-grave/l47.wav",
+   "start": 268.62,
+   "end": 271.74,
+   "text": "E se o culpado nem estiver na lista dos suspeitos?"
+  },
+  {
+   "id": 48,
+   "audio": "audio-grave/l48.wav",
+   "start": 272.14,
+   "end": 277.1,
+   "text": "A, B, C, D, ou E? Comenta agora. Valendo."
+  },
+  {
+   "id": 49,
+   "audio": "audio-grave/l49.wav",
+   "start": 284.1,
+   "end": 288.1,
+   "text": "O Otávio não sumiu do elevador. Ele saiu dele. Sozinho."
+  },
+  {
+   "id": 50,
+   "audio": "audio-grave/l50.wav",
+   "start": 288.6,
+   "end": 295.24,
+   "text": "Desceu no sétimo andar, onde a câmera estava desligada. Foi ele mesmo quem desligou, às três em ponto."
+  },
+  {
+   "id": 51,
+   "audio": "audio-grave/l51.wav",
+   "start": 295.74,
+   "end": 301.74,
+   "text": "Entrou no quarto em reforma com a chave mestra, que pegou na recepção enquanto o Seu Aurélio servia café."
+  },
+  {
+   "id": 52,
+   "audio": "audio-grave/l52.wav",
+   "start": 302.44,
+   "end": 308.6,
+   "text": "Passou graxa da obra na própria roupa. Bateu a testa na parede. E se amarrou com os dentes."
+  },
+  {
+   "id": 53,
+   "audio": "audio-grave/l53.wav",
+   "start": 309.1,
+   "end": 317.26,
+   "text": "Por quê? A empresa dele estava falida. E os diamantes tinham um seguro de dez milhões. Se fossem roubados, o seguro pagava."
+  },
+  {
+   "id": 54,
+   "audio": "audio-grave/l54.wav",
+   "start": 317.86,
+   "end": 322.34,
+   "text": "Ele ia ficar com o dinheiro do seguro, e com os diamantes, escondidos."
+  },
+  {
+   "id": 55,
+   "audio": "audio-grave/l55.wav",
+   "start": 322.94,
+   "end": 328.7,
+   "text": "Escondidos onde? O Joseph pediu uma coisa só: o balde de gelo do quarto mil duzentos e quatro."
+  },
+  {
+   "id": 56,
+   "audio": "audio-grave/l56.wav",
+   "start": 329.5,
+   "end": 334.54,
+   "text": "No fundo, entre as pedras de gelo, outras pedras. Que não derretiam."
+  },
+  {
+   "id": 57,
+   "audio": "audio-grave/l57.wav",
+   "start": 335.54,
+   "end": 336.66,
+   "text": "Diamantes."
+  },
+  {
+   "id": 58,
+   "audio": "audio-grave/l58.wav",
+   "start": 337.16,
+   "end": 341.88,
+   "text": "O Rui foi solto. A Bianca, o Seu Aurélio e a Lia, inocentes."
+  },
+  {
+   "id": 59,
+   "audio": "audio-grave/l59.wav",
+   "start": 342.88,
+   "end": 346.56,
+   "text": "O único que mentiu foi o homem que todo mundo estava procurando."
+  },
+  {
+   "id": 60,
+   "audio": "audio-grave/l60.wav",
+   "start": 347.56,
+   "end": 350.68,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 61,
+   "audio": "audio-grave/l61.wav",
+   "start": 351.18,
+   "end": 356.94,
+   "text": "Se você acertou, comenta: eu sabia. Se errou, conta em quem você apostou."
+  },
+  {
+   "id": 62,
+   "audio": "audio-grave/l62.wav",
+   "start": 357.44,
+   "end": 362.56,
+   "text": "Toda semana tem um caso novo do Joseph. Segue o canal pra não perder o próximo mistério."
+  }
+ ]
+}
