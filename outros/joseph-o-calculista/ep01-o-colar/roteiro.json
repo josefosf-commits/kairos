@@ -1,0 +1,77 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP01",
+ "tail": 2.0,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Uma mansão. Um cofre aberto. E um colar de dois milhões que desapareceu.",
+   "gap": 0.35
+  },
+  {
+   "id": 2,
+   "text": "Três suspeitos. Todos com uma história perfeita.",
+   "gap": 0.4
+  },
+  {
+   "id": 3,
+   "text": "O mordomo estava na cozinha. A sobrinha, no quarto. E o sócio jura que chegou às dez da noite e não saiu da sala.",
+   "gap": 0.4
+  },
+  {
+   "id": 4,
+   "text": "A polícia já tinha um palpite. Mas aí chegou o Joseph.",
+   "gap": 0.7
+  },
+  {
+   "id": 5,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta.",
+   "gap": 0.9
+  },
+  {
+   "id": 6,
+   "text": "Primeiro detalhe: o chá na mesa ainda estava morno. Alguém esteve aqui há menos de vinte minutos.",
+   "gap": 0.4
+  },
+  {
+   "id": 7,
+   "text": "Segundo: lá fora, a chuva começou às dez e quinze.",
+   "gap": 0.4
+  },
+  {
+   "id": 8,
+   "text": "Terceiro: no tapete da sala, uma marca de lama. Fresca.",
+   "gap": 0.4
+  },
+  {
+   "id": 9,
+   "text": "O Joseph olhou para os sapatos de cada um.",
+   "gap": 0.6
+  },
+  {
+   "id": 10,
+   "text": "O mordomo, seco. A sobrinha, seca. E o sócio... molhado.",
+   "gap": 0.4
+  },
+  {
+   "id": 11,
+   "text": "Se ele chegou às dez e nunca saiu da sala, como os sapatos dele molharam numa chuva que começou às dez e quinze?",
+   "gap": 0.6
+  },
+  {
+   "id": 12,
+   "text": "O sócio ficou em silêncio. E o colar estava no bolso do casaco dele.",
+   "gap": 0.8
+  },
+  {
+   "id": 13,
+   "text": "Os números não mentem. As pessoas, sim.",
+   "gap": 0.9
+  },
+  {
+   "id": 14,
+   "text": "Caso um, resolvido. O caso dois é pior. Segue pra não perder.",
+   "gap": 0.6
+  }
+ ]
+}

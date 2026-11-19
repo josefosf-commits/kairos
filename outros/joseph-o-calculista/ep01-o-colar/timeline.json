@@ -1,0 +1,107 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP01",
+ "duration": 77.29,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 5.55,
+   "text": "Uma mansão. Um cofre aberto. E um colar de dois milhões que desapareceu."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 5.95,
+   "end": 9.31,
+   "text": "Três suspeitos. Todos com uma história perfeita."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 9.71,
+   "end": 17.87,
+   "text": "O mordomo estava na cozinha. A sobrinha, no quarto. E o sócio jura que chegou às dez da noite e não saiu da sala."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.57,
+   "end": 22.01,
+   "text": "A polícia já tinha um palpite. Mas aí chegou o Joseph."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 22.91,
+   "end": 27.79,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.19,
+   "end": 34.59,
+   "text": "Primeiro detalhe: o chá na mesa ainda estava morno. Alguém esteve aqui há menos de vinte minutos."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 34.99,
+   "end": 38.75,
+   "text": "Segundo: lá fora, a chuva começou às dez e quinze."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 39.15,
+   "end": 43.39,
+   "text": "Terceiro: no tapete da sala, uma marca de lama. Fresca."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 43.99,
+   "end": 46.39,
+   "text": "O Joseph olhou para os sapatos de cada um."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 46.79,
+   "end": 52.07,
+   "text": "O mordomo, seco. A sobrinha, seca. E o sócio... molhado."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 52.67,
+   "end": 59.79,
+   "text": "Se ele chegou às dez e nunca saiu da sala, como os sapatos dele molharam numa chuva que começou às dez e quinze?"
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 60.59,
+   "end": 64.91,
+   "text": "O sócio ficou em silêncio. E o colar estava no bolso do casaco dele."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 65.81,
+   "end": 69.65,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 70.25,
+   "end": 75.29,
+   "text": "Caso um, resolvido. O caso dois é pior. Segue pra não perder."
+  }
+ ]
+}
