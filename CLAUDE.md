@@ -42,6 +42,23 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 7. Formato que mais performa nos longos: história emocional de esforço, título curto, thumbnail com rosto + 1 a 3 palavras ou um número forte ("7 HORAS POR DIA", "AOS 43", antes/depois).
 8. Revisar estes números toda semana enquanto o canal é novo.
 
+## Plano de publicação (combinado em 19/11/2026)
+
+- **Semana-modelo:** segunda a sábado, 2 shorts por dia (cerca de 12h e 19h); domingo, 1 vídeo longo + 1 short "trailer" dele (com o longo como vídeo relacionado). Mínimo absoluto: 1 short por dia, sem pausa.
+- **Os 2 shorts do dia:** ~12h, um episódio de série (alternar Ladrões T2 e Desafio 30 Dias); ~19h, um short solto (cerca de 2 de jovem para 1 de adulto).
+- **Horários:** começar com 12h e 19h e ajustar quando o Studio mostrar "Quando seus espectadores estão no YouTube".
+- **Longo barato:** de vez em quando, o longo da semana é a compilação de uma série completa ("Os Ladrões do Joseph: temporada 1", "Desafio 30 Dias: o filme"). Reaproveita material e funciona na TV.
+- **Produção em lote:** 3 a 4 shorts por sessão; o usuário agenda no Studio ("Programar").
+
+### Economia de créditos (o usuário precisa de créditos para outras atividades)
+- Narração (Speko): cerca de US$ 0,04 por short e US$ 0,18 por longo; saldo de US$ 6,68 em 19/11, dá para 9 a 10 semanas. Conferir o saldo de vez em quando com `credits_balance_get`.
+- O que mais gasta é o uso do Claude (escrever as cenas, conferir quadros, renderizar). Para economizar:
+  - reaproveitar cenários, personagens e funções das séries (copiar `cena.js` do episódio anterior e trocar só o `render`);
+  - conferir tudo numa única folha de quadros (`vsheet.sh`/`sheet.sh`) e corrigir em uma rodada;
+  - não refazer thumbnails sem pedido;
+  - parar depois do lote combinado.
+- Se os créditos apertarem, cair para 1 short por dia e trocar o longo da semana por uma compilação.
+
 ## Estrutura
 
 - `videos/_lib/`: biblioteca comum (rig.js, short.js, som.py, render.js, montar.sh, collect.py, fila.sh)
