@@ -1,0 +1,65 @@
+{
+ "name": "SHORT-19-O-PAI-DO-JOSEPH",
+ "duration": 44.95,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.59,
+   "text": "O pai do Joseph tem quarenta e três anos. E há dez anos ele diz: na segunda eu começo."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.99,
+   "end": 10.11,
+   "text": "Até que o médico olhou os exames e ficou em silêncio."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.51,
+   "end": 13.23,
+   "text": "Pressão alta. Glicose no limite."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 13.63,
+   "end": 20.83,
+   "text": "Naquela noite, o filho sentou do lado dele e disse: pai, a gente começa junto. Mas começa pequeno."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 21.23,
+   "end": 25.95,
+   "text": "Dez minutos de caminhada depois do jantar. Só isso. Todo dia."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 26.35,
+   "end": 31.95,
+   "text": "Seis meses depois, o mesmo médico leu os exames. Leu de novo. E sorriu."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 32.35,
+   "end": 38.51,
+   "text": "O que aconteceu nesses seis meses está no vídeo RECOMEÇA, aqui no canal."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 38.91,
+   "end": 43.15,
+   "text": "Se você tem mais de trinta e cinco e acha que passou do tempo, assiste."
+  }
+ ]
+}

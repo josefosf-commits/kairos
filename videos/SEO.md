@@ -1565,3 +1565,141 @@ desafio 30 dias, 30 dias sem celular, detox digital, vício em celular, só hoje
 
 **Configurações:** Educação · pt-BR · "Não, não é conteúdo para crianças" · Conteúdo alterado ou sintético: Não
 
+
+---
+
+<!-- pasta: short-17-desafio-30-dias-ep5 -->
+## SHORT · O DESAFIO DE 30 DIAS · EP 5 (FINAL, dias 25 a 30)
+
+**Título:** 30 dias sem celular: o que aconteceu no dia 30 (FINAL) #shorts
+
+**Alternativas:**
+- O celular estava debaixo do travesseiro dele (EP 5 FINAL) #shorts
+- Dia 30 sem celular de manhã: ele conseguiu? #shorts
+
+**Texto da capa:** ESTAVA DEBAIXO DO TRAVESSEIRO (frame: o travesseiro levantando com o celular aceso embaixo)
+
+### Descrição
+```
+30 dias sem celular: o EP 5 é o final do desafio. No dia 25, o celular sumiu da sala. Estava debaixo do travesseiro do Joseph, levado às 2 da manhã, no automático.
+
+É assim que o hábito antigo volta: quando você não está olhando.
+A última regra: o carregador mora na sala. Se o celular dorme lá, você não leva sem perceber.
+
+Dia 30: ansiedade lá embaixo, foco lá em cima. Ele conseguiu.
+
+Qual é o próximo desafio do Joseph? Comenta: o mais votado vira a próxima série 👇
+Assista desde o EP 1 na playlist "O Desafio de 30 Dias".
+
+#shorts #desafio30dias #detoxdigital #disciplina #curtaanimado
+```
+
+**Tags:**
+```
+desafio 30 dias, 30 dias sem celular, detox digital, vício em celular, celular no quarto, carregador fora do quarto, rotina matinal, hábitos, disciplina, curta animado, série joseph, shorts, joseph
+```
+
+**Palavras-chave:**
+- Principal: 30 dias sem celular
+- Secundárias: detox digital, celular no quarto, desafio 30 dias
+- Frases longas: o que acontece depois de 30 dias sem celular, como parar de levar o celular pra cama
+
+**Comentário fixado:** "Qual o próximo desafio do Joseph? 1️⃣ 30 dias sem açúcar 2️⃣ Acordar às 5h 3️⃣ Treinar todo dia. Responde só o NÚMERO 👇"
+
+**Vídeo relacionado:** EP 4 do Desafio de 30 Dias (ou o vídeo longo DOPAMINA)
+
+**Playlist:** O Desafio de 30 Dias + Celular, dopamina e foco
+
+**Configurações:** Educação · pt-BR · "Não, não é conteúdo para crianças" · Conteúdo alterado ou sintético: Não
+
+---
+
+<!-- pasta: short-18-ladrao-do-depois -->
+## SHORT · OS LADRÕES DO JOSEPH · TEMPORADA 2 · EP 1: O LADRÃO DO DEPOIS
+
+**Título:** O LADRÃO DO DEPOIS: ele rouba o seu agora (T2 EP 1) #shorts
+
+**Alternativas:**
+- Como parar de procrastinar: a regra dos 5 minutos #shorts
+- Tem um ladrão trocando o seu AGORA por DEPOIS #shorts
+
+**Texto da capa:** ELE ROUBA O SEU AGORA (frame: o post-it "DEPOIS" e o ladrão laranja)
+
+### Descrição
+```
+Procrastinação tem um rosto: o Ladrão do Depois. Na temporada 2 dos Ladrões do Joseph, um ladrão novo não rouba nada. Ele só troca uma palavra: onde está escrito AGORA, ele escreve DEPOIS.
+
+Estudar? Depois. Responder o professor? Depois. Treinar? Amanhã. Até virar uma pilha.
+A fraqueza dele: ele odeia começos.
+
+✅ Regra dos 5 minutos: não precisa terminar, só precisa começar. 5 minutos viram 20, e 20 viram a tarefa feita.
+
+Amanhã: O LADRÃO DA CORAGEM. Segue pra não perder.
+Temporada 1 completa na playlist "Os Ladrões do Joseph".
+
+#shorts #procrastinação #disciplina #estudos #curtaanimado
+```
+
+**Tags:**
+```
+procrastinação, como parar de procrastinar, regra dos 5 minutos, os ladrões do joseph, deixar pra depois, estudar, prova, foco, disciplina, hábitos, produtividade, curta animado, shorts, joseph
+```
+
+**Palavras-chave:**
+- Principal: como parar de procrastinar
+- Secundárias: procrastinação, regra dos 5 minutos, deixar pra depois
+- Frases longas: como parar de deixar tudo pra depois, como começar a estudar sem vontade
+
+**Comentário fixado:** "Quantas coisas você deixou pra DEPOIS hoje? Responde só o número 👇 E amanhã chega o Ladrão da Coragem 🔵"
+
+**Vídeo relacionado:** O LADRÃO DAS 2 DA MANHÃ (ou A QUADRILHA)
+
+**Playlist:** Os Ladrões do Joseph (temporada 2) + Curtas animados do Joseph
+
+**Configurações:** Educação · pt-BR · "Não, não é conteúdo para crianças" · Conteúdo alterado ou sintético: Não
+
+---
+
+<!-- pasta: short-19-o-pai-do-joseph -->
+## SHORT · O PAI DO JOSEPH (trailer de RECOMEÇA.)
+
+**Título:** Aos 43, o médico ficou em silêncio #shorts
+
+**Alternativas:**
+- Recomeçar depois dos 40: 10 minutos por dia #shorts
+- Ele dizia "na segunda eu começo" há 10 anos #shorts
+
+**Texto da capa:** AOS 43, O MÉDICO FICOU EM SILÊNCIO (frame: o consultório com os exames em vermelho)
+
+### Descrição
+```
+Recomeçar depois dos 40: o pai do Joseph passou 10 anos dizendo "na segunda eu começo". Até que o médico olhou os exames e ficou em silêncio.
+
+Naquela noite, o filho disse: pai, a gente começa junto. Mas começa pequeno.
+10 minutos de caminhada depois do jantar. Só isso. Todo dia.
+
+Seis meses depois, o mesmo médico sorriu.
+▶️ A história completa está no vídeo RECOMEÇA., aqui no canal.
+
+⚠️ História de ficção. Não substitui orientação médica: antes de mudar alimentação ou começar exercícios, consulte um médico.
+
+#shorts #recomeçar #saúde #disciplina #curtaanimado
+```
+
+**Tags:**
+```
+recomeçar depois dos 40, nunca é tarde, caminhada, pressão alta, saúde depois dos 40, pai e filho, hábitos saudáveis, disciplina, motivação, curta animado, recomeça, shorts, joseph
+```
+
+**Palavras-chave:**
+- Principal: recomeçar depois dos 40
+- Secundárias: caminhada, hábitos saudáveis, nunca é tarde
+- Frases longas: como começar a caminhar depois dos 40, como recomeçar a saúde depois dos 40
+
+**Comentário fixado:** "Você tem mais de 35? Responde SIM ou NÃO 👇 E marca alguém que precisa começar com você."
+
+**Vídeo relacionado:** RECOMEÇA. (vídeo longo), obrigatório: este short é o trailer dele
+
+**Playlist:** Curtas animados do Joseph + Recomeçar depois dos 35
+
+**Configurações:** Educação · pt-BR · "Não, não é conteúdo para crianças" · Conteúdo alterado ou sintético: Não

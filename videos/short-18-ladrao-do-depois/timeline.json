@@ -1,0 +1,72 @@
+{
+ "name": "SHORT-18-LADRAO-DO-DEPOIS",
+ "duration": 52.95,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 7.07,
+   "text": "Temporada dois. Um ladrão novo chegou na casa do Joseph. Ele não rouba nada. Ele só troca uma palavra."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.47,
+   "end": 10.75,
+   "text": "Onde está escrito agora, ele escreve: depois."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.15,
+   "end": 18.67,
+   "text": "Estudar pra prova? Depois. Responder o professor? Depois. Treinar? Amanhã, com certeza."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 19.07,
+   "end": 22.67,
+   "text": "E cada depois parece pequeno. Até virar uma pilha."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.07,
+   "end": 27.79,
+   "text": "Sexta-feira. A prova chegou. E a pilha caiu inteira em cima dele."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.19,
+   "end": 33.31,
+   "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele odeia começos."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 33.71,
+   "end": 39.07,
+   "text": "Então ele criou a regra dos cinco minutos. Não precisa terminar. Só precisa começar."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 39.47,
+   "end": 45.79,
+   "text": "Cinco minutos viram vinte. Vinte viram a tarefa feita. E o ladrão fica sem palavra pra trocar."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 46.19,
+   "end": 51.15,
+   "text": "Amanhã chega o próximo ladrão. Ele rouba a sua coragem. Segue pra não perder."
+  }
+ ]
+}

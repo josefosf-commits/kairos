@@ -1,0 +1,52 @@
+{
+ "name": "SHORT-18-LADRAO-DO-DEPOIS",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Temporada dois. Um ladrão novo chegou na casa do Joseph. Ele não rouba nada. Ele só troca uma palavra.",
+   "gap": 0.35
+  },
+  {
+   "id": 2,
+   "text": "Onde está escrito agora, ele escreve: depois.",
+   "gap": 0.4
+  },
+  {
+   "id": 3,
+   "text": "Estudar pra prova? Depois. Responder o professor? Depois. Treinar? Amanhã, com certeza.",
+   "gap": 0.4
+  },
+  {
+   "id": 4,
+   "text": "E cada depois parece pequeno. Até virar uma pilha.",
+   "gap": 0.4
+  },
+  {
+   "id": 5,
+   "text": "Sexta-feira. A prova chegou. E a pilha caiu inteira em cima dele.",
+   "gap": 0.4
+  },
+  {
+   "id": 6,
+   "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele odeia começos.",
+   "gap": 0.4
+  },
+  {
+   "id": 7,
+   "text": "Então ele criou a regra dos cinco minutos. Não precisa terminar. Só precisa começar.",
+   "gap": 0.4
+  },
+  {
+   "id": 8,
+   "text": "Cinco minutos viram vinte. Vinte viram a tarefa feita. E o ladrão fica sem palavra pra trocar.",
+   "gap": 0.4
+  },
+  {
+   "id": 9,
+   "text": "Amanhã chega o próximo ladrão. Ele rouba a sua coragem. Segue pra não perder.",
+   "gap": 0.4
+  }
+ ]
+}

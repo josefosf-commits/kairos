@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-17-DESAFIO-30-DIAS-EP5",
+ "duration": 49.67,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 5.79,
+   "text": "Dia vinte e cinco. O celular não estava na sala. O Joseph procurou em todo lugar."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.19,
+   "end": 9.55,
+   "text": "Até que achou. Debaixo do travesseiro dele."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 9.95,
+   "end": 14.99,
+   "text": "Ele não lembrava de ter levado. Mas levou. Meio dormindo, às duas da manhã."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 15.39,
+   "end": 19.95,
+   "text": "É assim que o hábito antigo volta: no automático, quando você não está olhando."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 20.35,
+   "end": 27.71,
+   "text": "Então ele fez a última mudança: o carregador agora mora na sala. Se o celular dorme lá, você não leva sem perceber."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 28.11,
+   "end": 30.99,
+   "text": "Dia vinte e oito. Dia vinte e nove."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 31.39,
+   "end": 32.51,
+   "text": "Dia trinta."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 32.91,
+   "end": 37.47,
+   "text": "Ansiedade lá embaixo. Foco lá em cima. E uma manhã que voltou a ser dele."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 37.87,
+   "end": 42.43,
+   "text": "Ele conseguiu. Mas o desafio de verdade começa amanhã: o dia trinta e um."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 42.83,
+   "end": 47.87,
+   "text": "Qual desafio o Joseph faz agora? Comenta. O mais votado vira a próxima série."
+  }
+ ]
+}
