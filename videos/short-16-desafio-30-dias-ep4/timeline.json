@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-16-DESAFIO-30-DIAS-EP4",
+ "duration": 50.39,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 7.79,
+   "text": "Dia dezessete. O Lucas chegou com o convite: amanhã cedo tem a final do campeonato. Assiste comigo. Só hoje."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 8.19,
+   "end": 11.79,
+   "text": "Só hoje. A frase mais perigosa de qualquer desafio."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.19,
+   "end": 16.67,
+   "text": "Porque uma exceção vira duas. E duas trazem o hábito antigo de volta."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 17.07,
+   "end": 23.47,
+   "text": "O Joseph pensou. E respondeu: eu não quebro a regra. Mas te chamo pra fazer comigo."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.87,
+   "end": 26.27,
+   "text": "O Lucas riu. Achou que era piada."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 26.67,
+   "end": 32.03,
+   "text": "Dia dezoito. Seis e meia. Alguém bate na porta. Era o Lucas. Sem celular."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 32.43,
+   "end": 34.35,
+   "text": "Vim ver como é, ele disse."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 34.75,
+   "end": 38.67,
+   "text": "Dia vinte. Dia vinte e dois. Agora são dois."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 39.07,
+   "end": 45.07,
+   "text": "Até que, no dia vinte e cinco, o Joseph acordou. E o celular não estava na sala."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 45.47,
+   "end": 48.59,
+   "text": "Episódio cinco em breve. Segue pra não perder."
+  }
+ ]
+}
