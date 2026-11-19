@@ -1,8 +1,11 @@
+// MODELO OFICIAL DAS CAPAS. Uso: node capa.js <pasta-do-episodio>  (lê <pasta>/capa.json: {ep, pergunta1, pergunta2})
 // Gera build/capa-serie.png: capa vertical com cara de pôster de série (nome da série, clima noir, contas no fundo, selo do caso)
 const { chromium } = require('playwright');
 const path = require('path'), fs = require('fs');
 (async () => {
-  const dir = __dirname;
+  const dir = path.resolve(process.argv[2] || '.');
+  const C = JSON.parse(fs.readFileSync(path.join(dir, 'capa.json'), 'utf8'));
+  const img = fs.existsSync(path.join(dir, 'assets/joseph.png')) ? path.join(dir, 'assets/joseph.png') : path.join(__dirname, 'ep01-o-colar/assets/joseph.png');
   const nums = [];
   const seq = ['22:00', '22:15', '+15 min', '≠', '20 min', '2.000.000', 'x', '∴', '3', '1 + 1', '?', '= MENTIU', '07', '√', '0,79', '%'];
   for (let i = 0; i < 46; i++) { const r = Math.sin(i * 12.9898) * 43758.5453, h = r - Math.floor(r), r2 = Math.sin(i * 78.233) * 12345.678, h2 = r2 - Math.floor(r2);
@@ -24,10 +27,10 @@ const path = require('path'), fs = require('fs');
   .q b{color:#c9a84a}
   </style></head><body>
   ${nums.join('')}<div class="rain"></div><div class="rim"></div>
-  <img class="jo" src="${path.join(dir, 'assets/joseph.png')}">
+  <img class="jo" src="${img}">
   <div class="fade"></div>
-  <div class="ep">SÉRIE · EP. 1</div><div class="case">CASO Nº 1</div>
-  <div class="q">Quem roubou o colar<br><b>de 2 milhões?</b></div>
+  <div class="ep">SÉRIE · EP. ${C.ep}</div><div class="case">CASO Nº ${C.ep}</div>
+  <div class="q">${C.pergunta1}<br><b>${C.pergunta2}</b></div>
   <div class="t1">JOSEPH</div><div class="line"></div><div class="t2">O CALCULISTA</div>
   <div class="tag">"Os números não mentem. As pessoas, sim."</div>
   </body></html>`;
