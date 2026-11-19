@@ -1,0 +1,31 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Arte do canal</title>
+<style>
+html,body{margin:0;overflow:hidden;background:#070a12}
+.n{position:absolute;font-family:"DejaVu Sans Mono";color:rgba(160,170,190,.15);transform:rotate(8deg);white-space:nowrap}
+.serif{font-family:"DejaVu Serif";font-weight:700}
+</style></head><body><div id="root"></div>
+<script>
+const NUMS=["21:00","60 s","= MENTIU","22:15","8 passos","3.000.000","20 min","A, B, C?","?","1 + 1","2.000.000","%"];
+function bg(w,h,cx,cy){let o=`<div style="position:absolute;inset:0;background:radial-gradient(ellipse at ${cx}% ${cy}%,#1a2747 0%,#0b0f1a 50%,#05070c 100%)"></div><div style="position:absolute;inset:-300px;background:repeating-linear-gradient(105deg,transparent 0 58px,rgba(140,160,200,.06) 58px 60px)"></div>`;
+ for(let i=0;i<Math.round(w*h/90000);i++){const r=k=>{const x=Math.sin(i*127.1+k*311.7)*43758.5;return x-Math.floor(x)};o+=`<div class="n" style="left:${r(1)*w-60}px;top:${r(2)*h}px;font-size:${30+r(3)*60}px">${NUMS[i%NUMS.length]}</div>`;}
+ return o;}
+const glow="filter:drop-shadow(0 0 30px rgba(201,165,74,.6))";
+window.draw=(mode,guide)=>{
+ const R=document.getElementById('root');
+ if(mode==='perfil'){ // 800x800
+  R.innerHTML=`<div style="position:relative;width:800px;height:800px;overflow:hidden">${bg(800,800,50,40)}
+  <div style="position:absolute;left:400px;top:400px;width:740px;height:740px;margin:-370px;border-radius:50%;border:12px solid #c9a54a;box-shadow:0 0 40px rgba(201,165,74,.5)"></div>
+  <img src="../ep01-o-colar/assets/joseph.png" style="position:absolute;left:${400-330}px;top:60px;width:660px;${glow}">
+</div>`;
+ } else { // banner 2560x1440, safe area 1546x423 centred (507..2053, 508..931)
+  R.innerHTML=`<div style="position:relative;width:2560px;height:1440px;overflow:hidden">${bg(2560,1440,62,48)}
+  <img src="../ep01-o-colar/assets/joseph.png" style="position:absolute;left:1610px;top:480px;width:440px;${glow}">
+  <div style="position:absolute;left:0;right:0;top:1080px;height:360px;background:linear-gradient(transparent,#05070c 60%)"></div>
+  <div class="serif" style="position:absolute;left:560px;top:530px;font-size:170px;letter-spacing:16px;color:#f4efe6;text-shadow:0 8px 0 #000;line-height:1">JOSEPH</div>
+  <div style="position:absolute;left:566px;top:720px;width:900px;height:4px;background:linear-gradient(90deg,#c9a54a,transparent)"></div>
+  <div class="serif" style="position:absolute;left:562px;top:745px;font-size:74px;letter-spacing:26px;color:#c9a54a;line-height:1">O CALCULISTA</div>
+  <div class="serif" style="position:absolute;left:566px;top:850px;font-size:44px;font-weight:400;font-style:italic;color:#e6e1d8">"Os números não mentem. As pessoas, sim."</div>
+  ${guide?`<div style="position:absolute;left:507px;top:508px;width:1546px;height:423px;outline:4px dashed #4fd1ff"></div><div style="position:absolute;left:0;top:508px;width:2560px;height:423px;outline:3px dashed #e5484d"></div>`:''}</div>`;
+ }
+};
+</script></body></html>

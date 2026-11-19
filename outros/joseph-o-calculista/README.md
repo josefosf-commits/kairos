@@ -28,6 +28,9 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - Estrutura do episódio: crime → 3 suspeitos com álibi → entrada do Joseph (título "JOSEPH, O CALCULISTA") → 3 pistas numeradas → teste que entrega o culpado → quadro com a conta ("= MENTIU") → "Os números não mentem. As pessoas, sim." → "CASO N · RESOLVIDO" + gancho do próximo caso.
 - Série original: não copiar nomes, personagens, vilões ou casos de outras séries.
 
+## Canal
+- `canal/`: foto de perfil (`perfil.png`, 800x800) e banner (`banner.png`, 2560x1440). Gerar com `node canal/gerar.js`; `canal/build/banner-guias.png` mostra a área segura.
+
 ## Episódios
 - `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
 - `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
