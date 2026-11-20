@@ -1,0 +1,170 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP04",
+ "duration": 154.49,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.35,
+   "end": 6.27,
+   "text": "Casa de praia. Seis da manhã. O cofre aberto, e quinhentos mil reais a menos."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 6.77,
+   "end": 9.89,
+   "text": "Comenta antes do final: quem você acha que foi?"
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 10.39,
+   "end": 17.83,
+   "text": "Na areia, pegadas de bota, da praia até a janela do escritório. Quem achou foi a Lívia, a filha caçula."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 18.33,
+   "end": 29.13,
+   "text": "A: Zé, o caseiro. Cento e dez quilos. As únicas botas tamanho quarenta e quatro da casa são dele. E ele precisava de dinheiro pra cirurgia da filha."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 29.63,
+   "end": 37.47,
+   "text": "B: Fábio, o genro. Devia pra meio mundo. Dormiu no sofá, a cinco metros do cofre. E acordou suando."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 38.07,
+   "end": 43.99,
+   "text": "C: Lívia, quinze anos. Dormiu de fone, a noite inteira. Não ouviu nada."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 44.69,
+   "end": 49.01,
+   "text": "A polícia já estava colocando o Zé na viatura. Mas aí chegou o Joseph."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 49.81,
+   "end": 54.85,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 55.25,
+   "end": 60.85,
+   "text": "Primeiro, a lupa. As pegadas eram mesmo da bota do Zé. Mesmo desenho na sola."
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 61.45,
+   "end": 62.89,
+   "text": "Todo mundo olhou pro Zé."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 63.29,
+   "end": 70.89,
+   "text": "Segundo: a profundidade. De manhã, o Zé andou pela praia. As pegadas dele afundaram dois centímetros e meio."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 71.39,
+   "end": 79.15,
+   "text": "As pegadas da noite? Só um centímetro. Alguém bem mais leve que o Zé. Alguém como o Fábio, bem mais magro."
+  },
+  {
+   "id": 13,
+   "audio": "audio-grave/l13.wav",
+   "start": 79.75,
+   "end": 87.83,
+   "text": "Terceiro: dentro da bota, jornal amassado na ponta. Alguém de pé menor usou a bota do Zé. E o Fábio calça quarenta e um."
+  },
+  {
+   "id": 14,
+   "audio": "audio-grave/l14.wav",
+   "start": 88.23,
+   "end": 92.39,
+   "text": "Comenta agora: A, B ou C? Valendo."
+  },
+  {
+   "id": 15,
+   "audio": "audio-grave/l15.wav",
+   "start": 97.89,
+   "end": 105.49,
+   "text": "Agora, a conta. Se dois centímetros e meio são cento e dez quilos, um centímetro são uns quarenta e quatro."
+  },
+  {
+   "id": 16,
+   "audio": "audio-grave/l16.wav",
+   "start": 105.99,
+   "end": 111.43,
+   "text": "O Fábio pesa oitenta e cinco. Afundaria quase dois centímetros. Não bate."
+  },
+  {
+   "id": 17,
+   "audio": "audio-grave/l17.wav",
+   "start": 112.03,
+   "end": 116.83,
+   "text": "Quarenta e quatro quilos. Um pé tão pequeno que precisou de jornal pra encher a bota."
+  },
+  {
+   "id": 18,
+   "audio": "audio-grave/l18.wav",
+   "start": 117.43,
+   "end": 122.07,
+   "text": "E quem achou as pegadas, antes de todo mundo? Quem apontou pro Zé?"
+  },
+  {
+   "id": 19,
+   "audio": "audio-grave/l19.wav",
+   "start": 122.77,
+   "end": 126.05,
+   "text": "A Lívia. A que dormiu de fone a noite inteira."
+  },
+  {
+   "id": 20,
+   "audio": "audio-grave/l20.wav",
+   "start": 126.65,
+   "end": 133.69,
+   "text": "O dinheiro estava dentro da capa do violão dela. E o fone? A bateria tinha acabado às dez da noite."
+  },
+  {
+   "id": 21,
+   "audio": "audio-grave/l21.wav",
+   "start": 134.39,
+   "end": 138.95,
+   "text": "Ela devia dinheiro escondido dos pais. E escolheu o Zé pra levar a culpa."
+  },
+  {
+   "id": 22,
+   "audio": "audio-grave/l22.wav",
+   "start": 139.75,
+   "end": 143.19,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 23,
+   "audio": "audio-grave/l23.wav",
+   "start": 143.69,
+   "end": 152.49,
+   "text": "Caso quatro, resolvido. Você desconfiou da Lívia? Se sim, comenta: eu sabia. Segue pra não perder o caso cinco."
+  }
+ ]
+}

@@ -32,6 +32,10 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 ## Som (regra)
 - **Sem chiado no fundo.** Não usar o `rainbed` (ruído contínuo de chuva) na `trilha.py`. Chuva e trovão só como efeito curto, na hora da cena. Nada de `noise()` tocando o vídeo inteiro.
 
+## Joseph mais ativo (desde o Caso 4)
+- A arte tem uma pose só (mãos no bolso). Para dar movimento sem arte nova, `ep04-as-pegadas/cena.js` tem: `joWalk` (entra andando, com balanço), `joThink` (números girando em volta da cabeça), `arm` + `lupa` (mão dele em primeira pessoa com a lupa ampliando a cena), `notebook` (a mão escrevendo a conta no caderno, com lápis) e régua medindo a pegada.
+- Próximo passo: pedir ao gerador da arte 3 ou 4 poses novas (lupa, anotando, apontando, de lado) com fundo transparente.
+
 ## Estilo
 - Noir: noite, chuva, trovões, fundo azul-escuro (#0b0f1a), dourado (GOLD) e vermelho (#e5484d).
 - Estrutura do episódio: crime → 3 suspeitos com álibi → entrada do Joseph (título "JOSEPH, O CALCULISTA") → 3 pistas numeradas → teste que entrega o culpado → quadro com a conta ("= MENTIU") → "Os números não mentem. As pessoas, sim." → "CASO N · RESOLVIDO" + gancho do próximo caso.
@@ -44,6 +48,7 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
 - `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
 - `ep03-o-trofeu/`: Caso 3, O Troféu do Intervalo (2:43). Futebol; a suspeita vai para o capitão rival e o zelador; o culpado é o goleiro herói. Palpite A/B/C com contagem de 5 s; sem ruído de fundo.
+- `ep04-as-pegadas/`: Caso 4, As Pegadas na Areia (2:34). Culpada: Lívia, 15, que "achou" as pegadas. Primeiro episódio com o Joseph mais ativo (lupa, régua, caderno, andando).
 - `especial01-o-elevador/`: Caso Especial 1, O Homem que Sumiu do Elevador (vídeo longo 16:9, 6:05). Duas pausas para o palpite (A–D e depois A–E); o culpado é a própria "vítima". Cena horizontal em `cena.js` com `capLong` (legenda grande para TV); capa em `capa.html` (1280x720).
 
 - `especial02-o-bilhete/`: Caso Especial 2, O Bilhete de 40 Milhões (longo 16:9, 05:27). A suspeita vai para os 4 da padaria; o culpado é o delegado que investigava.
