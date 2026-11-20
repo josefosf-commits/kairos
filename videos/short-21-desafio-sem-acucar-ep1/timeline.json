@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-21-DESAFIO-SEM-ACUCAR-EP1",
+ "duration": 58.24,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 7.39,
+   "text": "Desafio trinta dias, temporada dois. O Joseph vai ficar trinta dias sem açúcar. Hoje é o dia um."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.69,
+   "end": 14.57,
+   "text": "Café da manhã. Ele abre o armário: bolacha recheada, achocolatado, cereal. Tudo doce."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 14.87,
+   "end": 19.35,
+   "text": "Ele lê o rótulo do cereal. Açúcar é o segundo ingrediente."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 19.65,
+   "end": 23.49,
+   "text": "Três da tarde. A vontade de doce chega igual relógio."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 23.79,
+   "end": 28.59,
+   "text": "Ele troca o chocolate por uma fruta. Não é a mesma coisa. Mas passa."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 29.04,
+   "end": 35.44,
+   "text": "Dia dois. Dor de cabeça. Mau humor. Até o refrigerante na geladeira parece chamar ele."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 35.89,
+   "end": 41.97,
+   "text": "Dia três. Aniversário na sala. Bolo de chocolate. Brigadeiro. Todo mundo comendo."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 42.27,
+   "end": 45.71,
+   "text": "Alguém fala: é só um pedaço. Ninguém vai saber."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 46.01,
+   "end": 49.45,
+   "text": "O Joseph olha pro prato. E toma uma decisão."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 49.8,
+   "end": 56.44,
+   "text": "O que ele fez, você vê no episódio dois. Topa fazer junto, a partir de hoje? Segue pra não perder."
+  }
+ ]
+}

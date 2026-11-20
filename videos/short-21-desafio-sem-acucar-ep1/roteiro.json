@@ -1,0 +1,17 @@
+{
+ "name": "SHORT-21-DESAFIO-SEM-ACUCAR-EP1",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {"id": 1, "text": "Desafio trinta dias, temporada dois. O Joseph vai ficar trinta dias sem açúcar. Hoje é o dia um.", "gap": 0.35},
+  {"id": 2, "text": "Café da manhã. Ele abre o armário: bolacha recheada, achocolatado, cereal. Tudo doce.", "gap": 0.3},
+  {"id": 3, "text": "Ele lê o rótulo do cereal. Açúcar é o segundo ingrediente.", "gap": 0.3},
+  {"id": 4, "text": "Três da tarde. A vontade de doce chega igual relógio.", "gap": 0.3},
+  {"id": 5, "text": "Ele troca o chocolate por uma fruta. Não é a mesma coisa. Mas passa.", "gap": 0.3},
+  {"id": 6, "text": "Dia dois. Dor de cabeça. Mau humor. Até o refrigerante na geladeira parece chamar ele.", "gap": 0.45},
+  {"id": 7, "text": "Dia três. Aniversário na sala. Bolo de chocolate. Brigadeiro. Todo mundo comendo.", "gap": 0.45},
+  {"id": 8, "text": "Alguém fala: é só um pedaço. Ninguém vai saber.", "gap": 0.3},
+  {"id": 9, "text": "O Joseph olha pro prato. E toma uma decisão.", "gap": 0.3},
+  {"id": 10, "text": "O que ele fez, você vê no episódio dois. Topa fazer junto, a partir de hoje? Segue pra não perder.", "gap": 0.35}
+ ]
+}
