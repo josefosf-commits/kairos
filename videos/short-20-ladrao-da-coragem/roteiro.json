@@ -1,0 +1,16 @@
+{
+ "name": "SHORT-20-LADRAO-DA-CORAGEM",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {"id": 1, "text": "Episódio dois. O ladrão de hoje não entra pela janela. Ele só aparece quando você vai abrir a boca.", "gap": 0.35},
+  {"id": 2, "text": "Sala de aula. A professora pergunta. E o Joseph sabe a resposta.", "gap": 0.4},
+  {"id": 3, "text": "Aí o ladrão sussurra: e se você errar? E se a sala inteira rir de você?", "gap": 0.4},
+  {"id": 4, "text": "A mão do Joseph desce. Ele fica quieto.", "gap": 0.4},
+  {"id": 5, "text": "Dez segundos depois, outro aluno fala a mesma resposta. E a professora diz: perfeito.", "gap": 0.4},
+  {"id": 6, "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele só existe antes. Depois que você fala, ele some.", "gap": 0.4},
+  {"id": 7, "text": "Então ele criou a regra do três, dois, um. Contou. E levantou a mão antes de pensar.", "gap": 0.4},
+  {"id": 8, "text": "A voz tremeu. Ninguém riu. E o ladrão ficou menor.", "gap": 0.4},
+  {"id": 9, "text": "Amanhã chega o próximo ladrão. Ele mora no seu celular e rouba a sua paz. Segue pra não perder.", "gap": 0.4}
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "name": "SHORT-20-LADRAO-DA-CORAGEM",
+ "duration": 55.51,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.83,
+   "text": "Episódio dois. O ladrão de hoje não entra pela janela. Ele só aparece quando você vai abrir a boca."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.23,
+   "end": 12.43,
+   "text": "Sala de aula. A professora pergunta. E o Joseph sabe a resposta."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 12.83,
+   "end": 18.59,
+   "text": "Aí o ladrão sussurra: e se você errar? E se a sala inteira rir de você?"
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 18.99,
+   "end": 22.11,
+   "text": "A mão do Joseph desce. Ele fica quieto."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 22.51,
+   "end": 28.91,
+   "text": "Dez segundos depois, outro aluno fala a mesma resposta. E a professora diz: perfeito."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 29.31,
+   "end": 36.27,
+   "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele só existe antes. Depois que você fala, ele some."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 36.67,
+   "end": 43.07,
+   "text": "Então ele criou a regra do três, dois, um. Contou. E levantou a mão antes de pensar."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 43.47,
+   "end": 47.23,
+   "text": "A voz tremeu. Ninguém riu. E o ladrão ficou menor."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 47.63,
+   "end": 53.71,
+   "text": "Amanhã chega o próximo ladrão. Ele mora no seu celular e rouba a sua paz. Segue pra não perder."
+  }
+ ]
+}
