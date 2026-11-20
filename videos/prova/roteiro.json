@@ -1,0 +1,201 @@
+{
+ "name": "PROVA",
+ "tail": 14,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Dois.",
+   "gap": 1.2
+  },
+  {
+   "id": 2,
+   "text": "Essa foi a nota do Joseph em matemática. De dez.",
+   "gap": 1.0
+  },
+  {
+   "id": 3,
+   "text": "O professor devolveu a prova e avisou: a recuperação é daqui a trinta dias.",
+   "gap": 0.9
+  },
+  {
+   "id": 4,
+   "text": "No caminho pra casa, ele fez a conta: se tirar menos de seis, repete de ano.",
+   "gap": 1.0
+  },
+  {
+   "id": 5,
+   "text": "E pensou: eu não nasci pra matemática.",
+   "gap": 1.0
+  },
+  {
+   "id": 6,
+   "text": "O jeito antigo de estudar do Joseph era assim: na véspera, abria o caderno, lia tudo três vezes, e sentia que tinha entendido.",
+   "gap": 6.0
+  },
+  {
+   "id": 7,
+   "text": "Mas ler não é aprender. Ler dá a sensação de que você sabe. A prova mostra que não.",
+   "gap": 0.9
+  },
+  {
+   "id": 8,
+   "text": "E o celular ficava do lado. A cada cinco minutos, uma notificação. Uma hora de estudo virava quinze minutos de verdade.",
+   "gap": 1.0
+  },
+  {
+   "id": 9,
+   "text": "Dessa vez, ele resolveu fazer diferente. Três regras. Trinta dias.",
+   "gap": 1.2
+  },
+  {
+   "id": 10,
+   "text": "Regra um: vinte e cinco minutos por dia, com o celular em outro cômodo. Sem exceção.",
+   "gap": 1.2
+  },
+  {
+   "id": 11,
+   "text": "Parece pouco? Vinte e cinco minutos por dia, em trinta dias, são mais de doze horas de estudo de verdade.",
+   "gap": 0.9
+  },
+  {
+   "id": 12,
+   "text": "Regra dois: fechar o caderno e tentar resolver sozinho. Errou? Ótimo. O erro mostra exatamente o que falta.",
+   "gap": 1.2
+  },
+  {
+   "id": 13,
+   "text": "Regra três: todo exercício errado vai pro caderno de erros. E toda sexta, ele refaz só esses.",
+   "gap": 1.2
+  },
+  {
+   "id": 14,
+   "text": "Semana um. Foi horrível. Ele errava quase tudo. O caderno de erros encheu em três dias.",
+   "gap": 2.4
+  },
+  {
+   "id": 15,
+   "text": "Na quarta-feira, ele quase desistiu. Olhou pra equação, e a cabeça travou.",
+   "gap": 1.0
+  },
+  {
+   "id": 16,
+   "text": "Mas a regra era só vinte e cinco minutos. Então ele sentou. E fez um exercício. Um só.",
+   "gap": 1.0
+  },
+  {
+   "id": 17,
+   "text": "Semana dois. Ele começou a errar diferente. Os erros bobos sumiram. Agora ele errava as coisas difíceis.",
+   "gap": 1.6
+  },
+  {
+   "id": 18,
+   "text": "E isso é progresso. Ninguém te conta, mas errar diferente é o primeiro sinal de que você está aprendendo.",
+   "gap": 1.0
+  },
+  {
+   "id": 19,
+   "text": "Semana três. O amigo chamou pra jogar. O Joseph respondeu: depois dos meus vinte e cinco minutos, eu vou.",
+   "gap": 1.6
+  },
+  {
+   "id": 20,
+   "text": "E foi. Estudou, depois jogou. Sem culpa.",
+   "gap": 0.9
+  },
+  {
+   "id": 21,
+   "text": "Semana quatro. Na sexta, ele refez o caderno de erros inteiro. E acertou quase tudo.",
+   "gap": 1.6
+  },
+  {
+   "id": 22,
+   "text": "Os exercícios que no começo pareciam outra língua, agora ele explicava pro amigo.",
+   "gap": 1.0
+  },
+  {
+   "id": 23,
+   "text": "Dia trinta. Dia da prova.",
+   "gap": 3.0
+  },
+  {
+   "id": 24,
+   "text": "Ele leu a primeira questão. E reconheceu. Era igual a uma do caderno de erros.",
+   "gap": 1.2
+  },
+  {
+   "id": 25,
+   "text": "Segunda questão. Também.",
+   "gap": 0.9
+  },
+  {
+   "id": 26,
+   "text": "Até que chegou na questão sete. Ele nunca tinha visto nada parecido.",
+   "gap": 1.2
+  },
+  {
+   "id": 27,
+   "text": "A mão suou. E a voz antiga apareceu: viu? Você não nasceu pra isso.",
+   "gap": 1.4
+  },
+  {
+   "id": 28,
+   "text": "Ele respirou. E lembrou da regra dois: tenta sozinho. Começa pelo que você sabe.",
+   "gap": 2.0
+  },
+  {
+   "id": 29,
+   "text": "Escreveu o que sabia. Depois o próximo passo. E o próximo.",
+   "gap": 1.0
+  },
+  {
+   "id": 30,
+   "text": "Entregou a prova sem saber se tinha acertado.",
+   "gap": 1.2
+  },
+  {
+   "id": 31,
+   "text": "Uma semana depois, o professor chamou o nome dele.",
+   "gap": 3.0
+  },
+  {
+   "id": 32,
+   "text": "Oito.",
+   "gap": 2.4
+  },
+  {
+   "id": 33,
+   "text": "Oito e meio, na verdade. E a questão sete estava certa.",
+   "gap": 1.6
+  },
+  {
+   "id": 34,
+   "text": "O Joseph não virou um gênio em trinta dias. Ele só parou de estudar do jeito que dá sensação, e começou a estudar do jeito que dá resultado.",
+   "gap": 2.6
+  },
+  {
+   "id": 35,
+   "text": "Ninguém nasce pra matemática. A gente aprende fazendo, errando, e refazendo.",
+   "gap": 1.2
+  },
+  {
+   "id": 36,
+   "text": "Então, se você tem uma prova chegando, lembra das três regras.",
+   "gap": 2.6
+  },
+  {
+   "id": 37,
+   "text": "Vinte e cinco minutos, celular longe. Fecha o caderno e tenta sozinho. E refaz os seus erros toda sexta.",
+   "gap": 0.9
+  },
+  {
+   "id": 38,
+   "text": "De dois pra oito e meio. Em trinta dias.",
+   "gap": 1.2
+  },
+  {
+   "id": 39,
+   "text": "Segue o canal pra não perder a próxima história. E comenta: qual matéria vai ser a sua prova?",
+   "gap": 2.0
+  }
+ ]
+}

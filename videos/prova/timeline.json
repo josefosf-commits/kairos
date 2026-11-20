@@ -1,0 +1,280 @@
+{
+ "name": "PROVA",
+ "duration": 274.76,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 1.2,
+   "end": 2.08,
+   "text": "Dois."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 3.08,
+   "end": 6.6,
+   "text": "Essa foi a nota do Joseph em matemática. De dez."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 7.5,
+   "end": 13.5,
+   "text": "O professor devolveu a prova e avisou: a recuperação é daqui a trinta dias."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 14.5,
+   "end": 19.94,
+   "text": "No caminho pra casa, ele fez a conta: se tirar menos de seis, repete de ano."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 20.94,
+   "end": 23.66,
+   "text": "E pensou: eu não nasci pra matemática."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 29.66,
+   "end": 37.98,
+   "text": "O jeito antigo de estudar do Joseph era assim: na véspera, abria o caderno, lia tudo três vezes, e sentia que tinha entendido."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 38.88,
+   "end": 44.64,
+   "text": "Mas ler não é aprender. Ler dá a sensação de que você sabe. A prova mostra que não."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 45.64,
+   "end": 54.04,
+   "text": "E o celular ficava do lado. A cada cinco minutos, uma notificação. Uma hora de estudo virava quinze minutos de verdade."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 55.24,
+   "end": 59.96,
+   "text": "Dessa vez, ele resolveu fazer diferente. Três regras. Trinta dias."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 61.16,
+   "end": 66.84,
+   "text": "Regra um: vinte e cinco minutos por dia, com o celular em outro cômodo. Sem exceção."
+  },
+  {
+   "id": 11,
+   "audio": "audio/l11.wav",
+   "start": 67.74,
+   "end": 74.62,
+   "text": "Parece pouco? Vinte e cinco minutos por dia, em trinta dias, são mais de doze horas de estudo de verdade."
+  },
+  {
+   "id": 12,
+   "audio": "audio/l12.wav",
+   "start": 75.82,
+   "end": 83.82,
+   "text": "Regra dois: fechar o caderno e tentar resolver sozinho. Errou? Ótimo. O erro mostra exatamente o que falta."
+  },
+  {
+   "id": 13,
+   "audio": "audio/l13.wav",
+   "start": 85.02,
+   "end": 92.06,
+   "text": "Regra três: todo exercício errado vai pro caderno de erros. E toda sexta, ele refaz só esses."
+  },
+  {
+   "id": 14,
+   "audio": "audio/l14.wav",
+   "start": 94.46,
+   "end": 100.86,
+   "text": "Semana um. Foi horrível. Ele errava quase tudo. O caderno de erros encheu em três dias."
+  },
+  {
+   "id": 15,
+   "audio": "audio/l15.wav",
+   "start": 101.86,
+   "end": 106.66,
+   "text": "Na quarta-feira, ele quase desistiu. Olhou pra equação, e a cabeça travou."
+  },
+  {
+   "id": 16,
+   "audio": "audio/l16.wav",
+   "start": 107.66,
+   "end": 113.74,
+   "text": "Mas a regra era só vinte e cinco minutos. Então ele sentou. E fez um exercício. Um só."
+  },
+  {
+   "id": 17,
+   "audio": "audio/l17.wav",
+   "start": 115.34,
+   "end": 122.62,
+   "text": "Semana dois. Ele começou a errar diferente. Os erros bobos sumiram. Agora ele errava as coisas difíceis."
+  },
+  {
+   "id": 18,
+   "audio": "audio/l18.wav",
+   "start": 123.62,
+   "end": 130.02,
+   "text": "E isso é progresso. Ninguém te conta, mas errar diferente é o primeiro sinal de que você está aprendendo."
+  },
+  {
+   "id": 19,
+   "audio": "audio/l19.wav",
+   "start": 131.62,
+   "end": 138.58,
+   "text": "Semana três. O amigo chamou pra jogar. O Joseph respondeu: depois dos meus vinte e cinco minutos, eu vou."
+  },
+  {
+   "id": 20,
+   "audio": "audio/l20.wav",
+   "start": 139.48,
+   "end": 143.0,
+   "text": "E foi. Estudou, depois jogou. Sem culpa."
+  },
+  {
+   "id": 21,
+   "audio": "audio/l21.wav",
+   "start": 144.6,
+   "end": 150.76,
+   "text": "Semana quatro. Na sexta, ele refez o caderno de erros inteiro. E acertou quase tudo."
+  },
+  {
+   "id": 22,
+   "audio": "audio/l22.wav",
+   "start": 151.76,
+   "end": 156.56,
+   "text": "Os exercícios que no começo pareciam outra língua, agora ele explicava pro amigo."
+  },
+  {
+   "id": 23,
+   "audio": "audio/l23.wav",
+   "start": 159.56,
+   "end": 161.72,
+   "text": "Dia trinta. Dia da prova."
+  },
+  {
+   "id": 24,
+   "audio": "audio/l24.wav",
+   "start": 162.92,
+   "end": 168.68,
+   "text": "Ele leu a primeira questão. E reconheceu. Era igual a uma do caderno de erros."
+  },
+  {
+   "id": 25,
+   "audio": "audio/l25.wav",
+   "start": 169.58,
+   "end": 171.58,
+   "text": "Segunda questão. Também."
+  },
+  {
+   "id": 26,
+   "audio": "audio/l26.wav",
+   "start": 172.78,
+   "end": 176.94,
+   "text": "Até que chegou na questão sete. Ele nunca tinha visto nada parecido."
+  },
+  {
+   "id": 27,
+   "audio": "audio/l27.wav",
+   "start": 178.34,
+   "end": 184.18,
+   "text": "A mão suou. E a voz antiga apareceu: viu? Você não nasceu pra isso."
+  },
+  {
+   "id": 28,
+   "audio": "audio/l28.wav",
+   "start": 186.18,
+   "end": 191.62,
+   "text": "Ele respirou. E lembrou da regra dois: tenta sozinho. Começa pelo que você sabe."
+  },
+  {
+   "id": 29,
+   "audio": "audio/l29.wav",
+   "start": 192.62,
+   "end": 197.66,
+   "text": "Escreveu o que sabia. Depois o próximo passo. E o próximo."
+  },
+  {
+   "id": 30,
+   "audio": "audio/l30.wav",
+   "start": 198.86,
+   "end": 201.66,
+   "text": "Entregou a prova sem saber se tinha acertado."
+  },
+  {
+   "id": 31,
+   "audio": "audio/l31.wav",
+   "start": 204.66,
+   "end": 207.86,
+   "text": "Uma semana depois, o professor chamou o nome dele."
+  },
+  {
+   "id": 32,
+   "audio": "audio/l32.wav",
+   "start": 210.26,
+   "end": 210.98,
+   "text": "Oito."
+  },
+  {
+   "id": 33,
+   "audio": "audio/l33.wav",
+   "start": 212.58,
+   "end": 216.9,
+   "text": "Oito e meio, na verdade. E a questão sete estava certa."
+  },
+  {
+   "id": 34,
+   "audio": "audio/l34.wav",
+   "start": 219.5,
+   "end": 227.1,
+   "text": "O Joseph não virou um gênio em trinta dias. Ele só parou de estudar do jeito que dá sensação, e começou a estudar do jeito que dá resultado."
+  },
+  {
+   "id": 35,
+   "audio": "audio/l35.wav",
+   "start": 228.3,
+   "end": 233.18,
+   "text": "Ninguém nasce pra matemática. A gente aprende fazendo, errando, e refazendo."
+  },
+  {
+   "id": 36,
+   "audio": "audio/l36.wav",
+   "start": 235.78,
+   "end": 240.5,
+   "text": "Então, se você tem uma prova chegando, lembra das três regras."
+  },
+  {
+   "id": 37,
+   "audio": "audio/l37.wav",
+   "start": 241.4,
+   "end": 248.68,
+   "text": "Vinte e cinco minutos, celular longe. Fecha o caderno e tenta sozinho. E refaz os seus erros toda sexta."
+  },
+  {
+   "id": 38,
+   "audio": "audio/l38.wav",
+   "start": 249.88,
+   "end": 253.08,
+   "text": "De dois pra oito e meio. Em trinta dias."
+  },
+  {
+   "id": 39,
+   "audio": "audio/l39.wav",
+   "start": 255.08,
+   "end": 260.76,
+   "text": "Segue o canal pra não perder a próxima história. E comenta: qual matéria vai ser a sua prova?"
+  }
+ ]
+}
