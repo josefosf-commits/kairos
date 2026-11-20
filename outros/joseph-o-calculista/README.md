@@ -13,6 +13,12 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
    `ffmpeg -i audio/lN.wav -af "asetrate=24000*0.79,aresample=24000,atempo=1.2658,aecho=0.8:0.7:40:0.18,volume=1.25" -ar 24000 audio-grave/lN.wav`
 3. No `timeline.json`, trocar `audio/` por `audio-grave/` antes de rodar o `montar.sh`.
 
+## Regra de ouro da série: o culpado é sempre quem você menos espera
+- O roteiro inteiro empurra a suspeita para os outros: os suspeitos óbvios ganham motivo forte, comportamento estranho e pelo menos uma pista que parece apontar para eles (cena em vermelho, carimbos).
+- O verdadeiro culpado aparece simpático ou inocente (herói, vítima, pessoa querida) e a pista contra ele entra de passagem, sem destaque, misturada com as dos outros.
+- As pistas são justas: quem prestar atenção consegue acertar. A revelação refaz a conta e mostra por que os outros não cabem.
+- Shorts com 2 a 2:45 min (os de ~1 min ficaram curtos demais).
+
 ## Formato "comenta antes do fim" (desde o Caso 2)
 - Logo no começo: "No final, eu vou te pedir pra apontar o culpado."
 - Antes da revelação: tela "COMENTA AGORA" com os suspeitos marcados A, B e C e contagem de 5 s.
@@ -37,7 +43,7 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 ## Episódios
 - `ep01-o-colar/`: Caso 1, O Colar e a Chuva (1:17). Roteiro, cena, trilha, capa, SEO e amostras de voz.
 - `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
-- `ep03-o-trofeu/`: Caso 3, O Troféu do Intervalo (1:17). Futebol; culpado é o goleiro herói. Palpite A/B/C com contagem de 3 s; sem ruído de fundo.
+- `ep03-o-trofeu/`: Caso 3, O Troféu do Intervalo (2:43). Futebol; a suspeita vai para o capitão rival e o zelador; o culpado é o goleiro herói. Palpite A/B/C com contagem de 5 s; sem ruído de fundo.
 - `especial01-o-elevador/`: Caso Especial 1, O Homem que Sumiu do Elevador (vídeo longo 16:9, 6:05). Duas pausas para o palpite (A–D e depois A–E); o culpado é a própria "vítima". Cena horizontal em `cena.js` com `capLong` (legenda grande para TV); capa em `capa.html` (1280x720).
 
 ## Vídeo longo semanal

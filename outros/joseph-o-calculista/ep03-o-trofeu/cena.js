@@ -30,9 +30,9 @@ function scoreboard(t, mins) {
   return `<g transform="translate(540 600)"><rect x="-330" y="-150" width="660" height="300" rx="16" fill="#05070c" stroke="#3a3326" stroke-width="12"/><text x="0" y="-60" font-family="monospace" font-size="54" font-weight="700" text-anchor="middle" fill="${GOLD}">INTERVALO</text><text x="0" y="80" font-family="monospace" font-size="150" font-weight="700" text-anchor="middle" fill="${CRIME}">${String(Math.floor(mins)).padStart(2, "0")}:${String(Math.floor((mins % 1) * 60)).padStart(2, "0")}</text></g>`;
 }
 const SUS = {
-  cap: { c: { skin: "#f1c9a5", skinD: "#d6ab86", hood: "#b3262f", hoodD: "#8a1d24", hair: "#3a2414", style: "short" }, label: "CAPITÃO RIVAL", alibi: "\"esse troféu é nosso\"", col: CRIME, L: "A" },
-  zel: { c: { skin: "#c68b5e", skinD: "#a97046", hood: "#5a6270", hoodD: "#454b57", hair: "#bfbfc8", style: "short" }, label: "ZELADOR", alibi: "tem a chave da sala", col: "#cfd8e3", L: "B" },
-  davi: { c: { skin: "#8d5a3b", skinD: "#744830", hood: "#1f8a4c", hoodD: "#176a3a", hair: "#120c09", style: "curly" }, label: "GOLEIRO DAVI", alibi: "o herói · \"não saí\"", col: "#5be08a", L: "C" },
+  cap: { c: { skin: "#f1c9a5", skinD: "#d6ab86", hood: "#b3262f", hoodD: "#8a1d24", hair: "#3a2414", style: "short" }, label: "BRUNO · CAPITÃO RIVAL", alibi: "sumiu no intervalo", col: CRIME, L: "A" },
+  zel: { c: { skin: "#c68b5e", skinD: "#a97046", hood: "#5a6270", hoodD: "#454b57", hair: "#bfbfc8", style: "short" }, label: "SEU JAIRO · ZELADOR", alibi: "chave + dívidas", col: "#cfd8e3", L: "B" },
+  davi: { c: { skin: "#8d5a3b", skinD: "#744830", hood: "#1f8a4c", hoodD: "#176a3a", hair: "#120c09", style: "curly" }, label: "DAVI · GOLEIRO, 17", alibi: "o herói · gelo no joelho", col: "#5be08a", L: "C" },
 };
 function bust(t, k, x, y, s, f = {}) {
   const P = Object.assign({ x: 960, c: SUS[k].c }, face(Object.assign({ lid: blink(t, 0.08, x * 0.01) }, f)));
@@ -47,7 +47,7 @@ function card(t, a, k, y, letter = true, dim = 1) {
   const S0 = SUS[k];
   let o = `<g opacity="${dim}" transform="translate(540 ${y}) scale(${p}) translate(-540 ${-y})"><rect x="60" y="${y - 150}" width="960" height="300" rx="30" fill="#0d111c" stroke="${S0.col}" stroke-width="6"/>` +
     `<clipPath id="cl${k}${y}"><rect x="80" y="${y - 135}" width="270" height="270" rx="20"/></clipPath><g clip-path="url(#cl${k}${y})"><rect x="80" y="${y - 135}" width="270" height="270" fill="#1d2336"/>${bust(t, k, 215, y + 20, 0.5)}</g>` +
-    `<text class="hand" x="390" y="${y - 30}" font-size="${S0.label.length > 12 ? 60 : 70}" fill="${S0.col}">${S0.label}</text><text class="hand" x="390" y="${y + 50}" font-size="46" fill="#cfd8e3">${esc(S0.alibi)}</text>`;
+    `<text class="hand" x="390" y="${y - 30}" font-size="${S0.label.length > 16 ? 50 : 60}" fill="${S0.col}">${S0.label}</text><text class="hand" x="390" y="${y + 50}" font-size="46" fill="#cfd8e3">${esc(S0.alibi)}</text>`;
   if (letter) o += `<g transform="translate(960 ${y - 110})"><circle r="52" fill="${GOLD}" stroke="#000" stroke-width="6"/>${txt(S0.L, 0, 0, 70, "#05070c")}</g>`;
   return o + `</g>`;
 }
@@ -60,72 +60,114 @@ function field(t, hi) {   // top view of a pitch: dry, only the small areas mudd
   return o + `</g>`;
 }
 
+function sweat(t, x, y) { let o = ""; for (let i = 0; i < 3; i++) { const k = (t * 0.8 + i / 3) % 1; o += `<path d="M ${x + i * 60} ${y + k * 80} q 10 18 0 26 q -10 -8 0 -26 Z" fill="${AQUA}" opacity="${1 - k}"/>`; } return o; }
+function bubble(t, a, s, x, y, col = "#1a1a1a") { const p = pop(t, a); if (p <= 0) return ""; const w = s.length * 30 + 80; return `<g transform="translate(${x} ${y}) scale(${p})"><rect x="${-w / 2}" y="-70" width="${w}" height="140" rx="40" fill="#f4efe6" stroke="#000" stroke-width="7"/><path d="M -40 66 L -90 150 L 20 70 Z" fill="#f4efe6" stroke="#000" stroke-width="7"/>${txt(esc(s), 0, 0, 56, col)}</g>`; }
+const red = (t, k = 1) => `<rect width="${SW}" height="${SH}" fill="${CRIME}" opacity="${0.08 * k + 0.04 * Math.sin(t * 3)}"/>`;
 function render(t) {
   const end = window.TL.duration;
   let o = `<rect width="${SW}" height="${SH}" fill="${NOIR}"/>`;
-  if (t < S(2) - 0.2) {                               // halftime, empty showcase
+  if (t < S(2) - 0.2) {
     if (t < 2.4) o += stadium(t) + scoreboard(t, 15 - t * 2);
     else o += vitrine(t, false) + stamp(t, 2.9, "SUMIU", 760, CRIME, 120);
-    o += pill(t, 0.6, "FINAL DO CAMPEONATO", GOLD, 330, 52);
+    o += pill(t, 0.6, "FINAL DO CAMPEONATO", GOLD, 380, 52);
   } else if (t < S(3) - 0.3) {
     o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>`;
-    o += txt("COMENTA ANTES DO FIM:", 540, 700, 78, CREAM, 1, pop(t, S(2))) + txt("QUEM FOI?", 540, 860, 150, GOLD, 1, pop(t, S(2) + 0.8));
-  } else if (t < S(6) - 0.3) {
-    o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>` + txt("3 SUSPEITOS", 540, 370, 100, CREAM);
-    o += card(t, S(3), "cap", 620) + card(t, S(4), "zel", 940) + card(t, S(5), "davi", 1260);
-    if (t > S(5) + 1.0) o += pill(t, S(5) + 1.0, "DEFENDEU UM PÊNALTI", "#5be08a", 1480, 46);
-  } else if (t < S(7) - 0.3) {
-    const enter = seg(t, S(6), S(6) + 1.2);
-    o += `<rect width="${SW}" height="${SH}" fill="#07090f"/><circle cx="540" cy="900" r="520" fill="${GOLD}" opacity="${0.08 * enter}"/>` + jo(t, 540, lerp(1500, 520, sm(enter)), 1000, enter, 1);
-    o += txt("JOSEPH", 540, 360, 150, CREAM, 1, pop(t, S(6) + 1.0)) + txt("O CALCULISTA", 540, 470, 80, GOLD, 1, pop(t, S(6) + 1.4));
-    o += pill(t, S(6) + 3.0, "ELE FAZ A CONTA", GOLD, 1680, 54);
-  } else if (t < S(8) - 0.2) {                        // clue 1: mud only in the small area
-    if (t < S(7) + 2.2) {
-      o += `<rect width="${SW}" height="${SH}" fill="#2a2420"/>`;
-      for (const [x, y, r] of [[400, 900, -12], [640, 1180, -6], [420, 1460, -14]]) o += `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M -50 -110 Q 0 -150 50 -110 Q 70 -30 45 30 Q 0 50 -45 30 Q -70 -30 -50 -110 Z" fill="${MUD}" stroke="#3a2614" stroke-width="5"/></g>`;
-      o += pill(t, S(7) + 0.4, "LAMA NA SALA", "#e0a060", 400, 64);
+    o += txt("TODO MUNDO", 540, 640, 100, CREAM, 1, pop(t, S(2))) + txt("TINHA UM CULPADO", 540, 770, 90, CRIME, 1, pop(t, S(2) + 0.6));
+    o += txt("COMENTA ANTES DO FIM:", 540, 1050, 66, CREAM, 1, pop(t, S(2) + 2.2)) + txt("QUEM FOI?", 540, 1190, 130, GOLD, 1, pop(t, S(2) + 2.8));
+  } else if (t < S(5) - 0.3) {                         // A: Bruno, made to look guilty
+    o += `<rect width="${SW}" height="${SH}" fill="#1a0c10"/>` + red(t) + bust(t, "cap", 540, 1050, 1.7, { browAng: 1, look: [6, 2], smile: -4 });
+    o += `<g transform="translate(900 380)"><circle r="60" fill="${GOLD}" stroke="#000" stroke-width="6"/>${txt("A", 0, 0, 80, "#05070c")}</g>` + pill(t, S(3) + 0.3, "BRUNO · CAPITÃO RIVAL", CRIME, 380, 52, 470);
+    o += bubble(t, S(3) + 4.0, "\"ESSA TAÇA VAI SER NOSSA\"", 540, 560, "#8a1f1f");
+    if (t > S(4)) o += stamp(t, S(4) + 1.0, "SUMIU NO INTERVALO", 1600, CRIME, 70);
+  } else if (t < S(7) - 0.3) {                         // B: Seu Jairo, made to look guilty
+    o += `<rect width="${SW}" height="${SH}" fill="#11141a"/>` + red(t, 0.6) + bust(t, "zel", 540, 1050, 1.7, { browSad: 1, look: [-6, 8], smile: -6 }) + (t > S(6) ? sweat(t, 700, 620) : "");
+    o += `<g transform="translate(900 380)"><circle r="60" fill="${GOLD}" stroke="#000" stroke-width="6"/>${txt("B", 0, 0, 80, "#05070c")}</g>` + pill(t, S(5) + 0.3, "SEU JAIRO · ZELADOR", "#cfd8e3", 380, 52, 450);
+    o += pill(t, S(5) + 2.6, "SÓ ELE TEM A CHAVE", GOLD, 560, 52) + pill(t, S(5) + 4.6, "CHEIO DE DÍVIDAS", CRIME, 1500, 60);
+    if (t > S(6)) { const p = pop(t, S(6) + 1.6); o += `<g transform="translate(820 1450) scale(${p})">${[0, 1, 2].map(i => `<g transform="rotate(${-20 + i * 20})"><circle cx="0" cy="-60" r="22" fill="none" stroke="${GOLD}" stroke-width="10"/><rect x="-6" y="-40" width="12" height="80" fill="${GOLD}"/></g>`).join("")}</g>` + stamp(t, S(6) + 2.4, "SUANDO", 1700, AQUA, 80); }
+  } else if (t < S(9) - 0.3) {                         // C: Davi, the hero
+    o += stadium(t) + `<rect width="${SW}" height="${SH}" fill="#000" opacity="0.45"/><circle cx="540" cy="1000" r="560" fill="${GOLD}" opacity="${0.12 + 0.04 * Math.sin(t * 4)}"/>`;
+    o += bust(t, "davi", 540, 1050, 1.7, { smile: 12, look: [0, 4] });
+    o += `<g transform="translate(900 380)"><circle r="60" fill="${GOLD}" stroke="#000" stroke-width="6"/>${txt("C", 0, 0, 80, "#05070c")}</g>` + pill(t, S(7) + 0.3, "DAVI · GOLEIRO, 17", "#5be08a", 380, 52, 450);
+    o += pill(t, S(7) + 3.0, "DEFENDEU UM PÊNALTI", GOLD, 560, 52);
+    if (t > S(7) + 5.4) for (let i = 0; i < 3; i++) { const k = ((t - S(7) - 5.4) * 0.7 + i / 3) % 1; o += txt("DAVI!", 200 + i * 340, 1500 - k * 200, 70, GOLD, 1 - k); }
+    if (t > S(8)) o += pill(t, S(8) + 1.2, "VESTIÁRIO · GELO NO JOELHO", AQUA, 1680, 46);
+  } else if (t < S(10) - 0.3) {
+    const enter = seg(t, S(9) + 2.0, S(9) + 3.2), pol = 1 - enter;
+    o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>`;
+    if (pol > 0.02) o += `<g opacity="${pol}"><rect width="${SW}" height="${SH}" fill="${Math.sin(t * 9) > 0 ? "#2a5bd7" : CRIME}" opacity="0.18"/>${bust(t, "zel", 540, 1000, 1.6, { browSad: 1, look: [0, 8], smile: -6 })}<g transform="translate(540 1420)"><circle cx="-60" r="40" fill="none" stroke="#cfd8e3" stroke-width="14"/><circle cx="60" r="40" fill="none" stroke="#cfd8e3" stroke-width="14"/><line x1="-20" x2="20" stroke="#cfd8e3" stroke-width="10"/></g>${pill(t, S(9) + 0.3, "POLÍCIA: \"FOI O ZELADOR\"", DIM, 560, 50)}</g>`;
+    o += `<rect x="330" y="300" width="420" height="1060" fill="#ffe7b0" opacity="${0.3 * enter}"/>` + jo(t, 540, lerp(1700, 470, sm(enter)), 900, enter);
+  } else if (t < S(11) - 0.3) {
+    o += `<rect width="${SW}" height="${SH}" fill="#07090f"/><circle cx="540" cy="900" r="520" fill="${GOLD}" opacity="0.08"/>` + jo(t, 540, 520, 1000, 1, 1);
+    o += txt("JOSEPH", 540, 360, 150, CREAM, 1, pop(t, S(10))) + txt("O CALCULISTA", 540, 470, 80, GOLD, 1, pop(t, S(10) + 0.5)) + pill(t, S(10) + 3.0, "ELE FAZ A CONTA", GOLD, 1680, 54);
+  } else if (t < S(13) - 0.3) {                        // clue 1: key -> spare key in the corridor
+    if (t < S(12) + 2.6) {
+      o += vitrine(t, false) + `<g transform="translate(790 820)"><rect x="-14" y="-40" width="28" height="80" fill="#2a2f3a"/><g transform="rotate(90)"><circle cx="-60" r="26" fill="none" stroke="${GOLD}" stroke-width="10"/><rect x="-36" y="-6" width="70" height="12" fill="${GOLD}"/></g></g>`;
+      o += badge(t, S(11), 1) + pill(t, S(11) + 2.4, "SEM VIDRO QUEBRADO", GOLD, 1420, 54) + pill(t, S(11) + 3.6, "ABERTA COM CHAVE", CRIME, 1560, 58);
+      if (t > S(12)) o += `<rect width="${SW}" height="${SH}" fill="#000" opacity="0.5"/>` + bust(t, "zel", 540, 1000, 1.3, { browSad: 1, look: [0, 8] }) + pill(t, S(12) + 0.4, "TODOS OLHARAM PRO ZELADOR", CRIME, 400, 46);
     } else {
-      o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + field(t, t > S(7) + 4.0);
-      o += pill(t, S(7) + 2.4, "CAMPO SECO", GOLD, 330, 56);
-      if (t > S(7) + 4.0) o += pill(t, S(7) + 4.0, "SÓ A PEQUENA ÁREA", "#e0a060", 1720, 54);
+      o += `<rect width="${SW}" height="${SH}" fill="#1b1f28"/>` + `<rect x="0" y="1300" width="${SW}" height="620" fill="#2a2f3a"/>`;
+      for (const x of [140, 940]) o += `<rect x="${x - 100}" y="500" width="200" height="800" fill="#3a3326" stroke="#000" stroke-width="8"/>`;
+      o += `<rect x="440" y="620" width="200" height="140" rx="10" fill="#3a2414" stroke="#000" stroke-width="6"/><circle cx="540" cy="660" r="8" fill="#888"/><g transform="translate(540 700)"><circle cx="0" cy="-30" r="20" fill="none" stroke="${GOLD}" stroke-width="8"/><rect x="-5" y="-12" width="10" height="60" fill="${GOLD}"/></g>`;
+      o += pill(t, S(12) + 2.8, "CHAVE RESERVA", GOLD, 420, 60) + pill(t, S(12) + 4.4, "QUALQUER UM PODIA PEGAR", AQUA, 1500, 50);
+      o += txt("VESTIÁRIO A", 140, 460, 40, DIM) + txt("VESTIÁRIO B", 940, 460, 40, DIM);
     }
-    o += badge(t, S(7), 1);
-  } else if (t < S(9) - 0.2) {                        // clue 2: left for 4 minutes
-    o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + badge(t, S(8), 2);
-    o += `<g transform="translate(540 900)"><rect x="-150" y="-260" width="300" height="520" rx="40" fill="#111" stroke="#000" stroke-width="8"/><rect x="-125" y="-215" width="250" height="410" rx="16" fill="#1d2336"/>${txt("MÃE", 0, -120, 60, CREAM)}<circle cx="0" cy="40" r="60" fill="#30a46c"/><path d="M -24 30 q 24 -30 48 0" stroke="#fff" stroke-width="10" fill="none"/></g>`;
-    o += pill(t, S(8) + 0.8, "FISIOTERAPEUTA:", DIM, 380, 50) + pill(t, S(8) + 2.6, "SAIU 4 MINUTOS", CRIME, 1380, 70);
-  } else if (t < S(10) - 0.3) {                       // the calculation
-    o += `<rect width="${SW}" height="${SH}" fill="#07090f"/><rect x="60" y="380" width="960" height="900" rx="20" fill="#13261d" stroke="#5a4630" stroke-width="16"/>`;
-    const rows = [["ATÉ A SALA", "2 min", S(9) + 1.0], ["IDA + VOLTA", "2 + 2", S(9) + 3.0], ["= ", "4 min", S(9) + 4.6], ["\"NÃO SAÍ\"", "", S(9) + 5.0]];
-    rows.forEach(([a, b, at], i) => { const k = seg(t, at, at + 0.4); if (k > 0) o += `<text class="hand" x="120" y="${510 + i * 140}" font-size="72" fill="#e8efe6" opacity="${k}">${a} <tspan fill="${i === 2 ? CRIME : GOLD}">${b}</tspan></text>`; });
-    o += stamp(t, S(9) + 5.4, "= MENTIU", 1170);
-  } else if (t < S(11) - 0.2) {                       // challenge + 3-second countdown
+  } else if (t < S(15) - 0.3) {                        // clue 2: mud -> points at Bruno
+    if (t < S(14) - 0.2) {
+      o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + field(t, t > S(13) + 4.6) + badge(t, S(13), 2);
+      o += pill(t, S(13) + 0.8, "LAMA FRESCA NA SALA", "#e0a060", 330, 50);
+      if (t > S(13) + 4.6) o += pill(t, S(13) + 4.6, "SÓ NA PEQUENA ÁREA", "#e0a060", 1720, 54);
+    } else {
+      o += `<rect width="${SW}" height="${SH}" fill="#1a0c10"/>` + red(t) + bust(t, "cap", 540, 1000, 1.6, { browAng: 1, look: [8, 2], smile: -2 });
+      o += `<g transform="translate(540 1450)"><path d="M -150 -40 L 60 -40 Q 120 -40 150 10 L 150 40 L -150 40 Z" fill="#111" stroke="#000" stroke-width="6"/><path d="M -150 40 Q 0 80 150 40" fill="${MUD}"/>${[0, 1, 2, 3].map(i => `<circle cx="${-110 + i * 70}" cy="50" r="10" fill="#555"/>`).join("")}</g>`;
+      o += pill(t, S(14) + 0.6, "ATACANTE: VIVE NA ÁREA", CRIME, 420, 50) + stamp(t, S(14) + 3.0, "LAMA NA CHUTEIRA?", 1660, CRIME, 64);
+    }
+  } else if (t < S(17) - 0.3) {                        // clue 3: 4 minutes; alibis (Davi slipped in quietly)
+    if (t < S(16) - 0.2) {
+      o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + badge(t, S(15), 3);
+      const row = (y, h, ok, a) => { const p = pop(t, a); return p > 0 ? `<g transform="translate(540 ${y}) scale(${p})"><rect x="-360" y="-90" width="720" height="180" rx="24" fill="#05070c" stroke="${ok ? OKC : CRIME}" stroke-width="8"/>${txt(h, -100, 0, 90, CREAM)}<g transform="translate(240 0)">${ok ? trophy(0, 60, 0.4, t) : txt("✗", 0, 0, 120, CRIME)}</g></g>` : ""; };
+      o += row(700, "15:10", true, S(15) + 2.0) + row(1000, "15:14", false, S(15) + 5.0);
+      o += stamp(t, S(15) + 8.0, "4 MINUTOS", 1350, GOLD, 100);
+    } else {
+      o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>`;
+      o += card(t, S(16), "cap", 620, true) + pill(t, S(16) + 0.6, "SUMIU 10 MINUTOS", CRIME, 800, 50, 640);
+      o += card(t, S(16) + 2.6, "zel", 1000, true) + pill(t, S(16) + 3.2, "SOZINHO", CRIME, 1180, 50, 640);
+      o += card(t, S(16) + 6.0, "davi", 1380, true, 0.55) + pill(t, S(16) + 7.2, "4 min · ligou pra mãe", DIM, 1560, 34, 640);
+    }
+  } else if (t < S(18) - 0.2) {                        // challenge + 5-second countdown
     o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>`;
-    o += txt("COMENTA AGORA:", 540, 380, 84, CREAM, 1, pop(t, S(10))) + txt("A, B OU C?", 540, 480, 76, GOLD, 1, pop(t, S(10) + 0.6));
-    o += card(t, S(10) + 0.3, "cap", 700) + card(t, S(10) + 0.6, "zel", 1010) + card(t, S(10) + 0.9, "davi", 1320);
-    const g0 = E(10) + 0.2;
+    o += txt("COMENTA AGORA:", 540, 380, 84, CREAM, 1, pop(t, S(17))) + txt("A, B OU C?", 540, 480, 76, GOLD, 1, pop(t, S(17) + 0.6));
+    o += card(t, S(17) + 0.3, "cap", 700) + card(t, S(17) + 0.6, "zel", 1010) + card(t, S(17) + 0.9, "davi", 1320);
+    const g0 = E(17) + 0.2;
     if (t > g0) {
-      const n = Math.max(1, 3 - Math.floor((t - g0) / 1.2)), ph = ((t - g0) % 1.2) / 1.2;
+      const n = Math.max(1, 5 - Math.floor((t - g0) / 1.0)), ph = ((t - g0) % 1.0);
       o += `<rect width="${SW}" height="${SH}" fill="#000" opacity="0.55"/><g transform="translate(540 960) scale(${1.25 - 0.25 * sm(cl(ph * 3))})"><circle r="230" fill="#05070c" stroke="${GOLD}" stroke-width="14"/><circle r="230" fill="none" stroke="${CRIME}" stroke-width="14" stroke-dasharray="${1445 * (1 - ph)} 2000" transform="rotate(-90)"/>${txt(String(n), 0, 0, 260, CREAM)}</g>`;
       o += txt("A, B OU C?", 540, 1560, 100, GOLD) + txt("ESCREVE NOS COMENTÁRIOS", 540, 1680, 60, CREAM);
     }
-  } else if (t < S(12) - 0.3) {                       // who lives in the small area?
+  } else if (t < S(21) - 0.3) {                        // the calculation: who fits in 4 minutes
+    o += `<rect width="${SW}" height="${SH}" fill="#07090f"/><rect x="60" y="330" width="960" height="1000" rx="20" fill="#13261d" stroke="#5a4630" stroke-width="16"/>`;
+    o += txt("CABE EM 4 MIN?", 540, 420, 70, GOLD);
+    const rows = [["BRUNO", "8 min", "✗", S(18) + 1.0, CRIME], ["JAIRO", "12 min", "✗", S(19) + 0.6, CRIME], ["CASA", "2 + 2 = 4", "✓", S(20) + 1.2, OKC]];
+    rows.forEach(([a, b, m, at, c], i) => { const k = seg(t, at, at + 0.4); if (k > 0) o += `<text class="hand" x="110" y="${600 + i * 200}" font-size="76" fill="#e8efe6" opacity="${k}">${a}: <tspan fill="${GOLD}">${b}</tspan> <tspan fill="${c}" font-size="96">${m}</tspan></text>`; });
+    if (t > S(20) + 4.2) o += stamp(t, S(20) + 4.4, "EXATAMENTE 4", 1180, OKC, 90);
+  } else if (t < S(22) - 0.3) {
     o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + field(t, true);
-    if (t > S(11) + 2.2) o += `<rect width="${SW}" height="${SH}" fill="#000" opacity="0.6"/>` + bust(t, "davi", 540, 1000, 1.6, { look: [6, 4] }) + stamp(t, S(11) + 2.4, "O GOLEIRO", 520);
-  } else if (t < S(13) - 0.3) {                       // the bag
-    const k = seg(t, S(12) + 0.6, S(12) + 2.0);
-    o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>`;
-    o += trophy(540, lerp(1320, 980, sm(k)), 1.3, t, k);
+    o += pill(t, S(21) + 0.6, "ATACANTE: PASSA", DIM, 330, 54) + pill(t, S(21) + 3.0, "GOLEIRO: MORA", GOLD, 1720, 64);
+  } else if (t < S(23) - 0.3) {                        // the twist
+    const k = seg(t, S(22) + 0.4, S(22) + 1.6);
+    o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + trophy(540, lerp(1320, 980, sm(k)), 1.3, t, k);
     o += `<g transform="translate(540 1300)"><path d="M -320 -120 L 320 -120 L 290 200 L -290 200 Z" fill="#1f8a4c" stroke="#000" stroke-width="10"/><path d="M -200 -120 Q 0 -260 200 -120" fill="none" stroke="#000" stroke-width="22"/>${txt("LUVAS · DAVI 1", 0, 60, 52, "#f4efe6")}</g>`;
-    o += stamp(t, S(12) + 2.4, "C · CULPADO", 420);
-  } else if (t < S(14) - 0.3) {
-    o += `<rect width="${SW}" height="${SH}" fill="#05070c"/><g transform="translate(540 1400) scale(${lerp(1.0, 1.15, seg(t, S(13), E(13)))}) translate(-540 -1400)">${jo(t, 540, 560, 1500, 1, 0.6)}</g>`;
-    o += txt("OS NÚMEROS NÃO MENTEM.", 540, 400, 70, GOLD, 1, pop(t, S(13))) + txt("AS PESSOAS, SIM.", 540, 500, 70, CREAM, 1, pop(t, S(13) + 1.8));
+    o += stamp(t, S(22) + 2.2, "C · O HERÓI", 420, CRIME, 100);
+  } else if (t < S(24) - 0.3) {
+    o += `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + bust(t, "davi", 540, 1050, 1.6, { browSad: 1, look: [0, 10], smile: -6 });
+    o += pill(t, S(23) + 0.6, "A CASA DA FAMÍLIA", DIM, 420, 56) + pill(t, S(23) + 4.4, "COLECIONADOR: R$ 50 MIL", GOLD, 1600, 50);
+  } else if (t < S(25) - 0.3) {
+    o += `<rect width="${SW}" height="${SH}" fill="#05070c"/><g transform="translate(540 1400) scale(${lerp(1.0, 1.15, seg(t, S(24), E(24)))}) translate(-540 -1400)">${jo(t, 540, 560, 1500, 1, 0.6)}</g>`;
+    o += txt("OS NÚMEROS NÃO MENTEM.", 540, 400, 70, GOLD, 1, pop(t, S(24))) + txt("AS PESSOAS, SIM.", 540, 500, 70, CREAM, 1, pop(t, S(24) + 1.8));
   } else {
     o += `<rect width="${SW}" height="${SH}" fill="#05070c"/>` + jo(t, 540, 760, 900, 0.9, 0.4);
-    o += `<g transform="translate(540 520) rotate(-6) scale(${pop(t, S(14), 0.25)})"><rect x="-400" y="-90" width="800" height="180" rx="16" fill="#05070c" stroke="${CRIME}" stroke-width="12"/>${txt("CASO 3 · RESOLVIDO", 0, 0, 84, CRIME)}</g>`;
-    o += pill(t, S(14) + 1.6, "ACERTOU? COMENTA \"EU SABIA\"", GOLD, 720, 46);
-    o += pill(t, S(14) + 4.0, "CASO 4: EM BREVE", GOLD, 1700, 60);
+    o += `<g transform="translate(540 520) rotate(-6) scale(${pop(t, S(25), 0.25)})"><rect x="-400" y="-90" width="800" height="180" rx="16" fill="#05070c" stroke="${CRIME}" stroke-width="12"/>${txt("CASO 3 · RESOLVIDO", 0, 0, 84, CRIME)}</g>`;
+    o += pill(t, S(25) + 1.6, "SUSPEITOU DO HERÓI? \"EU SABIA\"", GOLD, 720, 44);
+    o += pill(t, S(25) + 4.6, "CASO 4: EM BREVE", GOLD, 1620, 60);
   }
   o += vignette();
   if (!window.THUMB) o += `<g><rect x="70" y="140" width="940" height="120" rx="30" fill="#05070c" opacity="0.9" stroke="${GOLD}" stroke-width="5"/><text class="hand" x="540" y="222" font-size="58" text-anchor="middle" fill="${CREAM}">JOSEPH, O CALCULISTA · CASO 3</text></g>`;
@@ -133,4 +175,5 @@ function render(t) {
   o += blackout(Math.max(1 - seg(t, 0, 0.15), seg(t, end - 0.4, end)));
   document.getElementById("frame").innerHTML = o;
 }
+const OKC = "#30a46c";
 window.render = render;

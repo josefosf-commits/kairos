@@ -10,67 +10,122 @@
   },
   {
    "id": 2,
-   "text": "Comenta antes do final: quem você acha que foi?",
+   "text": "E todo mundo já tinha um culpado. Comenta antes do final: quem você acha que foi?",
    "gap": 0.5
   },
   {
    "id": 3,
-   "text": "A: o capitão do time rival, que gritou: esse troféu é nosso.",
+   "text": "A: Bruno, o capitão do time rival. No aquecimento, apontou pro troféu e gritou: essa taça vai ser nossa.",
    "gap": 0.4
   },
   {
    "id": 4,
-   "text": "B: o zelador, que tem a chave da sala.",
-   "gap": 0.4
+   "text": "E no intervalo, ninguém viu o Bruno no vestiário.",
+   "gap": 0.5
   },
   {
    "id": 5,
-   "text": "C: o goleiro Davi, o herói do jogo. Disse que não saiu do vestiário.",
-   "gap": 0.6
+   "text": "B: Seu Jairo, o zelador. Só ele tem a chave da sala do troféu. E estava cheio de dívidas.",
+   "gap": 0.4
   },
   {
    "id": 6,
-   "text": "Aí chegou o Joseph. Ele não procura o culpado. Ele faz a conta.",
-   "gap": 0.7
+   "text": "Quando a polícia chegou, ele estava suando, com o molho de chaves na mão.",
+   "gap": 0.5
   },
   {
    "id": 7,
-   "text": "Primeiro: lama no chão da sala. Mas o campo estava seco. Só a pequena área tinha lama.",
+   "text": "C: Davi, o goleiro de dezessete anos. Defendeu um pênalti no primeiro tempo. A torcida inteira gritava o nome dele.",
    "gap": 0.4
   },
   {
    "id": 8,
-   "text": "Segundo: o fisioterapeuta lembrou. O Davi saiu quatro minutos, pra ligar pra mãe.",
-   "gap": 0.4
-  },
-  {
-   "id": 9,
-   "text": "Do vestiário até a sala: dois minutos. Dois pra ir, dois pra voltar. Quatro.",
+   "text": "No intervalo, ficou no vestiário, com gelo no joelho.",
    "gap": 0.6
   },
   {
+   "id": 9,
+   "text": "A polícia já estava algemando o zelador. Mas aí chegou o Joseph.",
+   "gap": 0.7
+  },
+  {
    "id": 10,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta.",
+   "gap": 0.8
+  },
+  {
+   "id": 11,
+   "text": "Primeiro detalhe: a vitrine não foi quebrada. Foi aberta com chave.",
+   "gap": 0.4
+  },
+  {
+   "id": 12,
+   "text": "Todo mundo olhou pro Seu Jairo. Mas tinha uma chave reserva no corredor dos vestiários. Qualquer um podia pegar.",
+   "gap": 0.5
+  },
+  {
+   "id": 13,
+   "text": "Segundo detalhe: lama fresca no chão da sala. Mas o campo estava seco. Só tinha lama dentro da pequena área.",
+   "gap": 0.4
+  },
+  {
+   "id": 14,
+   "text": "E quem vive rondando a pequena área? O atacante. O capitão Bruno.",
+   "gap": 0.5
+  },
+  {
+   "id": 15,
+   "text": "Terceiro detalhe: o segurança passou pela sala às três e dez, e o troféu estava lá. Às três e quatorze, não estava mais. O ladrão teve quatro minutos.",
+   "gap": 0.5
+  },
+  {
+   "id": 16,
+   "text": "O Bruno sumiu por dez minutos. O Seu Jairo estava limpando a arquibancada, sozinho. E o Davi só saiu uma vez, quatro minutinhos, pra ligar pra mãe.",
+   "gap": 0.6
+  },
+  {
+   "id": 17,
    "text": "Comenta agora: A, B ou C? Valendo.",
    "gap": 0.4
   },
   {
-   "id": 11,
-   "text": "Quem passa o jogo inteiro na pequena área? O goleiro.",
-   "gap": 4.0
+   "id": 18,
+   "text": "Do vestiário do Bruno até a sala, e de volta: oito minutos. Não cabe em quatro.",
+   "gap": 5.5
   },
   {
-   "id": 12,
+   "id": 19,
+   "text": "Da arquibancada do Seu Jairo: doze minutos. Também não cabe.",
+   "gap": 0.4
+  },
+  {
+   "id": 20,
+   "text": "Do vestiário do time da casa: dois pra ir, dois pra voltar. Quatro. Exatamente quatro.",
+   "gap": 0.6
+  },
+  {
+   "id": 21,
+   "text": "E a lama? O atacante passa pela pequena área. O goleiro mora nela.",
+   "gap": 0.6
+  },
+  {
+   "id": 22,
    "text": "O troféu estava na bolsa de luvas do Davi. O herói do jogo.",
    "gap": 0.6
   },
   {
-   "id": 13,
+   "id": 23,
+   "text": "A família dele estava prestes a perder a casa. E um colecionador pagava cinquenta mil reais pela taça.",
+   "gap": 0.7
+  },
+  {
+   "id": 24,
    "text": "Os números não mentem. As pessoas, sim.",
    "gap": 0.8
   },
   {
-   "id": 14,
-   "text": "Caso três, resolvido. Acertou? Comenta: eu sabia. Segue pra não perder o caso quatro.",
+   "id": 25,
+   "text": "Caso três, resolvido. Você suspeitou do herói? Se sim, comenta: eu sabia. Segue pra não perder o caso quatro.",
    "gap": 0.5
   }
  ]

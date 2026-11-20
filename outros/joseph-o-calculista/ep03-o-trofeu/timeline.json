@@ -1,6 +1,6 @@
 {
  "name": "JOSEPH-O-CALCULISTA-EP03",
- "duration": 77.53,
+ "duration": 163.43,
  "fps": 30,
  "w": 1080,
  "h": 1920,
@@ -9,99 +9,176 @@
    "id": 1,
    "audio": "audio-grave/l1.wav",
    "start": 0.35,
-   "end": 4.83,
+   "end": 4.99,
    "text": "Final do campeonato. No intervalo, o troféu de ouro sumiu da vitrine."
   },
   {
    "id": 2,
    "audio": "audio-grave/l2.wav",
-   "start": 5.33,
-   "end": 8.45,
-   "text": "Comenta antes do final: quem você acha que foi?"
+   "start": 5.49,
+   "end": 10.45,
+   "text": "E todo mundo já tinha um culpado. Comenta antes do final: quem você acha que foi?"
   },
   {
    "id": 3,
    "audio": "audio-grave/l3.wav",
-   "start": 8.85,
-   "end": 13.33,
-   "text": "A: o capitão do time rival, que gritou: esse troféu é nosso."
+   "start": 10.85,
+   "end": 18.69,
+   "text": "A: Bruno, o capitão do time rival. No aquecimento, apontou pro troféu e gritou: essa taça vai ser nossa."
   },
   {
    "id": 4,
    "audio": "audio-grave/l4.wav",
-   "start": 13.73,
-   "end": 17.01,
-   "text": "B: o zelador, que tem a chave da sala."
+   "start": 19.19,
+   "end": 22.23,
+   "text": "E no intervalo, ninguém viu o Bruno no vestiário."
   },
   {
    "id": 5,
    "audio": "audio-grave/l5.wav",
-   "start": 17.61,
-   "end": 22.81,
-   "text": "C: o goleiro Davi, o herói do jogo. Disse que não saiu do vestiário."
+   "start": 22.63,
+   "end": 29.27,
+   "text": "B: Seu Jairo, o zelador. Só ele tem a chave da sala do troféu. E estava cheio de dívidas."
   },
   {
    "id": 6,
    "audio": "audio-grave/l6.wav",
-   "start": 23.51,
-   "end": 27.83,
-   "text": "Aí chegou o Joseph. Ele não procura o culpado. Ele faz a conta."
+   "start": 29.77,
+   "end": 34.17,
+   "text": "Quando a polícia chegou, ele estava suando, com o molho de chaves na mão."
   },
   {
    "id": 7,
    "audio": "audio-grave/l7.wav",
-   "start": 28.23,
-   "end": 34.39,
-   "text": "Primeiro: lama no chão da sala. Mas o campo estava seco. Só a pequena área tinha lama."
+   "start": 34.57,
+   "end": 42.33,
+   "text": "C: Davi, o goleiro de dezessete anos. Defendeu um pênalti no primeiro tempo. A torcida inteira gritava o nome dele."
   },
   {
    "id": 8,
    "audio": "audio-grave/l8.wav",
-   "start": 34.79,
-   "end": 40.39,
-   "text": "Segundo: o fisioterapeuta lembrou. O Davi saiu quatro minutos, pra ligar pra mãe."
+   "start": 42.93,
+   "end": 46.53,
+   "text": "No intervalo, ficou no vestiário, com gelo no joelho."
   },
   {
    "id": 9,
    "audio": "audio-grave/l9.wav",
-   "start": 40.99,
-   "end": 46.99,
-   "text": "Do vestiário até a sala: dois minutos. Dois pra ir, dois pra voltar. Quatro."
+   "start": 47.23,
+   "end": 51.31,
+   "text": "A polícia já estava algemando o zelador. Mas aí chegou o Joseph."
   },
   {
    "id": 10,
    "audio": "audio-grave/l10.wav",
-   "start": 47.39,
-   "end": 51.63,
-   "text": "Comenta agora: A, B ou C? Valendo."
+   "start": 52.11,
+   "end": 57.07,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
   },
   {
    "id": 11,
    "audio": "audio-grave/l11.wav",
-   "start": 55.63,
-   "end": 58.99,
-   "text": "Quem passa o jogo inteiro na pequena área? O goleiro."
+   "start": 57.47,
+   "end": 62.27,
+   "text": "Primeiro detalhe: a vitrine não foi quebrada. Foi aberta com chave."
   },
   {
    "id": 12,
    "audio": "audio-grave/l12.wav",
-   "start": 59.59,
-   "end": 63.75,
-   "text": "O troféu estava na bolsa de luvas do Davi. O herói do jogo."
+   "start": 62.77,
+   "end": 69.01,
+   "text": "Todo mundo olhou pro Seu Jairo. Mas tinha uma chave reserva no corredor dos vestiários. Qualquer um podia pegar."
   },
   {
    "id": 13,
    "audio": "audio-grave/l13.wav",
-   "start": 64.55,
-   "end": 68.15,
-   "text": "Os números não mentem. As pessoas, sim."
+   "start": 69.41,
+   "end": 76.93,
+   "text": "Segundo detalhe: lama fresca no chão da sala. Mas o campo estava seco. Só tinha lama dentro da pequena área."
   },
   {
    "id": 14,
    "audio": "audio-grave/l14.wav",
-   "start": 68.65,
-   "end": 75.53,
-   "text": "Caso três, resolvido. Acertou? Comenta: eu sabia. Segue pra não perder o caso quatro."
+   "start": 77.43,
+   "end": 81.83,
+   "text": "E quem vive rondando a pequena área? O atacante. O capitão Bruno."
+  },
+  {
+   "id": 15,
+   "audio": "audio-grave/l15.wav",
+   "start": 82.33,
+   "end": 93.53,
+   "text": "Terceiro detalhe: o segurança passou pela sala às três e dez, e o troféu estava lá. Às três e quatorze, não estava mais. O ladrão teve quatro minutos."
+  },
+  {
+   "id": 16,
+   "audio": "audio-grave/l16.wav",
+   "start": 94.13,
+   "end": 103.49,
+   "text": "O Bruno sumiu por dez minutos. O Seu Jairo estava limpando a arquibancada, sozinho. E o Davi só saiu uma vez, quatro minutinhos, pra ligar pra mãe."
+  },
+  {
+   "id": 17,
+   "audio": "audio-grave/l17.wav",
+   "start": 103.89,
+   "end": 107.89,
+   "text": "Comenta agora: A, B ou C? Valendo."
+  },
+  {
+   "id": 18,
+   "audio": "audio-grave/l18.wav",
+   "start": 113.39,
+   "end": 119.07,
+   "text": "Do vestiário do Bruno até a sala, e de volta: oito minutos. Não cabe em quatro."
+  },
+  {
+   "id": 19,
+   "audio": "audio-grave/l19.wav",
+   "start": 119.47,
+   "end": 123.55,
+   "text": "Da arquibancada do Seu Jairo: doze minutos. Também não cabe."
+  },
+  {
+   "id": 20,
+   "audio": "audio-grave/l20.wav",
+   "start": 124.15,
+   "end": 130.63,
+   "text": "Do vestiário do time da casa: dois pra ir, dois pra voltar. Quatro. Exatamente quatro."
+  },
+  {
+   "id": 21,
+   "audio": "audio-grave/l21.wav",
+   "start": 131.23,
+   "end": 135.87,
+   "text": "E a lama? O atacante passa pela pequena área. O goleiro mora nela."
+  },
+  {
+   "id": 22,
+   "audio": "audio-grave/l22.wav",
+   "start": 136.47,
+   "end": 140.95,
+   "text": "O troféu estava na bolsa de luvas do Davi. O herói do jogo."
+  },
+  {
+   "id": 23,
+   "audio": "audio-grave/l23.wav",
+   "start": 141.65,
+   "end": 148.29,
+   "text": "A família dele estava prestes a perder a casa. E um colecionador pagava cinquenta mil reais pela taça."
+  },
+  {
+   "id": 24,
+   "audio": "audio-grave/l24.wav",
+   "start": 149.09,
+   "end": 152.37,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 25,
+   "audio": "audio-grave/l25.wav",
+   "start": 152.87,
+   "end": 161.43,
+   "text": "Caso três, resolvido. Você suspeitou do herói? Se sim, comenta: eu sabia. Segue pra não perder o caso quatro."
   }
  ]
 }
