@@ -7,7 +7,7 @@
 - Ele Tirou 2 em Matemática. 30 Dias Depois… | PROVA.
 - PROVA. Como Sair do 2 Pro 8,5 Sem Virar Gênio | Curta Animado
 
-**Texto da capa:** DE 2 A 8,5 / EM 30 DIAS (frame: a prova com 8,5 circulado e o Joseph comemorando)
+**Texto da capa:** ~~2~~ → 8,5 / EM 30 DIAS. **Usar a capa 2 (`build/thumbnail-2.png`, gerada por `thumb2.js`)**: Joseph de braços pra cima, raios dourados e confete. A capa 1 (`thumbnail.png`) fica para o teste A/B.
 
 ### Descrição
 ```
