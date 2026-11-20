@@ -1,6 +1,6 @@
 # Canal Joseph — regras do projeto
 
-Canal de YouTube em português (pt-BR) com curtas animados sobre disciplina, foco e hábitos. O personagem é o Joseph: pardo (#a86f4a), mais forte, moletom verde-oliva (#4f5d40). A narração usa a voz "Bruno" (Cartesia `b603811e-54c2-4a0a-8854-09eab9ffa63f`, via Speko). Os vídeos longos têm de 4 a 5 minutos; os shorts são verticais, com até 60 s.
+Canal de YouTube em português (pt-BR) com curtas animados sobre disciplina, foco e hábitos. O personagem é o Joseph: pardo (#a86f4a), **atlético** (corpo em V, cintura fina, queixo definido; flag `athletic: true` em `JOSEPH` no `rig.js`, desde 20/11 — o público achou ele "gordinho"), moletom verde-oliva (#4f5d40). A narração usa a voz "Bruno" (Cartesia `b603811e-54c2-4a0a-8854-09eab9ffa63f`, via Speko). Os vídeos longos têm de 4 a 5 minutos; os shorts são verticais, com até 60 s.
 
 ## Entrega obrigatória em TODO vídeo novo (longo ou short)
 

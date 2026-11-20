@@ -24,7 +24,7 @@ const hash = i => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x
 
 // ======================= palette =======================
 const INK = "#0e0f12", ACC = "#4fd1ff", RED = "#e5484d";
-const JOSEPH = { skin: "#a86f4a", skinD: "#8e5a3a", hood: "#4f5d40", hoodD: "#3c4731", hair: "#17110e", style: "short" };
+const JOSEPH = { skin: "#a86f4a", skinD: "#8e5a3a", hood: "#4f5d40", hoodD: "#3c4731", hair: "#17110e", style: "short", athletic: true };
 const FRIEND = { skin: "#d9a47a", skinD: "#bf8a62", hood: "#8c3b3b", hoodD: "#6e2d2d", hair: "#2a1a12", style: "curly" };
 const PANTS = "#2c3140", PANTS_D = "#20242f";
 
@@ -35,7 +35,10 @@ window.TL = window.TL || { lines: [], duration: 245 };
 function personBack(P) {
   let o = `<g transform="translate(${P.x - 960} ${P.bob * 0.5})">`;
   o += `<path d="M 858 540 C 850 470 1070 470 1062 540 Z" fill="${P.c.hoodD}" stroke="${INK}" stroke-width="7"/>`;
-  o += `<path d="M 790 700 C 788 572 840 518 960 512 C 1080 518 1132 572 1130 700 Z" fill="${P.c.hood}" stroke="${INK}" stroke-width="7"/>`;
+  if (P.c.athletic) {
+    o += `<path d="M 878 700 L 858 620 C 822 596 818 546 878 528 L 960 514 L 1042 528 C 1102 546 1098 596 1062 620 L 1042 700 Z" fill="${P.c.hood}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+    o += `<path d="M 884 604 Q 922 626 958 608 M 962 608 Q 998 626 1036 604" fill="none" stroke="${P.c.hoodD}" stroke-width="5" stroke-linecap="round"/>`;
+  } else o += `<path d="M 790 700 C 788 572 840 518 960 512 C 1080 518 1132 572 1130 700 Z" fill="${P.c.hood}" stroke="${INK}" stroke-width="7"/>`;
   o += `<rect x="928" y="478" width="64" height="52" fill="${P.c.skinD}" stroke="${INK}" stroke-width="6"/>`;
   o += `<path d="M 895 520 Q 960 566 1025 520" fill="${P.c.hoodD}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
   o += `<path d="M 938 540 L 934 590" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/><path d="M 982 540 L 986 590" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/>`;
@@ -47,7 +50,8 @@ function personHead(P, t) {
   let o = `<g transform="translate(${P.x - 960} ${P.bob})">`;
   if (c.style === "curly") for (let i = 0; i < 14; i++) { const a = (i / 14) * Math.PI * 2; o += `<circle cx="${960 + Math.cos(a) * 82}" cy="${350 + Math.sin(a) * 70}" r="38" fill="${c.hair}" stroke="${INK}" stroke-width="5"/>`; }
   o += `<ellipse cx="884" cy="405" rx="14" ry="22" fill="${c.skin}" stroke="${INK}" stroke-width="6"/><ellipse cx="1036" cy="405" rx="14" ry="22" fill="${c.skin}" stroke="${INK}" stroke-width="6"/>`;
-  o += `<rect x="885" y="292" width="150" height="212" rx="64" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
+  if (c.athletic) o += `<path d="M 887 372 C 885 308 920 292 960 292 C 1000 292 1035 308 1033 372 L 1031 430 C 1028 472 998 504 960 506 C 922 504 892 472 889 430 Z" fill="${c.skin}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+  else o += `<rect x="885" y="292" width="150" height="212" rx="64" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
   if (c.style === "short") o += `<path d="M 886 362 C 880 284 1040 284 1034 362 C 1022 330 992 318 960 320 C 928 318 898 330 886 362 Z" fill="${c.hair}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
   else o += `<path d="M 886 350 C 900 300 1020 300 1034 350 C 1000 330 920 330 886 350 Z" fill="${c.hair}"/>`;
   const L = P.look;
@@ -185,13 +189,15 @@ function sidePerson(S, t) {
   const [eF, hF] = armPose(S.phase, false);
   o += limb(sh, eF, hF, 40, 28, c.hoodD) + `<circle cx="${hF[0]}" cy="${hF[1]}" r="17" fill="${c.skinD}" stroke="${INK}" stroke-width="5"/>`;
   o += `<path d="M -66 -150 C -80 -205 -20 -222 0 -190 L -10 -150 Z" fill="${c.hoodD}" stroke="${INK}" stroke-width="6"/>`;
-  o += `<rect x="-58" y="-188" width="118" height="200" rx="44" fill="${c.hood}" stroke="${INK}" stroke-width="7"/>`;
+  if (c.athletic) o += `<path d="M -52 -150 C -56 -186 -30 -194 4 -194 C 44 -194 66 -178 64 -140 C 62 -100 48 -60 42 -20 L 40 12 L -42 12 L -46 -30 C -50 -80 -50 -120 -52 -150 Z" fill="${c.hood}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+  else o += `<rect x="-58" y="-188" width="118" height="200" rx="44" fill="${c.hood}" stroke="${INK}" stroke-width="7"/>`;
   o += `<path d="M 36 -178 L 40 -128" stroke="#d9d4c7" stroke-width="5" stroke-linecap="round"/><circle cx="40" cy="-126" r="5" fill="#d9d4c7" stroke="${INK}" stroke-width="2"/>`;
   if (S.bib) o += `<rect x="-34" y="-112" width="76" height="56" rx="6" fill="#f6f1e6" stroke="${INK}" stroke-width="4"/><text class="sans" x="4" y="-74" font-size="28" font-weight="800" text-anchor="middle" fill="${INK}">${S.bib}</text>`;
   o += `<rect x="-16" y="-214" width="40" height="36" fill="${c.skinD}" stroke="${INK}" stroke-width="5"/>`;
   // head
   if (S.bun) o += `<circle cx="-62" cy="-330" r="34" fill="${c.hair}" stroke="${INK}" stroke-width="6"/>`;
-  o += `<rect x="-58" y="-395" width="140" height="205" rx="62" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
+  if (c.athletic) o += `<path d="M -58 -320 C -58 -378 -24 -395 12 -395 C 58 -395 82 -372 82 -326 L 84 -262 C 82 -220 60 -192 26 -190 C -24 -190 -56 -214 -58 -262 Z" fill="${c.skin}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+  else o += `<rect x="-58" y="-395" width="140" height="205" rx="62" fill="${c.skin}" stroke="${INK}" stroke-width="7"/>`;
   o += `<ellipse cx="-4" cy="-285" rx="13" ry="21" fill="${c.skin}" stroke="${INK}" stroke-width="5"/>`;
   o += `<path d="M -58 -265 C -68 -360 -10 -410 50 -393 C 72 -388 82 -372 84 -350 C 52 -364 20 -362 0 -342 C -20 -322 -40 -298 -58 -265 Z" fill="${c.hair}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
   o += `<ellipse cx="50" cy="-300" rx="15" ry="20" fill="#fbfaf6"/>`;
