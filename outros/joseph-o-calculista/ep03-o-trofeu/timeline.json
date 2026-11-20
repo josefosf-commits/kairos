@@ -1,0 +1,107 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP03",
+ "duration": 77.53,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.35,
+   "end": 4.83,
+   "text": "Final do campeonato. No intervalo, o troféu de ouro sumiu da vitrine."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 5.33,
+   "end": 8.45,
+   "text": "Comenta antes do final: quem você acha que foi?"
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 8.85,
+   "end": 13.33,
+   "text": "A: o capitão do time rival, que gritou: esse troféu é nosso."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 13.73,
+   "end": 17.01,
+   "text": "B: o zelador, que tem a chave da sala."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 17.61,
+   "end": 22.81,
+   "text": "C: o goleiro Davi, o herói do jogo. Disse que não saiu do vestiário."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 23.51,
+   "end": 27.83,
+   "text": "Aí chegou o Joseph. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 28.23,
+   "end": 34.39,
+   "text": "Primeiro: lama no chão da sala. Mas o campo estava seco. Só a pequena área tinha lama."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 34.79,
+   "end": 40.39,
+   "text": "Segundo: o fisioterapeuta lembrou. O Davi saiu quatro minutos, pra ligar pra mãe."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 40.99,
+   "end": 46.99,
+   "text": "Do vestiário até a sala: dois minutos. Dois pra ir, dois pra voltar. Quatro."
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 47.39,
+   "end": 51.63,
+   "text": "Comenta agora: A, B ou C? Valendo."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 55.63,
+   "end": 58.99,
+   "text": "Quem passa o jogo inteiro na pequena área? O goleiro."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 59.59,
+   "end": 63.75,
+   "text": "O troféu estava na bolsa de luvas do Davi. O herói do jogo."
+  },
+  {
+   "id": 13,
+   "audio": "audio-grave/l13.wav",
+   "start": 64.55,
+   "end": 68.15,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 14,
+   "audio": "audio-grave/l14.wav",
+   "start": 68.65,
+   "end": 75.53,
+   "text": "Caso três, resolvido. Acertou? Comenta: eu sabia. Segue pra não perder o caso quatro."
+  }
+ ]
+}
