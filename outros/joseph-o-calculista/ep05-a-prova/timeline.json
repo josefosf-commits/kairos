@@ -1,0 +1,86 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP05",
+ "duration": 59.41,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.2,
+   "end": 6.04,
+   "text": "Sete e quarenta da manhã. As respostas da prova de matemática vazaram no grupo da turma."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 6.29,
+   "end": 8.85,
+   "text": "Comenta antes do final: quem vazou?"
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 9.05,
+   "end": 13.93,
+   "text": "A: Caio, o bagunceiro. As respostas estavam no celular dele."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 14.13,
+   "end": 19.25,
+   "text": "B: Seu Lauro, o faxineiro. Tem a chave da sala dos professores."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 19.55,
+   "end": 24.51,
+   "text": "C: Marina, a melhor aluna. Chegou cedo pra ajudar a professora."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 24.76,
+   "end": 27.88,
+   "text": "O Joseph pegou a lupa, e olhou a foto que vazou."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 28.13,
+   "end": 32.29,
+   "text": "No canto da foto, o relógio da sala: sete e doze."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 32.54,
+   "end": 38.3,
+   "text": "O Caio chegou na escola às sete e meia. O Seu Lauro ficou no outro prédio até as sete e vinte."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 38.5,
+   "end": 41.7,
+   "text": "Comenta agora: A, B ou C?"
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 44.6,
+   "end": 51.64,
+   "text": "Às sete e doze, só a Marina estava na sala. O Caio só recebeu a foto. Quem mandou primeiro foi ela."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 51.89,
+   "end": 58.61,
+   "text": "Os números não mentem. As pessoas, sim. Caso cinco, resolvido. Segue pra não perder o próximo."
+  }
+ ]
+}

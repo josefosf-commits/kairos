@@ -49,6 +49,7 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - `ep02-o-quadro/`: Caso 2, O Quadro no Escuro (2:22). Novidades: pede o palpite do público (A, B ou C, com contagem de 5 s) antes da revelação; a culpada é a suspeita menos provável (a leiloeira de 72 anos). O `collect.py` local é uma cópia do da `_lib` com o caminho dos resultados do Speko desta sessão.
 - `ep03-o-trofeu/`: Caso 3, O Troféu do Intervalo (2:43). Futebol; a suspeita vai para o capitão rival e o zelador; o culpado é o goleiro herói. Palpite A/B/C com contagem de 5 s; sem ruído de fundo.
 - `ep04-as-pegadas/`: Caso 4, As Pegadas na Areia (2:34). Culpada: Lívia, 15, que "achou" as pegadas. Primeiro episódio com o Joseph mais ativo (lupa, régua, caderno, andando).
+- `ep05-a-prova/`: Caso 5, A Prova Vazada (0:59). Escola; culpada: Marina, a aluna nota 10. Formato curto: 3 suspeitos, 1 pista com lupa, caderno, contagem de 3 s.
 - `especial01-o-elevador/`: Caso Especial 1, O Homem que Sumiu do Elevador (vídeo longo 16:9, 6:05). Duas pausas para o palpite (A–D e depois A–E); o culpado é a própria "vítima". Cena horizontal em `cena.js` com `capLong` (legenda grande para TV); capa em `capa.html` (1280x720).
 
 - `especial02-o-bilhete/`: Caso Especial 2, O Bilhete de 40 Milhões (longo 16:9, 05:27). A suspeita vai para os 4 da padaria; o culpado é o delegado que investigava.

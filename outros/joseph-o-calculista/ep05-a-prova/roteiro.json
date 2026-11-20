@@ -1,0 +1,62 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP05",
+ "tail": 0.8,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Sete e quarenta da manhã. As respostas da prova de matemática vazaram no grupo da turma.",
+   "gap": 0.2
+  },
+  {
+   "id": 2,
+   "text": "Comenta antes do final: quem vazou?",
+   "gap": 0.25
+  },
+  {
+   "id": 3,
+   "text": "A: Caio, o bagunceiro. As respostas estavam no celular dele.",
+   "gap": 0.2
+  },
+  {
+   "id": 4,
+   "text": "B: Seu Lauro, o faxineiro. Tem a chave da sala dos professores.",
+   "gap": 0.2
+  },
+  {
+   "id": 5,
+   "text": "C: Marina, a melhor aluna. Chegou cedo pra ajudar a professora.",
+   "gap": 0.3
+  },
+  {
+   "id": 6,
+   "text": "O Joseph pegou a lupa, e olhou a foto que vazou.",
+   "gap": 0.25
+  },
+  {
+   "id": 7,
+   "text": "No canto da foto, o relógio da sala: sete e doze.",
+   "gap": 0.25
+  },
+  {
+   "id": 8,
+   "text": "O Caio chegou na escola às sete e meia. O Seu Lauro ficou no outro prédio até as sete e vinte.",
+   "gap": 0.25
+  },
+  {
+   "id": 9,
+   "text": "Comenta agora: A, B ou C?",
+   "gap": 0.2
+  },
+  {
+   "id": 10,
+   "text": "Às sete e doze, só a Marina estava na sala. O Caio só recebeu a foto. Quem mandou primeiro foi ela.",
+   "gap": 2.9
+  },
+  {
+   "id": 11,
+   "text": "Os números não mentem. As pessoas, sim. Caso cinco, resolvido. Segue pra não perder o próximo.",
+   "gap": 0.25
+  }
+ ]
+}
