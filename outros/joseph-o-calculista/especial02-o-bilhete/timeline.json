@@ -1,0 +1,413 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-ESPECIAL02",
+ "duration": 327.32,
+ "fps": 30,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.4,
+   "end": 6.24,
+   "text": "Oito da noite. Numa padaria de bairro, Seu Antônio confere o bilhete da loteria na televisão."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 6.74,
+   "end": 10.98,
+   "text": "Seis números. Seis acertos. Quarenta milhões de reais."
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 11.58,
+   "end": 14.54,
+   "text": "Ele gritou tão alto que a rua inteira ouviu."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 15.04,
+   "end": 18.24,
+   "text": "Dezesseis minutos depois, o bilhete tinha sumido."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 19.04,
+   "end": 21.04,
+   "text": "E ninguém tinha saído da padaria."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 21.44,
+   "end": 26.96,
+   "text": "Hoje você investiga junto com o Joseph. Duas vezes eu vou parar o vídeo e pedir o seu palpite."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 29.96,
+   "end": 34.44,
+   "text": "E presta atenção: nesse caso, todo mundo parece culpado."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 34.84,
+   "end": 42.28,
+   "text": "Às oito e dois, Seu Antônio guardou o bilhete na gaveta do caixa, trancou a porta da rua, e foi pros fundos ligar pra esposa."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 42.68,
+   "end": 46.12,
+   "text": "Com medo, às oito e dez, ligou também pra polícia."
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 46.62,
+   "end": 52.14,
+   "text": "Três minutos depois, o delegado Ramos bateu na porta. Disse que estava passando por perto."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 52.94,
+   "end": 58.46,
+   "text": "Às oito e dezesseis, o delegado abriu a gaveta pra conferir o bilhete. Estava vazia."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 58.96,
+   "end": 61.76,
+   "text": "Dentro da padaria, quatro pessoas."
+  },
+  {
+   "id": 13,
+   "audio": "audio-grave/l13.wav",
+   "start": 62.26,
+   "end": 70.1,
+   "text": "A: Kléber, o sobrinho. Devia dinheiro pra um agiota. Foi o primeiro a perguntar: quanto vale esse bilhete, tio?"
+  },
+  {
+   "id": 14,
+   "audio": "audio-grave/l14.wav",
+   "start": 70.6,
+   "end": 78.44,
+   "text": "B: Rosa, a balconista. Tinha sido demitida naquela manhã. Na saída, disse: o senhor ainda vai me pagar."
+  },
+  {
+   "id": 15,
+   "audio": "audio-grave/l15.wav",
+   "start": 78.94,
+   "end": 86.86,
+   "text": "C: Seu Moacir, dono da padaria rival. Apareceu pra dar os parabéns. Nunca tinha entrado ali em vinte anos."
+  },
+  {
+   "id": 16,
+   "audio": "audio-grave/l16.wav",
+   "start": 87.46,
+   "end": 94.18,
+   "text": "D: Tiago, o entregador. Dezenove anos. Chegou de moto às oito em ponto, e não saiu mais."
+  },
+  {
+   "id": 17,
+   "audio": "audio-grave/l17.wav",
+   "start": 94.78,
+   "end": 102.14,
+   "text": "E o delegado Ramos? Vinte anos de polícia, medalha de honra. Prometeu: ninguém sai daqui até o bilhete aparecer."
+  },
+  {
+   "id": 18,
+   "audio": "audio-grave/l18.wav",
+   "start": 102.94,
+   "end": 107.02,
+   "text": "O delegado Ramos não sabia por onde começar. Então chamou o Joseph."
+  },
+  {
+   "id": 19,
+   "audio": "audio-grave/l19.wav",
+   "start": 108.02,
+   "end": 112.98,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta."
+  },
+  {
+   "id": 20,
+   "audio": "audio-grave/l20.wav",
+   "start": 113.38,
+   "end": 115.94,
+   "text": "Primeiro detalhe: a câmera do caixa."
+  },
+  {
+   "id": 21,
+   "audio": "audio-grave/l21.wav",
+   "start": 116.34,
+   "end": 120.82,
+   "text": "Oito e oito: o Kléber se debruça no balcão, bem em cima da gaveta."
+  },
+  {
+   "id": 22,
+   "audio": "audio-grave/l22.wav",
+   "start": 121.22,
+   "end": 125.06,
+   "text": "Oito e onze: a Rosa passa por trás do caixa pra pegar a bolsa."
+  },
+  {
+   "id": 23,
+   "audio": "audio-grave/l23.wav",
+   "start": 125.46,
+   "end": 131.38,
+   "text": "Oito e treze: o Seu Moacir encosta no balcão, e fica ali, conversando, um tempão."
+  },
+  {
+   "id": 24,
+   "audio": "audio-grave/l24.wav",
+   "start": 131.98,
+   "end": 136.62,
+   "text": "E o Tiago? Ficou no canto, mexendo no celular, a noite inteira."
+  },
+  {
+   "id": 25,
+   "audio": "audio-grave/l25.wav",
+   "start": 137.22,
+   "end": 140.9,
+   "text": "Três pessoas chegaram perto da gaveta. Quem pegou o bilhete?"
+  },
+  {
+   "id": 26,
+   "audio": "audio-grave/l26.wav",
+   "start": 141.3,
+   "end": 147.38,
+   "text": "Primeira pausa. Comenta agora: A, B, C ou D? Valendo."
+  },
+  {
+   "id": 27,
+   "audio": "audio-grave/l27.wav",
+   "start": 153.38,
+   "end": 156.74,
+   "text": "O delegado mandou todo mundo esvaziar os bolsos."
+  },
+  {
+   "id": 28,
+   "audio": "audio-grave/l28.wav",
+   "start": 157.34,
+   "end": 160.94,
+   "text": "E no bolso do Kléber, ele achou um bilhete de loteria."
+  },
+  {
+   "id": 29,
+   "audio": "audio-grave/l29.wav",
+   "start": 161.74,
+   "end": 167.5,
+   "text": "O Kléber jurou que era dele. Ninguém acreditou. O delegado já tirou as algemas do cinto."
+  },
+  {
+   "id": 30,
+   "audio": "audio-grave/l30.wav",
+   "start": 168.1,
+   "end": 174.1,
+   "text": "Mas o Joseph pediu pra ver o bilhete. E fez a conta mais simples do mundo: comparou os números."
+  },
+  {
+   "id": 31,
+   "audio": "audio-grave/l31.wav",
+   "start": 174.7,
+   "end": 178.78,
+   "text": "Nenhum número batia. Era o bilhete do próprio Kléber. Perdedor."
+  },
+  {
+   "id": 32,
+   "audio": "audio-grave/l32.wav",
+   "start": 179.38,
+   "end": 184.1,
+   "text": "O Kléber chorou. O delegado pediu desculpas, e guardou as algemas."
+  },
+  {
+   "id": 33,
+   "audio": "audio-grave/l33.wav",
+   "start": 184.9,
+   "end": 188.26,
+   "text": "Então, onde estava o bilhete de quarenta milhões?"
+  },
+  {
+   "id": 34,
+   "audio": "audio-grave/l34.wav",
+   "start": 188.76,
+   "end": 195.48,
+   "text": "Segundo detalhe: a gaveta do caixa. Toda vez que ela abre, a máquina faz plim, e anota o horário."
+  },
+  {
+   "id": 35,
+   "audio": "audio-grave/l35.wav",
+   "start": 195.98,
+   "end": 199.18,
+   "text": "Naquela noite, ela abriu só duas vezes."
+  },
+  {
+   "id": 36,
+   "audio": "audio-grave/l36.wav",
+   "start": 199.68,
+   "end": 206.4,
+   "text": "Oito e dois: o Seu Antônio, guardando o bilhete. E oito e dezesseis: o delegado, conferindo."
+  },
+  {
+   "id": 37,
+   "audio": "audio-grave/l37.wav",
+   "start": 206.9,
+   "end": 212.42,
+   "text": "Ninguém abriu a gaveta entre as duas. Nem o Kléber, nem a Rosa, nem o Seu Moacir."
+  },
+  {
+   "id": 38,
+   "audio": "audio-grave/l38.wav",
+   "start": 213.22,
+   "end": 217.06,
+   "text": "Ou seja: às oito e dezesseis, o bilhete ainda estava lá."
+  },
+  {
+   "id": 39,
+   "audio": "audio-grave/l39.wav",
+   "start": 217.46,
+   "end": 221.62,
+   "text": "Terceiro detalhe: a delegacia fica a quinze quilômetros da padaria."
+  },
+  {
+   "id": 40,
+   "audio": "audio-grave/l40.wav",
+   "start": 222.12,
+   "end": 229.8,
+   "text": "O delegado chegou três minutos depois da ligação. Quinze quilômetros em três minutos: trezentos quilômetros por hora."
+  },
+  {
+   "id": 41,
+   "audio": "audio-grave/l41.wav",
+   "start": 230.4,
+   "end": 235.68,
+   "text": "E o capô do carro dele estava frio. Aquele carro estava parado ali havia muito tempo."
+  },
+  {
+   "id": 42,
+   "audio": "audio-grave/l42.wav",
+   "start": 236.18,
+   "end": 239.94,
+   "text": "Quarto detalhe: o delegado revistou todo mundo."
+  },
+  {
+   "id": 43,
+   "audio": "audio-grave/l43.wav",
+   "start": 240.94,
+   "end": 243.9,
+   "text": "E quem revista os outros, ninguém revista."
+  },
+  {
+   "id": 44,
+   "audio": "audio-grave/l44.wav",
+   "start": 244.4,
+   "end": 247.28,
+   "text": "Última pausa. Muda o seu palpite?"
+  },
+  {
+   "id": 45,
+   "audio": "audio-grave/l45.wav",
+   "start": 247.78,
+   "end": 250.74,
+   "text": "E se o culpado for alguém que você nem colocou na lista?"
+  },
+  {
+   "id": 46,
+   "audio": "audio-grave/l46.wav",
+   "start": 251.14,
+   "end": 256.34,
+   "text": "A, B, C, D, ou E? Comenta agora. Valendo."
+  },
+  {
+   "id": 47,
+   "audio": "audio-grave/l47.wav",
+   "start": 262.34,
+   "end": 266.5,
+   "text": "O delegado Ramos estava no bar do outro lado da rua quando o Seu Antônio gritou."
+  },
+  {
+   "id": 48,
+   "audio": "audio-grave/l48.wav",
+   "start": 267.0,
+   "end": 272.68,
+   "text": "Ouviu tudo. Esperou a ligação. E chegou em três minutos, porque estava a trinta metros."
+  },
+  {
+   "id": 49,
+   "audio": "audio-grave/l49.wav",
+   "start": 273.18,
+   "end": 279.18,
+   "text": "Às oito e dezesseis, abriu a gaveta, de costas pra câmera. E disse: vazia."
+  },
+  {
+   "id": 50,
+   "audio": "audio-grave/l50.wav",
+   "start": 279.78,
+   "end": 282.74,
+   "text": "Mas o bilhete já estava na palma da mão dele."
+  },
+  {
+   "id": 51,
+   "audio": "audio-grave/l51.wav",
+   "start": 283.34,
+   "end": 287.5,
+   "text": "Depois, revistou todo mundo. Pra ninguém revistar ele."
+  },
+  {
+   "id": 52,
+   "audio": "audio-grave/l52.wav",
+   "start": 288.1,
+   "end": 291.78,
+   "text": "O Joseph pediu uma coisa só: a carteira do distintivo."
+  },
+  {
+   "id": 53,
+   "audio": "audio-grave/l53.wav",
+   "start": 292.58,
+   "end": 297.7,
+   "text": "Atrás da foto do delegado, dobrado em quatro: o bilhete de quarenta milhões."
+  },
+  {
+   "id": 54,
+   "audio": "audio-grave/l54.wav",
+   "start": 298.2,
+   "end": 303.56,
+   "text": "O Kléber foi solto. A Rosa, o Seu Moacir e o Tiago, inocentes."
+  },
+  {
+   "id": 55,
+   "audio": "audio-grave/l55.wav",
+   "start": 304.56,
+   "end": 307.76,
+   "text": "O culpado era quem estava procurando o culpado."
+  },
+  {
+   "id": 56,
+   "audio": "audio-grave/l56.wav",
+   "start": 308.76,
+   "end": 312.36,
+   "text": "Os números não mentem. As pessoas, sim."
+  },
+  {
+   "id": 57,
+   "audio": "audio-grave/l57.wav",
+   "start": 312.86,
+   "end": 318.62,
+   "text": "Se você acertou, comenta: eu sabia. Se errou, conta em quem você apostou."
+  },
+  {
+   "id": 58,
+   "audio": "audio-grave/l58.wav",
+   "start": 319.12,
+   "end": 324.32,
+   "text": "Toda semana tem um caso novo do Joseph. Segue o canal pra não perder o próximo mistério."
+  }
+ ]
+}

@@ -46,6 +46,8 @@ Projeto separado do canal Joseph Disciplinado. Não usa o SEO nem as regras de `
 - `ep03-o-trofeu/`: Caso 3, O Troféu do Intervalo (2:43). Futebol; a suspeita vai para o capitão rival e o zelador; o culpado é o goleiro herói. Palpite A/B/C com contagem de 5 s; sem ruído de fundo.
 - `especial01-o-elevador/`: Caso Especial 1, O Homem que Sumiu do Elevador (vídeo longo 16:9, 6:05). Duas pausas para o palpite (A–D e depois A–E); o culpado é a própria "vítima". Cena horizontal em `cena.js` com `capLong` (legenda grande para TV); capa em `capa.html` (1280x720).
 
+- `especial02-o-bilhete/`: Caso Especial 2, O Bilhete de 40 Milhões (longo 16:9, 05:27). A suspeita vai para os 4 da padaria; o culpado é o delegado que investigava.
+
 ## Vídeo longo semanal
 - 1 por semana, 6 a 7 min, 16:9, história própria (não precisa ser dos shorts). Mesma estrutura dos shorts, mas com 4 suspeitos, 6 pistas, uma reviravolta no meio e 2 pausas para comentar.
 - Para o próximo: copiar `especial01-o-elevador/cena.js` (funções `cctv`, `card`, `countdown`, `logTable`, `capLong`) e trocar só o `render`.

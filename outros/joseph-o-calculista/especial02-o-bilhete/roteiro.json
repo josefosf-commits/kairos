@@ -1,0 +1,296 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-ESPECIAL02",
+ "tail": 3.0,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Oito da noite. Numa padaria de bairro, Seu Antônio confere o bilhete da loteria na televisão.",
+   "gap": 0.4
+  },
+  {
+   "id": 2,
+   "text": "Seis números. Seis acertos. Quarenta milhões de reais.",
+   "gap": 0.5
+  },
+  {
+   "id": 3,
+   "text": "Ele gritou tão alto que a rua inteira ouviu.",
+   "gap": 0.6
+  },
+  {
+   "id": 4,
+   "text": "Dezesseis minutos depois, o bilhete tinha sumido.",
+   "gap": 0.5
+  },
+  {
+   "id": 5,
+   "text": "E ninguém tinha saído da padaria.",
+   "gap": 0.8
+  },
+  {
+   "id": 6,
+   "text": "Hoje você investiga junto com o Joseph. Duas vezes eu vou parar o vídeo e pedir o seu palpite.",
+   "gap": 0.4
+  },
+  {
+   "id": 7,
+   "text": "E presta atenção: nesse caso, todo mundo parece culpado.",
+   "gap": 3.0
+  },
+  {
+   "id": 8,
+   "text": "Às oito e dois, Seu Antônio guardou o bilhete na gaveta do caixa, trancou a porta da rua, e foi pros fundos ligar pra esposa.",
+   "gap": 0.4
+  },
+  {
+   "id": 9,
+   "text": "Com medo, às oito e dez, ligou também pra polícia.",
+   "gap": 0.4
+  },
+  {
+   "id": 10,
+   "text": "Três minutos depois, o delegado Ramos bateu na porta. Disse que estava passando por perto.",
+   "gap": 0.5
+  },
+  {
+   "id": 11,
+   "text": "Às oito e dezesseis, o delegado abriu a gaveta pra conferir o bilhete. Estava vazia.",
+   "gap": 0.8
+  },
+  {
+   "id": 12,
+   "text": "Dentro da padaria, quatro pessoas.",
+   "gap": 0.5
+  },
+  {
+   "id": 13,
+   "text": "A: Kléber, o sobrinho. Devia dinheiro pra um agiota. Foi o primeiro a perguntar: quanto vale esse bilhete, tio?",
+   "gap": 0.5
+  },
+  {
+   "id": 14,
+   "text": "B: Rosa, a balconista. Tinha sido demitida naquela manhã. Na saída, disse: o senhor ainda vai me pagar.",
+   "gap": 0.5
+  },
+  {
+   "id": 15,
+   "text": "C: Seu Moacir, dono da padaria rival. Apareceu pra dar os parabéns. Nunca tinha entrado ali em vinte anos.",
+   "gap": 0.5
+  },
+  {
+   "id": 16,
+   "text": "D: Tiago, o entregador. Dezenove anos. Chegou de moto às oito em ponto, e não saiu mais.",
+   "gap": 0.6
+  },
+  {
+   "id": 17,
+   "text": "E o delegado Ramos? Vinte anos de polícia, medalha de honra. Prometeu: ninguém sai daqui até o bilhete aparecer.",
+   "gap": 0.6
+  },
+  {
+   "id": 18,
+   "text": "O delegado Ramos não sabia por onde começar. Então chamou o Joseph.",
+   "gap": 0.8
+  },
+  {
+   "id": 19,
+   "text": "Joseph, o Calculista. Ele não procura o culpado. Ele faz a conta.",
+   "gap": 1.0
+  },
+  {
+   "id": 20,
+   "text": "Primeiro detalhe: a câmera do caixa.",
+   "gap": 0.4
+  },
+  {
+   "id": 21,
+   "text": "Oito e oito: o Kléber se debruça no balcão, bem em cima da gaveta.",
+   "gap": 0.4
+  },
+  {
+   "id": 22,
+   "text": "Oito e onze: a Rosa passa por trás do caixa pra pegar a bolsa.",
+   "gap": 0.4
+  },
+  {
+   "id": 23,
+   "text": "Oito e treze: o Seu Moacir encosta no balcão, e fica ali, conversando, um tempão.",
+   "gap": 0.4
+  },
+  {
+   "id": 24,
+   "text": "E o Tiago? Ficou no canto, mexendo no celular, a noite inteira.",
+   "gap": 0.6
+  },
+  {
+   "id": 25,
+   "text": "Três pessoas chegaram perto da gaveta. Quem pegou o bilhete?",
+   "gap": 0.6
+  },
+  {
+   "id": 26,
+   "text": "Primeira pausa. Comenta agora: A, B, C ou D? Valendo.",
+   "gap": 0.4
+  },
+  {
+   "id": 27,
+   "text": "O delegado mandou todo mundo esvaziar os bolsos.",
+   "gap": 6.0
+  },
+  {
+   "id": 28,
+   "text": "E no bolso do Kléber, ele achou um bilhete de loteria.",
+   "gap": 0.6
+  },
+  {
+   "id": 29,
+   "text": "O Kléber jurou que era dele. Ninguém acreditou. O delegado já tirou as algemas do cinto.",
+   "gap": 0.8
+  },
+  {
+   "id": 30,
+   "text": "Mas o Joseph pediu pra ver o bilhete. E fez a conta mais simples do mundo: comparou os números.",
+   "gap": 0.6
+  },
+  {
+   "id": 31,
+   "text": "Nenhum número batia. Era o bilhete do próprio Kléber. Perdedor.",
+   "gap": 0.6
+  },
+  {
+   "id": 32,
+   "text": "O Kléber chorou. O delegado pediu desculpas, e guardou as algemas.",
+   "gap": 0.6
+  },
+  {
+   "id": 33,
+   "text": "Então, onde estava o bilhete de quarenta milhões?",
+   "gap": 0.8
+  },
+  {
+   "id": 34,
+   "text": "Segundo detalhe: a gaveta do caixa. Toda vez que ela abre, a máquina faz plim, e anota o horário.",
+   "gap": 0.5
+  },
+  {
+   "id": 35,
+   "text": "Naquela noite, ela abriu só duas vezes.",
+   "gap": 0.5
+  },
+  {
+   "id": 36,
+   "text": "Oito e dois: o Seu Antônio, guardando o bilhete. E oito e dezesseis: o delegado, conferindo.",
+   "gap": 0.5
+  },
+  {
+   "id": 37,
+   "text": "Ninguém abriu a gaveta entre as duas. Nem o Kléber, nem a Rosa, nem o Seu Moacir.",
+   "gap": 0.5
+  },
+  {
+   "id": 38,
+   "text": "Ou seja: às oito e dezesseis, o bilhete ainda estava lá.",
+   "gap": 0.8
+  },
+  {
+   "id": 39,
+   "text": "Terceiro detalhe: a delegacia fica a quinze quilômetros da padaria.",
+   "gap": 0.4
+  },
+  {
+   "id": 40,
+   "text": "O delegado chegou três minutos depois da ligação. Quinze quilômetros em três minutos: trezentos quilômetros por hora.",
+   "gap": 0.5
+  },
+  {
+   "id": 41,
+   "text": "E o capô do carro dele estava frio. Aquele carro estava parado ali havia muito tempo.",
+   "gap": 0.6
+  },
+  {
+   "id": 42,
+   "text": "Quarto detalhe: o delegado revistou todo mundo.",
+   "gap": 0.5
+  },
+  {
+   "id": 43,
+   "text": "E quem revista os outros, ninguém revista.",
+   "gap": 1.0
+  },
+  {
+   "id": 44,
+   "text": "Última pausa. Muda o seu palpite?",
+   "gap": 0.5
+  },
+  {
+   "id": 45,
+   "text": "E se o culpado for alguém que você nem colocou na lista?",
+   "gap": 0.5
+  },
+  {
+   "id": 46,
+   "text": "A, B, C, D, ou E? Comenta agora. Valendo.",
+   "gap": 0.4
+  },
+  {
+   "id": 47,
+   "text": "O delegado Ramos estava no bar do outro lado da rua quando o Seu Antônio gritou.",
+   "gap": 6.0
+  },
+  {
+   "id": 48,
+   "text": "Ouviu tudo. Esperou a ligação. E chegou em três minutos, porque estava a trinta metros.",
+   "gap": 0.5
+  },
+  {
+   "id": 49,
+   "text": "Às oito e dezesseis, abriu a gaveta, de costas pra câmera. E disse: vazia.",
+   "gap": 0.5
+  },
+  {
+   "id": 50,
+   "text": "Mas o bilhete já estava na palma da mão dele.",
+   "gap": 0.6
+  },
+  {
+   "id": 51,
+   "text": "Depois, revistou todo mundo. Pra ninguém revistar ele.",
+   "gap": 0.6
+  },
+  {
+   "id": 52,
+   "text": "O Joseph pediu uma coisa só: a carteira do distintivo.",
+   "gap": 0.6
+  },
+  {
+   "id": 53,
+   "text": "Atrás da foto do delegado, dobrado em quatro: o bilhete de quarenta milhões.",
+   "gap": 0.8
+  },
+  {
+   "id": 54,
+   "text": "O Kléber foi solto. A Rosa, o Seu Moacir e o Tiago, inocentes.",
+   "gap": 0.5
+  },
+  {
+   "id": 55,
+   "text": "O culpado era quem estava procurando o culpado.",
+   "gap": 1.0
+  },
+  {
+   "id": 56,
+   "text": "Os números não mentem. As pessoas, sim.",
+   "gap": 1.0
+  },
+  {
+   "id": 57,
+   "text": "Se você acertou, comenta: eu sabia. Se errou, conta em quem você apostou.",
+   "gap": 0.5
+  },
+  {
+   "id": 58,
+   "text": "Toda semana tem um caso novo do Joseph. Segue o canal pra não perder o próximo mistério.",
+   "gap": 0.5
+  }
+ ]
+}
