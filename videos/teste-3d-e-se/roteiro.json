@@ -1,0 +1,12 @@
+{
+ "name": "TESTE-3D-E-SE",
+ "tail": 1.6,
+ "lines": [
+  {"id": 1, "text": "E se, ao acordar, o seu celular tivesse sumido? Por sete dias.", "gap": 0.6},
+  {"id": 2, "text": "Dia um: o Joseph procura o celular no bolso. Trinta vezes.", "gap": 0.5},
+  {"id": 3, "text": "Dia três: o tédio bate forte. E o tédio... vira ideia.", "gap": 0.5},
+  {"id": 4, "text": "Dia cinco: ele dorme cedo, acorda sem sono e termina um livro inteiro.", "gap": 0.5},
+  {"id": 5, "text": "Dia sete: o celular volta. E agora... quem manda em quem?", "gap": 0.5},
+  {"id": 6, "text": "Responde aí: você aguentaria sete dias? Sim ou não?", "gap": 0.6}
+ ]
+}

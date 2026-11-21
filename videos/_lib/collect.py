@@ -8,7 +8,8 @@ Copia os WAVs para audio/, calcula os tempos e escreve timeline.json.
 """
 import json, subprocess, sys, hashlib
 from pathlib import Path
-R = Path("/root/.claude/projects/-home-user-kairos/593589ff-6868-5eeb-b05a-08dc925cf235/tool-results")
+import os
+R = Path(os.environ.get("SPEKO_RESULTS", "/root/.claude/projects/-home-user-kairos/593589ff-6868-5eeb-b05a-08dc925cf235/tool-results"))
 spec = json.load(open(sys.argv[1]))
 ids = open(sys.argv[2]).read().split()
 assert len(ids) == len(spec["lines"]), (len(ids), len(spec["lines"]))
