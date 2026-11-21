@@ -1,0 +1,13 @@
+{
+ "name": "E-SE-ANIMAIS",
+ "tail": 2.4,
+ "lines": [
+  {"id": 1, "text": "E se, todo dia, você acordasse com as habilidades de um animal diferente?", "gap": 0.5},
+  {"id": 2, "text": "Dia um: cachorro. O Joseph sente o cheiro de tudo. Acha o fone sumido embaixo da cama em dois segundos... e não consegue parar de abanar o rabo.", "gap": 1.0},
+  {"id": 3, "text": "Dia dois: gato. Ele pula da cama direto pro alto do armário. Cai sempre de pé. E dorme dezesseis horas.", "gap": 1.0},
+  {"id": 4, "text": "Dia três: formiga. Força de cinquenta vezes o próprio peso. Ele levanta a cama com uma mão... e a mesa com a outra.", "gap": 1.0},
+  {"id": 5, "text": "Dia quatro: camaleão. Ele some na parede. Os olhos giram cada um pra um lado... e a língua pega o biscoito do outro lado do quarto.", "gap": 1.0},
+  {"id": 6, "text": "Dia cinco: águia. Ele lê uma letrinha minúscula lá do outro lado do quarto. E aí, ele abre as asas e grita: eu tô voando!", "gap": 1.0},
+  {"id": 7, "text": "Amanhã é o dia seis. Qual animal o Joseph vira? Escreve nos comentários. E segue pra ver se o seu ganhou.", "gap": 1.0}
+ ]
+}

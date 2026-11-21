@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>E-SE-ANIMAIS</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+  canvas { display: block; width: 1920px; height: 1080px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; transform-origin: 50% 50%; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,.3) 100%); }
+  #scope { position: absolute; inset: 0; opacity: 0;
+           background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0 330px, #ffd54a 332px 344px, rgba(0,0,0,.82) 346px); }
+  #scope::before, #scope::after { content: ""; position: absolute; background: rgba(255,213,74,.8); }
+  #scope::before { left: 50%; top: 210px; width: 4px; height: 660px; margin-left: -2px; }
+  #scope::after { top: 50%; left: 630px; height: 4px; width: 660px; margin-top: -2px; }
+  #title { left: 50%; top: 40px; transform: translateX(-50%); font-size: 150px; }
+  #card { left: 50%; top: 44px; font-size: 140px; }
+  #label { left: 50%; top: 60px; font-size: 110px; color: #ffd54a; }
+  #timer { right: 70px; top: 60px; font-size: 140px; color: #ff6b6b; transform-origin: 100% 0; }
+  #big { right: 110px; top: 200px; font-size: 260px; color: #ff6b6b; transform-origin: 50% 50%; }
+  #cta { left: 50%; top: 210px; font-size: 110px; color: #ffd54a; }
+  #follow { left: 50%; top: 340px; font-size: 84px; color: #fff; }
+  #zzz { font-size: 110px; color: #bcd2ff; }
+  #q { font-size: 170px; color: #c77dff; }
+  #cap { left: 50%; bottom: 56px; transform: translateX(-50%); width: 1700px; text-align: center; font-size: 80px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <div id="vig"></div>
+  <div id="scope"></div>
+  <div class="ov" id="title">E SE...?</div>
+  <div class="ov" id="card"></div>
+  <div class="ov" id="label"></div>
+  <div class="ov" id="timer"></div>
+  <div class="ov" id="big"></div>
+  <div class="ov" id="cta">QUAL ANIMAL? COMENTA!</div>
+  <div class="ov" id="follow">segue pra ver se o seu ganhou</div>
+  <div class="ov" id="zzz">Zzz</div>
+  <div class="ov" id="q">?</div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>

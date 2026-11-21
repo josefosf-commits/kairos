@@ -90,7 +90,7 @@ export const quarto = (() => {
   mesh(new THREE.CylinderGeometry(0.06, 0.1, 0.35, 16), M('#3d405b'), ns, [0.2, 0.88, -0.1]);
   q.lampMat = M('#f2cc8f', { side: THREE.DoubleSide, emissive: '#f2cc8f', emissiveIntensity: 0.3 });
   mesh(new THREE.ConeGeometry(0.2, 0.25, 24, 1, true), q.lampMat, ns, [0.2, 1.12, -0.1]);
-  const desk = grp(scene, [3.0, 0, -2.0]);
+  const desk = q.desk = grp(scene, [3.0, 0, -2.0]);
   mesh(rbox(2.0, 0.1, 0.9, 0.04), M('#f6f1e7'), desk, [0, 1.0, 0]);
   for (const x of [-0.9, 0.9]) mesh(rbox(0.1, 1.0, 0.8, 0.03), M('#d9d3c7'), desk, [x, 0.5, 0]);
   mesh(rbox(0.5, 0.06, 0.35, 0.02), M('#264653'), desk, [-0.55, 1.08, 0.05]);
@@ -124,11 +124,14 @@ export function makeChar(o = {}) {
   const c = { root: grp(scene) };
   const J = c.root;
   const skin = M(o.skin, { roughness: 0.45 }), hood = M(o.hood, { roughness: 0.75 }), hood2 = M(o.hood2, { roughness: 0.8 });
+  const hairM = M(o.hair, { roughness: 0.9 });
+  const pantsM = M(o.pants, { roughness: 0.8 }), shoeM = M(o.shoe);
+  c.mats = { skin, hood, hood2, hair: hairM, pants: pantsM, shoe: shoeM };
   c.legs = [];
   for (const s of [-1, 1]) {
     const hip = grp(J, [s * 0.2, 0, 0]);
-    mesh(cap(0.16, 0.45), M(o.pants, { roughness: 0.8 }), hip, [0, -0.34, 0]);
-    mesh(rbox(0.3, 0.16, 0.42, 0.07), M(o.shoe), hip, [0, -0.72, 0.07]);
+    mesh(cap(0.16, 0.45), pantsM, hip, [0, -0.34, 0]);
+    mesh(rbox(0.3, 0.16, 0.42, 0.07), shoeM, hip, [0, -0.72, 0.07]);
     mesh(rbox(0.32, 0.05, 0.44, 0.02), M(o.sole), hip, [0, -0.79, 0.07]);
     c.legs.push(hip);
   }
@@ -140,7 +143,6 @@ export function makeChar(o = {}) {
   for (const s of [-1, 1]) mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.22, 8), M('#ecebe4'), body, [s * 0.09, 0.78, 0.34]);
   const head = c.head = grp(torso, [0, 1.25, 0]);
   mesh(sph(0.42), skin, head, [0, 0, 0], [0, 0, 0], [1, 0.96, 0.95]);
-  const hairM = M(o.hair, { roughness: 0.9 });
   if (o.old) {
     // careca em cima, cabelo branco dos lados, barba
     for (const s of [-1, 1]) mesh(sph(0.2, 16, 12), hairM, head, [s * 0.33, 0.02, -0.12], [0, 0, 0], [0.6, 1, 1.2]);
