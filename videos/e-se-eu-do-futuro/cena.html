@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>E-SE-EU-DO-FUTURO</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+  canvas { display: block; width: 1920px; height: 1080px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,.35) 100%); }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+  #title { left: 50%; top: 40px; transform: translateX(-50%); font-size: 150px; }
+  #clock { right: 70px; top: 50px; font-size: 130px; color: #7fdcff; }
+  #label { left: 50%; top: 60px; transform: translateX(-50%); font-size: 120px; color: #ffd54a; }
+  #plus { left: 50%; top: 50px; font-size: 160px; color: #ffd54a; transform-origin: 50% 50%; }
+  #ten { left: 50%; top: 40px; font-size: 190px; color: #52d273; transform-origin: 50% 50%; }
+  #ep { left: 50%; top: 60px; font-size: 140px; color: #ffd54a; transform-origin: 50% 50%; }
+  #follow { left: 50%; top: 230px; font-size: 100px; color: #fff; transform-origin: 50% 50%; }
+  #zzz { font-size: 110px; color: #bcd2ff; }
+  #q { font-size: 170px; color: #c77dff; }
+  #cap { left: 50%; bottom: 56px; transform: translateX(-50%); width: 1700px; text-align: center; font-size: 80px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <div id="vig"></div>
+  <div id="flash"></div>
+  <div class="ov" id="title">E SE...?</div>
+  <div class="ov" id="clock">00:00</div>
+  <div class="ov" id="label"></div>
+  <div class="ov" id="plus">+20 ANOS</div>
+  <div class="ov" id="ten">10 MINUTOS</div>
+  <div class="ov" id="ep">EPISÓDIO 2: AMANHÃ</div>
+  <div class="ov" id="follow">segue pra não perder</div>
+  <div class="ov" id="zzz">Zzz</div>
+  <div class="ov" id="q">?</div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>

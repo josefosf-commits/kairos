@@ -1,0 +1,16 @@
+{
+ "name": "E-SE-EU-DO-FUTURO",
+ "tail": 2.2,
+ "lines": [
+  {"id": 1, "text": "E se, numa noite qualquer, o seu eu do futuro aparecesse no seu quarto?", "gap": 0.5},
+  {"id": 2, "text": "Meia-noite. O Joseph está no celular, como sempre... quando o ar começa a brilhar.", "gap": 0.5},
+  {"id": 3, "text": "Pum! Um cara igualzinho a ele. Só que mais velho, de barba branca e cara de cansado.", "gap": 0.9},
+  {"id": 4, "text": "Ele diz: Joseph, eu sou você. Daqui a vinte anos.", "gap": 0.5},
+  {"id": 5, "text": "O Joseph cai da cama.", "gap": 0.4},
+  {"id": 6, "text": "E o velho começa a mostrar: cada noite trocada por vídeo virou uma manhã atrasada.", "gap": 1.0},
+  {"id": 7, "text": "Cada \"eu começo amanhã\"... virou dez anos sem começar.", "gap": 0.5},
+  {"id": 8, "text": "O Joseph pergunta: e dá pra mudar? O velho sorri: é por isso que eu vim. Começa hoje. Dez minutos. Só isso.", "gap": 0.7},
+  {"id": 9, "text": "E some. O celular ainda está aceso. E o Joseph... desliga.", "gap": 0.6},
+  {"id": 10, "text": "Amanhã: e se o futuro voltasse pra conferir? Segue o canal pra não perder.", "gap": 0.8}
+ ]
+}
