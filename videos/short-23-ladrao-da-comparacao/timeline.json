@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-23-LADRAO-DA-COMPARACAO",
+ "duration": 56.94,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.59,
+   "text": "Episódio três. O Joseph estava feliz. Tinha treinado, estudado, feito o dia dele."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 6.89,
+   "end": 10.25,
+   "text": "Aí ele abriu o celular. E o ladrão saiu da tela."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 10.55,
+   "end": 14.63,
+   "text": "Esse não rouba tempo. Rouba paz. E ele carrega uma régua."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 15.03,
+   "end": 20.87,
+   "text": "Mede você contra todo mundo: o carro do primo, a viagem da colega, o corpo do influencer."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 21.27,
+   "end": 24.87,
+   "text": "Em dois minutos, o dia bom do Joseph parecia pequeno."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 25.32,
+   "end": 31.96,
+   "text": "Mas o Joseph descobriu o truque desse ladrão: ele compara os seus bastidores com o melhor momento dos outros."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 32.26,
+   "end": 35.3,
+   "text": "Ninguém posta o dia ruim. Ninguém posta o boleto."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 35.7,
+   "end": 42.42,
+   "text": "Então o Joseph trocou a régua. Agora ele só se compara com uma pessoa: ele mesmo, de ontem."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 42.82,
+   "end": 48.42,
+   "text": "Ontem: zero flexões. Hoje: dez. Isso ninguém posta. Mas é real."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 48.82,
+   "end": 55.14,
+   "text": "Amanhã chega o ladrão mais perigoso de todos. Ele usa a sua própria voz. Segue pra não perder."
+  }
+ ]
+}

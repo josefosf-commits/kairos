@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-22-DESAFIO-SEM-ACUCAR-EP2",
+ "duration": 54.87,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 7.79,
+   "text": "Dia três. O bolo na frente. Todo mundo olhando. E o Joseph disse: hoje não, valeu. Tô num desafio."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 8.09,
+   "end": 11.45,
+   "text": "O amigo riu. Depois perguntou: que desafio?"
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.75,
+   "end": 14.71,
+   "text": "No dia seguinte, eram três fazendo junto."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 15.16,
+   "end": 20.84,
+   "text": "Dia sete. Uma coisa estranha: a maçã ficou mais doce. A língua dele estava acordando."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 21.14,
+   "end": 24.5,
+   "text": "E aquele sono das três da tarde? Sumiu."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 24.95,
+   "end": 29.91,
+   "text": "Dia dez. Ele pegou um suco de caixinha. Escrito: natural."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 30.21,
+   "end": 36.37,
+   "text": "Leu o rótulo. Açúcar. De novo. O açúcar se esconde até onde diz que não tem."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 36.67,
+   "end": 40.51,
+   "text": "Ele trocou por água com limão. E marcou mais um X."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 40.96,
+   "end": 47.84,
+   "text": "Dia catorze. A mãe dele entrou no desafio também. Mas no dia quinze, ela fez uma coisa que ninguém esperava."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 48.19,
+   "end": 53.07,
+   "text": "Episódio três amanhã. Você ainda tá no desafio? Comenta o seu dia."
+  }
+ ]
+}

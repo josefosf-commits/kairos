@@ -1,0 +1,57 @@
+{
+ "name": "SHORT-22-DESAFIO-SEM-ACUCAR-EP2",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Dia três. O bolo na frente. Todo mundo olhando. E o Joseph disse: hoje não, valeu. Tô num desafio.",
+   "gap": 0.35
+  },
+  {
+   "id": 2,
+   "text": "O amigo riu. Depois perguntou: que desafio?",
+   "gap": 0.3
+  },
+  {
+   "id": 3,
+   "text": "No dia seguinte, eram três fazendo junto.",
+   "gap": 0.3
+  },
+  {
+   "id": 4,
+   "text": "Dia sete. Uma coisa estranha: a maçã ficou mais doce. A língua dele estava acordando.",
+   "gap": 0.45
+  },
+  {
+   "id": 5,
+   "text": "E aquele sono das três da tarde? Sumiu.",
+   "gap": 0.3
+  },
+  {
+   "id": 6,
+   "text": "Dia dez. Ele pegou um suco de caixinha. Escrito: natural.",
+   "gap": 0.45
+  },
+  {
+   "id": 7,
+   "text": "Leu o rótulo. Açúcar. De novo. O açúcar se esconde até onde diz que não tem.",
+   "gap": 0.3
+  },
+  {
+   "id": 8,
+   "text": "Ele trocou por água com limão. E marcou mais um X.",
+   "gap": 0.3
+  },
+  {
+   "id": 9,
+   "text": "Dia catorze. A mãe dele entrou no desafio também. Mas no dia quinze, ela fez uma coisa que ninguém esperava.",
+   "gap": 0.45
+  },
+  {
+   "id": 10,
+   "text": "Episódio três amanhã. Você ainda tá no desafio? Comenta o seu dia.",
+   "gap": 0.35
+  }
+ ]
+}
