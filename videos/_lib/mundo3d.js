@@ -239,3 +239,12 @@ export function ampAt(TL, t) {
   for (const l of TL.lines) if (t >= l.start && t < l.end && l.amp) return l.amp[Math.floor((t - l.start) * 30)] || 0;
   return 0;
 }
+
+// luz de thumbnail: escurece o quarto e acende uma luz no rosto (para os elementos brilhantes saltarem)
+let thumbKey = null;
+export function thumbLights(p) {
+  if (!thumbKey) { thumbKey = new THREE.PointLight('#fff1e0', 0, 5, 1.2); scene.add(thumbKey); }
+  hemi.intensity = 0.32; sun.intensity = 0.55; winLight.intensity = 1.2; lampLight.intensity = 0;
+  scene.background.set('#11131c');
+  thumbKey.position.set(...p); thumbKey.intensity = 6;
+}

@@ -1,7 +1,7 @@
 // "E se você pudesse ler a mente das pessoas?" — série E se? (3D)
 import {
   THREE, scene, camera, renderer, quarto, setDay, makeChar, M, mesh, sph, rbox, grp, cap,
-  clamp, sm, seg, lin, lerp, mix3, back, bounce, blink, breath, walkPose, place, cam, ampAt, noise, W, H
+  clamp, sm, seg, lin, lerp, mix3, back, bounce, blink, breath, walkPose, place, cam, ampAt, noise, W, H, thumbLights
 } from '../../_lib/mundo3d.js';
 
 const jo = makeChar();
@@ -81,20 +81,15 @@ window.render = function (t) {
   let camPos, camLook, shake = 0, power = 1, ov = {};
   const jb = breath(t), mb = breath(t, 0.8), ab = breath(t, 1.7);
   const MAE_IN = [-1.7, 0.86, 0.5], AMI_IN = [-1.4, 0.86, 0.7];
-  if (t < 0) { // ---- pose da thumbnail: Joseph ouvindo, mãe pensando ----
-    jo.root.position.set(0.6, 0.86, -0.2); jo.root.rotation.y = -0.3;
-    jo.pose({ armL: [1.7, 1.0, 2.4], armR: [1.7, 1.0, 2.4], head: [-0.05, 0.1, 0.08] });
-    jo.face({ open: 1.4, mouth: 'o', brow: 1.3, look: [-0.7, 0.3] });
-    mae.root.visible = true; mae.root.position.set(-1.0, 0.86, -1.6); mae.root.rotation.y = 0.5;
-    mae.pose({ armL: [0.9, -0.3, 1.9], armR: [0.2, 0.1, 0.3], head: [0, 0.2, 0.12] });
-    mae.face({ open: 0.9, mouth: 'flat', brow: -0.3, browTilt: 0.35, look: [0.6, 0] });
+  if (t < 0) { // ---- thumbnail: Joseph com as mãos na cabeça, pensamentos brilhando em volta (overlay) ----
+    jo.root.position.set(0.3, 0.86, -0.4); jo.root.rotation.y = 0.15;
+    jo.pose({ armL: [1.7, 1.0, 2.4], armR: [1.7, 1.0, 2.4], head: [-0.06, 0.08, 0.06] });
+    jo.face({ open: 1.4, mouth: 'o', brow: 1.3, look: [0.5, 0.35] });
+    thumbLights([0.6, 2.4, 1.0]);
     scene.updateMatrixWorld(true); jo.head.getWorldPosition(v);
-    rings.forEach((r, i) => { r.position.copy(v); r.position.y += 0.62; r.rotation.set(Math.PI / 2, 0, 0); r.scale.setScalar(0.9 + i * 0.45); r.material.opacity = 0.85 - i * 0.2; });
-    cam([0.15, 2.15, 2.5], [-0.35, 2.05, -0.7], 0, 0);
-    renderer.render(scene, camera);
-    bubble('CHIQUEIRO!', headTop(mae, 0.95), 1, true); pool.forEach((d, i) => { if (i >= used) d.style.opacity = 0; });
-    pool[0].style.fontSize = '84px';
-    return;
+    rings.forEach((r, i) => { r.position.copy(v); r.position.y += 0.62; r.rotation.set(Math.PI / 2, 0, 0); r.scale.setScalar(0.9 + i * 0.4); r.material.opacity = 0.9 - i * 0.22; });
+    cam([0.85, 2.15, 3.6], [0.85, 2.02, -0.4], 0, 0);
+    renderer.render(scene, camera); return;
   }
   const maeTalk = t > 7.83 && t < 9.33 ? amp : -1, amiTalk = t > 15.54 && t < 17.34 ? amp : -1;
 

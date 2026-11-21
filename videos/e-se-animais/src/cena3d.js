@@ -1,7 +1,7 @@
 // "E se você ganhasse as habilidades de um animal diferente a cada dia?" — série E se? (3D)
 import {
   THREE, scene, camera, renderer, quarto, setDay, makeChar, M, mesh, sph, rbox, grp, cap,
-  clamp, sm, seg, lin, lerp, mix3, back, bounce, blink, breath, walkPose, place, cam, ampAt
+  clamp, sm, seg, lin, lerp, mix3, back, bounce, blink, breath, walkPose, place, cam, ampAt, thumbLights
 } from '../../_lib/mundo3d.js';
 
 const jo = makeChar();
@@ -114,15 +114,12 @@ window.render = function (t) {
   tongue.visible = false; tongueTip.visible = false; phones.visible = false;
   sparks.forEach(s => s.visible = false); smell.forEach(s => s.visible = false);
   camo(0); showAcc(null);
-  if (t < 0) { // ---- pose da thumbnail: todos os animais de uma vez ----
-    J.position.set(0.3, 0.86, -0.4); J.rotation.y = -0.25;
-    for (const n of ['dog', 'ant', 'eagle']) { const x = acc[n]; for (const k of ['head', 'tail']) if (x[k]) { x[k].visible = true; x[k].scale.setScalar(1); } if (x.wings) x.wings.forEach(w => { w.g.visible = true; w.g.scale.setScalar(1.15); w.g.rotation.set(0, w.s * 0.2, w.s * 0.25); }); }
-    acc.cat.tail.visible = true; acc.cat.segs.forEach((g, i) => g.rotation.set(i === 0 ? -0.9 : 0.2, 0, 0.3));
-    acc.dog.ears.forEach((e, i) => e.rotation.set(0, 0, (i ? -1 : 1) * 0.25));
-    acc.ant.ants.forEach((x, i) => x.rotation.set(0.25, 0, (i ? -1 : 1) * 0.45));
-    jo.pose({ armL: [0.6, 1.5, 0.9], armR: [0.6, 1.5, 0.9], head: [-0.05, 0.15, 0.1] });
-    jo.face({ open: 1.35, mouth: 'o', brow: 1.3, look: [0.5, 0.2] });
-    camera.updateProjectionMatrix(); cam([-0.3, 2.15, 1.95], [-0.42, 1.98, -0.4], 0, 0);
+  if (t < 0) { // ---- thumbnail: Joseph pensando, esferas dos animais em volta (overlay) ----
+    J.position.set(0.3, 0.86, -0.4); J.rotation.y = 0.2;
+    jo.pose({ armR: [1.45, -0.95, 2.25], armL: [0.25, 0.55, 1.2], head: [-0.1, 0.12, 0.1] });
+    jo.face({ open: 1.1, mouth: 'flat', brow: 0.4, browTilt: 0.35, look: [0.6, 0.55] });
+    thumbLights([0.6, 2.4, 1.0]);
+    camera.updateProjectionMatrix(); cam([0.85, 2.15, 3.6], [0.85, 2.02, -0.4], 0, 0);
     renderer.render(scene, camera); return;
   }
   const jb = breath(t);
