@@ -1,0 +1,93 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP07",
+ "duration": 73.74,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.3,
+   "end": 6.86,
+   "text": "Rifa da formatura. Trezentos números vendidos. Mas na hora de contar, o dinheiro não fechava."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 7.16,
+   "end": 9.48,
+   "text": "Comenta antes do final: quem pegou?"
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 9.78,
+   "end": 15.06,
+   "text": "A: Rafa, o aluno que vive sem dinheiro. Ficou sozinho na sala no recreio."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 15.36,
+   "end": 20.08,
+   "text": "B: Bia, a tesoureira. A caixa da rifa dormiu na casa dela."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 20.48,
+   "end": 25.76,
+   "text": "C: Professora Sônia. Organizou tudo. Chorou quando viu o prejuízo."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 26.06,
+   "end": 32.22,
+   "text": "O Joseph contou os canhotos com a lupa. Trezentos números vendidos, a três reais cada."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 32.52,
+   "end": 35.8,
+   "text": "Trezentos vezes três: novecentos reais."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 36.1,
+   "end": 45.54,
+   "text": "Na sexta, a Bia mandou no grupo a foto da contagem: novecentos. Na segunda, a professora abriu a caixa sozinha, e disse: seiscentos."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 45.74,
+   "end": 48.62,
+   "text": "Comenta agora: A, B ou C?"
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 51.62,
+   "end": 58.66,
+   "text": "O Rafa nunca chegou perto: a caixa ficou trancada no armário da professora. E só uma pessoa contou o dinheiro sozinha."
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 59.06,
+   "end": 65.38,
+   "text": "A professora Sônia. Os trezentos reais estavam na bolsa dela, junto com a conta do conserto do carro."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 65.78,
+   "end": 72.74,
+   "text": "Os números não mentem. As pessoas, sim. Caso sete, resolvido. Segue pra não perder o próximo."
+  }
+ ]
+}

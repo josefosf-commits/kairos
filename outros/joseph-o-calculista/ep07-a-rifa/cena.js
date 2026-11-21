@@ -1,0 +1,154 @@
+// JOSEPH, O CALCULISTA · CASO 7: A RIFA (vertical, 1:13)
+// JOSEPH, O CALCULISTA · CASO 5: A PROVA VAZADA (vertical, 0:59).
+const NOIR = "#0b0f1a", CRIME = "#e5484d", AQUA = "#4fd1ff", GRASS = "#2f7a3e", MUD = "#6b4a2b", DIM = "#8f99a3";
+const JW = 791, JH = 1249;
+function jo(t, x, y, h, op = 1, glow = 0) {
+  const w = h * JW / JH, br = 1 + 0.006 * Math.sin(t * 2.2);
+  let o = `<g opacity="${op}" transform="translate(${x} ${y + h}) scale(1 ${br}) translate(${-x} ${-(y + h)})">`;
+  if (glow) o += `<ellipse cx="${x}" cy="${y + h * 0.45}" rx="${w * 0.75}" ry="${h * 0.55}" fill="${GOLD}" opacity="${0.18 * glow}"/>`;
+  return o + `<image href="assets/joseph.png" x="${x - w / 2}" y="${y}" width="${w}" height="${h}"/></g>`;
+}
+function pill(t, a, s, col, y, size = 58, x = 540) { const p = pop(t, a); if (p <= 0) return ""; const w = s.length * size * 0.52 + 90; return `<g transform="translate(${x} ${y}) scale(${p})"><rect x="${-w / 2}" y="${-size * 0.85}" width="${w}" height="${size * 1.7}" rx="${size * 0.85}" fill="#05070c" opacity="0.92" stroke="${col}" stroke-width="6"/>${txt(esc(s), 0, 0, size, col)}</g>`; }
+function badge(t, a, n, x = 170, y = 420) { const p = pop(t, a); return p > 0 ? `<g transform="translate(${x} ${y}) scale(${p})"><circle r="70" fill="${GOLD}" stroke="#000" stroke-width="7"/>${txt(String(n), 0, 0, 90, "#05070c")}</g>` : ""; }
+function stamp(t, a, s, y, col = CRIME, size = 100) { if (t < a) return ""; const w = s.length * size * 0.55 + 90; return `<g transform="translate(540 ${y}) rotate(-6) scale(${pop(t, a, 0.25)})"><rect x="${-w / 2}" y="-80" width="${w}" height="160" rx="14" fill="#05070c" opacity="0.85" stroke="${col}" stroke-width="12"/>${txt(esc(s), 0, 0, size, col)}</g>`; }
+const SAND = "#d9c08a", SANDD = "#bfa46c", SEA = "#1f4e79";
+// ---------- Joseph moving (one art, animated) ----------
+function joWalk(t, a, b, x0, x1, y, h) {           // walks in with a bob and a sway
+  const k = seg(t, a, b), x = lerp(x0, x1, k), bob = k < 1 ? Math.abs(Math.sin(t * 7)) * 14 : 0, r = k < 1 ? Math.sin(t * 7) * 2 : 0;
+  return `<g transform="rotate(${r} ${x} ${y + h})">${jo(t, x, y - bob, h, 1, 0.3)}</g>`;
+}
+function joThink(t, x, y, h) {                     // numbers orbit his head
+  let o = jo(t, x, y, h, 1, 0.8);
+  const N = ["110", "÷", "2,5", "44", "kg", "cm", "?"];
+  N.forEach((n, i) => { const a = t * 0.8 + i / N.length * Math.PI * 2; o += txt(n, x + Math.cos(a) * h * 0.42, y + h * 0.22 + Math.sin(a) * h * 0.12, 54, i % 2 ? GOLD : CREAM, 0.5 + 0.5 * Math.sin(a)); });
+  return o;
+}
+// POV: his hand (black sleeve, white cuff) entering from the bottom-right
+function arm(hx, hy, sx = 1180, sy = 2000) {
+  const ang = Math.atan2(hy - sy, hx - sx) * 180 / Math.PI;
+  return `<line x1="${sx}" y1="${sy}" x2="${hx}" y2="${hy}" stroke="#111" stroke-width="150" stroke-linecap="round"/><g transform="translate(${hx} ${hy}) rotate(${ang + 90})"><rect x="-80" y="20" width="160" height="40" rx="10" fill="#f4efe6" stroke="#000" stroke-width="5"/>${[-42, -14, 14, 42].map((fx, i) => `<rect x="${fx - 15}" y="${-118 + Math.abs(i - 1.5) * 12}" width="30" height="80" rx="15" fill="#a86f4a" stroke="#000" stroke-width="5"/><path d="M ${fx - 7} ${-100 + Math.abs(i - 1.5) * 12} q 7 -6 14 0" fill="none" stroke="#8e5a3a" stroke-width="3"/>`).join("")}<rect x="-30" y="-20" width="30" height="74" rx="15" fill="#a86f4a" stroke="#000" stroke-width="5" transform="rotate(-58 -62 10)"/><ellipse cx="0" cy="-10" rx="66" ry="56" fill="#a86f4a" stroke="#000" stroke-width="6"/><path d="M -40 -50 Q 0 -62 40 -50" fill="none" stroke="#8e5a3a" stroke-width="4"/></g>`;
+}
+function lupa(t, cx, cy, r, scene, zoom = 1.9) {    // magnifier over a scene function: scene() draws the world
+  let o = `<clipPath id="lens"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath><g clip-path="url(#lens)"><g transform="translate(${cx} ${cy}) scale(${zoom}) translate(${-cx} ${-cy})">${scene()}</g></g>`;
+  o += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="#bfe8ff" opacity="0.12"/><path d="M ${cx - r * 0.6} ${cy - r * 0.5} q ${r * 0.3} ${-r * 0.3} ${r * 0.7} ${-r * 0.35}" stroke="#fff" stroke-width="10" fill="none" opacity="0.5"/>`;
+  o += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#2a2f3a" stroke-width="26"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${GOLD}" stroke-width="8"/>`;
+  const hx = cx + r * 0.75 + 120, hy = cy + r * 0.75 + 120;
+  o += `<line x1="${cx + r * 0.72}" y1="${cy + r * 0.72}" x2="${hx}" y2="${hy}" stroke="#3a2414" stroke-width="44" stroke-linecap="round"/>`;
+  return o + arm(hx, hy);
+}
+function notebook(t, a, lines, y0 = 520) {          // his hand writing the calculation
+  let o = `<g transform="rotate(-3 540 1000)"><rect x="110" y="${y0 - 120}" width="860" height="1000" rx="20" fill="#f6eedc" stroke="#000" stroke-width="8"/>`;
+  for (let i = 0; i < 12; i++) o += `<line x1="150" y1="${y0 - 30 + i * 80}" x2="930" y2="${y0 - 30 + i * 80}" stroke="#9fc7dd" stroke-width="3"/>`;
+  o += `<line x1="220" y1="${y0 - 120}" x2="220" y2="${y0 + 880}" stroke="${CRIME}" stroke-width="3" opacity="0.6"/>`;
+  let pen = null;
+  lines.forEach(([s, at, dur, col], i) => {
+    const k = cl((t - at) / dur); if (k <= 0) return;
+    const y = y0 + 40 + i * 160, w = 700 * k;
+    o += `<clipPath id="nb${i}"><rect x="240" y="${y - 90}" width="${w}" height="140"/></clipPath><text class="hand" x="250" y="${y}" font-size="84" fill="${col || "#1a2a4a"}" clip-path="url(#nb${i})">${esc(s)}</text>`;
+    if (k < 1) pen = [250 + Math.min(w, s.length * 44), y - 10 + Math.sin(t * 30) * 6];
+  });
+  o += `</g>`;
+  if (pen) o += `<g><line x1="${pen[0]}" y1="${pen[1]}" x2="${pen[0] + 110}" y2="${pen[1] + 170}" stroke="#111" stroke-width="16" stroke-linecap="round"/><path d="M ${pen[0]} ${pen[1]} l 8 18 l -14 2 Z" fill="${GOLD}"/>${arm(pen[0] + 130, pen[1] + 220)}</g>`;
+  return o;
+}
+function boot(x, y, s, rot = 0, depth = 0.5) {     // a boot print in the sand
+  const d = 0.25 + depth * 0.5;
+  let o = `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M -40 -120 Q 0 -150 40 -120 Q 58 -40 40 30 Q 0 46 -40 30 Q -58 -40 -40 -120 Z" fill="#8a6d3e" opacity="${d}"/><path d="M -34 60 Q 0 44 34 60 Q 40 110 0 124 Q -40 110 -34 60 Z" fill="#8a6d3e" opacity="${d}"/>`;
+  for (let i = 0; i < 5; i++) o += `<line x1="-28" y1="${-100 + i * 28}" x2="28" y2="${-100 + i * 28}" stroke="#5a4528" stroke-width="6" opacity="${d}"/>`;
+  return o + `</g>`;
+}
+function beach(t, prints = true) {
+  let o = `<rect width="${SW}" height="${SH}" fill="${SAND}"/>`;
+  for (let i = 0; i < 60; i++) o += `<circle cx="${hash(i) * 1080}" cy="${hash(i + 3) * 1920}" r="${2 + hash(i + 5) * 4}" fill="${SANDD}"/>`;
+  if (prints) for (let i = 0; i < 7; i++) o += boot(i % 2 ? 600 : 470, 1800 - i * 230, 1, i % 2 ? 8 : -8, 0.4);
+  return o;
+}
+function house(t) {
+  let o = `<rect width="${SW}" height="${SH}" fill="#0d1a2e"/><rect y="1200" width="${SW}" height="720" fill="${SAND}" opacity="0.7"/><rect y="1100" width="${SW}" height="120" fill="${SEA}"/>`;
+  o += `<g transform="translate(540 820)"><rect x="-340" y="-220" width="680" height="400" fill="#e8e2d6" stroke="#000" stroke-width="10"/><path d="M -380 -220 L 0 -420 L 380 -220 Z" fill="#8a3b1c" stroke="#000" stroke-width="10"/><rect x="-260" y="-130" width="180" height="140" fill="#ffd38a" stroke="#000" stroke-width="8"/><rect x="80" y="-130" width="180" height="140" fill="#3a2a20" stroke="#000" stroke-width="8"/></g>`;
+  return o;
+}
+function safe(t, open = 1) {
+  return `<g transform="translate(540 900)"><rect x="-260" y="-280" width="520" height="560" rx="20" fill="#3b4150" stroke="#000" stroke-width="10"/><rect x="-220" y="-240" width="440" height="480" rx="10" fill="#0d0f14"/><g transform="translate(-220 -240) scale(${1 - 0.85 * open} 1)"><rect width="440" height="480" rx="10" fill="#4a5162" stroke="#000" stroke-width="8"/><circle cx="220" cy="240" r="70" fill="#2a2f3a" stroke="#000" stroke-width="6"/></g></g>`;
+}
+
+function card(t, a, k, y, letter = true, dim = 1) {
+  const p = pop(t, a); if (p <= 0) return "";
+  const S0 = SUS[k];
+  let o = `<g opacity="${dim}" transform="translate(540 ${y}) scale(${p}) translate(-540 ${-y})"><rect x="60" y="${y - 150}" width="960" height="300" rx="30" fill="#0d111c" stroke="${S0.col}" stroke-width="6"/>` +
+    `<clipPath id="cl${k}${y}"><rect x="80" y="${y - 135}" width="270" height="270" rx="20"/></clipPath><g clip-path="url(#cl${k}${y})"><rect x="80" y="${y - 135}" width="270" height="270" fill="#1d2336"/>${bust(t, k, 215, y + 20, 0.5)}</g>` +
+    `<text class="hand" x="390" y="${y - 30}" font-size="60" fill="${S0.col}">${S0.label}</text><text class="hand" x="390" y="${y + 50}" font-size="46" fill="#cfd8e3">${esc(S0.alibi)}</text>`;
+  if (letter) o += `<g transform="translate(960 ${y - 110})"><circle r="52" fill="${GOLD}" stroke="#000" stroke-width="6"/>${txt(S0.L, 0, 0, 70, "#05070c")}</g>`;
+  return o + `</g>`;
+}
+function sweat(t, x, y) { let o = ""; for (let i = 0; i < 3; i++) { const k = (t * 0.8 + i / 3) % 1; o += `<path d="M ${x + i * 60} ${y + k * 80} q 10 18 0 26 q -10 -8 0 -26 Z" fill="${AQUA}" opacity="${1 - k}"/>`; } return o; }
+function bubble(t, a, s, x, y, col = "#1a1a1a") { const p = pop(t, a); if (p <= 0) return ""; const w = s.length * 30 + 80; return `<g transform="translate(${x} ${y}) scale(${p})"><rect x="${-w / 2}" y="-70" width="${w}" height="140" rx="40" fill="#f4efe6" stroke="#000" stroke-width="7"/><path d="M -40 66 L -90 150 L 20 70 Z" fill="#f4efe6" stroke="#000" stroke-width="7"/>${txt(esc(s), 0, 0, 56, col)}</g>`; }
+const red = (t, k = 1) => `<rect width="${SW}" height="${SH}" fill="${CRIME}" opacity="${0.08 * k + 0.04 * Math.sin(t * 3)}"/>`;
+
+
+function bustG(t, k, x, y, s, f = {}) {
+  const P = Object.assign({ x: 960, c: SUS[k].c }, face(Object.assign({ lid: blink(t, 0.08, x * 0.01) }, f)));
+  return cam(960, 470, s, personBack(P) + personHead(P, t) + (SUS[k].extra || ""), y).replace("translate(540 ", `translate(${x} `);
+}
+function bust(t, k, x, y, s, f) { return bustG(t, k, x, y, s, f); }
+function countdown3(t, g0) {
+  const n = Math.max(1, 3 - Math.floor((t - g0) / 0.95)), ph = ((t - g0) % 0.95) / 0.95;
+  return `<rect width="${SW}" height="${SH}" fill="#000" opacity="0.55"/><g transform="translate(540 900) scale(${1.25 - 0.25 * sm(cl(ph * 3))})"><circle r="220" fill="#05070c" stroke="${GOLD}" stroke-width="14"/><circle r="220" fill="none" stroke="${CRIME}" stroke-width="14" stroke-dasharray="${1382 * (1 - ph)} 2000" transform="rotate(-90)"/>${txt(String(n), 0, 0, 250, CREAM)}</g>` + txt("COMENTA AGORA!", 540, 1300, 80, CREAM);
+}
+function receipt(x, y, s, lines, rot = -4) {
+  let o = `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><path d="M -170 -260 L 170 -260 L 170 240 l -28 20 l -28 -20 l -28 20 l -28 -20 l -28 20 l -28 -20 l -28 20 l -28 -20 l -28 20 l -28 -20 l -28 20 L -170 240 Z" fill="#f6f3ea" stroke="#000" stroke-width="5"/>`;
+  lines.forEach(([s2, c], i) => { o += `<text x="-140" y="${-190 + i * 64}" font-family="monospace" font-size="38" font-weight="700" fill="${c || "#1a1a1a"}">${s2}</text>`; });
+  return o + `</g>`;
+}
+function render(t) {
+  const end = window.TL.duration;
+  let o = `<rect width="${SW}" height="${SH}" fill="${NOIR}"/>`;
+  if (t < S(2) - 0.15) o += CFG.intro(t);
+  else if (t < S(3) - 0.2) o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>` + txt("COMENTA ANTES DO FIM:", 540, 760, 70, CREAM, 1, pop(t, S(2))) + txt(CFG.q, 540, 910, 130, GOLD, 1, pop(t, S(2) + 0.6));
+  else if (t < S(6) - 0.2) {
+    o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>` + txt("3 SUSPEITOS", 540, 370, 100, CREAM);
+    const K = Object.keys(SUS);
+    o += card(t, S(3), K[0], 620) + card(t, S(4), K[1], 940) + card(t, S(5), K[2], 1260);
+    CFG.pills.forEach(([s2, col], i) => { if (t > S(3 + i) + 1.4 && (i === 2 || t < S(4 + i))) o += (i < 2 ? `<rect width="${SW}" height="${SH}" fill="${CRIME}" opacity="0.07"/>` : "") + pill(t, S(3 + i) + 1.6, s2, col, 1500, 50); });
+  } else if (t < S(7) - 0.2) o += CFG.c6(t);
+  else if (t < S(8) - 0.2) o += CFG.c7(t);
+  else if (t < S(9)) o += CFG.c8(t);
+  else if (t < S(10) - 0.2) {
+    o += `<rect width="${SW}" height="${SH}" fill="#0a0d16"/>` + txt("COMENTA AGORA:", 540, 380, 84, CREAM, 1, pop(t, S(9))) + txt("A, B OU C?", 540, 480, 76, GOLD, 1, pop(t, S(9) + 0.4));
+    const K = Object.keys(SUS);
+    o += card(t, S(9) + 0.2, K[0], 700) + card(t, S(9) + 0.4, K[1], 1010) + card(t, S(9) + 0.6, K[2], 1320);
+    if (t > E(9) + 0.15) o += countdown3(t, E(9) + 0.15);
+  } else if (t < S(11) - 0.2) o += `<rect width="${SW}" height="${SH}" fill="#1a1612"/>` + notebook(t, S(10), CFG.nb);
+  else if (t < S(12) - 0.2) o += CFG.reveal(t);
+  else {
+    o += `<rect width="${SW}" height="${SH}" fill="#05070c"/>` + jo(t, 540, 760, 900, 0.9, 0.5);
+    o += txt("OS NÚMEROS NÃO MENTEM.", 540, 380, 70, GOLD, 1, pop(t, S(12))) + txt("AS PESSOAS, SIM.", 540, 480, 70, CREAM, 1, pop(t, S(12) + 1.6));
+    o += `<g transform="translate(540 640) rotate(-6) scale(${pop(t, S(12) + 3.0, 0.25)})"><rect x="-400" y="-80" width="800" height="160" rx="16" fill="#05070c" stroke="${CRIME}" stroke-width="12"/>${txt("CASO " + CFG.n + " · RESOLVIDO", 0, 0, 80, CRIME)}</g>`;
+  }
+  o += vignette();
+  if (!window.THUMB) o += `<g><rect x="70" y="140" width="940" height="120" rx="30" fill="#05070c" opacity="0.9" stroke="${GOLD}" stroke-width="5"/><text class="hand" x="540" y="222" font-size="58" text-anchor="middle" fill="${CREAM}">JOSEPH, O CALCULISTA · CASO ${CFG.n}</text></g>`;
+  o += capShort(t, 1800);
+  o += blackout(Math.max(1 - seg(t, 0, 0.15), seg(t, end - 0.4, end)));
+  document.getElementById("frame").innerHTML = o;
+}
+window.render = render;
+
+// ===== CASO 7: A RIFA =====
+const SUS = {
+  rafa: { c: { skin: "#d9a47a", skinD: "#bf8a62", hood: "#5a6270", hoodD: "#454b57", hair: "#2a1a12", style: "short" }, label: "RAFA", alibi: "sem dinheiro · sozinho", col: CRIME, L: "A" },
+  bia: { c: { skin: "#a86f4a", skinD: "#8e5a3a", hood: "#7a5fa8", hoodD: "#5e4785", hair: "#1c1410", style: "curly" }, label: "BIA · TESOUREIRA", alibi: "a caixa dormiu com ela", col: "#b99be6", L: "B" },
+  sonia: { c: { skin: "#f1c9a5", skinD: "#d6ab86", hood: "#c2416b", hoodD: "#9a3355", hair: "#8a3b1c", style: "curly" }, label: "PROFESSORA SÔNIA", alibi: "organizou · chorou", col: "#ff8fc2", L: "C", extra: `<circle cx="928" cy="398" r="30" fill="none" stroke="#3a3326" stroke-width="5"/><circle cx="992" cy="398" r="30" fill="none" stroke="#3a3326" stroke-width="5"/>` },
+};
+function box(x, y, s) { return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-200" y="-140" width="400" height="280" rx="16" fill="#c9a54a" stroke="#000" stroke-width="8"/><rect x="-80" y="-150" width="160" height="20" rx="6" fill="#111"/>${txt("RIFA", 0, 20, 90, "#05070c")}</g>`; }
+function stubs(t) { let o = `<rect width="${SW}" height="${SH}" fill="#2a2420"/>`; for (let i = 0; i < 24; i++) { const x = 180 + (i % 4) * 240, y = 560 + Math.floor(i / 4) * 170; o += `<g transform="translate(${x} ${y}) rotate(${(hash(i) - 0.5) * 16})"><rect x="-100" y="-55" width="200" height="110" rx="8" fill="#f6eedc" stroke="#000" stroke-width="4"/><text x="0" y="12" font-family="monospace" font-size="40" font-weight="700" text-anchor="middle" fill="#8a1f1f">Nº ${String(17 + i * 12).padStart(3, "0")}</text></g>`; } return o; }
+function phoneMsg(x, y, s, title, big, col) { return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-200" y="-330" width="400" height="660" rx="44" fill="#111" stroke="#000" stroke-width="8"/><rect x="-176" y="-296" width="352" height="590" rx="20" fill="#0b141a"/>${txt(title, 0, -230, 40, "#e9edef")}${txt(big, 0, 0, 110, col)}</g>`; }
+const CFG = {
+  n: 7, q: "QUEM PEGOU?",
+  pills: [["SOZINHO NO RECREIO", CRIME], ["A CAIXA DORMIU COM ELA", CRIME], ["CHOROU PELO PREJUÍZO", "#ff8fc2"]],
+  intro: t => `<rect width="${SW}" height="${SH}" fill="#1b2230"/>` + box(540, 900, 1.6) + pill(t, 0.5, "RIFA DA FORMATURA", GOLD, 420, 52) + pill(t, 2.0, "300 NÚMEROS VENDIDOS", AQUA, 1320, 50) + (t > 4.2 ? stamp(t, 4.4, "NÃO FECHA", 1560, CRIME, 100) : ""),
+  c6: t => { const k = seg(t, S(6), S(6) + 4), cx = lerp(300, 760, k), cy = lerp(700, 1300, k); return stubs(t) + lupa(t, cx, cy, 190, () => stubs(t), 1.8) + pill(t, S(6) + 3.0, "300 × R$ 3", GOLD, 400, 64); },
+  c7: t => `<rect width="${SW}" height="${SH}" fill="#1a1612"/>` + notebook(t, S(7), [["300 × 3 = 900", S(7) + 0.2, 1.6, GOLD]]),
+  c8: t => phoneMsg(300, 960, 1.05, "BIA · SEXTA", "900", "#5be08a") + phoneMsg(780, 960, 1.05, "PROF · SEGUNDA", "600", CRIME) + (t > S(8) + 6.0 ? stamp(t, S(8) + 6.2, "− R$ 300", 1500, CRIME, 110) : ""),
+  nb: [["RAFA: trancada ✗", S(10) + 0.2, 1.4, CRIME], ["BIA: foto = 900 ✓", S(10) + 2.4, 1.4, "#1d5a32"], ["CONTOU SOZINHA: ?", S(10) + 5.0, 1.4, GOLD]],
+  reveal: t => { let o = `<rect width="${SW}" height="${SH}" fill="#0d111c"/>` + bust(t, "sonia", 540, 960, 1.5, { browSad: 1, look: [0, 8], smile: -6 }) + stamp(t, S(11) + 0.2, "C · PROFESSORA", 420, CRIME, 90); if (t > S(11) + 2.4) o += `<g transform="translate(540 1500) scale(${pop(t, S(11) + 2.4)})"><path d="M -200 -80 L 200 -80 L 230 140 L -230 140 Z" fill="#8a1f3a" stroke="#000" stroke-width="8"/><path d="M -110 -80 Q 0 -200 110 -80" fill="none" stroke="#000" stroke-width="14"/>${[0, 1, 2].map(i => `<rect x="${-150 + i * 40}" y="${-120 - i * 14}" width="150" height="70" rx="6" fill="#5fa86a" stroke="#000" stroke-width="4"/>`).join("")}${receipt(140, -60, 0.35, [["OFICINA"], ["CONSERTO"], ["R$ 300", CRIME]], 10)}</g>`; return o; },
+};

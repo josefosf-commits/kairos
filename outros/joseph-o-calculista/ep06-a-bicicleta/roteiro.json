@@ -1,0 +1,67 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP06",
+ "tail": 1.0,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Saída da escola. A bicicleta nova do Léo sumiu do bicicletário.",
+   "gap": 0.3
+  },
+  {
+   "id": 2,
+   "text": "Comenta antes do final: quem levou?",
+   "gap": 0.3
+  },
+  {
+   "id": 3,
+   "text": "A: Duda, o rival. Na semana passada, disse: essa bike ainda vai ser minha.",
+   "gap": 0.3
+  },
+  {
+   "id": 4,
+   "text": "B: Seu Válter, o porteiro. Ficou sozinho no portão a tarde toda.",
+   "gap": 0.3
+  },
+  {
+   "id": 5,
+   "text": "C: Pedro, o melhor amigo do Léo. Ajudou a procurar a bike pela escola inteira.",
+   "gap": 0.4
+  },
+  {
+   "id": 6,
+   "text": "O Joseph olhou o cadeado com a lupa. Não foi cortado. Foi aberto com a senha.",
+   "gap": 0.3
+  },
+  {
+   "id": 7,
+   "text": "A senha era um, dois, zero, sete: o aniversário do Léo.",
+   "gap": 0.3
+  },
+  {
+   "id": 8,
+   "text": "O Pedro disse que ficou na biblioteca até as três e meia. Mas o recibo do livro que ele devolveu marca duas e cinquenta e dois.",
+   "gap": 0.3
+  },
+  {
+   "id": 9,
+   "text": "Comenta agora: A, B ou C?",
+   "gap": 0.2
+  },
+  {
+   "id": 10,
+   "text": "O Duda não sabia a senha. O Seu Válter nem sabia o aniversário do Léo. Quem sabia, e saiu mais cedo?",
+   "gap": 3.0
+  },
+  {
+   "id": 11,
+   "text": "O Pedro. O melhor amigo. A bike estava pintada de outra cor, na garagem da avó dele.",
+   "gap": 0.4
+  },
+  {
+   "id": 12,
+   "text": "Os números não mentem. As pessoas, sim. Caso seis, resolvido. Segue pra não perder o próximo.",
+   "gap": 0.4
+  }
+ ]
+}

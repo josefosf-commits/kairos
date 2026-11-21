@@ -1,0 +1,93 @@
+{
+ "name": "JOSEPH-O-CALCULISTA-EP06",
+ "duration": 72.46,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio-grave/l1.wav",
+   "start": 0.3,
+   "end": 4.78,
+   "text": "Saída da escola. A bicicleta nova do Léo sumiu do bicicletário."
+  },
+  {
+   "id": 2,
+   "audio": "audio-grave/l2.wav",
+   "start": 5.08,
+   "end": 7.8,
+   "text": "Comenta antes do final: quem levou?"
+  },
+  {
+   "id": 3,
+   "audio": "audio-grave/l3.wav",
+   "start": 8.1,
+   "end": 14.26,
+   "text": "A: Duda, o rival. Na semana passada, disse: essa bike ainda vai ser minha."
+  },
+  {
+   "id": 4,
+   "audio": "audio-grave/l4.wav",
+   "start": 14.56,
+   "end": 19.68,
+   "text": "B: Seu Válter, o porteiro. Ficou sozinho no portão a tarde toda."
+  },
+  {
+   "id": 5,
+   "audio": "audio-grave/l5.wav",
+   "start": 20.08,
+   "end": 25.6,
+   "text": "C: Pedro, o melhor amigo do Léo. Ajudou a procurar a bike pela escola inteira."
+  },
+  {
+   "id": 6,
+   "audio": "audio-grave/l6.wav",
+   "start": 25.9,
+   "end": 30.94,
+   "text": "O Joseph olhou o cadeado com a lupa. Não foi cortado. Foi aberto com a senha."
+  },
+  {
+   "id": 7,
+   "audio": "audio-grave/l7.wav",
+   "start": 31.24,
+   "end": 36.52,
+   "text": "A senha era um, dois, zero, sete: o aniversário do Léo."
+  },
+  {
+   "id": 8,
+   "audio": "audio-grave/l8.wav",
+   "start": 36.82,
+   "end": 43.86,
+   "text": "O Pedro disse que ficou na biblioteca até as três e meia. Mas o recibo do livro que ele devolveu marca duas e cinquenta e dois."
+  },
+  {
+   "id": 9,
+   "audio": "audio-grave/l9.wav",
+   "start": 44.06,
+   "end": 47.5,
+   "text": "Comenta agora: A, B ou C?"
+  },
+  {
+   "id": 10,
+   "audio": "audio-grave/l10.wav",
+   "start": 50.5,
+   "end": 57.78,
+   "text": "O Duda não sabia a senha. O Seu Válter nem sabia o aniversário do Léo. Quem sabia, e saiu mais cedo?"
+  },
+  {
+   "id": 11,
+   "audio": "audio-grave/l11.wav",
+   "start": 58.18,
+   "end": 63.86,
+   "text": "O Pedro. O melhor amigo. A bike estava pintada de outra cor, na garagem da avó dele."
+  },
+  {
+   "id": 12,
+   "audio": "audio-grave/l12.wav",
+   "start": 64.26,
+   "end": 71.46,
+   "text": "Os números não mentem. As pessoas, sim. Caso seis, resolvido. Segue pra não perder o próximo."
+  }
+ ]
+}
