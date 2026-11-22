@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Joseph 3D</title>
+<style>
+@font-face { font-family: "Anton"; src: url("../../_lib/anton-400.woff2") format("woff2"); }
+@font-face { font-family: "Kalam"; font-weight: 700; src: url("../../_lib/kalam-700.woff2") format("woff2"); }
+html, body { margin: 0; background: #000; overflow: hidden; }
+#frame { position: relative; overflow: hidden; }
+canvas { display: block; }
+.a { font-family: Anton; letter-spacing: 4px; paint-order: stroke fill; color: #fff; -webkit-text-stroke: 22px #0b0b0b; white-space: nowrap; line-height: .95; }
+.orb { position: absolute; border-radius: 50%; border: 6px solid rgba(255,255,255,.65); display: flex; align-items: center; justify-content: center; }
+</style></head>
+<body><div id="frame"><canvas id="gl"></canvas><div id="ov"></div></div>
+<script src="build/arte3d.js"></script>
+</body></html>
