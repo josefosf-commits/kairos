@@ -24,7 +24,7 @@
   #bub { position: absolute; left: 50%; top: 560px; transform-origin: 50% 50%; font-family: "Kalam"; font-weight: 700; font-size: 60px; color: #1d1d1d; background: #fff; padding: 12px 34px; border-radius: 999px;
          border: 6px solid #1d1d1d; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(0,0,0,.25); }
   .panel { position: absolute; left: 50%; transform: translateX(-50%); width: 940px; font-family: "Anton"; color: #fff; opacity: 0; }
-  #duo { top: 330px; display: flex; gap: 30px; justify-content: center; }
+  #duo { top: 330px; transition: none; display: flex; gap: 30px; justify-content: center; }
   #duo div { flex: 1; text-align: center; padding: 18px 10px; border-radius: 34px; border: 6px solid #fff; font-size: 64px; line-height: 1.05;
              -webkit-text-stroke: 9px #111; paint-order: stroke fill; }
   #race { top: 330px; }
@@ -32,7 +32,7 @@
   .lbl { display: flex; justify-content: space-between; font-size: 62px; -webkit-text-stroke: 9px #111; paint-order: stroke fill; margin-bottom: 8px; }
   .bar { position: relative; height: 60px; border-radius: 30px; background: rgba(0,0,0,.55); border: 5px solid #fff; overflow: hidden; }
   .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 30px; }
-  .line { position: absolute; left: calc(10000 / 13000 * 100%); top: -8px; bottom: -8px; width: 8px; background: #ffd60a; box-shadow: 0 0 20px #ffd60a; }
+  .line { position: absolute; left: calc(100000 / 130000 * 100%); top: -8px; bottom: -8px; width: 8px; background: #ffd60a; box-shadow: 0 0 20px #ffd60a; }
   #msgs { position: absolute; left: 90px; top: 520px; width: 620px; opacity: 0; }
   #msgs div { background: #25d366; color: #0b2b16; font-family: "Kalam"; font-weight: 700; font-size: 50px; padding: 12px 30px; border-radius: 30px 30px 30px 6px;
               margin-bottom: 18px; display: inline-block; border: 5px solid #0b2b16; opacity: 0; }
@@ -49,15 +49,15 @@
   <div class="ov anton" id="check">1 MINUTO ✓</div>
   <div class="ov anton" id="home">LIÇÃO: FEITA ✓</div>
   <div class="ov anton" id="clock">00:00</div>
-  <div class="ov anton" id="forever">QUEM PASSAR DE 10 MIL<br>VIRA O JOSEPH</div>
-  <div class="ov anton" id="big">QI<br>12.800!</div>
-  <div class="ov anton" id="end">DIA 7<br>EM BREVE<br><span style="font-size:90px;color:#fff">segue pra não perder</span></div>
+  <div class="ov anton" id="forever">QUEM PASSAR DE 100 MIL<br>VIRA O JOSEPH</div>
+  <div class="ov anton" id="big">QI<br>102.400!</div>
+  <div class="ov anton" id="end">DIA 11<br>EM BREVE<br><span style="font-size:90px;color:#fff">segue pra não perder</span></div>
   <div id="bub">pão com ovo?</div>
   <div class="panel" id="duo"><div style="background:#e9a400">JOSEPH<br>QI <span id="dj">6.400</span></div><div style="background:#d90429">ROBÔ<br>QI <span id="dr">6.400</span></div></div>
   <div class="panel" id="race">
     <div class="row"><div class="lbl"><span>JOSEPH</span><span id="rjn">6.400</span></div><div class="bar"><i id="rjb" style="background:#ffd60a"></i><b class="line"></b></div></div>
     <div class="row"><div class="lbl"><span id="rrl">ROBÔ</span><span id="rrn">6.400</span></div><div class="bar"><i id="rrb" style="background:#ff2d55"></i><b class="line"></b></div></div>
-    <div class="lbl" style="justify-content:center;color:#ffd60a;font-size:54px">LINHA DE CHEGADA: 10.000</div>
+    <div class="lbl" style="justify-content:center;color:#ffd60a;font-size:54px">LINHA DE CHEGADA: 100.000</div>
   </div>
   <div id="msgs"><div>blz, amanhã eu vou</div><br><div>kkkkkk</div><br><div>já fiz a lição sim</div></div>
   <div class="ov" id="cap"></div>

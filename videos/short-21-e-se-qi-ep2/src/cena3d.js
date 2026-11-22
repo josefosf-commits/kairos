@@ -75,14 +75,17 @@ function setBeam(a, b, op) {
 }
 const fmt = n => Math.round(n).toLocaleString('pt-BR');
 
-window.render = function (t) {
+const KN = [[55.2, 43.9], [62.86, 51.7], [72.62, 61.62], [76.36, 65.36], [80.69, 69.69], [86.0, 74.2], [91.52, 79.72], [97.96, 86.24]];
+function mapOld(T) { for (let i = 0; i < KN.length - 1; i++) if (T < KN[i + 1][0]) return lerp(KN[i][1], KN[i + 1][1], (T - KN[i][0]) / (KN[i + 1][0] - KN[i][0])); return KN[KN.length - 1][1] + (T - KN[KN.length - 1][0]); }
+window.render = function (T) {
   TL = TL || window.TL; if (!caps) buildCaps();
-  const amp = ampAt(TL, t);
+  const t = T >= 55.2 ? mapOld(T) : T;
+  const amp = ampAt(TL, T);
   setDay(1); camera.fov = 52;
   J.position.set(0.3, 0.86, -0.4); J.rotation.set(0, 0, 0); jo.legs.forEach(l => l.visible = true);
-  jo.head.scale.setScalar(1.42); glasses.visible = true;
+  jo.head.scale.setScalar(T > 55 ? 1.62 : 1.42); glasses.visible = true;
   jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0;
-  robot.position.set(1.4, 0, -1.3); robot.rotation.set(0, -0.4, 0); rhead.rotation.set(0, 0, 0); rarms.forEach(a => a.rotation.set(0, 0, 0));
+  robot.position.set(1.4, 0, -1.3); robot.rotation.set(0, -0.4, 0); robot.scale.setScalar(T > 46 ? 1.15 : 1); rhead.rotation.set(0, 0, 0); rarms.forEach(a => a.rotation.set(0, 0, 0));
   eyeMat.emissive.set('#00e5ff'); eyeMat.emissiveIntensity = 2.2; mouthMat.emissiveIntensity = 0; rmouth.scale.set(1, 1, 1);
   antMat.emissiveIntensity = 0.3; leds.forEach((l, i) => l.material.emissiveIntensity = Math.max(0, Math.sin(t * 5 + i)) * 1.5);
   eyeLight.intensity = 0; antLight.intensity = 0;
@@ -207,6 +210,25 @@ window.render = function (t) {
     robot.position.set(9, 0, 9);
     camPos = mix3([0.3, 2.25, 2.4], [0.3, 2.2, 1.7], sm((t - 40.2) / 3.7)); camLook = [0.3, 2.1, -0.4];
   }
+  // ===== montagem: dias 7, 8 e 9 =====
+  else if (T < 55.2) {
+    const D = [[43.96, 7, 12800], [47.66, 8, 25600], [49.96, 9, 51200]];
+    const d = D.filter(x => T >= x[0]).pop() || D[0];
+    const di = D.indexOf(d);
+    setDay(0.5 + 0.5 * Math.cos((T - 43.9) * 2.6));
+    const RP = [1.15, 0, -0.7]; robot.position.set(...RP); robot.rotation.set(0, -0.55, 0);
+    robot.scale.setScalar(1 + 0.05 * (di + 1) + 0.04 * bounce(lin(T, d[0] + 0.8, d[0] + 1.4)));
+    J.position.set(-0.45, 0.86, -0.4); J.rotation.y = 0.55;
+    jo.head.scale.setScalar(1.45 + 0.06 * (di + 1) + 0.05 * bounce(lin(T, d[0] + 0.8, d[0] + 1.4)));
+    jo.mats.skin.emissiveIntensity = 0.05 + 0.05 * di;
+    jo.pose({ breathe: jb, armL: [0.3, 0.2, 0.4], armR: [0.3, 0.2, 0.4], head: [0, 0, 0] });
+    jo.face({ open: blink(T), mouth: 'flat', brow: 0.3, browTilt: 0.2, look: [0.7, 0.3] });
+    scene.updateMatrixWorld(true); jo.head.getWorldPosition(v); v.y += 0.85; rhead.getWorldPosition(v2); const tip = v2.clone(); tip.y += 0.55;
+    const bk = 0.5 + 0.5 * Math.abs(Math.sin(T * 5)) + (T > 52.5 ? 0.6 : 0);
+    setBeam(v.clone(), tip, Math.min(1, bk)); antMat.emissiveIntensity = 1 + 2 * bk; eyeMat.emissiveIntensity = 2.5;
+    camPos = mix3([0.35, 2.6, 5.6], [0.35, 2.45, 4.6], sm((T - 43.9) / 11.3)); camLook = [0.35, 1.85, -0.5];
+    ov.mont = d; ov.duo = 1; ov.duoN = d[2] * (T > d[0] + 0.7 ? 1 : 0.5);
+  }
   // ===== 7/8: meia-noite, a corrida =====
   else if (t < 61.4) {
     setDay(0);
@@ -223,8 +245,8 @@ window.render = function (t) {
     jo.face({ open: blink(t), mouth: 'flat', brow: -0.3, browTilt: 0.4, look: sneak > 0 ? [0.7, 0] : [0.6, 0.2] });
     ov.clock = t < 47.0 ? seg(t, 44.3, 44.6) : 0;
     ov.race = seg(t, 45.0, 45.5);
-    const rr = t < 53.8 ? lerp(6400, 9000, sm(lin(t, 45.5, 53.8))) : t < 55.0 ? lerp(9000, 9500, sm(lin(t, 53.8, 55.0))) : lerp(9500, 9900, sm(lin(t, 55.0, 60.5)));
-    const jj = lerp(6400, 8100, sm(lin(t, 45.5, 60.5)));
+    const rr = t < 53.8 ? lerp(51200, 90000, sm(lin(t, 45.5, 53.8))) : t < 55.0 ? lerp(90000, 95000, sm(lin(t, 53.8, 55.0))) : lerp(95000, 99000, sm(lin(t, 55.0, 60.5)));
+    const jj = lerp(51200, 81000, sm(lin(t, 45.5, 60.5)));
     ov.rr = rr; ov.jj = jj;
     if (t < 56.9) { camPos = mix3([-0.2, 2.4, 4.6], [-0.2, 2.3, 4.0], sm((t - 43.9) / 13)); camLook = [0.2, 1.6, -0.6]; }
     else { camPos = mix3([3.9, 2.7, 4.2], [3.6, 2.6, 3.7], sm((t - 56.9) / 4.5)); camLook = [1.1, 1.1, -0.7]; }
@@ -243,13 +265,13 @@ window.render = function (t) {
     rarms[0].rotation.set(off ? -0.6 : 0, 0, 0);
     scene.updateMatrixWorld(true); rhead.getWorldPosition(v); eyeLight.color.set('#ff2d55'); eyeLight.position.set(v.x, v.y, v.z + 0.6); eyeLight.intensity = 4 * fl;
     const A1 = [2.45, 0.86, -1.3];
-    const win = seg(t, 69.3, 69.9);
+    const win = seg(t, 69.65, 70.2);
     if (t < 65.2) {
       J.position.set(...A1); J.rotation.y = facing(A1, [3.0, 0, -2.0]);
       const press = seg(t, 62.3, 62.7) * (1 - seg(t, 63.4, 63.8));
       jo.pose({ breathe: jb, lean: 0.3 * press, armR: [lerp(0.3, 1.3, press), 0, lerp(0.3, 0.6, press)], armL: [0.3, 0.1, 0.3] });
       jo.face({ open: blink(t), mouth: off ? 'smile' : 'flat', brow: -0.2, look: [0, -0.5] });
-      camPos = t < 62.9 ? [3.95, 1.75, -0.85] : mix3([0.2, 2.2, 3.2], [0.2, 2.15, 2.8], sm((t - 62.9) / 2.3));
+      camPos = t < 62.9 ? [4.7, 2.1, -0.2] : mix3([0.2, 2.2, 3.2], [0.2, 2.15, 2.8], sm((t - 62.9) / 2.3));
       camLook = t < 62.9 ? [2.55, 1.2, -1.75] : [0.8, 1.7, -1.2];
     } else {
       const JP = [-0.3, 0.86, -0.1];
@@ -258,12 +280,12 @@ window.render = function (t) {
       jo.pose({ breathe: jb, armL: [lerp(0.2, 2.8, win), lerp(0.1, 0.5, win), 0.1], armR: [lerp(0.2, 2.8, win), lerp(0.1, 0.5, win), 0.1] });
       jo.face({ open: blink(t), mouth: win > 0.5 ? 'o' : 'smile', brow: 0.6 + 0.6 * win, look: [0, 0.3] });
       jo.mats.skin.emissiveIntensity = 0.1 + 0.3 * win;
-      burst(t, 69.5, [JP[0], 2.8, JP[2]]);
+      burst(t, 69.75, [JP[0], 2.8, JP[2]]);
       camPos = mix3([0.3, 2.3, 4.2], [0.3, 2.2, 3.6], sm((t - 65.2) / 8.4)); camLook = [0.3, 1.8, -0.6];
       shake = 0.03 * Math.max(0, 1 - Math.abs(t - 69.6) * 3);
     }
-    ov.race = 1; ov.rr = t < 62.8 ? 9900 + 99 * seg(t, 61.4, 62.7) : 9999; ov.frozen = off;
-    ov.jj = lerp(8100, 12800, sm(lin(t, 66.5, 69.6)));
+    ov.race = 1; ov.rr = t < 62.8 ? 99000 + 999 * seg(t, 61.4, 62.7) : 99999; ov.frozen = off;
+    ov.jj = lerp(81000, 102400, sm(lin(t, 66.5, 69.6)));
     ov.big = seg(t, 69.6, 70.0) * (1 - seg(t, 73.2, 73.6));
   }
   // ===== 11/12: escuro, a antena pisca =====
@@ -296,15 +318,17 @@ window.render = function (t) {
   const bub = $('bub'); bub.style.opacity = ov.bub ? 1 : 0; bub.style.transform = `translateX(-50%) scale(${0.5 + 0.5 * back(ov.bub || 0)})`;
   // duelo de QI
   const duo = $('duo'); duo.style.opacity = ov.duo || 0;
-  if (ov.duo) { $('dj').textContent = fmt(t > 27.7 ? 6400 * (1 + seg(t, 27.6, 28.1)) : 6400); $('dr').textContent = $('dj').textContent; }
+  if (ov.duo) { $('dj').textContent = ov.duoN ? fmt(ov.duoN) : fmt(t > 27.7 ? 6400 * (1 + seg(t, 27.6, 28.1)) : 6400); $('dr').textContent = $('dj').textContent; }
+  const de = $('day'); if (ov.mont) { de.innerHTML = 'DIA ' + ov.mont[1]; de.style.top = '560px'; } else { de.innerHTML = 'DIA 6<br><span style="color:#ffd54a;font-size:170px">QI 6.400</span>'; de.style.top = '160px'; }
+  if (ov.mont) pop('day', lin(T, ov.mont[0], ov.mont[0] + 0.3));
   const race = $('race'); race.style.opacity = ov.race || 0;
   if (ov.race) {
     $('rjn').textContent = fmt(ov.jj); $('rrn').textContent = fmt(ov.rr);
-    $('rjb').style.width = clamp(ov.jj / 13000) * 100 + '%'; $('rrb').style.width = clamp(ov.rr / 13000) * 100 + '%';
+    $('rjb').style.width = clamp(ov.jj / 130000) * 100 + '%'; $('rrb').style.width = clamp(ov.rr / 130000) * 100 + '%';
     $('rrb').style.background = ov.frozen ? '#7fb8ff' : '#ff2d55'; $('rrl').textContent = ov.frozen ? 'ROBÔ (CONGELOU)' : 'ROBÔ';
   }
   const msgs = $('msgs'); msgs.style.opacity = ov.msgs || 0;
   [...msgs.children].forEach((c, i) => { const k = clamp(((t - 32.9) * 4 - i)); c.style.opacity = k; c.style.transform = `translateY(${(1 - k) * 40}px)`; });
-  const c = caps.find(c => t >= c.a - 0.05 && t < c.b + 0.25);
+  const c = caps.find(c => T >= c.a - 0.05 && T < c.b + 0.25);
   const ce = $('cap'); ce.textContent = c ? c.s : ''; ce.style.opacity = c ? 1 : 0; ce.style.color = c && c.robot ? '#ff4d6d' : '#fff';
 };
