@@ -1,0 +1,15 @@
+{
+ "name": "SHORT-20-E-SE-QI-DOBRADO",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {"id": 1, "text": "E se o seu QI dobrasse todo dia?", "gap": 0.4},
+  {"id": 2, "text": "Dia um: QI duzentos. O Joseph faz a lição de casa inteira em dez segundos.", "gap": 0.8},
+  {"id": 3, "text": "Dia dois: quatrocentos. Monta o cubo mágico de olhos fechados.", "gap": 0.8},
+  {"id": 4, "text": "Dia três: oitocentos. Constrói um robô com o que tinha no quarto.", "gap": 0.8},
+  {"id": 5, "text": "Dia quatro: mil e seiscentos. Ele explica uma ideia... e ninguém entende nada.", "gap": 0.8},
+  {"id": 6, "text": "Dia cinco: três mil e duzentos. A cabeça brilha tanto que ele nem consegue dormir.", "gap": 0.8},
+  {"id": 7, "text": "Dia seis: o robô abre os olhos... e começa a pensar sozinho.", "gap": 0.9},
+  {"id": 8, "text": "Segue pra ver o dia sete.", "gap": 0.6}
+ ]
+}
