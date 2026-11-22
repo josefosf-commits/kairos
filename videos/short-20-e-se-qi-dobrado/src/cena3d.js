@@ -89,17 +89,27 @@ window.render = function (t) {
   ami.root.visible = false; cube.visible = false; pencil.visible = false; pages.forEach(p => p.visible = false);
   sparks.forEach(s => s.visible = false); headLight.intensity = 0; eyeLight.intensity = 0;
   jo.mats.skin.emissive.set('#000000'); jo.mats.skin.emissiveIntensity = 0;
-  if (t < 0) { // ---- capa: Joseph cabeçudo brilhando, robô acordando atrás ----
-    setDay(0.25);
-    J.position.set(0.3, 0.86, -0.2); jo.head.scale.setScalar(1.38); glasses.visible = true;
-    jo.pose({ armR: [1.45, -0.95, 2.25], armL: [0.25, 0.55, 1.2], head: [-0.1, 0.12, 0.1] });
-    jo.face({ open: 1.3, mouth: 'flat', brow: 0.5, browTilt: 0.35, look: [0.5, 0.6] });
-    jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.18;
-    scene.updateMatrixWorld(true); jo.head.getWorldPosition(v); headLight.position.set(v.x, v.y + 0.8, v.z + 0.6); headLight.intensity = 8;
-    parts.forEach(pt => { pt.m.visible = true; pt.m.position.set(...pt.p); pt.m.rotation.set(0, 0, 0); });
-    robot.position.set(1.5, 0, -1.6); rhead.rotation.set(0.1, -0.5, 0.1);
-    eyeMat.emissive.set('#ff2d55'); eyeMat.emissiveIntensity = 3; rhead.getWorldPosition(v); eyeLight.color.set('#ff2d55'); eyeLight.position.set(v.x, v.y, v.z + 0.6); eyeLight.intensity = 5;
-    camera.fov = 50; camera.updateProjectionMatrix(); cam([0.6, 2.2, 3.4], [0.75, 1.85, -0.6], 0, 0);
+  if (t < 0) { // ---- capa: cabeça gigante brilhando + raios de explosão atrás ----
+    setDay(0.2); scene.background.set('#0b0820');
+    J.position.set(0.3, 0.86, -0.2); J.rotation.y = 0; jo.head.scale.setScalar(1.55); glasses.visible = true;
+    jo.pose({ armL: [1.75, 1.05, 2.35], armR: [1.75, 1.05, 2.35], head: [-0.12, 0, 0.06] });
+    jo.face({ open: 1.45, mouth: 'o', brow: 1.4, look: [0, 0.15] });
+    jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.12;
+    parts.forEach(pt => pt.m.visible = false);
+    scene.updateMatrixWorld(true); jo.head.getWorldPosition(v);
+    headLight.position.set(v.x, v.y + 0.3, v.z + 1.4); headLight.color.set('#fff1d0'); headLight.intensity = 10;
+    if (!window._rays) {
+      const c = document.createElement('canvas'); c.width = c.height = 1024; const x = c.getContext('2d');
+      for (let k = 0; k < 28; k++) { x.beginPath(); x.moveTo(512, 512); const a0 = k / 28 * Math.PI * 2, a1 = a0 + Math.PI / 28; x.arc(512, 512, 720, a0, a1); x.closePath(); x.fillStyle = k % 2 ? '#ff7b00' : '#ffd60a'; x.fill(); }
+      const g = x.createRadialGradient(512, 512, 60, 512, 512, 512); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.25, 'rgba(255,240,180,.6)'); g.addColorStop(1, 'rgba(11,8,32,1)');
+      x.globalCompositeOperation = 'source-over'; x.fillStyle = g; x.globalAlpha = 0.75; x.fillRect(0, 0, 1024, 1024);
+      const tx = new THREE.CanvasTexture(c); tx.colorSpace = THREE.SRGBColorSpace;
+      window._rays = new THREE.Mesh(new THREE.PlaneGeometry(7, 7), new THREE.MeshBasicMaterial({ map: tx, toneMapped: false }));
+      scene.add(window._rays);
+    }
+    const CP = [0.3, 2.05, 3.5];
+    window._rays.position.set(v.x, v.y - 0.1, v.z - 1.6); window._rays.lookAt(...CP);
+    camera.fov = 50; camera.updateProjectionMatrix(); cam(CP, [0.3, 2.0, -0.2], 0, 0);
     renderer.render(scene, camera); return;
   }
   const day = DAYS.filter(d => t >= d[0]).pop();
