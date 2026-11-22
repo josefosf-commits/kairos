@@ -89,6 +89,19 @@ window.render = function (t) {
   ami.root.visible = false; cube.visible = false; pencil.visible = false; pages.forEach(p => p.visible = false);
   sparks.forEach(s => s.visible = false); headLight.intensity = 0; eyeLight.intensity = 0;
   jo.mats.skin.emissive.set('#000000'); jo.mats.skin.emissiveIntensity = 0;
+  if (t < 0) { // ---- capa: Joseph cabeçudo brilhando, robô acordando atrás ----
+    setDay(0.25);
+    J.position.set(0.3, 0.86, -0.2); jo.head.scale.setScalar(1.38); glasses.visible = true;
+    jo.pose({ armR: [1.45, -0.95, 2.25], armL: [0.25, 0.55, 1.2], head: [-0.1, 0.12, 0.1] });
+    jo.face({ open: 1.3, mouth: 'flat', brow: 0.5, browTilt: 0.35, look: [0.5, 0.6] });
+    jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.18;
+    scene.updateMatrixWorld(true); jo.head.getWorldPosition(v); headLight.position.set(v.x, v.y + 0.8, v.z + 0.6); headLight.intensity = 8;
+    parts.forEach(pt => { pt.m.visible = true; pt.m.position.set(...pt.p); pt.m.rotation.set(0, 0, 0); });
+    robot.position.set(1.5, 0, -1.6); rhead.rotation.set(0.1, -0.5, 0.1);
+    eyeMat.emissive.set('#ff2d55'); eyeMat.emissiveIntensity = 3; rhead.getWorldPosition(v); eyeLight.color.set('#ff2d55'); eyeLight.position.set(v.x, v.y, v.z + 0.6); eyeLight.intensity = 5;
+    camera.fov = 50; camera.updateProjectionMatrix(); cam([0.6, 2.2, 3.4], [0.75, 1.85, -0.6], 0, 0);
+    renderer.render(scene, camera); return;
+  }
   const day = DAYS.filter(d => t >= d[0]).pop();
   const dn = day ? day[1] : 0;
   jo.head.scale.setScalar(1 + [0, 0.06, 0.13, 0.2, 0.28, 0.38, 0.38][dn] + (day ? 0.06 * bounce(lin(t, day[0] + 0.4, day[0] + 1.1)) : 0));
