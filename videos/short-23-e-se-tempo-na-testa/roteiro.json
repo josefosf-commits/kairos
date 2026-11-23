@@ -1,0 +1,15 @@
+{
+ "name": "SHORT-23-E-SE-TEMPO-NA-TESTA",
+ "tail": 2.2,
+ "vertical": true,
+ "lines": [
+  {"id": 1, "text": "E se o tempo que você passa no celular aparecesse escrito na sua testa?", "gap": 0.4},
+  {"id": 2, "text": "Sete da manhã. O Joseph acorda e já pega o celular. Na testa: dez minutos.", "gap": 0.8},
+  {"id": 3, "text": "No café, já tá em uma hora. A mãe olha pra testa dele... e não diz nada.", "gap": 0.8},
+  {"id": 4, "text": "À tarde, o amigo chega. Na testa do amigo: quarenta minutos. Na do Joseph: cinco horas.", "gap": 0.8},
+  {"id": 5, "text": "O amigo ri. E o Joseph esconde a testa com o boné.", "gap": 0.8},
+  {"id": 6, "text": "À noite, sete horas e meia. Mais do que ele dormiu.", "gap": 0.9},
+  {"id": 7, "text": "Então ele faz um teste: guarda o celular na gaveta... e a testa para de contar.", "gap": 0.9},
+  {"id": 8, "text": "E você? Quanto estaria escrito na sua testa hoje? Comenta o número.", "gap": 0.8}
+ ]
+}

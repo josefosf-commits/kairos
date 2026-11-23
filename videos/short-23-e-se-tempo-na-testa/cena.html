@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SHORT-23-E-SE-TEMPO-NA-TESTA</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; src: url("../_lib/anton-400.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  canvas { display: block; width: 1080px; height: 1920px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; transform-origin: 50% 50%; }
+  .anton { font-family: "Anton"; font-weight: 400; letter-spacing: 3px; -webkit-text-stroke: 16px #0b0b0b; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.35) 100%); }
+  .fh { position: absolute; font-family: "Anton"; font-size: 64px; letter-spacing: 3px; padding: 2px 18px; background: rgba(10,10,14,.88);
+        border: 4px solid; border-radius: 14px; white-space: pre; opacity: 0; transform-origin: 50% 50%; line-height: 1.1; }
+  #title { left: 50%; top: 170px; transform: translateX(-50%); font-size: 120px; text-align: center; line-height: 1.05; }
+  #clock { left: 50%; top: 200px; font-size: 170px; color: #ffd54a; }
+  #sleep { left: 50%; top: 260px; font-size: 96px; color: #ff6b6b; text-align: center; line-height: 1.1; }
+  #stop { left: 50%; top: 280px; font-size: 120px; color: #52d273; }
+  #cta { left: 50%; top: 200px; font-size: 104px; color: #ffd60a; text-align: center; line-height: 1.05; }
+  #cta2 { left: 50%; top: 470px; font-size: 90px; color: #fff; }
+  #cap { left: 50%; bottom: 420px; transform: translateX(-50%); width: 960px; text-align: center; font-size: 76px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="vig"></div>
+  <div class="fh" id="fj"></div>
+  <div class="fh" id="fa"></div>
+  <div class="ov anton" id="title">E SE APARECESSE<br><span style="color:#ff3b3b">NA SUA TESTA?</span></div>
+  <div class="ov anton" id="clock">07:00</div>
+  <div class="ov anton" id="sleep">MAIS DO QUE<br>ELE DORMIU</div>
+  <div class="ov anton" id="stop">PAROU!</div>
+  <div class="ov anton" id="cta">QUANTO TÁ<br>NA SUA TESTA?</div>
+  <div class="ov anton" id="cta2">COMENTA O NÚMERO</div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>
