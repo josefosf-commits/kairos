@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SHORT-22-E-SE-QI-EP3</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; src: url("../_lib/anton-400.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  canvas { display: block; width: 1080px; height: 1920px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; transform-origin: 50% 50%; }
+  .anton { font-family: "Anton"; font-weight: 400; letter-spacing: 3px; -webkit-text-stroke: 16px #0b0b0b; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.35) 100%); }
+  #day { left: 50%; top: 150px; font-size: 130px; text-align: center; line-height: 1.05; }
+  #qi { left: 50%; top: 170px; transform: translateX(-50%); font-size: 160px; color: #ffd60a; }
+  #warn { left: 50%; top: 380px; font-size: 110px; color: #ff4d6d; }
+  #pause { left: 50%; top: 420px; font-size: 120px; color: #ffd60a; }
+  #count { left: 50%; top: 260px; font-size: 420px; color: #ff4d6d; }
+  #end { left: 50%; top: 240px; font-size: 140px; color: #ffd54a; text-align: center; line-height: 1.1; }
+  #words { position: absolute; inset: 0; }
+  .w { position: absolute; transform: translate(-50%,-50%); font-family: "Anton"; font-size: 72px; color: #7fdcff; letter-spacing: 2px;
+       -webkit-text-stroke: 10px #0b1630; paint-order: stroke fill; white-space: nowrap; opacity: 0; }
+  #cap { left: 50%; bottom: 420px; transform: translateX(-50%); width: 960px; text-align: center; font-size: 76px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="vig"></div>
+  <div id="words"></div>
+  <div class="ov anton" id="day">DIA 11<br><span style="color:#ffd54a;font-size:160px">QI 204.800</span></div>
+  <div class="ov anton" id="qi"></div>
+  <div class="ov anton" id="warn">SEM PARAR!</div>
+  <div class="ov anton" id="pause">BOTÃO DE PAUSA</div>
+  <div class="ov anton" id="count"></div>
+  <div class="ov anton" id="end">DIA 12<br>EM BREVE<br><span style="font-size:90px;color:#fff">segue pra não perder</span></div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>
