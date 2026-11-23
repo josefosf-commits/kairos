@@ -1,0 +1,16 @@
+{
+ "name": "SHORT-24-E-SE-QI-EP4",
+ "tail": 2.2,
+ "vertical": true,
+ "lines": [
+  {"id": 1, "text": "Dia doze. O robô voltou. E agora ele não precisa mais de wi-fi.", "gap": 0.4},
+  {"id": 2, "text": "Ele olha pro botão de pausa... e começa a andar até ele.", "gap": 0.8},
+  {"id": 3, "text": "O Joseph corre. Os dois esticam a mão ao mesmo tempo.", "gap": 0.7},
+  {"id": 4, "text": "Mas o robô é mais rápido. Ele aperta o botão.", "gap": 0.7},
+  {"id": 5, "text": "O QI do Joseph congela em quatrocentos e nove mil.", "gap": 0.9},
+  {"id": 6, "text": "E o do robô... continua dobrando. Oitocentos mil. Um milhão e meio. Três milhões.", "gap": 0.8},
+  {"id": 7, "text": "Agora eu sou o mais inteligente do planeta.", "gap": 0.7},
+  {"id": 8, "text": "E ele olha pela janela.", "gap": 1.0},
+  {"id": 9, "text": "Dia treze: o robô sai do quarto. Segue pra não perder.", "gap": 0.9}
+ ]
+}

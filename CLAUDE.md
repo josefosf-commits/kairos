@@ -43,6 +43,12 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 8. Revisar estes números toda semana enquanto o canal é novo.
 9. **Checado em 19/11 (prints de 22/10 a 18/11):** "Tudo" ≈ "Shorts". A aba "Vídeos" mostrou 13–17 = 100%, mas com poucas views: é amostra pequena, não é conclusão. Junto com o desempenho (longos jovens/universais: 117 a 189 views; RECOMEÇA., adulto: 23 views em 2 dias), o sinal é que **o público dos longos é mais jovem do que se apostou**. Por enquanto: longos com tema jovem/universal (escola, prova, celular, sono, foco, primeiro emprego) ou compilação dos Ladrões; o tema adulto fica nos shorts. Reavaliar a aba "Vídeos" em 1 a 2 semanas.
 
+## Série "E se? QI dobrado" (3D) — prioridade (23/11/2026)
+
+- Quando o usuário pedir "mais um short" sem dizer o tema, **fazer o próximo episódio da série do QI** (ep. 1 a 3 = shorts 20 a 22; cada um termina com gancho "dia X em breve"). Se o pedido for ambíguo, perguntar antes de gastar créditos.
+- O usuário achou fraco o short solto "tempo de celular na testa" (short 23): evitar temas soltos desse tipo; preferir histórias da série com vilão (o robô) e gancho.
+- Base técnica: `videos/_lib/mundo3d.js` + copiar `src/cena3d.js` do episódio anterior (robô, botão, celular, quarto já prontos).
+
 ## Plano de publicação (combinado em 19/11/2026)
 
 - **Semana-modelo:** segunda a sábado, 2 shorts por dia (cerca de 12h e 19h); domingo, 1 vídeo longo + 1 short "trailer" dele (com o longo como vídeo relacionado). Mínimo absoluto: 1 short por dia, sem pausa.
