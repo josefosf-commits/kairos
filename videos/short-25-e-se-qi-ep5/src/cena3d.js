@@ -82,144 +82,168 @@ const facing = (a, b) => Math.atan2(b[0] - a[0], b[2] - a[2]);
 const WORDS = ['HELLO', 'BONJOUR', 'HOLA', 'CIAO', 'HALLO', 'OLÁ', 'ПРИВЕТ', 'E = mc²', '42', 'π', 'NAMASTE', 'SALVE'];
 const wl = $('words'); const wEls = WORDS.map(w => { const d = document.createElement('div'); d.className = 'w'; d.textContent = w; wl.appendChild(d); return d; });
 
-// extras do ep. 5: lâmpada da ideia, luz da porta, etiquetas dos aparelhos
+// extras do ep. 5: gelo, lâmpada, janela com o bairro
 const bulb = grp(scene);
 mesh(sph(0.2, 24, 16), new THREE.MeshStandardMaterial({ color: '#fff3a0', emissive: '#ffd54a', emissiveIntensity: 2.2 }), bulb, [0, 0.12, 0]);
 mesh(new THREE.CylinderGeometry(0.09, 0.08, 0.14, 16), M('#9aa5b1', { metalness: 0.4 }), bulb, [0, -0.1, 0]);
 const bulbLight = new THREE.PointLight('#ffd54a', 0, 5, 2); scene.add(bulbLight);
-const doorLight = new THREE.PointLight('#7fdcff', 0, 7, 1.5); doorLight.position.set(-5.6, 1.4, 1.3); scene.add(doorLight);
-const doorHole = scene.children.find(o => o.isMesh && o.material && o.material.isMeshBasicMaterial && o.position.x > -5.95 && o.position.x < -5.85 && Math.abs(o.position.z - 1.3) < 0.01);
-const APPS = [[11.58, 'TV', '#3a86ff'], [12.55, 'MICRO-ONDAS', '#ff9f1c'], [13.78, 'GELADEIRA', '#52d273']];
-const pv = new THREE.Vector3();
-function at(el, p, on, sc = 1) { if (!on) { el.style.opacity = 0; return; } pv.set(...p).project(camera); el.style.opacity = 1; el.style.left = ((pv.x + 1) / 2 * W) + 'px'; el.style.top = ((1 - pv.y) / 2 * H) + 'px'; el.style.transform = `translate(-50%,-50%) scale(${sc})`; }
+const iceMat = new THREE.MeshStandardMaterial({ color: '#bde8ff', transparent: true, opacity: 0.38, roughness: 0.1, metalness: 0.1, emissive: '#7fdcff', emissiveIntensity: 0.15 });
+const ice = grp(scene); const shards = [];
+for (let i = 0; i < 14; i++) {
+  const a = i / 14 * Math.PI * 2, y = 0.3 + (i % 3) * 1.0;
+  const m = mesh(rbox(0.95, 1.05, 0.12, 0.05), iceMat, ice, [Math.sin(a) * 0.85, y, Math.cos(a) * 0.85], [0, a, 0]); m.castShadow = false;
+  shards.push({ m, p: m.position.clone(), r: m.rotation.clone(), a });
+}
+const icetop = mesh(rbox(1.7, 0.12, 1.7, 0.05), iceMat, ice, [0, 3.15, 0]); icetop.castShadow = false;
+// janela: bairro (textura)
+const wc = document.createElement('canvas'); wc.width = 1024; wc.height = 716; const wx = wc.getContext('2d');
+const wtex = new THREE.CanvasTexture(wc); wtex.colorSpace = THREE.SRGBColorSpace;
+const HOUSES = [[40, 300, 150, '#5e548e'], [210, 260, 140, '#355070'], [370, 320, 170, '#6d597a'], [560, 280, 150, '#2d6a4f'], [730, 250, 130, '#3d405b'], [880, 310, 130, '#6b4226']];
+function drawStreet(t, robotX, eyesBig) {
+  const g = wx.createLinearGradient(0, 0, 0, 716); g.addColorStop(0, '#1b1440'); g.addColorStop(0.6, '#ff8c61'); g.addColorStop(1, '#2b2140');
+  wx.fillStyle = g; wx.fillRect(0, 0, 1024, 716);
+  HOUSES.forEach(([x, h, w, c], i) => {
+    const near = Math.abs(robotX - (x + w / 2)) < 120;
+    wx.fillStyle = c; wx.fillRect(x, 620 - h, w, h);
+    wx.beginPath(); wx.moveTo(x - 10, 620 - h); wx.lineTo(x + w / 2, 560 - h); wx.lineTo(x + w + 10, 620 - h); wx.fill();
+    for (let r = 0; r < 3; r++) for (let k = 0; k < 2; k++) {
+      const on = near ? Math.sin(t * 20 + r + k + i) > -0.3 : Math.sin(t * 3 + i * 1.7 + r * 2.1 + k) > 0.2;
+      wx.fillStyle = on ? (near ? ['#7fdcff', '#ff4d6d', '#52d273', '#ffd60a'][(Math.floor(t * 8) + r + k) % 4] : '#ffd27a') : '#1d1d2b';
+      wx.fillRect(x + 18 + k * (w / 2 - 6), 640 - h + r * (h / 3.4), w / 2 - 36, h / 6);
+    }
+  });
+  wx.fillStyle = '#2b2b33'; wx.fillRect(0, 620, 1024, 96); wx.fillStyle = '#ffd60a'; for (let x = 20; x < 1024; x += 90) wx.fillRect(x, 662, 50, 8);
+  // semáforo
+  wx.fillStyle = '#111'; wx.fillRect(980, 380, 12, 240); wx.fillRect(962, 330, 48, 120);
+  ['#ff2d55', '#ffd60a', '#52d273'].forEach((c, i) => { wx.fillStyle = Math.floor(t * 9 + i) % 3 === 0 ? c : '#333'; wx.beginPath(); wx.arc(986, 352 + i * 38, 14, 0, 7); wx.fill(); });
+  // robô na rua
+  if (robotX > -100) { wx.fillStyle = '#111'; wx.fillRect(robotX - 26, 545, 52, 75); wx.fillRect(robotX - 20, 510, 40, 34); wx.fillStyle = '#ff2d55'; wx.beginPath(); wx.arc(robotX - 8, 526, 5, 0, 7); wx.arc(robotX + 8, 526, 5, 0, 7); wx.fill(); }
+  if (eyesBig > 0) { wx.fillStyle = `rgba(5,5,12,${0.85 * eyesBig})`; wx.fillRect(0, 0, 1024, 716); wx.fillStyle = '#ff2d55'; wx.shadowColor = '#ff2d55'; wx.shadowBlur = 60; wx.beginPath(); wx.arc(420, 340, 46 * eyesBig, 0, 7); wx.arc(604, 340, 46 * eyesBig, 0, 7); wx.fill(); wx.shadowBlur = 0; }
+  wtex.needsUpdate = true;
+}
+const RB = [3.75, 0, -1.1], JB = [2.45, 0.86, -1.0], WIN = [0.5, 0, -3.2];
 
 window.render = function (t) {
   TL = TL || window.TL; if (!caps) buildCaps();
   setDay(1); camera.fov = 52;
-  J.position.set(-2.0, 0.86, -0.3); J.rotation.set(0, 0, 0); jo.legs.forEach(l => l.visible = true);
+  J.position.set(...JB); J.rotation.set(0, facing(JB, [3.15, 0, -1.85]), 0); jo.legs.forEach(l => l.visible = true);
   jo.head.scale.setScalar(2.0); glasses.visible = true;
-  const unfrozen = t > 28.3;
-  jo.mats.skin.emissive.set(unfrozen ? '#ffb703' : '#7fdcff'); jo.mats.skin.emissiveIntensity = unfrozen ? 0.08 + 0.25 * Math.max(0, 1 - (t - 28.3) * 1.5) : 0.06;
-  robot.visible = t < 4.4 || (t > 34.8 && t < 45); robot.scale.setScalar(1.18); robot.rotation.set(0, 0, 0); rhead.rotation.set(0, 0, 0); rarms.forEach(a => a.rotation.set(0, 0, 0));
+  const thaw = seg(t, 24.0, 24.8);
+  const frozen = t > 4.0 && t < 24.0;
+  jo.mats.skin.emissive.set(t > 24.0 ? '#ffb703' : '#7fdcff'); jo.mats.skin.emissiveIntensity = t > 24.0 ? 0.08 + 0.25 * Math.max(0, 1 - (t - 24.0) * 1.2) : (frozen ? 0.1 : 0);
+  robot.visible = false; robot.scale.setScalar(1.18); robot.position.set(...RB); robot.rotation.set(0, facing(RB, [3.15, 0, -1.85]), 0); rhead.rotation.set(0, 0, 0); rarms.forEach(a => a.rotation.set(0, 0, 0));
   eyeMat.emissive.set('#ff2d55'); eyeMat.emissiveIntensity = 4; antMat.emissiveIntensity = 1.5 + Math.abs(Math.sin(t * 4)); mouthMat.emissiveIntensity = 0.4;
-  leds.forEach((l, i) => l.material.emissiveIntensity = Math.max(0, Math.sin(t * 5 + i)) * 2);
   bParts.forEach(b => { b.m.visible = true; b.m.position.set(...b.p); b.m.rotation.set(0, 0, 0); b.m.scale.set(1, 1, 1); });
   drawPhone(false, 0); phoneLight.intensity = 0; eyeLight.intensity = 0;
   dizzy.forEach(d => d.visible = false); sparks.forEach(s => s.visible = false);
-  bulb.visible = false; bulbLight.intensity = 0; doorLight.intensity = 0; if (doorHole) doorHole.material.color.set('#2b2d42');
-  if (t < 0) { // ---- capa: Joseph dourado x robô na porta ----
-    thumbLights([0.4, 2.8, 2.6]); scene.background.set('#0b0820');
-    J.position.set(0.3, 0.86, -0.1); J.rotation.y = -0.35; jo.head.scale.setScalar(1.8);
-    jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.16;
-    jo.pose({ breathe: 0, armL: [0.9, 0.5, 1.6], armR: [0.9, 0.5, 1.6], lean: -0.05 }); jo.face({ open: 1.0, mouth: 'flat', brow: -0.5, browTilt: 0.45, look: [-0.8, 0.1] });
-    robot.visible = true; robot.position.set(-1.7, 0, -1.5); robot.rotation.set(0, 0.6, 0); robot.scale.setScalar(1.25);
-    eyeMat.emissiveIntensity = 6; antMat.emissiveIntensity = 4; mouthMat.emissiveIntensity = 2.5; leds.forEach(l => l.material.emissiveIntensity = 3);
-    scene.updateMatrixWorld(true); rhead.getWorldPosition(v); eyeLight.position.set(v.x + 0.4, v.y, v.z + 0.9); eyeLight.intensity = 10;
-    bParts.forEach(b => b.m.visible = false);
-    camera.fov = 52; camera.updateProjectionMatrix(); cam([-0.4, 2.0, 4.9], [-0.4, 2.45, -0.5], 0, 0);
-    renderer.render(scene, camera); return;
-  }
+  bulb.visible = false; bulbLight.intensity = 0;
+  ice.visible = false; ice.position.set(JB[0], 0, JB[2]); iceMat.opacity = 0.38;
+  shards.forEach(s => { s.m.position.copy(s.p); s.m.rotation.copy(s.r); s.m.visible = true; }); icetop.visible = true;
+  quarto.glass.map = null; quarto.glass.color.set('#bfe3ff'); quarto.glass.needsUpdate = true;
   const jb = breath(t);
   let ov = {}, camPos, camLook, shake = 0;
-  let jn = 409600, rn = 3276800;
-  if (t > 15.0) rn = 3276800; if (t > 18.37) rn = 6553600; if (t > 19.81) rn = 13107200;
-  if (t > 31.72) jn = 819200; if (t > 33.22) jn = 1638400;
-  const outside = t > 10.0 && t < 34.8;
-  if (outside) { const cols = ['#3a86ff', '#ff9f1c', '#52d273', '#ff2d55', '#c77dff']; const c = cols[Math.floor(t * (t > 18 ? 9 : 4)) % cols.length]; if (doorHole) doorHole.material.color.set(c); doorLight.color.set(c); doorLight.intensity = t > 18 ? 9 : 5; }
-  const DP = [-5.85, 0, 1.3];
-  // Joseph sentado tonto perto da porta (depois da batida)
-  const sitDoor = () => { J.position.set(-3.6, 0.34, -0.4); J.rotation.y = -1.0; jo.pose({ breathe: jb, leg: [1.5, 1.4], armL: [-0.3, 0.5, 0.2], armR: [-0.3, 0.5, 0.2] }); };
+  let jn = 409600, rn = 409600;
+  if (t > 8.2) rn = 3276800; if (t > 27.18) jn = 819200; if (t > 28.75) jn = 1638400; if (t > 40.88) rn = 13107200;
+  const reachPose = (k = 1) => jo.pose({ breathe: frozen ? 0 : jb, lean: 0.15, armR: [lerp(0.3, 1.25, k), -0.15, 0.15], armL: [0.3, 0.3, 0.4] });
 
-  if (t < 4.4) { // ---- o robô sai do quarto ----
-    const k = lin(t, 0.8, 3.9), A = [-2.9, 0, 0.9], B = [-6.9, 0, 1.3];
-    const w = walkPose(k * 7, k > 0 && k < 1 ? 1 : 0);
-    robot.position.set(lerp(A[0], B[0], k), Math.abs(w.bob) * 0.6, lerp(A[2], B[2], k)); robot.rotation.y = -Math.PI / 2;
-    rarms.forEach((a, i) => a.rotation.set((i ? 1 : -1) * Math.sin(k * 7 * Math.PI) * 0.5, 0, 0));
-    jo.pose({ breathe: jb, armL: [0.6, 0.4, 1.0], armR: [0.6, 0.4, 1.0] }); J.rotation.y = -1.3;
-    jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: [-0.7, 0] });
-    camPos = mix3([-3.6, 2.6, 8.6], [-4.0, 2.5, 8.0], sm(t / 4.4)); camLook = [-4.7, 1.8, 1.0];
-    ov.day = seg(t, 0.4, 0.7);
-  } else if (t < 8.9) { // ---- a cabeça não passa ----
-    const A0 = [-2.0, 0.86, -0.3], A1 = [-4.85, 0.86, 1.25];
-    const k = lin(t, 4.8, 7.55), w = walkPose(k * 7, k > 0 && k < 1 ? 1 : 0);
-    const hit = t > 7.55 ? bounce(lin(t, 7.55, 8.5)) : 0;
-    J.position.set(lerp(A0[0], A1[0], sm(k)) + hit * 0.35, 0.86 + w.bob, lerp(A0[2], A1[2], sm(k)));
-    J.rotation.y = -Math.PI / 2 + 0.55;
-    jo.head.scale.set(2.0 + 0.3 * hit, 2.0 - 0.35 * hit, 2.0 + 0.3 * hit);
-    jo.pose({ breathe: jb, leg: w.leg, armL: t > 7.55 ? [1.6, 0.9, 2.3] : w.armL, armR: t > 7.55 ? [1.6, 0.9, 2.3] : w.armR });
-    jo.face({ open: t > 7.55 ? 0.5 : 1.2, mouth: t > 7.55 ? 'o' : 'flat', brow: t > 7.55 ? -0.3 : 0.6, browTilt: t > 7.55 ? 0.3 : 0 });
-    if (t > 7.65) { scene.updateMatrixWorld(true); jo.head.getWorldPosition(v); dizzy.forEach((d, i) => { const a = t * 5 + i / 5 * Math.PI * 2; d.visible = true; d.position.set(v.x + Math.cos(a) * 0.9, v.y + 0.95, v.z + Math.sin(a) * 0.9); d.rotation.y = t * 4; }); }
-    shake = t > 7.55 ? 0.07 * Math.max(0, 1 - (t - 7.55) * 2.5) : 0;
-    camPos = mix3([-4.0, 2.6, 8.8], [-4.4, 2.5, 8.0], sm((t - 4.4) / 4.5)); camLook = [-5.0, 1.85, 1.2];
-  } else if (t < 15.0) { // ---- lá fora, ele liga tudo ----
-    sitDoor(); jo.face({ open: 1.2, mouth: 'o', brow: 0.8, look: [-0.8, 0.3] });
-    camPos = mix3([-2.6, 2.0, 5.6], [-3.0, 1.95, 5.0], sm((t - 8.9) / 6.1)); camLook = [-5.2, 1.4, 0.8];
-    ov.apps = true;
-  } else if (t < 21.6) { // ---- mais forte ----
-    sitDoor(); jo.face({ open: 1.35, mouth: 'o', brow: 1.2, look: [-0.8, 0.3] });
-    if (t > 18.3) sparks.forEach((s, i) => { const a = i / 14 * Math.PI * 2 + t * 6; s.visible = true; s.position.set(DP[0] + 0.25, 1.1 + Math.sin(a * 2) * 0.9, DP[2] + Math.cos(a) * 0.5); s.scale.setScalar(0.8 + 0.6 * Math.abs(Math.sin(t * 9 + i))); });
-    shake = t > 18.3 ? 0.03 : 0.01;
-    camPos = mix3([-3.2, 1.6, 4.8], [-3.6, 1.55, 4.2], sm((t - 15) / 6.6)); camLook = [-5.4, 1.5, 0.9];
-    ov.rbig = t > 18.3 ? 1 : 0; ov.rbigK = bounce(lin(t, t > 19.81 ? 19.81 : 18.37, (t > 19.81 ? 19.81 : 18.37) + 0.6));
-  } else if (t < 24.6) { // ---- a ideia ----
-    const up = seg(t, 21.6, 22.3);
-    J.position.set(-3.6, lerp(0.34, 0.86, up), -0.4); J.rotation.y = lerp(-1.2, 0.6, seg(t, 22.0, 22.6));
-    jo.pose({ breathe: jb, leg: [lerp(1.5, 0, up), lerp(1.4, 0, up)], armL: [0.3, 0.3, 0.4], armR: [lerp(0.3, 2.6, seg(t, 23.0, 23.3)), 0.1, 0.1] });
-    const idea = seg(t, 22.9, 23.3);
-    jo.face({ open: blink(t) * (idea > 0.5 ? 1.25 : 1), mouth: idea > 0.5 ? 'smile' : 'flat', brow: 0.3 + 0.8 * idea, look: [0, 0.6 * idea] });
+  if (t < 8.2) { // ======== resumo do ep. 4 ========
+    ov.recap = 1;
+    if (t < 3.6) {
+      robot.visible = true;
+      const press = seg(t, 2.6, 3.0) * (1 - seg(t, 3.3, 3.6));
+      rarms[1].rotation.set(-1.25 + 0.35 * press, 0, -0.15);
+      bParts[1].m.scale.set(1, 1 - 0.45 * press, 1);
+      reachPose(seg(t, 0.6, 2.6)); jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: [0.6, -0.3] });
+      camPos = [3.1, 2.1, -3.7]; camLook = [3.1, 1.75, -1.1];
+      ov.click = seg(t, 3.0, 3.25);
+    } else if (t < 5.7) {
+      reachPose(); jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: [0.6, -0.3] });
+      ice.visible = t > 4.1; ice.scale.set(1, seg(t, 4.1, 4.6), 1);
+      camPos = [2.5, 2.4, -3.75]; camLook = [2.45, 2.0, -1.0]; camera.fov = 70;
+    } else {
+      reachPose(); jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: [0.6, -0.3] }); ice.visible = true;
+      robot.visible = true;
+      const k = lin(t, 5.7, 6.7), out = lin(t, 6.8, 7.7);
+      const p0 = RB, p1 = [WIN[0], 0, -2.8];
+      robot.position.set(lerp(p0[0], p1[0], sm(k)), out * 1.0, lerp(p0[2], p1[2], sm(k)) - out * 1.8);
+      robot.rotation.y = Math.PI;
+      const w = walkPose(k * 6, k > 0 && k < 1 ? 1 : 0); if (k < 1) rarms.forEach((a, i) => a.rotation.set((i ? 1 : -1) * Math.sin(k * 6 * Math.PI) * 0.5, 0, 0));
+      if (out > 0) rarms.forEach(a => a.rotation.set(-2.6, 0, 0));
+      camPos = [0.6, 2.3, 2.6]; camLook = [0.6, 1.9, -3.0];
+    }
+  } else if (t < 13.3) { // ======== dia 13: ainda congelado ========
+    reachPose(); jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: [0.6, -0.3] }); ice.visible = true;
+    const a = lerp(-0.5, 0.4, sm((t - 8.2) / 5.1));
+    camPos = [JB[0] + Math.sin(a) * 3.4, 2.6, JB[2] + Math.cos(a) * 3.4]; camLook = [JB[0], 2.1, JB[2]];
+    ov.day = seg(t, 8.5, 8.8) * (t < 11.5 ? 1 : 0); ov.duo = t > 9.7 ? 1 : 0;
+  } else if (t < 22.2) { // ======== um gênio lembra ========
+    reachPose(); ice.visible = true;
+    const idea = seg(t, 17.8, 18.2);
+    jo.face({ open: 1.3, mouth: 'o', brow: 1.0, look: t < 17.8 ? [Math.sin(t * 1.5) * 0.8, 0.2] : [0, 0.8] });
     scene.updateMatrixWorld(true); jo.head.getWorldPosition(v);
-    bulb.visible = idea > 0; bulb.scale.setScalar(back(idea) * 1.6); bulb.position.set(v.x, v.y + 1.35 + 0.05 * Math.sin(t * 4), v.z);
-    bulbLight.position.copy(bulb.position); bulbLight.intensity = 7 * idea;
-    camPos = mix3([-1.4, 2.5, 2.6], [-1.6, 2.5, 2.2], sm((t - 21.6) / 3)); camLook = [-3.6, 2.6, -0.4];
-  } else if (t < 29.3) { // ---- aperta de novo: pra soltar ----
-    const A = [-3.6, 0.86, -0.4], B = [2.45, 0.86, -1.0];
-    const k = lin(t, 24.7, 27.2), w = walkPose(k * 9, k > 0 && k < 1 ? 1.3 : 0);
-    J.position.set(lerp(A[0], B[0], sm(k)), 0.86 + w.bob * 1.4, lerp(A[2], B[2], sm(k))); J.rotation.y = k < 1 ? facing(A, B) : facing(B, [3.15, 0, -1.85]);
-    const press = seg(t, 27.9, 28.3) * (1 - seg(t, 28.7, 29.1));
-    jo.pose({ breathe: jb, lean: k < 1 ? 0.3 : 0.15, leg: w.leg, armL: k < 1 ? w.armL : [0.3, 0.3, 0.4], armR: k < 1 ? w.armR : [lerp(0.4, 1.3, seg(t, 27.3, 27.9)) - 0.2 * press, -0.15, 0.15] });
-    jo.face({ open: 1.1, mouth: unfrozen ? 'smile' : 'flat', brow: -0.2, browTilt: 0.35, look: [0.5, -0.4] });
+    bulb.visible = idea > 0; bulb.scale.setScalar(back(idea) * 1.5); bulb.position.set(v.x, v.y + 1.45, v.z); bulbLight.position.copy(bulb.position); bulbLight.intensity = 6 * idea;
+    if (t < 19.0) { camPos = [2.5, 2.5, -3.75]; camLook = [2.45, 2.4, -1.0]; camera.fov = 70; }
+    else { camPos = mix3([3.5, 1.75, -1.0], [3.4, 1.6, -1.25], sm((t - 19) / 3.2)); camLook = [3.15, 1.2, -1.85]; bParts[1].m.material.emissiveIntensity = 0.25 + 0.5 * Math.abs(Math.sin(t * 5)); }
+    ov.genio = t > 15.9 && t < 17.6 ? seg(t, 15.9, 16.2) : 0; ov.despausa = seg(t, 19.1, 19.4);
+  } else if (t < 30.3) { // ======== aperta, o gelo racha, o QI volta a dobrar ========
+    bParts[1].m.material.emissiveIntensity = 0.25;
+    const press = seg(t, 22.6, 23.0) * (1 - seg(t, 23.4, 23.8));
     bParts[1].m.scale.set(1, 1 - 0.45 * press, 1);
-    if (t > 28.3) { scene.updateMatrixWorld(true); bParts[1].m.getWorldPosition(v); const kk = lin(t, 28.3, 29.0); if (kk < 1) sparks.forEach((s, i) => { const a = i / 14 * Math.PI * 2; s.visible = true; s.position.set(v.x + Math.cos(a) * kk * 0.8, v.y + 0.2 + kk * 0.6, v.z + Math.sin(a) * kk * 0.8); s.scale.setScalar(1.8 * (1 - kk)); }); }
-    shake = 0.05 * Math.max(0, 1 - Math.abs(t - 28.3) * 4);
-    if (t < 27.2) { camPos = [0.0, 2.8, 5.4]; camLook = [-0.5, 1.6, -0.2]; } else { camPos = [3.1, 2.15, -3.75]; camLook = [3.0, 1.75, -1.1]; }
-    ov.click = seg(t, 28.3, 28.55); ov.duo = t > 27.2 ? 1 : 0;
-  } else if (t < 34.8) { // ---- o QI dele volta a dobrar ----
-    J.position.set(2.45, 0.86, -1.0); J.rotation.y = facing([2.45, 0, -1.0], [2.4, 0, 3.0]);
-    const n = [31.72, 33.22].filter(x => t >= x).length;
-    const pulse = n ? bounce(lin(t, [31.72, 33.22][n - 1], [31.72, 33.22][n - 1] + 0.6)) : 0;
+    ice.visible = t < 25.2;
+    const cr = lin(t, 24.05, 25.1);
+    shards.forEach((s, i) => { if (cr > 0) { s.m.position.set(s.p.x + Math.sin(s.a) * cr * 2.2, s.p.y + cr * 1.2 - cr * cr * 2.5, s.p.z + Math.cos(s.a) * cr * 2.2); s.m.rotation.set(s.r.x + cr * 5, s.r.y + cr * 3, cr * 4); } });
+    iceMat.opacity = 0.38 * (1 - cr * 0.8); icetop.position.y = 3.15 + cr * 1.5;
+    if (t > 23.5 && t < 24.05) shake = 0.02 * Math.sin(t * 90);
+    shake += 0.06 * Math.max(0, 1 - Math.abs(t - 24.1) * 3);
+    const n = [27.18, 28.75].filter(x => t >= x).length;
+    const pulse = n ? bounce(lin(t, [27.18, 28.75][n - 1], [27.18, 28.75][n - 1] + 0.6)) : 0;
     jo.head.scale.setScalar(2.0 + 0.12 * n + 0.15 * pulse);
-    jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.1 + 0.08 * n;
-    jo.pose({ breathe: jb, armL: [lerp(0.3, 2.7, seg(t, 29.7, 30.2)), 0.5, 0.1], armR: [lerp(0.3, 2.7, seg(t, 29.7, 30.2)), 0.5, 0.1] });
-    jo.face({ open: blink(t), mouth: 'smile', brow: 0.9, look: [0, 0.3] });
-    shake = 0.03 * pulse;
-    camPos = mix3([2.45, 2.6, 3.0], [2.45, 2.65, 3.6], sm((t - 29.3) / 5.5)); camLook = [2.45, 2.45, -1.0];
-    ov.duo = 1;
-  } else { // ---- dois gênios na mesma casa ----
-    J.position.set(0.2, 0.86, 0.2); J.rotation.y = facing([0.2, 0, 0.2], [-5.8, 0, 1.3]);
-    jo.head.scale.setScalar(2.24); jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.18;
-    jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [0.3, 0.3, 0.4] });
-    jo.face({ open: 0.9, mouth: 'flat', brow: -0.4, browTilt: 0.45, look: [0, 0] });
-    setDay(0.4);
-    const peek = seg(t, 35.6, 36.4);
-    robot.position.set(lerp(-7.0, -6.25, peek), -0.5, 1.3); robot.rotation.y = Math.PI / 2;
-    eyeMat.emissiveIntensity = 6;
-    scene.updateMatrixWorld(true); rhead.getWorldPosition(v); eyeLight.position.set(v.x + 0.8, v.y, v.z); eyeLight.intensity = 6 * peek;
-    if (doorHole) doorHole.material.color.set('#0b0b12');
-    camPos = mix3([1.6, 2.7, 2.2], [1.4, 2.6, 1.6], sm((t - 34.8) / 10)); camLook = [-5.6, 1.9, 1.3];
-    ov.duo = t < 39.4 ? 1 : 0; ov.end = seg(t, 39.8, 40.2);
+    if (t > 25.0) jo.mats.skin.emissiveIntensity = 0.1 + 0.08 * n;
+    if (t < 25.0) { reachPose(); jo.face({ open: 1.3, mouth: t > 24.1 ? 'smile' : 'o', brow: 1.0, look: [0.6, -0.3] }); camPos = [3.1, 2.15, -3.75]; camLook = [2.8, 1.9, -1.05]; camera.fov = 62; }
+    else {
+      J.rotation.y = facing(JB, [2.4, 0, 3.0]);
+      jo.pose({ breathe: jb, armL: [lerp(0.3, 2.7, seg(t, 25.2, 25.7)), 0.5, 0.1], armR: [lerp(0.3, 2.7, seg(t, 25.2, 25.7)), 0.5, 0.1] });
+      jo.face({ open: blink(t), mouth: 'smile', brow: 0.9, look: [0, 0.3] });
+      camPos = mix3([2.45, 2.6, 3.0], [2.45, 2.65, 3.6], sm((t - 25) / 5.3)); camLook = [2.45, 2.45, -1.0];
+    }
+    ov.click = t < 24.0 ? seg(t, 23.0, 23.25) : 0; ov.duo = t > 25.0 ? 1 : 0; ov.crack = seg(t, 24.05, 24.3) * (t < 25.6 ? 1 : 0);
+  } else { // ======== a janela: o bairro piscando ========
+    jo.mats.skin.emissiveIntensity = 0.18; jo.head.scale.setScalar(2.24);
+    setDay(0.45);
+    const k = lin(t, 30.6, 31.9), W0 = JB, W1 = [0.5, 0.86, -2.85];
+    const w = walkPose(k * 8, k > 0 && k < 1 ? 1.3 : 0);
+    J.position.set(lerp(W0[0], W1[0], sm(k)), 0.86 + w.bob * 1.4, lerp(W0[2], W1[2], sm(k)));
+    J.rotation.y = k < 1 ? facing(W0, W1) : Math.PI;
+    const turn = seg(t, 43.6, 44.3);
+    if (t > 43.6) { J.rotation.y = lerp(Math.PI, 0.2, turn); J.position.x = lerp(0.5, -0.75, turn); J.position.z = lerp(-2.85, -2.2, turn); }
+    jo.pose({ breathe: jb, leg: w.leg, armL: k < 1 ? w.armL : [0.3, 0.3, 0.4], armR: k < 1 ? w.armR : [0.3, 0.3, 0.4] });
+    jo.face({ open: t > 43.6 ? 0.9 : 1.3, mouth: t > 43.6 ? 'flat' : 'o', brow: t > 43.6 ? -0.4 : 1.0, browTilt: t > 43.6 ? 0.45 : 0, look: [0, 0] });
+    const rx = t < 34.88 ? -200 : lerp(60, 960, lin(t, 35.0, 42.0));
+    drawStreet(t, rx, seg(t, 44.3, 45.2));
+    quarto.glass.map = wtex; quarto.glass.color.set('#ffffff'); quarto.glass.needsUpdate = true;
+    if (t < 34.6) { camPos = mix3([1.6, 2.6, 2.6], [1.0, 2.6, 1.6], sm((t - 30.3) / 4.3)); camLook = [0.5, 2.3, -3.6]; }
+    else if (t < 43.4) { camPos = [0.5, 2.35, -1.55]; camLook = [0.5, 2.3, -4.0]; camera.fov = 48; J.visible = false; }
+    else { camPos = mix3([0.1, 2.45, 2.2], [0.1, 2.45, 1.4], sm((t - 43.4) / 10)); camLook = [0.1, 2.3, -3.2]; }
+    J.visible = !(t >= 34.6 && t < 43.4);
+    ov.apps = t > 34.6 && t < 43.4; ov.rbig = t > 40.88 && t < 43.4 ? 1 : 0; ov.rbigK = bounce(lin(t, 40.88, 41.5));
+    ov.duo = t > 45.0 && t < 48.2 ? 1 : 0; ov.end = seg(t, 48.4, 48.8);
   }
+  if (t < 30.3) J.visible = true;
 
   camera.updateProjectionMatrix();
   cam(camPos, camLook, shake, t);
   renderer.render(scene, camera);
 
+  $('root').style.filter = ov.recap ? 'grayscale(0.75) contrast(1.05)' : '';
   const pop = (id, k, base = 'translateX(-50%)') => { const e = $(id); e.style.opacity = k ? 1 : 0; e.style.transform = `${base} scale(${0.5 + 0.5 * back(k || 0)})`; };
-  pop('day', ov.day && t < 3.0 ? ov.day : 0); pop('end', ov.end || 0); pop('click', ov.click && t < 29.3 ? ov.click : 0); pop('frz', 0);
+  pop('recap', ov.recap ? 1 : 0); pop('day', ov.day || 0); pop('end', ov.end || 0); pop('click', ov.click || 0); pop('frz', ov.crack || 0);
+  pop('genio', ov.genio || 0); pop('despausa', ov.despausa && t < 22.2 ? ov.despausa : 0);
+  $('frz').textContent = 'CRACK!';
   const duo = $('duo'); duo.style.opacity = ov.duo || 0;
   $('dj').textContent = jn.toLocaleString('pt-BR'); $('dr').textContent = rn.toLocaleString('pt-BR');
-  $('djb').style.background = unfrozen ? '#e9a400' : '#4ea8de'; $('djl').textContent = unfrozen ? 'JOSEPH' : 'JOSEPH (CONGELADO)';
-  APPS.forEach((a, i) => { const e = $('ap' + i); const on = ov.apps && t > a[0]; e.style.opacity = on ? 1 : 0; e.style.left = '540px'; e.style.top = (300 + i * 150) + 'px'; e.style.transform = `translateX(-50%) scale(${0.6 + 0.4 * back(lin(t, a[0], a[0] + 0.3))})`; });
-  const rb = $('rbig'); rb.style.opacity = ov.rbig ? 1 : 0; rb.textContent = 'ROBÔ: QI ' + rn.toLocaleString('pt-BR'); rb.style.transform = `translateX(-50%) scale(${1 + 0.2 * (ov.rbigK || 0)})`;
+  const fz = t < 24.0; $('djb').style.background = fz ? '#4ea8de' : '#e9a400'; $('djl').textContent = fz ? 'JOSEPH (CONGELADO)' : 'JOSEPH';
+  [[37.78, 'TV', '#3a86ff'], [38.65, 'GELADEIRA', '#52d273'], [39.68, 'SEMÁFORO', '#ffd60a']].forEach((a, i) => { const e = $('ap' + i); const on = ov.apps && t > a[0]; e.textContent = a[1]; e.style.color = a[2]; e.style.opacity = on ? 1 : 0; e.style.left = '540px'; e.style.top = (400 + i * 130) + 'px'; e.style.transform = `translateX(-50%) scale(${0.6 + 0.4 * back(lin(t, a[0], a[0] + 0.3))})`; });
+  const rb = $('rbig'); rb.style.opacity = ov.rbig ? 1 : 0; rb.textContent = 'ROBÔ: QI 13.107.200'; rb.style.transform = `translateX(-50%) scale(${1 + 0.2 * (ov.rbigK || 0)})`;
   const c = caps.find(c => t >= c.a - 0.05 && t < c.b + 0.25);
   const cp = $('cap'); cp.textContent = c ? c.s : ''; cp.style.opacity = c ? 1 : 0; cp.style.color = '#fff';
 };

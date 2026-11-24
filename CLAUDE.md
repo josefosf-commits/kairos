@@ -48,6 +48,8 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - Quando o usuário pedir "mais um short" sem dizer o tema, **fazer o próximo episódio da série do QI** (ep. 1 a 3 = shorts 20 a 22; cada um termina com gancho "dia X em breve"). Se o pedido for ambíguo, perguntar antes de gastar créditos.
 - O usuário achou fraco o short solto "tempo de celular na testa" (short 23): evitar temas soltos desse tipo; preferir histórias da série com vilão (o robô) e gancho.
 - Base técnica: `videos/_lib/mundo3d.js` + copiar `src/cena3d.js` do episódio anterior (robô, botão, celular, quarto já prontos).
+- **Continuidade (obrigatório):** todo episódio começa com 1 linha de "no último episódio..." e continua EXATAMENTE de onde o anterior parou (estado do Joseph, onde está o robô). Toda mudança de estado precisa ser explicada na história (ex.: como ele descongelou). Antes de escrever, reler o `roteiro.json` do episódio anterior.
+- Estado atual (fim do ep. 5, short 25): Joseph descongelado (QI 1,6 milhão); robô na rua, no bairro, QI 13 milhões. Próximo: dia 14.
 
 ## Plano de publicação (combinado em 19/11/2026)
 

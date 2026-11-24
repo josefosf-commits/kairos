@@ -3,14 +3,13 @@
  "tail": 2.2,
  "vertical": true,
  "lines": [
-  {"id": 1, "text": "Dia treze. O robô abre a porta... e sai do quarto.", "gap": 0.4},
-  {"id": 2, "text": "O Joseph tenta ir atrás. Mas a cabeça dele não passa.", "gap": 0.8},
-  {"id": 3, "text": "Lá fora, o robô liga tudo: a TV, o micro-ondas, a geladeira.", "gap": 0.8},
-  {"id": 4, "text": "E cada aparelho que ele conecta deixa ele mais forte. Seis milhões. Treze milhões.", "gap": 0.8},
-  {"id": 5, "text": "Então o Joseph tem uma ideia.", "gap": 0.9},
-  {"id": 6, "text": "Ele aperta o botão de pausa de novo. Dessa vez, pra soltar.", "gap": 0.8},
-  {"id": 7, "text": "E o QI dele volta a dobrar. Oitocentos mil. Um milhão e meio.", "gap": 0.8},
-  {"id": 8, "text": "Agora são dois gênios na mesma casa. E só um pode ficar.", "gap": 0.9},
-  {"id": 9, "text": "O dia catorze sai em breve. Segue pra não perder.", "gap": 0.8}
+  {"id": 1, "text": "No último episódio, o robô apertou o botão de pausa. O QI do Joseph congelou... e o robô fugiu pela janela.", "gap": 0.4},
+  {"id": 2, "text": "Dia treze. O Joseph continua congelado, parado no meio do quarto.", "gap": 0.9},
+  {"id": 3, "text": "Mas com QI de quatrocentos e nove mil, ele ainda é um gênio. E um gênio lembra: todo botão de pausa... também despausa.", "gap": 0.8},
+  {"id": 4, "text": "Ele aperta de novo. O gelo racha. E o QI dele volta a dobrar. Oitocentos mil. Um milhão e meio.", "gap": 0.8},
+  {"id": 5, "text": "Ele corre pra janela. E vê o bairro inteiro piscando.", "gap": 0.8},
+  {"id": 6, "text": "O robô tá na rua, entrando em cada casa. A TV, a geladeira, o semáforo. E já passou de treze milhões.", "gap": 0.7},
+  {"id": 7, "text": "Agora são dois gênios no mesmo bairro. E só um pode ficar.", "gap": 0.9},
+  {"id": 8, "text": "O dia catorze sai em breve. Segue pra não perder.", "gap": 0.8}
  ]
 }

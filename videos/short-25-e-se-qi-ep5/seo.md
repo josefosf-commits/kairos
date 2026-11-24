@@ -1,21 +1,21 @@
-## SHORT · E SE? · QI DOBRADO · EP. 5: DOIS GÊNIOS NA MESMA CASA
+## SHORT · E SE? · QI DOBRADO · EP. 5: DOIS GÊNIOS NO MESMO BAIRRO
 
-**Título:** Dois gênios na mesma casa. Só um pode ficar #shorts
+**Título:** Dois gênios no mesmo bairro. Só um pode ficar #shorts
 
 **Alternativas:**
-- O robô saiu do quarto (e ligou a casa inteira) #shorts
+- Ele descongelou... e o robô tomou o bairro #shorts
 - E se o seu QI dobrasse? Ep. 5 #shorts
 
 **Texto da capa:** DOIS GÊNIOS · SÓ UM FICA + VS + "EP. 5: DIA 13" (Joseph dourado x robô de olhos vermelhos)
 
 ### Descrição
 ```
-Dia 13. O robô abre a porta e sai do quarto. O Joseph tenta ir atrás... mas a cabeça dele não passa.
+No último episódio, o robô apertou o botão de pausa: o QI do Joseph congelou e o robô fugiu pela janela.
 
-Lá fora, o robô liga a TV, o micro-ondas e a geladeira, e cada aparelho deixa ele mais forte: 6 milhões, 13 milhões.
-Então o Joseph tem uma ideia: aperta o botão de pausa de novo, dessa vez pra soltar.
-O QI dele volta a dobrar: 800 mil, 1,5 milhão.
-Agora são dois gênios na mesma casa. E só um pode ficar.
+Dia 13. O Joseph continua congelado... mas com QI de 409 mil ele ainda é um gênio. E um gênio lembra: todo botão de pausa também despausa.
+Ele aperta de novo, o gelo racha e o QI volta a dobrar: 800 mil, 1,5 milhão.
+Da janela, ele vê o bairro inteiro piscando: o robô está na rua, entrando em cada casa (TV, geladeira, semáforo) e já passou de 13 milhões.
+Agora são dois gênios no mesmo bairro. E só um pode ficar.
 
 ▶️ Ep. 1 a 4 na playlist "E se?"
 ▶️ O dia 14 sai em breve. Segue pra não perder.
