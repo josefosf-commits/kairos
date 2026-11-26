@@ -1,0 +1,165 @@
+// ===== ep. 6: janela (bairro), rua com casas, cruzamento, semáforo =====
+const wc = document.createElement('canvas'); wc.width = 1024; wc.height = 716; const wx = wc.getContext('2d');
+const wtex = new THREE.CanvasTexture(wc); wtex.colorSpace = THREE.SRGBColorSpace;
+const HOUSES2D = [[40, 300, 150, '#5e548e'], [210, 260, 140, '#355070'], [370, 320, 170, '#6d597a'], [560, 280, 150, '#2d6a4f'], [730, 250, 130, '#3d405b'], [880, 310, 130, '#6b4226']];
+function drawStreet(t, robotX) {
+  const g = wx.createLinearGradient(0, 0, 0, 716); g.addColorStop(0, '#1b1440'); g.addColorStop(0.6, '#ff8c61'); g.addColorStop(1, '#2b2140');
+  wx.fillStyle = g; wx.fillRect(0, 0, 1024, 716);
+  HOUSES2D.forEach(([x, h, w, c], i) => {
+    wx.fillStyle = c; wx.fillRect(x, 620 - h, w, h); wx.beginPath(); wx.moveTo(x - 10, 620 - h); wx.lineTo(x + w / 2, 560 - h); wx.lineTo(x + w + 10, 620 - h); wx.fill();
+    for (let r = 0; r < 3; r++) for (let k = 0; k < 2; k++) { wx.fillStyle = Math.sin(t * 9 + i * 1.7 + r * 2.1 + k) > 0 ? ['#7fdcff', '#ff4d6d', '#52d273', '#ffd60a'][(r + k + i) % 4] : '#1d1d2b'; wx.fillRect(x + 18 + k * (w / 2 - 6), 640 - h + r * (h / 3.4), w / 2 - 36, h / 6); }
+  });
+  wx.fillStyle = '#2b2b33'; wx.fillRect(0, 620, 1024, 96);
+  wx.fillStyle = '#111'; wx.fillRect(robotX - 26, 545, 52, 75); wx.fillRect(robotX - 20, 510, 40, 34); wx.fillStyle = '#ff2d55'; wx.beginPath(); wx.arc(robotX - 8, 526, 5, 0, 7); wx.arc(robotX + 8, 526, 5, 0, 7); wx.fill();
+  wtex.needsUpdate = true;
+}
+// rua 3D
+const street = grp(scene);
+const roomObjs = scene.children.filter(o => (o.isMesh || o.isGroup) && o !== J && o !== robot && o !== street && !sparks.includes(o) && !dizzy.includes(o));
+mesh(new THREE.PlaneGeometry(40, 40), M('#2b2b33', { roughness: 0.9 }), street, [0, 0.005, 0], [-Math.PI / 2, 0, 0]);
+for (const z of [-4.6, 4.6]) mesh(rbox(40, 0.18, 1.6, 0.04), M('#8d99ae'), street, [0, 0.09, z]);
+for (let i = -4; i <= 4; i++) mesh(new THREE.BoxGeometry(0.5, 0.01, 2.6), M('#f1f1f1'), street, [i * 0.8, 0.02, 1.6]);
+for (let x = -18; x < 18; x += 2.4) mesh(new THREE.BoxGeometry(1.2, 0.01, 0.14), M('#ffd60a'), street, [x, 0.02, -1.2]);
+const winMats = [];
+[[-7.6, 3.2, '#5e548e'], [-5.0, 2.6, '#355070'], [-2.4, 3.6, '#6d597a'], [0.2, 2.8, '#2d6a4f'], [2.8, 3.4, '#3d405b'], [5.4, 2.6, '#6b4226'], [8.0, 3.0, '#9d4edd']].forEach(([x, h, c], i) => {
+  const hz = grp(street, [x, 0, -7.2]);
+  mesh(rbox(2.3, h, 2.2, 0.06), M(c, { roughness: 0.8 }), hz, [0, h / 2, 0]);
+  mesh(new THREE.ConeGeometry(1.75, 1.1, 4), M('#3a2e39'), hz, [0, h + 0.55, 0], [0, Math.PI / 4, 0]);
+  for (let r = 0; r < 2; r++) for (let k = 0; k < 2; k++) { const m = new THREE.MeshStandardMaterial({ color: '#111', emissive: '#ffd27a', emissiveIntensity: 1 }); winMats.push({ m, i, r, k }); mesh(new THREE.PlaneGeometry(0.55, 0.55), m, hz, [-0.5 + k * 1.0, 0.9 + r * (h - 1.4) / 1.4, 1.11]); }
+  mesh(new THREE.PlaneGeometry(0.6, 1.0), M('#2b2d42'), hz, [0, 0.5, 1.11]);
+});
+const tl = grp(street, [2.6, 0, -2.9]);
+mesh(new THREE.CylinderGeometry(0.07, 0.07, 3.2, 12), M('#1b1b1b'), tl, [0, 1.6, 0]);
+mesh(rbox(0.45, 1.2, 0.35, 0.05), M('#1b1b1b'), tl, [0, 3.1, 0.1]);
+const tlMats = ['#ff2d55', '#ffd60a', '#52d273'].map((c, i) => { const m = new THREE.MeshStandardMaterial({ color: '#222', emissive: c, emissiveIntensity: 0 }); mesh(sph(0.13, 16, 12), m, tl, [0, 3.5 - i * 0.38, 0.29]); return m; });
+for (const x of [-4.6, 5.6]) { const lp = grp(street, [x, 0, -4.4]); mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.6, 10), M('#30343f'), lp, [0, 1.8, 0]); mesh(sph(0.2, 14, 10), new THREE.MeshStandardMaterial({ color: '#fff3c4', emissive: '#ffd27a', emissiveIntensity: 2 }), lp, [0, 3.65, 0]); const pl = new THREE.PointLight('#ffd27a', 5, 8, 1.4); pl.position.set(0, 3.5, 0); lp.add(pl); }
+const cable = mesh(new THREE.CylinderGeometry(0.035, 0.035, 1, 8), new THREE.MeshStandardMaterial({ color: '#111', emissive: '#7fdcff', emissiveIntensity: 1.2 }), street);
+const streetLight = new THREE.PointLight('#7fdcff', 0, 10, 1.4); street.add(streetLight);
+const UPV = new THREE.Vector3(0, 1, 0), va = new THREE.Vector3(), vb = new THREE.Vector3();
+function setStreet(on, t) {
+  street.visible = on; roomObjs.forEach(o => o.visible = !on);
+  if (!on) return;
+  setDay(0.3); scene.background.set('#2b2140');
+  winMats.forEach(({ m, i, r, k }) => { const lit = Math.sin(t * 7 + i * 1.7 + r * 2.1 + k) > -0.1; m.emissive.set(['#7fdcff', '#ff4d6d', '#52d273', '#ffd60a', '#ffd27a'][(Math.floor(t * 4) + i + r + k) % 5]); m.emissiveIntensity = lit ? 1.6 : 0.05; });
+  tlMats.forEach((m, i) => m.emissiveIntensity = Math.floor(t * 8 + i) % 3 === 0 ? 3 : 0.1);
+  streetLight.position.set(1.3, 2.5, -2.0); streetLight.color.set(['#7fdcff', '#ff4d6d', '#52d273'][Math.floor(t * 5) % 3]); streetLight.intensity = 6;
+}
+const RP = [0.2, 0, -2.4], JP = [-0.9, 0.86, -1.2];
+
+window.render = function (t) {
+  TL = TL || window.TL; if (!caps) buildCaps();
+  const amp = ampAt(TL, t);
+  setDay(1); camera.fov = 52; setStreet(false, t);
+  J.position.set(0.5, 0.86, -2.85); J.rotation.set(0, Math.PI, 0); J.visible = true; jo.legs.forEach(l => l.visible = true);
+  jo.head.scale.setScalar(2.24); glasses.visible = true;
+  jo.mats.skin.emissive.set('#ffb703'); jo.mats.skin.emissiveIntensity = 0.12;
+  robot.visible = false; robot.scale.setScalar(1.35); robot.position.set(...RP); robot.rotation.set(0, 0, 0); rhead.rotation.set(0, 0, 0); rarms.forEach(a => a.rotation.set(0, 0, 0));
+  eyeMat.emissive.set('#ff2d55'); eyeMat.emissiveIntensity = 4; antMat.emissiveIntensity = 1.5 + Math.abs(Math.sin(t * 4)); mouthMat.emissiveIntensity = 0.4; rmouth.scale.set(1, 1, 1);
+  leds.forEach((l, i) => l.material.emissiveIntensity = Math.max(0, Math.sin(t * 5 + i)) * 2);
+  drawPhone(false, 0); phoneLight.intensity = 0; eyeLight.intensity = 0;
+  dizzy.forEach(d => d.visible = false); sparks.forEach(s => s.visible = false); cable.visible = false;
+  quarto.glass.map = null; quarto.glass.color.set('#bfe3ff'); quarto.glass.needsUpdate = true;
+  if (t < 0) { // ---- capa: aperto de mão na rua, olhos vermelhos ----
+    setStreet(true, 3.3); robot.visible = true; scene.background.set('#1b1430');
+    J.position.set(...JP); J.rotation.y = facing(JP, RP);
+    jo.pose({ armL: [0.3, 0.3, 0.4], armR: [1.45, -0.1, 0.1] }); jo.face({ open: 1.0, mouth: 'flat', brow: 0.6, browTilt: -0.3, look: [0.6, 0.3] });
+    robot.rotation.y = facing(RP, JP); rarms[0].rotation.set(-1.4, 0, 0.15); eyeMat.emissiveIntensity = 7; antMat.emissiveIntensity = 4;
+    scene.updateMatrixWorld(true); rhead.getWorldPosition(v); eyeLight.position.set(v.x, v.y, v.z + 0.8); eyeLight.intensity = 10;
+    camera.fov = 52; camera.updateProjectionMatrix(); cam([4.0, 2.3, 2.9], [-0.35, 2.15, -1.8], 0, 0);
+    renderer.render(scene, camera); return;
+  }
+  const jb = breath(t);
+  let ov = {}, camPos, camLook, shake = 0;
+  const jTalk = t > 30.98 && t < 32.26 ? amp : -1;
+
+  if (t < 5.6) { // ======== resumo: ele descongelou e viu o bairro ========
+    ov.recap = 1; setDay(0.45);
+    drawStreet(t, lerp(80, 900, t / 5.6)); quarto.glass.map = wtex; quarto.glass.color.set('#ffffff'); quarto.glass.needsUpdate = true;
+    jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [0.3, 0.3, 0.4] }); jo.face({ open: 1.3, mouth: 'o', brow: 1.0 });
+    camPos = mix3([1.6, 2.6, 2.6], [1.0, 2.6, 1.6], sm(t / 5.6)); camLook = [0.5, 2.3, -3.6];
+  } else if (t < 14.3) { // ======== dia 14: QI 3 milhões, sai pela janela ========
+    setDay(0.45); drawStreet(t, 500); quarto.glass.map = wtex; quarto.glass.color.set('#ffffff'); quarto.glass.needsUpdate = true;
+    const pulse = bounce(lin(t, 8.25, 8.9));
+    jo.head.scale.setScalar(2.24 + 0.2 * pulse); jo.mats.skin.emissiveIntensity = 0.12 + 0.2 * pulse;
+    if (t < 9.4) {
+      J.rotation.y = lerp(Math.PI, 0.3, seg(t, 6.0, 6.6));
+      jo.pose({ breathe: jb, armL: [lerp(0.3, 2.6, pulse), 0.5, 0.1], armR: [lerp(0.3, 2.6, pulse), 0.5, 0.1] }); jo.face({ open: blink(t), mouth: 'smile', brow: 0.8 });
+      camPos = [0.5, 2.6, 0.6]; camLook = [0.5, 2.4, -2.85];
+    } else if (t < 11.3) {
+      J.position.set(-4.2, 0.86, 0.2); J.rotation.y = facing([-4.2, 0, 0.2], [-6.0, 0, 1.3]);
+      jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [0.6, -0.2, 1.0] });
+      jo.face({ open: 1.0, mouth: 'flat', brow: -0.3, browTilt: 0.4, look: [-0.7, 0] });
+      ov.door = seg(t, 9.6, 9.9);
+      camPos = [-2.0, 2.5, 4.4]; camLook = [-5.0, 1.8, 0.8];
+    } else {
+      const k = lin(t, 11.3, 12.3), out = lin(t, 12.3, 13.1), W1 = [0.5, 0.86, -2.85];
+      J.position.set(lerp(-4.2, W1[0], sm(k)), 0.86 + out * 1.0, lerp(0.2, W1[2], sm(k)) - out * 1.8); J.rotation.y = Math.PI;
+      jo.pose({ breathe: jb, armL: [out > 0 ? 2.6 : 0.3, 0.2, 0.1], armR: [out > 0 ? 2.6 : 0.3, 0.2, 0.1] }); jo.face({ open: 1.1, mouth: 'flat', brow: 0.3 });
+      camPos = [0.6, 2.3, 2.6]; camLook = [0.6, 1.9, -3.0];
+      ov.igual = seg(t, 13.0, 13.3);
+    }
+    ov.day = seg(t, 6.0, 6.3) * (t < 9.3 ? 1 : 0); ov.qi = t > 7.5 && t < 9.3 ? 1 : 0;
+  } else { // ======== a rua ========
+    setStreet(true, t);
+    robot.visible = true;
+    scene.updateMatrixWorld(true); robot.getWorldPosition(va); va.y = 1.5; va.z -= 0.35; tl.localToWorld(vb.set(0, 3.0, 0));
+    const cd = vb.clone().sub(va); cable.visible = t < 36; cable.position.copy(va).addScaledVector(cd, 0.5); cable.quaternion.setFromUnitVectors(UPV, cd.clone().normalize()); cable.scale.set(1, cd.length(), 1);
+    rhead.getWorldPosition(v); eyeLight.position.set(v.x, v.y, v.z + 0.8); eyeLight.intensity = 5;
+    const JI = [-3.6, 0.86, 1.6];
+    const wk = lin(t, 14.6, 17.2), w = walkPose(wk * 7, wk > 0 && wk < 1 ? 1 : 0);
+    J.position.set(lerp(JI[0], JP[0], sm(wk)), 0.86 + w.bob, lerp(JI[2], JP[2], sm(wk)));
+    J.rotation.y = wk < 1 ? facing(JI, JP) : facing(JP, RP);
+    robot.rotation.y = t > 26.6 ? facing(RP, JP) * seg(t, 26.6, 27.4) : 0;
+    jo.pose({ breathe: jb, leg: w.leg, armL: wk < 1 ? w.armL : [0.3, 0.3, 0.4], armR: wk < 1 ? w.armR : [0.3, 0.3, 0.4] });
+    jo.face({ open: blink(t), mouth: 'flat', brow: 0.2, browTilt: 0.2, look: [0.5, 0.3] });
+    if (t < 21.5) { camPos = mix3([2.3, 3.2, 7.0], [2.1, 3.0, 6.2], sm((t - 14.3) / 7.2)); camLook = [-0.4, 2.0, -1.8]; ov.duo = 0; }
+    else if (t < 26.6) {
+      jo.face({ open: blink(t), mouth: 'flat', brow: t > 23.6 ? -0.4 : 0.2, browTilt: t > 23.6 ? 0.45 : 0.2, look: [0.5, 0.3] });
+      camPos = mix3([0.9, 1.0, 1.9], [0.9, 1.0, 1.5], sm((t - 21.5) / 5)); camLook = [0.2, 2.6, -2.4];
+      ov.duo = 1;
+    } else if (t < 32.6) { // a pergunta
+      jo.face({ open: blink(t), mouth: 'flat', talk: jTalk, brow: 0.6, browTilt: -0.2, look: [0.5, 0.4] });
+      jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: t > 30.9 && t < 32.4 ? [0.8, 0.3, 1.0] : [0.3, 0.3, 0.4], head: [0, 0, 0.08 * Math.sin(t * 5) * (jTalk > 0 ? 1 : 0)] });
+      if (t < 30.7) { camPos = [2.1, 2.6, 4.8]; camLook = [-0.35, 2.0, -1.8]; } else { const d = new THREE.Vector3(Math.sin(J.rotation.y), 0, Math.cos(J.rotation.y)); scene.updateMatrixWorld(true); jo.head.getWorldPosition(v); camPos = [v.x + d.x * 2.6 + 0.4, v.y, v.z + d.z * 2.6]; camLook = [v.x, v.y - 0.1, v.z]; }
+    } else if (t < 35.6) { // a resposta
+      const a = t > 33.26 && t < 35.1 ? amp : 0;
+      mouthMat.emissiveIntensity = 0.5 + 3 * a; rmouth.scale.set(0.3 + 0.9 * a, 1 + 1.5 * a, 1);
+      eyeMat.emissiveIntensity = 2.5; rhead.rotation.set(0.2, 0, 0.08);
+      scene.updateMatrixWorld(true); rhead.getWorldPosition(v); const d = new THREE.Vector3(Math.sin(robot.rotation.y), 0, Math.cos(robot.rotation.y));
+      camPos = [v.x + d.x * 2.0, v.y - 0.1, v.z + d.z * 2.0]; camLook = [v.x, v.y - 0.1, v.z];
+    } else if (t < 40.4) { // as mãos
+      const jr = seg(t, 36.1, 37.2), rr = seg(t, 38.0, 39.6);
+      jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [lerp(0.3, 1.45, jr), -0.1, 0.1] });
+      jo.face({ open: blink(t), mouth: 'smile', brow: 0.4, look: [0.5, 0] });
+      rarms[0].rotation.set(-1.4 * rr, 0, 0.15 * rr);
+      rhead.rotation.set(0.1, 0, 0);
+      camPos = mix3([3.0, 1.95, 1.35], [2.7, 1.9, 1.05], sm((t - 35.6) / 4.8)); camLook = [-0.35, 1.6, -1.8];
+    } else if (t < 44.2) { // os olhos continuam vermelhos
+      jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [1.45, -0.1, 0.1] }); rarms[0].rotation.set(-1.4, 0, 0.15);
+      eyeMat.emissiveIntensity = 4 + 4 * seg(t, 41.0, 42.5); antMat.emissiveIntensity = 3;
+      scene.updateMatrixWorld(true); rhead.getWorldPosition(v); eyeLight.intensity = 9;
+      const d = new THREE.Vector3(Math.sin(robot.rotation.y), 0, Math.cos(robot.rotation.y));
+      camPos = mix3([v.x + d.x * 1.8, v.y, v.z + d.z * 1.8], [v.x + d.x * 1.2, v.y, v.z + d.z * 1.2], sm((t - 40.4) / 3.8)); camLook = [v.x, v.y, v.z];
+    } else { // amigo ou inimigo?
+      jo.pose({ breathe: jb, armL: [0.3, 0.3, 0.4], armR: [1.45, -0.1, 0.1] }); jo.face({ open: blink(t), mouth: 'flat', brow: 0.6, browTilt: -0.3, look: [0.5, 0.2] });
+      rarms[0].rotation.set(-1.4, 0, 0.15); eyeMat.emissiveIntensity = 6;
+      camPos = mix3([2.2, 2.8, 5.8], [2.4, 3.1, 6.8], sm((t - 44.2) / 7.5)); camLook = [-0.35, 1.9, -1.8];
+      ov.amigo = seg(t, 44.7, 45.0); ov.end = seg(t, 46.0, 46.4);
+    }
+  }
+
+  camera.updateProjectionMatrix();
+  cam(camPos, camLook, shake, t);
+  renderer.render(scene, camera);
+
+  $('root').style.filter = ov.recap ? 'grayscale(0.75) contrast(1.05)' : '';
+  const pop = (id, k, base = 'translateX(-50%)') => { const e = $(id); e.style.opacity = k ? 1 : 0; e.style.transform = `${base} scale(${0.5 + 0.5 * back(k || 0)})`; };
+  pop('recap', ov.recap ? 1 : 0); pop('day', ov.day || 0); pop('end', ov.end || 0); pop('click', 0); pop('frz', 0); pop('genio', 0); pop('despausa', 0);
+  pop('igual', ov.igual && t < 14.3 ? ov.igual : 0); pop('door', ov.door && t < 11.3 ? ov.door : 0); pop('amigo', ov.amigo && t < 46.0 ? ov.amigo : 0);
+  const q = $('qi3'); q.style.opacity = ov.qi ? 1 : 0;
+  const duo = $('duo'); duo.style.opacity = ov.duo || 0;
+  $('dj').textContent = '3.276.800'; $('dr').textContent = '13.107.200'; $('djb').style.background = '#e9a400'; $('djl').textContent = 'JOSEPH';
+  ['ap0', 'ap1', 'ap2', 'rbig'].forEach(id => $(id).style.opacity = 0);
+  const c = caps.find(c => t >= c.a - 0.05 && t < c.b + 0.25);
+  const cp = $('cap'); cp.textContent = c ? c.s : ''; cp.style.opacity = c ? 1 : 0; cp.style.color = c && c.robot ? '#ff4d6d' : '#fff';
+};
