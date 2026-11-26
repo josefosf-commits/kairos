@@ -10,7 +10,13 @@ while IFS=$'\t' read -r audio start; do
 done < <(python3 -c "import json;[print(l['audio'],l['start'],sep='\t') for l in json.load(open('timeline.json'))['lines']]")
 filters+="${labels}amix=inputs=$i:normalize=0,apad[voz];[voz]asplit[voz1][voz2];[$i:a]volume=0.55[bg];"
 filters+="[bg][voz2]sidechaincompress=threshold=0.03:ratio=4:attack=20:release=400[bgd];"
-filters+="[voz1][bgd]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]"
-ffmpeg -y -loglevel error "${inputs[@]}" -i build/trilha.wav -i build/video-mudo.mp4 -filter_complex "$filters" \
-  -map "$((i+1)):v" -map "[out]" -c:v copy -c:a aac -b:a 192k -ar 48000 -t "$dur" "build/$name.mp4"
+vin=$((i+1)); sfx=()
+if [ -f build/sfx.wav ]; then  # efeitos de luta: entram depois do ducking (não abaixam com a voz)
+  sfx=(-i build/sfx.wav); vin=$((i+2))
+  filters+="[$((i+1)):a]volume=${SFX_VOL:-0.8}[fx];[voz1][bgd][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]"
+else
+  filters+="[voz1][bgd]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]"
+fi
+ffmpeg -y -loglevel error "${inputs[@]}" -i build/trilha.wav "${sfx[@]}" -i build/video-mudo.mp4 -filter_complex "$filters" \
+  -map "$vin:v" -map "[out]" -c:v copy -c:a aac -b:a 192k -ar 48000 -t "$dur" "build/$name.mp4"
 echo "ok build/$name.mp4"

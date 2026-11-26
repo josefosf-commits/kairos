@@ -114,10 +114,10 @@ def S(i): return next(l["start"] for l in TL["lines"] if l["id"] == i)
 def E(i): return next(l["end"] for l in TL["lines"] if l["id"] == i)
 
 
-def save():
+def save(name="trilha.wav"):
     peak = np.max(np.abs(out)) or 1.0
     pcm = (np.clip(out * (0.7 / peak), -1, 1) * 32767).astype("<i2")
-    dst = HERE / "build" / "trilha.wav"
+    dst = HERE / "build" / name
     dst.parent.mkdir(exist_ok=True)
     with wave.open(str(dst), "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
