@@ -59,6 +59,13 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - **Continuidade (obrigatório):** todo episódio tem 1 linha curta de "no último episódio..." logo depois do gancho inicial e continua EXATAMENTE de onde o anterior parou (estado do Joseph, onde está o robô). Toda mudança de estado precisa ser explicada na história (ex.: como ele descongelou). Antes de escrever, reler o `roteiro.json` do episódio anterior.
 - Estado atual (fim do ep. 6, short 26): Joseph na rua (saiu pela janela), QI 3,2 milhões; robô no cruzamento, QI 13 milhões. Os dois apertaram as mãos ("por que você quer ser eu?" / "porque eu não sei ser outra coisa"), mas os olhos do robô seguem vermelhos. Próximo: dia 15 (amigo ou inimigo?).
 
+## Arco "O Duelo" (aprovado em 26/11/2026) — episódios 7 a 9 da série do QI
+
+- Pedido do usuário: história mais envolvente, com intriga, briga/discussão e um desafio para ver quem é mais inteligente. **Duração liberada: cerca de 1:20 a 1:30 por episódio** (vale para este arco, mesmo com a regra de 40–50 s acima). Manter: gancho no 1º segundo, resumo curto, "(Parte X)" no título, pergunta pessoal no comentário fixado.
+- **Ep. 7 (dia 15) "O Desafio":** o aperto de mão vira aperto forte; robô: "Prove que você é o Joseph de verdade." Duelo de 3 rodadas no cruzamento; quem perde some (se o Joseph perder, o robô toma o lugar dele com a mãe e os amigos). Discussão: "inteligência não é só número" / "então prove". Rodada 1 (cálculo): robô vence. Rodada 2 (memória da vida do Joseph, o robô baixou o celular dele): robô vence, 2 x 0. Gancho: "última rodada; quem perde escolhe o desafio... e o Joseph já perdeu duas". Comentário: "Que desafio VOCÊ escolheria contra um robô?"
+- **Ep. 8 (dia 16) "A Última Rodada":** o Joseph escolhe "quem conseguir perder de propósito, ganha". O robô entra em paradoxo, superaquece e trava; o Joseph vence pensando diferente, não mais rápido. Reviravolta: antes de apagar, o robô copia o rosto do Joseph. Gancho: a mãe abre a porta e vê dois Josephs.
+- **Ep. 9 (dia 17) "Qual é o verdadeiro?":** a mãe faz perguntas que só o filho saberia; o robô acerta tudo; o desempate é algo humano que ele não copia (ex.: o abraço). Comentário: "Qual é o verdadeiro: o da ESQUERDA ou o da DIREITA?"
+
 ## Plano de publicação (combinado em 19/11/2026)
 
 - **Semana-modelo:** segunda a sábado, 2 shorts por dia (cerca de 12h e 19h); domingo, 1 vídeo longo + 1 short "trailer" dele (com o longo como vídeo relacionado). Mínimo absoluto: 1 short por dia, sem pausa.
