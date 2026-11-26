@@ -7,7 +7,7 @@ export { THREE };
 
 export const W = window.innerWidth || 1920, H = window.innerHeight || 1080;
 export const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('gl'), antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(1);
+renderer.setPixelRatio(window.devicePixelRatio || 1); // 1 nos vídeos; 2 na capa (THUMB_SCALE=2)
 renderer.setSize(W, H, false);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;

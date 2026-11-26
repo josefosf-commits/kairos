@@ -71,6 +71,7 @@ const gBeam = bigBeam('#fffbe0', '#ffc300'), rBeam = bigBeam('#fff0f3', '#ff2d55
 function setBig(b, a, c, op, w, t) { const d = c.clone().sub(a), L = d.length(); [b.core, b.glow, b.outer].forEach((m, i) => { m.visible = op > 0.01 && L > 0.02; m.position.copy(a).addScaledVector(d, 0.5); m.quaternion.setFromUnitVectors(UP2, d.clone().normalize()); const f = w * (1 + 0.1 * Math.sin(t * 60 + i * 2)); m.scale.set(f, L, f); m.material.opacity = op * [1, 0.5, 0.2][i]; }); }
 const hideBig = b => [b.core, b.glow, b.outer].forEach(m => m.visible = false);
 const ball = [ns(mesh(sph(1, 28, 18), ADD('#ffffff'), scene)), ns(mesh(sph(1, 28, 18), ADD('#ffc300'), scene)), ns(mesh(sph(1, 28, 18), ADD('#ff2d55'), scene))];
+const thumbKey2 = new THREE.PointLight('#fff1e0', 0, 8, 1.2); scene.add(thumbKey2);
 const clashLight = new THREE.PointLight('#fff1d0', 0, 20, 1.2); scene.add(clashLight);
 // orbes de carga
 const jOrb = [ns(mesh(sph(1, 24, 16), ADD('#fffbe0'), scene)), ns(mesh(sph(1, 24, 16), ADD('#ffc300'), scene))];
@@ -197,15 +198,16 @@ window.render = function (t) {
   if (t < crash) rBar = 1; else rBar = 0.35; if (t > 38.9) jBar = 0.8;
 
   if (t < 0) { // ---------------- capa: choque de raios ----------------
-    J.position.set(...JH); J.rotation.set(0, facing(JH, RC), 0); robot.scale.setScalar(3.2); robot.position.set(...RC); robot.rotation.y = facing(RC, JH);
+    J.position.set(...JH); J.rotation.set(0, facing(JH, RC) - 0.6, 0); robot.scale.setScalar(3.2); robot.position.set(...RC); robot.rotation.y = facing(RC, JH);
     jo.pose({ armL: [1.5, 0.05, 0.1], armR: [1.5, 0.05, 0.1], lean: 0.15, leg: [0.3, -0.2] }); fightFace({ mouth: 'o', open: 1.1 });
     rarms[0].rotation.set(-1.45, 0, 0.35); rarms[1].rotation.set(-1.45, 0, -0.35); eyeMat.emissiveIntensity = 10;
     const a = handsJ(), b = handsR(), cp = a.clone().lerp(b, 0.48);
     setBig(gBeam, a, cp, 1, 1.2, 1.3); setBig(rBeam, b, cp, 1, 1.4, 1.3); ball.forEach((m, i) => { m.visible = true; m.position.copy(cp); m.scale.setScalar([0.9, 1.4, 1.2][i]); m.material.opacity = [1, 0.5, 0.35][i]; });
     for (let i = 0; i < 10; i++) { const d = new THREE.Vector3(hash(i) - 0.5, hash(i + 4) - 0.3, hash(i + 8) - 0.5).normalize().multiplyScalar(1.8 + 1.5 * hash(i + 2)); setArc(i, cp, cp.clone().add(d), i * 11.3, 0.9, i % 2 ? '#ffe066' : '#ff8fa3'); }
-    clashLight.position.copy(cp); clashLight.intensity = 30; auraJ(1, 1.3, 1.2); auraR(1, 1.3); crater.visible = true;
+    clashLight.position.copy(cp); clashLight.intensity = 22; auraJ(1, 1.3, 1.2); auraR(1, 1.3); crater.visible = true; auraMat.opacity = 0.13; auraIn.material.opacity = 0.05; rauraMat.opacity = 0.12; rauraIn.material.opacity = 0.04; eyeMat.emissiveIntensity = 4;
+    { scene.updateMatrixWorld(true); const h = headJ(); thumbKey2.position.set(h.x + 1.5, h.y + 1.0, h.z + 2.5); thumbKey2.intensity = 10; }
     rocksAround([cp.x, 0.2, cp.z], 4, 1.3, 1, 3.5);
-    car.visible = false; pole.visible = false; const fr0 = new THREE.Vector3(RC[0] - JH[0], 0, RC[2] - JH[2]).normalize(); camera.fov = 64; camera.updateProjectionMatrix(); cam([cp.x - fr0.z * 12 + fr0.x * 0.6, cp.y - 0.3, cp.z + fr0.x * 12 + fr0.z * 0.6], [cp.x + fr0.x * 0.6, cp.y + 0.9, cp.z + fr0.z * 0.6], 0, 0);
+    car.visible = false; pole.visible = false; const fr0 = new THREE.Vector3(RC[0] - JH[0], 0, RC[2] - JH[2]).normalize(); camera.fov = 63; camera.updateProjectionMatrix(); cam([cp.x - fr0.z * 13 + fr0.x * 0.3, cp.y - 0.4, cp.z + fr0.x * 13 + fr0.z * 0.3], [cp.x + fr0.x * 0.3, cp.y + 1.0, cp.z + fr0.z * 0.3], 0, 0);
     sky.position.copy(camera.position); renderer.render(scene, camera); return;
   }
 
