@@ -43,12 +43,20 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 8. Revisar estes números toda semana enquanto o canal é novo.
 9. **Checado em 19/11 (prints de 22/10 a 18/11):** "Tudo" ≈ "Shorts". A aba "Vídeos" mostrou 13–17 = 100%, mas com poucas views: é amostra pequena, não é conclusão. Junto com o desempenho (longos jovens/universais: 117 a 189 views; RECOMEÇA., adulto: 23 views em 2 dias), o sinal é que **o público dos longos é mais jovem do que se apostou**. Por enquanto: longos com tema jovem/universal (escola, prova, celular, sono, foco, primeiro emprego) ou compilação dos Ladrões; o tema adulto fica nos shorts. Reavaliar a aba "Vídeos" em 1 a 2 semanas.
 
+## Atualização 26/11/2026 (prints do Studio de 25/11 + vidIQ)
+
+- Público: 13–17 25,9% · 18–24 6,7% · 25–34 23,5% · 35–44 25,5% · 45–54 13,2% · 55+ 5,1%. Gênero: masc. 52,8% · fem. 47,2% (mais equilibrado). Celular 65,6% · TV 27,2% · tablet 5,2%. Brasil 93%.
+- Novos 99,7% · casuais 0,3% (era < 0,1%) · frequentes < 0,1%. A série começou a criar quem volta, mas pouco.
+- Views dos shorts da série do QI: ep. 1 2.014 · ep. 2 (1:38) 954 · ep. 3 1.207 · ep. 4 1.263 · testa 1.203 (4 comentários, o único com comentários) · ep. 5 551 (2 dias) · ep. 6 246 (1º dia). VPH caiu de 16–21 (ep. 1 a 4) para 11 (ep. 5).
+- Lições: shorts de 40–50 s vão melhor que 1:38; pergunta pessoal ao espectador gera comentário (a de enredo não); 1ª frase precisa ser gancho visual/curiosidade, não "no último episódio" (99,7% são novos e passam o dedo).
+- Regras novas da série: (1) abrir com um gancho de 1–2 s e só depois um resumo de no máx. 3 s; (2) duração 40–50 s; (3) título com "(Parte X)" no fim; (4) depois de publicar o ep. N+1, trocar o "vídeo relacionado" do ep. N para o N+1; (5) comentário fixado com pergunta pessoal ("qual seria o SEU QI?", "você desligaria o robô?").
+
 ## Série "E se? QI dobrado" (3D) — prioridade (23/11/2026)
 
 - Quando o usuário pedir "mais um short" sem dizer o tema, **fazer o próximo episódio da série do QI** (ep. 1 a 3 = shorts 20 a 22; cada um termina com gancho "dia X em breve"). Se o pedido for ambíguo, perguntar antes de gastar créditos.
 - O usuário achou fraco o short solto "tempo de celular na testa" (short 23): evitar temas soltos desse tipo; preferir histórias da série com vilão (o robô) e gancho.
 - Base técnica: `videos/_lib/mundo3d.js` + copiar `src/cena3d.js` do episódio anterior (robô, botão, celular, quarto já prontos).
-- **Continuidade (obrigatório):** todo episódio começa com 1 linha de "no último episódio..." e continua EXATAMENTE de onde o anterior parou (estado do Joseph, onde está o robô). Toda mudança de estado precisa ser explicada na história (ex.: como ele descongelou). Antes de escrever, reler o `roteiro.json` do episódio anterior.
+- **Continuidade (obrigatório):** todo episódio tem 1 linha curta de "no último episódio..." logo depois do gancho inicial e continua EXATAMENTE de onde o anterior parou (estado do Joseph, onde está o robô). Toda mudança de estado precisa ser explicada na história (ex.: como ele descongelou). Antes de escrever, reler o `roteiro.json` do episódio anterior.
 - Estado atual (fim do ep. 6, short 26): Joseph na rua (saiu pela janela), QI 3,2 milhões; robô no cruzamento, QI 13 milhões. Os dois apertaram as mãos ("por que você quer ser eu?" / "porque eu não sei ser outra coisa"), mas os olhos do robô seguem vermelhos. Próximo: dia 15 (amigo ou inimigo?).
 
 ## Plano de publicação (combinado em 19/11/2026)
