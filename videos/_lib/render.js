@@ -32,9 +32,13 @@ const fs = require('fs');
     }
   } else {
     const n = Math.round(tl.duration * tl.fps);
+    // PART=k/N renderiza só um pedaço (para rodar vários em paralelo) -> build/video-part-k.mp4
+    const [pk, pn] = (process.env.PART || '0/1').split('/').map(Number);
+    const i0 = Math.floor(n * pk / pn), i1 = Math.floor(n * (pk + 1) / pn);
+    const outName = pn > 1 ? `video-part-${pk}.mp4` : 'video-mudo.mp4';
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(tl.fps), '-i', '-',
-      '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', path.join(dir, 'build', 'video-mudo.mp4')], { stdio: ['pipe', 'inherit', 'inherit'] });
-    for (let i = 0; i < n; i++) {
+      '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', path.join(dir, 'build', outName)], { stdio: ['pipe', 'inherit', 'inherit'] });
+    for (let i = i0; i < i1; i++) {
       await page.evaluate(x => window.render(x), i / tl.fps);
       const buf = await page.screenshot({ type: 'jpeg', quality: 95 });
       if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));

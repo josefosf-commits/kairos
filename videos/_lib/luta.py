@@ -214,3 +214,61 @@ def heartbeat():
     one = lambda: np.sin(2 * np.pi * 52 * _t(0.18)) * np.exp(-_t(0.18) * 20)
     y = np.zeros(len(t)); a = one(); y[:len(a)] += a; i = int(0.22 * SR); y[i:i + len(a)] += a * 0.7
     return y
+
+
+# ---------- plateia e criaturas (vídeo longo "Arena Galáctica") ----------
+def crowd_bed(d, level=0.5):
+    """murmúrio de plateia contínuo"""
+    t = _t(d)
+    x = band(noise(d), 250, 2500) * (0.7 + 0.3 * np.sin(2 * np.pi * 0.3 * t) * np.sin(2 * np.pi * 0.17 * t + 1))
+    return x * level
+
+
+def cheer(d=3.0):
+    """explosão de torcida: sobe rápido e cai devagar"""
+    t = _t(d)
+    e = np.clip(t / 0.15, 0, 1) * np.exp(-np.maximum(t - 0.4, 0) * 1.1)
+    voices = sum(np.sin(2 * np.pi * np.cumsum(f * (1 + 0.04 * np.sin(2 * np.pi * (4 + i) * t))) / SR) for i, f in enumerate([420, 510, 640, 780, 900]))
+    return (band(noise(d), 300, 4000) * 1.4 + band(voices / 5, 300, 3000) * 0.25) * e
+
+
+def ooh(d=1.6):
+    """'uuuh' da plateia"""
+    t = _t(d)
+    e = np.sin(np.pi * t / d) ** 1.5
+    v = sum(np.sin(2 * np.pi * np.cumsum(f * (1 - 0.15 * t / d)) / SR) for f in [220, 262, 330, 392])
+    return (band(v / 4, 150, 1200) * 0.6 + band(noise(d), 200, 900) * 0.6) * e
+
+
+def laugh(d=2.5):
+    """risada da plateia: rajadas rápidas 'ha-ha'"""
+    t = _t(d)
+    puls = np.clip(np.sin(2 * np.pi * 5.5 * t), 0, 1) ** 2
+    return band(noise(d), 500, 3500) * puls * np.exp(-t * 0.7) * 1.2
+
+
+def chant_beat():
+    """um 'JO-SEPH!' da torcida (duas sílabas)"""
+    out_ = np.zeros(int(SR * 0.55))
+    for i, (t0, f) in enumerate([(0.0, 300), (0.24, 380)]):
+        d = 0.2; tt = _t(d); s = (band(noise(d), 300, 3000) + 0.4 * np.sin(2 * np.pi * f * tt)) * np.sin(np.pi * tt / d) ** 0.7
+        a = int(t0 * SR); out_[a:a + len(s)] += s
+    return out_
+
+
+def growl(d=1.6):
+    """rugido grave de gigante"""
+    t = _t(d)
+    f = 55 + 15 * np.sin(2 * np.pi * 3 * t)
+    x = saw(1, np.cumsum(f) / SR) + 0.6 * saw(1, np.cumsum(f * 1.5) / SR)
+    return sat(band(x, None, 700) * (0.6 + 0.4 * np.sin(2 * np.pi * 11 * t)) + band(noise(d), 80, 600) * 0.8, 2) * np.sin(np.pi * t / d) ** 0.6
+
+
+def chirp_bird():
+    d = 0.18; t = _t(d)
+    return np.sin(2 * np.pi * np.cumsum(3200 + 1800 * np.sin(np.pi * t / d)) / SR) * np.sin(np.pi * t / d) * 0.5
+
+
+def tick():
+    d = 0.03; t = _t(d)
+    return band(noise(d), 2000, None) * np.exp(-t * 200)

@@ -1,0 +1,288 @@
+{
+ "name": "ARENA-GALACTICA",
+ "tail": 4.0,
+ "lines": [
+  {
+   "id": 1,
+   "text": "O Joseph nunca lutou na vida.",
+   "gap": 0.3,
+   "who": "N"
+  },
+  {
+   "id": 2,
+   "text": "E agora ele está numa arena, em outro planeta... representando a Terra inteira.",
+   "gap": 0.4,
+   "who": "N"
+  },
+  {
+   "id": 3,
+   "text": "Tudo começou numa noite normal. Ele estava estudando no quarto, quando uma luz azul atravessou a janela.",
+   "gap": 1.2,
+   "who": "N"
+  },
+  {
+   "id": 4,
+   "text": "Ele começou a flutuar. A cama ficou pra trás. A casa ficou pequena. E a Terra virou um pontinho.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 5,
+   "text": "Quando acordou, estava numa nave cheia de criaturas de todos os cantos da galáxia.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 6,
+   "text": "Bem-vindos ao Torneio dos Mil Mundos!",
+   "gap": 0.8,
+   "who": "A"
+  },
+  {
+   "id": 7,
+   "text": "Cada planeta manda um lutador. Quem vencer as três lutas, protege o seu mundo. Quem perder... entrega o planeta ao campeão.",
+   "gap": 0.6,
+   "who": "A"
+  },
+  {
+   "id": 8,
+   "text": "O Joseph olhou em volta. O lutador de cada planeta era um monstro. E o da Terra... era ele.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 9,
+   "text": "Deve ter algum engano. Eu nem sei lutar!",
+   "gap": 0.6,
+   "who": "J"
+  },
+  {
+   "id": 10,
+   "text": "Não tem engano não, terráqueo.",
+   "gap": 0.5,
+   "who": "Z"
+  },
+  {
+   "id": 11,
+   "text": "Era o Zib, um alienígena pequeno, que trabalhava limpando a arena.",
+   "gap": 0.4,
+   "who": "N"
+  },
+  {
+   "id": 12,
+   "text": "O computador escolhe quem tem mais foco no planeta. E na Terra... deu você.",
+   "gap": 0.6,
+   "who": "Z"
+  },
+  {
+   "id": 13,
+   "text": "O Zib colocou um bracelete no pulso dele.",
+   "gap": 0.5,
+   "who": "N"
+  },
+  {
+   "id": 14,
+   "text": "Ele transforma foco em poder. Quanto mais calmo você ficar, mais forte você fica.",
+   "gap": 1.0,
+   "who": "Z"
+  },
+  {
+   "id": 15,
+   "text": "Primeira luta! Da Terra, Joseph! Contra... Krom, o gigante de pedra!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 16,
+   "text": "Krom tinha o tamanho de um prédio. Cada passo fazia a arena tremer.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 17,
+   "text": "O primeiro soco, o Joseph nem viu.",
+   "gap": 0.4,
+   "who": "N"
+  },
+  {
+   "id": 18,
+   "text": "Ele voou longe. E a plateia riu.",
+   "gap": 1.6,
+   "who": "N"
+  },
+  {
+   "id": 19,
+   "text": "Mas, caído no chão, ele percebeu uma coisa: o gigante era forte... mas era lento.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 20,
+   "text": "Então o Joseph parou de tentar bater. E começou a desviar.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 21,
+   "text": "Um soco. Dois. Dez. O gigante cansou.",
+   "gap": 2.2,
+   "who": "N"
+  },
+  {
+   "id": 22,
+   "text": "E quando ele parou pra respirar, o Joseph juntou toda a energia do bracelete num soco só.",
+   "gap": 3.4,
+   "who": "N"
+  },
+  {
+   "id": 23,
+   "text": "Krom caiu! Ponto para a Terra!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 24,
+   "text": "Lição número um: a força cansa. A paciência não.",
+   "gap": 1.6,
+   "who": "N"
+  },
+  {
+   "id": 25,
+   "text": "Segunda luta! Vexa, a mais rápida da galáxia!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 26,
+   "text": "Vexa se movia tão rápido que deixava rastros no ar. O Joseph não conseguia nem acompanhar com os olhos.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 27,
+   "text": "Ela acertava de todos os lados. Esquerda. Direita. Por trás.",
+   "gap": 1.8,
+   "who": "N"
+  },
+  {
+   "id": 28,
+   "text": "Então ele fez a coisa mais estranha que alguém já fez naquela arena: fechou os olhos.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 29,
+   "text": "Respira. Escuta.",
+   "gap": 1.0,
+   "who": "Z"
+  },
+  {
+   "id": 30,
+   "text": "Sem olhar, ele sentiu o vento antes do golpe. E o mundo ficou em câmera lenta.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 31,
+   "text": "Escudo! E contra-ataque!",
+   "gap": 3.2,
+   "who": "N"
+  },
+  {
+   "id": 32,
+   "text": "Inacreditável! Dois a zero para a Terra!",
+   "gap": 1.0,
+   "who": "A"
+  },
+  {
+   "id": 33,
+   "text": "Lição número dois: quando tudo fica rápido demais, o foco deixa tudo lento.",
+   "gap": 1.6,
+   "who": "N"
+  },
+  {
+   "id": 34,
+   "text": "Luta final! Multix, o lutador que se multiplica!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 35,
+   "text": "Um virou dois. Dois viraram quatro. E de repente, eram oito Multix em volta do Joseph.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 36,
+   "text": "Ele socava um, e era só fumaça. Os clones copiavam cada movimento dele.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 37,
+   "text": "O bracelete começou a falhar. A energia estava acabando.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 38,
+   "text": "Então o Joseph teve uma ideia: se os clones copiam tudo... ele ia ficar parado.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 39,
+   "text": "Ele ficou imóvel. Os clones também. Todos... menos um.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 40,
+   "text": "O verdadeiro Multix não aguentou ficar parado. E se mexeu.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 41,
+   "text": "Achei você.",
+   "gap": 0.6,
+   "who": "J"
+  },
+  {
+   "id": 42,
+   "text": "A Terra venceu! A Terra venceu o Torneio dos Mil Mundos!",
+   "gap": 4.2,
+   "who": "A"
+  },
+  {
+   "id": 43,
+   "text": "Lição número três: quem domina a calma, domina a luta.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 44,
+   "text": "A plateia inteira gritou o nome dele. E a luz azul levou o Joseph de volta pra casa.",
+   "gap": 1.2,
+   "who": "N"
+  },
+  {
+   "id": 45,
+   "text": "Ele acordou na mesa do quarto, em cima do caderno. Parecia um sonho.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 46,
+   "text": "Até que ele olhou pro pulso... e o bracelete ainda estava lá. Brilhando.",
+   "gap": 1.6,
+   "who": "N"
+  },
+  {
+   "id": 47,
+   "text": "Qual luta foi a melhor: a um, a dois ou a três? Comenta aí. E segue o canal pra não perder a próxima aventura do Joseph.",
+   "gap": 1.2,
+   "who": "N"
+  }
+ ]
+}
