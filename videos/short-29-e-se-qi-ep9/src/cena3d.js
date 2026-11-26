@@ -337,7 +337,8 @@ window.render = function (t) {
     clashLight.position.copy(cp); clashLight.intensity = 22; auraJ(1, 1.3, 1.2); auraR(1, 1.3); crater.visible = true; auraMat.opacity = 0.13; auraIn.material.opacity = 0.05; rauraMat.opacity = 0.12; rauraIn.material.opacity = 0.04; eyeMat.emissiveIntensity = 4;
     { scene.updateMatrixWorld(true); const h = headJ(); thumbKey2.position.set(h.x + 1.5, h.y + 1.0, h.z + 2.5); thumbKey2.intensity = 10; }
     rocksAround([cp.x, 0.2, cp.z], 4, 1.3, 1, 3.5);
-    car.visible = false; pole.visible = false; const fr0 = new THREE.Vector3(RC[0] - JH[0], 0, RC[2] - JH[2]).normalize(); camera.fov = 63; camera.updateProjectionMatrix(); cam([cp.x - fr0.z * 13 + fr0.x * 0.3, cp.y - 0.4, cp.z + fr0.x * 13 + fr0.z * 0.3], [cp.x + fr0.x * 0.3, cp.y + 1.0, cp.z + fr0.z * 0.3], 0, 0);
+    car.visible = false; pole.visible = false; const fr0 = new THREE.Vector3(RC[0] - JH[0], 0, RC[2] - JH[2]).normalize(); if (t < -1.5) { robot.rotation.y += 0.5; scene.updateMatrixWorld(true); const hj = headJ(), hr = headR(); const m = hj.clone().add(hr).multiplyScalar(0.5); m.y -= 0.3; camera.fov = 40; camera.updateProjectionMatrix(); cam([m.x - fr0.z * 11.5, m.y, m.z + fr0.x * 11.5], [m.x, m.y, m.z], 0, 0); sky.position.copy(camera.position); renderer.render(scene, camera); return; }
+    camera.fov = 63; camera.updateProjectionMatrix(); cam([cp.x - fr0.z * 13 + fr0.x * 0.3, cp.y - 0.4, cp.z + fr0.x * 13 + fr0.z * 0.3], [cp.x + fr0.x * 0.3, cp.y + 1.0, cp.z + fr0.z * 0.3], 0, 0);
     sky.position.copy(camera.position); renderer.render(scene, camera); return;
   }
 
