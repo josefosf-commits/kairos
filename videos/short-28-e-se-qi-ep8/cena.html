@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SHORT-28-E-SE-QI-EP8</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; src: url("../_lib/anton-400.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  canvas { display: block; width: 1080px; height: 1920px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; transform-origin: 50% 50%; }
+  .anton { font-family: "Anton"; font-weight: 400; letter-spacing: 3px; -webkit-text-stroke: 16px #0b0b0b; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.35) 100%); }
+  #day { left: 50%; top: 150px; font-size: 130px; text-align: center; line-height: 1.05; }
+  #qi { left: 50%; top: 170px; transform: translateX(-50%); font-size: 160px; color: #ffd60a; }
+  #warn { left: 50%; top: 380px; font-size: 110px; color: #ff4d6d; }
+  #pause { left: 50%; top: 420px; font-size: 120px; color: #ffd60a; }
+  #count { left: 50%; top: 260px; font-size: 420px; color: #ff4d6d; }
+  #end { left: 50%; top: 240px; font-size: 140px; color: #ffd54a; text-align: center; line-height: 1.1; }
+  #words { position: absolute; inset: 0; }
+  .w { position: absolute; transform: translate(-50%,-50%); font-family: "Anton"; font-size: 72px; color: #7fdcff; letter-spacing: 2px;
+       -webkit-text-stroke: 10px #0b1630; paint-order: stroke fill; white-space: nowrap; opacity: 0; }
+  #duo { position: absolute; left: 50%; top: 330px; transform: translateX(-50%); width: 940px; display: flex; gap: 30px; opacity: 0; }
+  #duo > div { flex: 1; text-align: center; padding: 16px 10px; border-radius: 34px; border: 6px solid #fff; font-family: Anton; color: #fff; font-size: 60px; line-height: 1.08; letter-spacing: 2px;
+             -webkit-text-stroke: 9px #111; paint-order: stroke fill; transform-origin: 50% 50%; }
+  #click { left: 50%; top: 560px; font-size: 150px; color: #ff4d6d; }
+  #frz { left: 50%; top: 600px; font-size: 130px; color: #7fdcff; }
+  #rbig { left: 50%; top: 220px; font-size: 104px; color: #ff2d55; transform-origin: 50% 50%; }
+  .app { font-size: 96px; transform-origin: 50% 50%; }
+  #recap { left: 50%; top: 150px; font-size: 90px; color: #ffd60a; }
+  #genio { left: 50%; top: 260px; font-size: 110px; color: #ffd60a; }
+  #despausa { left: 50%; top: 240px; font-size: 96px; color: #fff; text-align: center; line-height: 1.1; }
+  #igual { left: 50%; top: 260px; font-size: 110px; color: #ff4d6d; }
+  #door { left: 50%; top: 260px; font-size: 120px; color: #ffd60a; }
+  #amigo { left: 50%; top: 200px; font-size: 140px; color: #fff; text-align: center; line-height: 1.05; }
+  #duelo { left: 50%; top: 300px; font-size: 220px; color: #ff2d55; }
+  #rodadas { left: 50%; top: 560px; font-size: 110px; color: #ffd60a; }
+  #some { left: 50%; top: 560px; font-size: 110px; color: #ff2d55; }
+  #r1, #r2 { left: 50%; top: 300px; font-size: 104px; color: #ffd60a; }
+  #r3 { left: 50%; top: 300px; font-size: 160px; color: #ff2d55; text-align: center; line-height: 1.05; }
+  #cta { left: 50%; top: 300px; font-size: 110px; color: #ffd60a; text-align: center; line-height: 1.05; }
+  .chip { font-family: Anton; font-size: 84px; color: #fff; background: #d90429; border: 6px solid #fff; border-radius: 26px; padding: 8px 30px; -webkit-text-stroke: 9px #111; paint-order: stroke fill; opacity: 0; box-shadow: 0 0 40px #ff2d55; }
+  .card { font-family: Anton; font-size: 78px; color: #0b1630; background: #7fdcff; border: 6px solid #fff; border-radius: 22px; padding: 10px 40px; opacity: 0; box-shadow: 0 0 50px #00e5ff; }
+  #mentira { left: 50%; top: 300px; font-size: 200px; color: #ff2d55; }
+  #regra { left: 50%; top: 300px; font-size: 84px; color: #fff; text-align: center; line-height: 1.05; }
+  #travado { left: 50%; top: 300px; font-size: 180px; color: #ff2d55; }
+  #eramentira { left: 50%; top: 300px; font-size: 120px; color: #ff2d55; }
+  #prev { left: 50%; top: 300px; font-size: 110px; color: #7fdcff; }
+  #cap { left: 50%; bottom: 420px; transform: translateX(-50%); width: 960px; text-align: center; font-size: 76px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="vig"></div>
+  <div id="words"></div>
+  <div class="ov anton" id="day">DIA 15</div>
+  <div class="ov anton" id="qi"></div>
+  <div class="ov anton" id="warn">SEM PARAR!</div>
+  <div class="ov anton" id="pause">BOTÃO DE PAUSA</div>
+  <div class="ov anton" id="count"></div>
+  <div class="ov anton" id="end">PARTE 9<br>EM BREVE<br><span style="font-size:90px;color:#fff">segue pra não perder</span></div>
+  <div id="duo"><div id="djb" style="background:#e9a400"><span id="djl">JOSEPH</span><br>QI <span id="dj">409.600</span></div><div id="drb" style="background:#d90429">ROBÔ<br>QI <span id="dr">409.600</span></div></div>
+  <div class="ov anton" id="click">CLICK!</div>
+  <div class="ov anton" id="frz">CONGELADO</div>
+  <div class="ov anton app" id="ap0" style="color:#3a86ff">TV</div>
+  <div class="ov anton app" id="ap1" style="color:#ff9f1c">MICRO-ONDAS</div>
+  <div class="ov anton app" id="ap2" style="color:#52d273">GELADEIRA</div>
+  <div class="ov anton" id="rbig"></div>
+  <div class="ov anton" id="recap">NO ÚLTIMO EPISÓDIO...</div>
+  <div class="ov anton" id="genio">AINDA É UM GÊNIO</div>
+  <div class="ov anton" id="despausa">TODO BOTÃO DE PAUSA<br><span style="color:#52d273">TAMBÉM DESPAUSA</span></div>
+  <div class="ov anton" id="igual">IGUAL AO ROBÔ</div>
+  <div class="ov anton" id="door">NÃO PASSA...</div>
+  <div class="ov anton" id="amigo">AMIGO OU<br><span style="color:#ff2d55">INIMIGO?</span></div>
+  <div class="ov anton" id="qi3" style="left:50%;top:330px;transform:translateX(-50%);font-size:150px;color:#ffd60a">QI 3.276.800</div>
+  <div id="score" style="position:absolute;left:50%;top:150px;transform:translateX(-50%);display:flex;gap:18px;align-items:center;opacity:0;font-family:Anton;font-size:62px;color:#fff;-webkit-text-stroke:9px #111;paint-order:stroke fill;transform-origin:50% 0;white-space:nowrap">
+    <div style="background:#e9a400;border:6px solid #fff;border-radius:26px;padding:6px 26px">JOSEPH <span id="sj">0</span></div><div>x</div><div style="background:#d90429;border:6px solid #fff;border-radius:26px;padding:6px 26px"><span id="sr">0</span> ROBÔ</div></div>
+  <div class="ov anton" id="duelo">DUELO</div>
+  <div class="ov anton" id="rodadas">3 RODADAS</div>
+  <div class="ov anton" id="some">QUEM PERDE... SOME</div>
+  <div class="ov anton" id="r1">RODADA 1: CÁLCULO</div>
+  <div class="ov anton" id="r2">RODADA 2: MEMÓRIA</div>
+  <div class="ov anton" id="r3">RODADA 3<br><span style="font-size:80px;color:#fff">QUEM PERDE ESCOLHE</span></div>
+  <div class="ov anton" id="cta">QUAL PODER VOCÊ<br>QUERIA TER?</div>
+  <div class="ov anton" id="eq" style="left:50%;top:430px;transform:translateX(-50%);font-size:110px;color:#fff">437 × 892 = ?</div>
+  <div id="stakes" style="position:absolute;left:0;right:0;top:420px;display:flex;justify-content:center;gap:24px">
+    <div class="chip" id="k0">CASA</div><div class="chip" id="k1">AMIGOS</div><div class="chip" id="k2">MÃE</div></div>
+  <div id="cards" style="position:absolute;left:0;right:0;top:380px;display:flex;flex-direction:column;align-items:center;gap:22px">
+    <div class="card" id="c0">SENHA: ••••••</div><div class="card" id="c1">FOTOS: 3.214</div><div class="card" id="c2">♪ PLAYLIST SECRETA</div></div>
+  <div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none"></div>
+  <div class="ov anton" id="mentira">MENTIRA!</div>
+  <div class="ov anton" id="regra">QUEM PERDER DE PROPÓSITO<br><span style="color:#52d273">GANHA</span></div>
+  <div class="ov anton" id="calc" style="left:50%;top:330px;transform:translateX(-50%);font-size:110px">CALCULANDO...</div>
+  <div class="ov anton" id="travado">TRAVADO</div>
+  <div class="ov anton" id="eramentira">ERA TUDO MENTIRA</div>
+  <div class="ov anton" id="prev">MODO PREVISÃO</div>
+  <div class="ov anton" id="fx" style="left:50%;top:44%;font-size:260px">POW!</div>
+  <div class="ov anton" id="qib" style="left:50%;top:300px;transform:translateX(-50%);font-size:150px;color:#ffd60a">QI</div>
+  <div id="bars" style="position:absolute;left:40px;right:40px;top:120px;display:flex;gap:30px;opacity:0;font-family:Anton;font-size:46px;color:#fff;-webkit-text-stroke:7px #111;paint-order:stroke fill">
+    <div style="flex:1">JOSEPH<div style="height:34px;border:5px solid #fff;border-radius:18px;background:rgba(0,0,0,.6);overflow:hidden;margin-top:6px"><div id="bj" style="height:100%;width:100%;background:linear-gradient(90deg,#ffd60a,#ff9f1c)"></div></div></div>
+    <div style="flex:1;text-align:right">ROBÔ<div style="height:34px;border:5px solid #fff;border-radius:18px;background:rgba(0,0,0,.6);overflow:hidden;margin-top:6px;display:flex;justify-content:flex-end"><div id="br" style="height:100%;width:100%;background:linear-gradient(90deg,#ff2d55,#ff6b81)"></div></div></div></div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>

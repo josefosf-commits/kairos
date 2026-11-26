@@ -57,7 +57,7 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - O usuário achou fraco o short solto "tempo de celular na testa" (short 23): evitar temas soltos desse tipo; preferir histórias da série com vilão (o robô) e gancho.
 - Base técnica: `videos/_lib/mundo3d.js` + copiar `src/cena3d.js` do episódio anterior (robô, botão, celular, quarto já prontos).
 - **Continuidade (obrigatório):** todo episódio tem 1 linha curta de "no último episódio..." logo depois do gancho inicial e continua EXATAMENTE de onde o anterior parou (estado do Joseph, onde está o robô). Toda mudança de estado precisa ser explicada na história (ex.: como ele descongelou). Antes de escrever, reler o `roteiro.json` do episódio anterior.
-- Estado atual (fim do ep. 7, short 27): duelo de 3 rodadas no cruzamento; robô vence cálculo (437 x 892 = 389.804) e memória (baixou o celular: senha, fotos, playlist secreta): 0 x 2. Última rodada: quem perde escolhe o desafio; o Joseph já sabe o que vai pedir. Próximo: Parte 8 "A Última Rodada" (ver arco O Duelo).
+- Estado atual (fim do ep. 8, short 28): o robô fingiu travar na rodada 3 ("quem perder de propósito ganha"), atacou o Joseph pelas costas, eles lutaram (esquivas no "modo previsão", contra-ataque), o robô acertou um raio dos olhos; o Joseph caiu, o QI foi a 13,1 milhões e acendeu uma aura dourada (ele flutua). Robô com QI 13 milhões, olhos vermelhos. Próximo: Parte 9 "Poder Mental" (telecinese, voo, apagão, choque de raios, robô copia o rosto e foge).
 
 ## Arco "O Duelo" (aprovado em 26/11/2026) — episódios 7 a 9 da série do QI
 
