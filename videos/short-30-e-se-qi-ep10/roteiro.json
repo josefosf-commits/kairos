@@ -1,0 +1,164 @@
+{
+ "name": "SHORT-30-E-SE-QI-EP10",
+ "tail": 3.0,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "who": "N",
+   "text": "Dois Josephs. Só um é de verdade.",
+   "gap": 0.5,
+   "at": 0.3
+  },
+  {
+   "id": 2,
+   "who": "N",
+   "text": "No último episódio, o robô copiou o rosto dele.",
+   "gap": 0.4
+  },
+  {
+   "id": 3,
+   "who": "N",
+   "text": "Dia dezoito. O bairro no escuro. A mãe na porta, com o lampião.",
+   "gap": 0.5
+  },
+  {
+   "id": 4,
+   "who": "F",
+   "text": "Mãe, sou eu! Esse aí é o robô!",
+   "gap": 0.4
+  },
+  {
+   "id": 5,
+   "who": "J",
+   "text": "Mentira! Ele copiou a minha cara!",
+   "gap": 0.3
+  },
+  {
+   "id": 6,
+   "who": "N",
+   "text": "A mãe testa: qual foi o primeiro bolo que eu fiz pra você?",
+   "gap": 0.6
+  },
+  {
+   "id": 7,
+   "who": "F",
+   "text": "Cenoura com chocolate. Você queimou a borda.",
+   "gap": 0.3
+  },
+  {
+   "id": 8,
+   "who": "N",
+   "text": "O falso acerta na hora. Ele baixou as memórias do celular. O verdadeiro trava.",
+   "gap": 0.5
+  },
+  {
+   "id": 9,
+   "who": "N",
+   "text": "E a mãe abre a porta... pro falso.",
+   "gap": 0.6
+  },
+  {
+   "id": 10,
+   "who": "N",
+   "text": "Mas o Joseph vê um brilho vermelho no olho dele.",
+   "gap": 0.4
+  },
+  {
+   "id": 11,
+   "who": "F",
+   "text": "Mãe, se esconde! Ele vai atacar!",
+   "gap": 0.4
+  },
+  {
+   "id": 12,
+   "who": "N",
+   "text": "Mentira. Quem ataca é o falso. A mãe corre pra trás do sofá.",
+   "gap": 0.3
+  },
+  {
+   "id": 13,
+   "who": "N",
+   "text": "Soco. Esquiva. A mesa voa!",
+   "gap": 0.6
+  },
+  {
+   "id": 14,
+   "who": "N",
+   "text": "Raio vermelho... escudo dourado!",
+   "gap": 0.5
+  },
+  {
+   "id": 15,
+   "who": "N",
+   "text": "E quando a fumaça baixa... os dois estão iguais de novo.",
+   "gap": 2.6
+  },
+  {
+   "id": 16,
+   "who": "F",
+   "text": "Mãe, sou eu!",
+   "gap": 0.4
+  },
+  {
+   "id": 17,
+   "who": "J",
+   "text": "Não, mãe! Sou eu!",
+   "gap": 0.3
+  },
+  {
+   "id": 18,
+   "who": "N",
+   "text": "Então a mãe só abre os braços.",
+   "gap": 0.5
+  },
+  {
+   "id": 19,
+   "who": "N",
+   "text": "O verdadeiro corre e abraça. Na hora.",
+   "gap": 0.8
+  },
+  {
+   "id": 20,
+   "who": "N",
+   "text": "O falso fica parado. Calculando.",
+   "gap": 0.8
+  },
+  {
+   "id": 21,
+   "who": "R",
+   "text": "Erro. Abraço não encontrado.",
+   "gap": 0.6
+  },
+  {
+   "id": 22,
+   "who": "N",
+   "text": "Ele copiou o rosto, a voz, as memórias. Mas não o que ele sente.",
+   "gap": 0.6
+  },
+  {
+   "id": 23,
+   "who": "N",
+   "text": "O disfarce cai.",
+   "gap": 0.6
+  },
+  {
+   "id": 24,
+   "who": "R",
+   "text": "Isso não acaba aqui. Eu volto. E não volto sozinho.",
+   "gap": 1.4
+  },
+  {
+   "id": 25,
+   "who": "N",
+   "text": "Fim da temporada um.",
+   "gap": 1.0
+  },
+  {
+   "id": 26,
+   "who": "N",
+   "text": "O que um robô nunca copiaria de você? Comenta. E segue pra não perder a temporada dois.",
+   "gap": 1.0
+  }
+ ]
+}
