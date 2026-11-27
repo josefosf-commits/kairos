@@ -90,6 +90,8 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 
 ## Estrutura
 
+- **Tamanho máximo do MP4 entregue: ~90 MB** (o usuário baixa pelo app, e arquivos maiores não aparecem para download). O `montar.sh` já recomprime sozinho quando passa de 95 MB.
+
 - `videos/_lib/`: biblioteca comum (rig.js, short.js, som.py, render.js, montar.sh, collect.py, fila.sh)
 - `videos/<curta>/`: roteiro.json → narração (Speko) → collect.py → timeline.json → cena.html/js + trilha.py → render.js → montar.sh
 - `videos/canal/`: logo e capa do canal
