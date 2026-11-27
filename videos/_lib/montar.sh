@@ -19,4 +19,11 @@ else
 fi
 ffmpeg -y -loglevel error "${inputs[@]}" -i build/trilha.wav "${sfx[@]}" -i build/video-mudo.mp4 -filter_complex "$filters" \
   -map "$vin:v" -map "[out]" -c:v copy -c:a aac -b:a 192k -ar 48000 -t "$dur" "build/$name.mp4"
-echo "ok build/$name.mp4"
+# Arquivo grande demais para baixar pelo app: recomprime para ~90 MB (mesma resolução)
+sz=$(stat -c %s "build/$name.mp4")
+if [ "$sz" -gt $((95*1024*1024)) ]; then
+  vk=$(python3 -c "print(max(800, int(90*8*1024/float('$dur')) - 170))")
+  ffmpeg -y -loglevel error -i "build/$name.mp4" -c:v libx264 -preset medium -b:v ${vk}k -maxrate $((vk*14/10))k -bufsize $((vk*28/10))k \
+    -pix_fmt yuv420p -c:a copy -movflags +faststart "build/$name-tmp.mp4" && mv "build/$name-tmp.mp4" "build/$name.mp4"
+fi
+echo "ok build/$name.mp4 ($(( $(stat -c %s "build/$name.mp4")/1024/1024 )) MB)"
