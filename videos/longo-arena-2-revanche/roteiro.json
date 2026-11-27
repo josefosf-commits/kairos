@@ -1,0 +1,312 @@
+{
+ "name": "ARENA-2-REVANCHE",
+ "tail": 8,
+ "lines": [
+  {
+   "id": 1,
+   "text": "O campeão da galáxia voltou. E dessa vez, ele quer a Terra.",
+   "gap": 0.3,
+   "who": "N"
+  },
+  {
+   "id": 2,
+   "text": "E o único que pode impedir... é o Joseph.",
+   "gap": 0.4,
+   "who": "N"
+  },
+  {
+   "id": 3,
+   "text": "Uma semana depois do torneio, o bracelete do Joseph acendeu no meio da noite.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 4,
+   "text": "Joseph! Aqui é o Zib. Temos um problema. Um problema enorme.",
+   "gap": 0.6,
+   "who": "Z"
+  },
+  {
+   "id": 5,
+   "text": "Era o Vorg, o campeão de verdade. Ele nunca tinha perdido uma luta... e não aceitou a vitória da Terra.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 6,
+   "text": "Um humano venceu o meu torneio? Então eu mesmo vou buscar o planeta dele.",
+   "gap": 0.6,
+   "who": "V"
+  },
+  {
+   "id": 7,
+   "text": "A luz azul levou o Joseph de novo. Só que dessa vez, a arena estava em silêncio.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 8,
+   "text": "Revanche! O campeão Vorg desafia a Terra!",
+   "gap": 1.0,
+   "who": "A"
+  },
+  {
+   "id": 9,
+   "text": "Mas antes do campeão... o desafiante precisa passar pelos dois guardas dele!",
+   "gap": 0.6,
+   "who": "A"
+  },
+  {
+   "id": 10,
+   "text": "Dois guardas? Ninguém falou de guarda!",
+   "gap": 0.5,
+   "who": "J"
+  },
+  {
+   "id": 11,
+   "text": "Calma. Lembra: quanto mais calmo, mais forte.",
+   "gap": 0.6,
+   "who": "Z"
+  },
+  {
+   "id": 12,
+   "text": "Primeira luta! Gorrak, o monstro de quatro braços!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 13,
+   "text": "Gorrak tinha músculo até na testa. Quatro braços. Quatro socos ao mesmo tempo.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 14,
+   "text": "O Joseph desviou de dois. Bloqueou o terceiro. O quarto... pegou em cheio.",
+   "gap": 0.5,
+   "who": "N"
+  },
+  {
+   "id": 15,
+   "text": "Ele atravessou a arena e bateu na parede.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 16,
+   "text": "Ele tem quatro braços... mas só uma cabeça! Olha pra onde ele olha!",
+   "gap": 0.6,
+   "who": "Z"
+  },
+  {
+   "id": 17,
+   "text": "O Joseph percebeu: antes de cada soco, o Gorrak olhava pro braço que ia usar.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 18,
+   "text": "Esquerda de cima. Direita de baixo. Ele já sabia de onde vinha cada golpe.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 19,
+   "text": "E quando os quatro braços vieram juntos... ele subiu.",
+   "gap": 0.6,
+   "who": "N"
+  },
+  {
+   "id": 20,
+   "text": "Pela primeira vez, o Joseph voou.",
+   "gap": 1.2,
+   "who": "N"
+  },
+  {
+   "id": 21,
+   "text": "Lá de cima, ele juntou energia nas duas mãos... Rajada dourada!",
+   "gap": 2.6,
+   "who": "N"
+  },
+  {
+   "id": 22,
+   "text": "Gorrak está fora! Um a zero para a Terra!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 23,
+   "text": "Lição número um: todo golpe dá um aviso antes. Quem presta atenção, vê.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 24,
+   "text": "Segunda luta! Magmor, o titã de lava!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 25,
+   "text": "Magmor era feito de rocha derretida. E tinha um poder estranho: quanto mais raiva ele sentia... maior ele ficava.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 26,
+   "text": "Ele não começou batendo. Começou provocando.",
+   "gap": 0.5,
+   "who": "N"
+  },
+  {
+   "id": 27,
+   "text": "Seu planeta é fraco. Seu bracelete é brinquedo. E você só ganhou na sorte.",
+   "gap": 0.5,
+   "who": "M"
+  },
+  {
+   "id": 28,
+   "text": "O Joseph ficou com raiva. Atacou com tudo. E cada golpe dele... deixava o Magmor ainda maior.",
+   "gap": 1.6,
+   "who": "N"
+  },
+  {
+   "id": 29,
+   "text": "A raiva do Joseph era o combustível do monstro.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 30,
+   "text": "Então ele parou. Respirou. E não respondeu mais nada.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 31,
+   "text": "Fala alguma coisa! Reage!",
+   "gap": 0.8,
+   "who": "M"
+  },
+  {
+   "id": 32,
+   "text": "Sem raiva pra comer, o titã começou a esfriar. A lava virou pedra. E a pedra rachou.",
+   "gap": 1.2,
+   "who": "N"
+  },
+  {
+   "id": 33,
+   "text": "Um soco calmo. Só um.",
+   "gap": 2.6,
+   "who": "N"
+  },
+  {
+   "id": 34,
+   "text": "Magmor caiu! Dois a zero!",
+   "gap": 1.0,
+   "who": "A"
+  },
+  {
+   "id": 35,
+   "text": "Lição número dois: quem te provoca quer a sua energia. Não entregue.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 36,
+   "text": "E agora... a luta que a galáxia inteira esperava. Vorg, o campeão!",
+   "gap": 1.4,
+   "who": "A"
+  },
+  {
+   "id": 37,
+   "text": "O Vorg desceu do céu. O chão rachou só com a aura dele.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 38,
+   "text": "Os meus guardas eram fracos. Eu não sou.",
+   "gap": 0.6,
+   "who": "V"
+  },
+  {
+   "id": 39,
+   "text": "A luta foi no chão, no ar e acima da arena. Cada soco fazia um trovão.",
+   "gap": 2.6,
+   "who": "N"
+  },
+  {
+   "id": 40,
+   "text": "O Vorg juntou energia vermelha nas mãos. O Joseph, dourada. E as duas rajadas se chocaram no meio da arena.",
+   "gap": 1.2,
+   "who": "N"
+  },
+  {
+   "id": 41,
+   "text": "Mas o campeão era forte demais. A rajada vermelha começou a empurrar... e o bracelete do Joseph começou a apagar.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 42,
+   "text": "Joseph! Olha pra plateia!",
+   "gap": 0.6,
+   "who": "Z"
+  },
+  {
+   "id": 43,
+   "text": "Na arquibancada, mil planetas ergueram as suas luzes. Eles não queriam mais um campeão que ganhava com medo.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 44,
+   "text": "E o Joseph entendeu: ele não precisava ser mais forte que o Vorg. Só precisava não desistir.",
+   "gap": 1.0,
+   "who": "N"
+  },
+  {
+   "id": 45,
+   "text": "Ele subiu até as estrelas... e desceu como um cometa.",
+   "gap": 3.4,
+   "who": "N"
+  },
+  {
+   "id": 46,
+   "text": "Inacreditável! O campeão caiu! A Terra vence a revanche!",
+   "gap": 1.2,
+   "who": "A"
+  },
+  {
+   "id": 47,
+   "text": "Lição número três: quem desiste perde. Quem continua, mesmo cansado, um dia fica mais forte.",
+   "gap": 1.4,
+   "who": "N"
+  },
+  {
+   "id": 48,
+   "text": "O Vorg, no chão, estendeu a mão. Ele tinha perdido... mas tinha ganhado um rival.",
+   "gap": 0.8,
+   "who": "N"
+  },
+  {
+   "id": 49,
+   "text": "Na próxima, terráqueo... eu vou estar mais forte.",
+   "gap": 0.6,
+   "who": "V"
+  },
+  {
+   "id": 50,
+   "text": "Eu também.",
+   "gap": 1.4,
+   "who": "J"
+  },
+  {
+   "id": 51,
+   "text": "Qual monstro foi o mais difícil: Gorrak, Magmor ou Vorg? Comenta aí. E segue o canal pra não perder a próxima aventura do Joseph.",
+   "gap": 1.2,
+   "who": "N"
+  }
+ ]
+}
