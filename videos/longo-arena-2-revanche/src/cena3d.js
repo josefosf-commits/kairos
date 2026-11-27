@@ -312,11 +312,16 @@ window.render = function (t) {
   const GUARDF = { open: blink(t), mouth: 'flat', brow: -0.4, browTilt: 0.4 };
 
   if (t < 0) { // ---------- capa ----------
-    arenaOn(1, 0.8);
-    jS([-2.5, 0.86, 1.3], 0.85, { ...JBEAM, armR: [1.5, -0.32, 0.1], armL: [1.5, -0.32, 0.1] }, { open: 1.1, mouth: 'o', brow: -0.9, browTilt: 0.8, look: [0.4, 0] });
-    bS(VG, [3.7, 0, -2.4], -1.05, 1.05, { ...VBEAM, jaw: 0.5, head: [0.1, 0.25, 0] }); VG.eyeM.emissiveIntensity = 3;
-    beamsClash(1, 0.45, 1, 1); auraGold(0.3, 1); auraB(VG, 0.5, 1); goldLight.intensity = 3;
-    camera.fov = 44; camera.updateProjectionMatrix(); cam([0.0, 1.6, 7.6], [0.3, 2.5, 0], 0, 0); sky.position.copy(camera.position); renderer.render(scene, camera); return;
+    const C = window.CAPA || {};
+    arenaOn(1, 0.8); hemi.intensity = 0.25; sun.intensity = 0.6;
+    jS(C.jp || [-1.15, 0.86, 3.6], C.jr ?? 0.35, { ...JPUNCH, armR: [1.45, -0.35, 0.05], lean: 0.15 }, { open: 1.15, mouth: 'flat', brow: C.br ?? -1, browTilt: C.bt ?? -0.9, look: [0, 0] });
+    bS(VG, C.vp || [2.3, 0, -2.2], C.vr ?? -0.45, 1.2, { a: C.va || [[0.6, 1.0, 2.2, 1.2], [0.6, 1.0, 2.2, 1.2]], jaw: 0.7, head: [0.2, -0.25, 0], lean: 0.15 }); VG.eyeM.emissiveIntensity = 9;
+    scene.updateMatrixWorld(true);
+    const bj = wp(jo.handR); v.set(...bj); setBall(ballJ, bj, 0.3, 1, 0.3);
+    auraGold(0.55, 1); auraB(VG, 0.9, 1);
+    goldLight.position.set(v.x + 0.6, v.y + 0.4, v.z + 1.4); goldLight.intensity = 1.2;
+    redLight.position.set(C.vp ? C.vp[0] : 2.3, 4.5, -4.5); redLight.intensity = 14;
+    camera.fov = C.fov || 46; camera.updateProjectionMatrix(); cam(C.cp || [0.2, 1.0, 7.4], C.cl || [0.5, 2.6, 0], 0, C.roll || 0); sky.position.copy(camera.position); renderer.render(scene, camera); return;
   }
 
   if (t < 8.7) { // ======== GANCHO: choque de rajadas ========
