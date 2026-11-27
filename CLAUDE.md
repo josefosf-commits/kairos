@@ -63,7 +63,8 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 
 - **Lutas:** corpos com animações reais do Mixamo (`videos/_lib/mixamo/*.fbx`, 46 animações: guarda, socos, chutes, esquivas, uppercuts, levar golpe, nocaute, levantar, voar, pousos, magias). Código em `videos/_lib/mixamo.js` (makeFighter, clipOf, pintura por osso, cabeça/acessórios presos a ossos). Empacotar com `--loader:.fbx=binary`. Efeitos de cinema em `videos/_lib/fx3d.js` (bloom, onda de choque, borrão radial, aberração cromática). Exemplo completo: `videos/teste-mixamo/`.
 - **Joseph novo (opção "C"):** cabeça de desenho um pouco maior que o normal (escala 0.85 no corpo do Mixamo), rosto refinado (queixo, olhos castanhos menores, nariz, sobrancelhas grossas), **cabelo cacheado**, óculos, **moletom verde-oliva com capuz, bolso e cordinhas**, calça jeans (#2b3a55), tênis branco, mãos com a cor da pele. Código em `videos/teste-cabeca/src/cab.js` (função refine + ROUPA_JOSEPH).
-- A "cabeça de meteoro" (escala 2.0–2.55) acabou. Proposta de história para a troca: T2 ep. 1 "A Cabeça de Meteoro" (o cérebro compacta o QI e a cabeça encolhe) — aguardando aprovação do usuário.
+- A "cabeça de meteoro" (escala 2.0–2.55) acabou. Código do Joseph novo, da mãe (blusa rosa) e do robô de metal: `videos/_lib/joseph2.js` (makeJoseph, makeMom).
+- **Temporada 2, ep. 1 (short 31) "A Cabeça de Meteoro":** dia 19; o cérebro compactou o QI (13.107.200) e a cabeça encolheu; a mãe se assusta ("Mãe... eu tô bonito?"); um robô do exército desce, luta com golpes do Mixamo e explode no céu; "no céu ainda tem mais quinhentos". Apagão continua. Próximo: Parte 2 da T2 (combinar o enredo antes de gastar créditos). Base técnica: copiar `short-31-e-se-qi-t2-ep1/src/ep.js`.
 
 ## Arco "O Duelo" (aprovado em 26/11/2026) — episódios 7 a 9 da série do QI
 
