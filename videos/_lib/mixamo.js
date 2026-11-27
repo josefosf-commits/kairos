@@ -23,14 +23,23 @@ export function clipOf(u8, inPlace = true) {
   return c;
 }
 
-export function makeFighter(scene, u8, { body = '#4f5d40', joints = '#2b3140', metal = false, scale = 0.013 } = {}) {
+// pinta o corpo por região (osso dominante de cada vértice): paint = nome do osso -> cor
+export const ROUPA_JOSEPH = n => /Hand|Thumb|Index|Middle|Ring|Pinky/.test(n) ? '#a86f4a' : /Neck|Head/.test(n) ? '#a86f4a' : /Foot|Toe/.test(n) ? '#f1f1f1' : /UpLeg|Leg|Hips/.test(n) ? '#2b3a55' : '#4f5d40';
+function paintBy(mesh, fn) {
+  const g = mesh.geometry, si = g.attributes.skinIndex, sw = g.attributes.skinWeight; if (!si) return;
+  const names = mesh.skeleton.bones.map(b => b.name.replace(/^mixamorig:?/, '')); const col = new Float32Array(si.count * 3); const c = new THREE.Color(); const cache = {};
+  for (let i = 0; i < si.count; i++) { let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } } const n = names[best]; const hex = cache[n] || (cache[n] = fn(n)); c.set(hex); col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b; }
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+}
+export function makeFighter(scene, u8, { body = '#4f5d40', joints = '#2b3140', metal = false, scale = 0.013, paint = null } = {}) {
   const model = parseFBX(u8);
   model.scale.setScalar(scale);
   const mats = {
     body: new THREE.MeshStandardMaterial({ color: body, roughness: metal ? 0.32 : 0.75, metalness: metal ? 0.65 : 0 }),
     joints: new THREE.MeshStandardMaterial({ color: joints, roughness: metal ? 0.4 : 0.8, metalness: metal ? 0.5 : 0 }),
   };
-  model.traverse(n => { if (n.isMesh) { n.castShadow = true; n.receiveShadow = true; n.frustumCulled = false; n.material = /Joint/i.test(n.name) ? mats.joints : mats.body; } });
+  if (paint) { mats.body = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.78 }); mats.joints = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85, color: '#cfcfcf' }); }
+  model.traverse(n => { if (n.isMesh) { n.castShadow = true; n.receiveShadow = true; n.frustumCulled = false; if (paint) paintBy(n, paint); n.material = /Joint/i.test(n.name) ? mats.joints : mats.body; } });
   const root = new THREE.Group(); root.add(model); scene.add(root);
   const mixer = new THREE.AnimationMixer(model);
   const bones = {}; model.traverse(n => { if (n.isBone) bones[n.name.replace(/^mixamorig:?/, '')] = n; });
@@ -45,10 +54,11 @@ export function makeFighter(scene, u8, { body = '#4f5d40', joints = '#2b3140', m
       mixer.update(0);
       F.syncHeads();
     },
-    attachHead(g, off = [0, 12, 3]) { scene.attach(g); root.updateMatrixWorld(true); const qb = new THREE.Quaternion(); bones.Head.getWorldQuaternion(qb); root.getWorldQuaternion(q); heads.push({ g, off: new THREE.Vector3(...off), corr: qb.invert().multiply(q) }); },
+    attachHead(g, off = [0, 12, 3], bone = 'Head') { scene.attach(g); root.updateMatrixWorld(true); const qb = new THREE.Quaternion(); bones[bone].getWorldQuaternion(qb); root.getWorldQuaternion(q); heads.push({ g, bone, off: new THREE.Vector3(...off), corr: qb.invert().multiply(q) }); },
+    attach(bone, g, off = [0, 0, 0]) { F.attachHead(g, off, bone); },
     syncHeads() {
       root.updateMatrixWorld(true);
-      for (const h of heads) { const hb = bones.Head; v.copy(h.off); hb.localToWorld(v); hb.getWorldQuaternion(q); h.g.position.copy(v); h.g.quaternion.copy(q).multiply(h.corr); h.g.visible = root.visible; }
+      for (const h of heads) { const hb = bones[h.bone]; v.copy(h.off); hb.localToWorld(v); hb.getWorldQuaternion(q); h.g.position.copy(v); h.g.quaternion.copy(q).multiply(h.corr); h.g.visible = root.visible; }
     },
     world(name, off = [0, 0, 0]) { root.updateMatrixWorld(true); v.set(...off); bones[name].localToWorld(v); return v.clone(); },
   };
