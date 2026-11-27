@@ -1,0 +1,98 @@
+{
+ "name": "SHORT-31-E-SE-QI-T2-EP1",
+ "tail": 2.5,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "who": "N",
+   "text": "Comentaram que a cabeça dele parecia um meteoro... e ela encolheu.",
+   "gap": 0.3,
+   "at": 0.3
+  },
+  {
+   "id": 2,
+   "who": "N",
+   "text": "No último episódio, o céu se encheu de olhos vermelhos.",
+   "gap": 0.4
+  },
+  {
+   "id": 3,
+   "who": "N",
+   "text": "Dia dezenove. O Joseph acorda com a cabeça brilhando.",
+   "gap": 0.6
+  },
+  {
+   "id": 4,
+   "who": "N",
+   "text": "O cérebro dele compactou o QI. Como um celular que comprime os arquivos.",
+   "gap": 0.4
+  },
+  {
+   "id": 5,
+   "who": "N",
+   "text": "O QI continua dobrado. Mas agora cabe numa cabeça normal.",
+   "gap": 0.5
+  },
+  {
+   "id": 6,
+   "who": "N",
+   "text": "A mãe entra no quarto e congela: filho... a sua cabeça!",
+   "gap": 0.6
+  },
+  {
+   "id": 7,
+   "who": "J",
+   "text": "Mãe... eu tô bonito?",
+   "gap": 0.4
+  },
+  {
+   "id": 8,
+   "who": "N",
+   "text": "Lá fora, um dos olhos vermelhos desce do céu.",
+   "gap": 0.8
+  },
+  {
+   "id": 9,
+   "who": "R",
+   "text": "Alvo atualizado. Joseph, versão dois.",
+   "gap": 0.5
+  },
+  {
+   "id": 10,
+   "who": "N",
+   "text": "O robô ataca. Mas o corpo novo do Joseph é muito mais rápido.",
+   "gap": 0.5
+  },
+  {
+   "id": 11,
+   "who": "N",
+   "text": "Esquiva. Combo. Chute giratório!",
+   "gap": 0.4
+  },
+  {
+   "id": 12,
+   "who": "N",
+   "text": "E um gancho que joga o robô lá no alto.",
+   "gap": 0.4
+  },
+  {
+   "id": 13,
+   "who": "R",
+   "text": "Erro. Ele ficou mais forte.",
+   "gap": 0.3
+  },
+  {
+   "id": 14,
+   "who": "N",
+   "text": "O robô explode no ar. Mas no céu ainda tem mais quinhentos.",
+   "gap": 1.6
+  },
+  {
+   "id": 15,
+   "who": "N",
+   "text": "Gostou da cabeça nova do Joseph? Comenta sim ou não. E segue pra não perder a parte dois.",
+   "gap": 0.8
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>SHORT-31-E-SE-QI-T2-EP1</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; src: url("../_lib/anton-400.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  canvas { display: block; width: 1080px; height: 1920px; }
+  .ov { position: absolute; font-family: "Kalam", cursive; font-weight: 700; color: #fff; pointer-events: none; opacity: 0;
+        -webkit-text-stroke: 12px #111; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,.35); line-height: 1; white-space: nowrap; transform-origin: 50% 50%; }
+  .anton { font-family: "Anton"; font-weight: 400; letter-spacing: 3px; -webkit-text-stroke: 16px #0b0b0b; }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.4) 100%); }
+  #words { display: none; }
+  #speed { position: absolute; inset: -400px; opacity: 0; pointer-events: none;
+    background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.85) 0deg 0.7deg, rgba(255,255,255,0) 0.7deg 6deg);
+    -webkit-mask: radial-gradient(circle at 50% 50%, transparent 32%, #000 62%); mask: radial-gradient(circle at 50% 50%, transparent 32%, #000 62%); }
+  #vlines { position: absolute; inset: 0; opacity: 0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 52px, rgba(255,255,255,.75) 52px 56px, rgba(255,255,255,0) 56px 131px);
+    -webkit-mask: linear-gradient(90deg, #000 0 22%, transparent 38% 62%, #000 78%); mask: linear-gradient(90deg, #000 0 22%, transparent 38% 62%, #000 78%); }
+  #burst { position: absolute; inset: -300px; opacity: 0; mix-blend-mode: difference;
+    background: repeating-conic-gradient(from 3deg at 50% 45%, #fff 0deg 4deg, rgba(0,0,0,0) 4deg 13deg); }
+  #lb::before, #lb::after { content: ""; position: absolute; left: 0; right: 0; height: 150px; background: #000; }
+  #lb { position: absolute; inset: 0; opacity: 0; } #lb::before { top: 0; } #lb::after { bottom: 0; }
+  #split { position: absolute; left: -20px; right: -20px; top: 950px; height: 20px; opacity: 0; transform: rotate(-2deg);
+    background: linear-gradient(90deg, #ffd60a, #fff 50%, #ff2d55); box-shadow: 0 0 40px 12px rgba(255,255,255,.6); }
+  #hook { left: 50%; top: 190px; font-size: 170px; color: #fff; text-align: center; line-height: 1.0; }
+  #plop { left: 50%; top: 760px; font-size: 230px; color: #ffd60a; }
+  #recap { left: 50%; top: 150px; font-size: 90px; color: #ffd60a; }
+  #day { left: 50%; top: 200px; font-size: 170px; color: #fff; }
+  #zip { left: 50%; top: 220px; font-size: 92px; color: #ffd60a; text-align: center; }
+  #qi { left: 50%; top: 220px; font-size: 120px; color: #ffd60a; text-align: center; line-height: 1.1; }
+  #brilho { left: 50%; top: 240px; font-size: 120px; color: #ffd60a; }
+  #alvo { left: 50%; top: 240px; font-size: 130px; }
+  #cta { left: 50%; top: 200px; font-size: 130px; color: #fff; text-align: center; line-height: 1.08; }
+  .chip { display: inline-block; font-family: Anton; font-size: 110px; padding: 6px 40px; border: 7px solid #fff; border-radius: 28px; margin: 22px 16px 0; -webkit-text-stroke: 10px #111; paint-order: stroke fill; }
+  #end { left: 50%; top: 260px; font-size: 140px; color: #ffd54a; text-align: center; line-height: 1.1; }
+  #fx { left: 50%; top: 40%; font-family: Anton; font-size: 240px; -webkit-text-stroke: 18px #0b0b0b; letter-spacing: 4px; text-shadow: 0 0 40px rgba(255,255,255,.5), 0 12px 0 rgba(0,0,0,.5); }
+  #cap { left: 50%; bottom: 420px; transform: translateX(-50%); width: 960px; text-align: center; font-size: 76px; line-height: 1.12;
+         -webkit-text-stroke: 10px #111; white-space: normal; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="vig"></div>
+  <div id="words"></div>
+  <div id="speed"></div>
+  <div id="vlines"></div>
+  <div id="split"></div>
+  <div class="ov anton" id="hook">CABEÇA DE<br><span style="color:#ffd60a">METEORO?</span></div>
+  <div class="ov anton" id="plop">PLOP!</div>
+  <div class="ov anton" id="recap">NO ÚLTIMO EPISÓDIO...</div>
+  <div class="ov anton" id="day">DIA 19</div>
+  <div class="ov anton" id="zip"></div>
+  <div class="ov anton" id="qi">QI 13.107.200 <span style="color:#52d273">✓</span><br><span style="font-size:90px;color:#fff">CABEÇA: NORMAL</span></div>
+  <div class="ov anton" id="brilho">✨ NOVO VISUAL ✨</div>
+  <div class="ov anton" id="alvo" style="color:#ff2d55">ALVO: JOSEPH v2</div>
+  <div class="ov anton" id="cta">GOSTOU DA<br>CABEÇA NOVA?<br><span class="chip" style="background:#2a9d4f">SIM</span><span class="chip" style="background:#d90429">NÃO</span></div>
+  <div class="ov anton" id="end">PARTE 2<br>EM BREVE<br><span style="font-size:90px;color:#fff">segue pra não perder</span></div>
+  <div class="ov" id="fx">POW!</div>
+  <div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none"></div>
+  <div id="burst"></div>
+  <div id="lb"></div>
+  <div class="ov" id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>
