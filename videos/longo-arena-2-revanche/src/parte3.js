@@ -20,10 +20,10 @@ window.render = function (t) {
 
   if (t < 0) { // ---------- capa ----------
     arenaOn(1, 0.8);
-    jS([-3.3, 0.86, 1.0], 0.9, JBEAM, { open: 1.1, mouth: 'o', brow: -0.8, browTilt: 0.7 });
-    bS(VG, [4.2, 0, -1.2], facing([4.2, 0, -1.2], [-3.3, 0, 1.0]), 1.05, { ...VBEAM });
-    beamsClash(1, 0.5, 1, 1); auraGold(0.9, 1); auraB(VG, 0.9, 1);
-    camera.fov = 50; camera.updateProjectionMatrix(); cam([-6.2, 1.6, 6.4], [0.6, 2.6, -0.4], 0, 0); sky.position.copy(camera.position); renderer.render(scene, camera); return;
+    jS([-2.5, 0.86, 1.3], 0.85, { ...JBEAM, armR: [1.5, -0.32, 0.1], armL: [1.5, -0.32, 0.1] }, { open: 1.1, mouth: 'o', brow: -0.9, browTilt: 0.8, look: [0.4, 0] });
+    bS(VG, [3.7, 0, -2.4], -1.05, 1.05, { ...VBEAM, jaw: 0.5, head: [0.1, 0.25, 0] }); VG.eyeM.emissiveIntensity = 3;
+    beamsClash(1, 0.45, 1, 1); auraGold(0.3, 1); auraB(VG, 0.5, 1); goldLight.intensity = 3;
+    camera.fov = 44; camera.updateProjectionMatrix(); cam([0.0, 1.6, 7.6], [0.3, 2.5, 0], 0, 0); sky.position.copy(camera.position); renderer.render(scene, camera); return;
   }
 
   if (t < 8.7) { // ======== GANCHO: choque de rajadas ========
