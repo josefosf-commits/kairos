@@ -1,0 +1,79 @@
+{
+ "name": "SHORT-24-LADRAO-DA-DESCULPA",
+ "duration": 56.0,
+ "fps": 30,
+ "w": 1080,
+ "h": 1920,
+ "lines": [
+  {
+   "id": 1,
+   "audio": "audio/l1.wav",
+   "start": 0.35,
+   "end": 6.91,
+   "text": "Episódio quatro. Esse é o ladrão mais perigoso. Porque ele não tem voz própria. Ele usa a sua."
+  },
+  {
+   "id": 2,
+   "audio": "audio/l2.wav",
+   "start": 7.21,
+   "end": 11.53,
+   "text": "Sexta tem peneira do time de futsal. O Joseph quer muito ir."
+  },
+  {
+   "id": 3,
+   "audio": "audio/l3.wav",
+   "start": 11.83,
+   "end": 16.31,
+   "text": "Aí uma voz na cabeça dele fala: eu não sou bom o suficiente."
+  },
+  {
+   "id": 4,
+   "audio": "audio/l4.wav",
+   "start": 16.71,
+   "end": 21.51,
+   "text": "Parece o Joseph falando. Mas não é. É o ladrão, imitando ele."
+  },
+  {
+   "id": 5,
+   "audio": "audio/l5.wav",
+   "start": 21.91,
+   "end": 26.47,
+   "text": "Eu tô cansado hoje. Eu começo segunda. Todo mundo é melhor que eu."
+  },
+  {
+   "id": 6,
+   "audio": "audio/l6.wav",
+   "start": 26.92,
+   "end": 34.28,
+   "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele não aguenta uma palavra. A palavra: ainda."
+  },
+  {
+   "id": 7,
+   "audio": "audio/l7.wav",
+   "start": 34.68,
+   "end": 39.96,
+   "text": "Eu não consigo virou: eu ainda não consigo. E quem ainda não consegue, treina."
+  },
+  {
+   "id": 8,
+   "audio": "audio/l8.wav",
+   "start": 40.36,
+   "end": 43.64,
+   "text": "Quinze minutos de chute por dia. Até sexta."
+  },
+  {
+   "id": 9,
+   "audio": "audio/l9.wav",
+   "start": 44.04,
+   "end": 48.6,
+   "text": "Na peneira, ele não foi o melhor. Mas foi chamado pra treinar com o time."
+  },
+  {
+   "id": 10,
+   "audio": "audio/l10.wav",
+   "start": 49.0,
+   "end": 54.2,
+   "text": "Amanhã é o final da temporada. O chefe dos ladrões aparece. Segue pra não perder."
+  }
+ ]
+}

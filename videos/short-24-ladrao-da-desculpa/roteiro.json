@@ -1,0 +1,57 @@
+{
+ "name": "SHORT-24-LADRAO-DA-DESCULPA",
+ "tail": 1.8,
+ "vertical": true,
+ "lines": [
+  {
+   "id": 1,
+   "text": "Episódio quatro. Esse é o ladrão mais perigoso. Porque ele não tem voz própria. Ele usa a sua.",
+   "gap": 0.35
+  },
+  {
+   "id": 2,
+   "text": "Sexta tem peneira do time de futsal. O Joseph quer muito ir.",
+   "gap": 0.3
+  },
+  {
+   "id": 3,
+   "text": "Aí uma voz na cabeça dele fala: eu não sou bom o suficiente.",
+   "gap": 0.3
+  },
+  {
+   "id": 4,
+   "text": "Parece o Joseph falando. Mas não é. É o ladrão, imitando ele.",
+   "gap": 0.4
+  },
+  {
+   "id": 5,
+   "text": "Eu tô cansado hoje. Eu começo segunda. Todo mundo é melhor que eu.",
+   "gap": 0.4
+  },
+  {
+   "id": 6,
+   "text": "Foi aí que o Joseph descobriu a fraqueza desse ladrão: ele não aguenta uma palavra. A palavra: ainda.",
+   "gap": 0.45
+  },
+  {
+   "id": 7,
+   "text": "Eu não consigo virou: eu ainda não consigo. E quem ainda não consegue, treina.",
+   "gap": 0.4
+  },
+  {
+   "id": 8,
+   "text": "Quinze minutos de chute por dia. Até sexta.",
+   "gap": 0.4
+  },
+  {
+   "id": 9,
+   "text": "Na peneira, ele não foi o melhor. Mas foi chamado pra treinar com o time.",
+   "gap": 0.4
+  },
+  {
+   "id": 10,
+   "text": "Amanhã é o final da temporada. O chefe dos ladrões aparece. Segue pra não perder.",
+   "gap": 0.4
+  }
+ ]
+}
