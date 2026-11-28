@@ -103,3 +103,8 @@ Junto com o MP4 e a thumbnail, sempre entregar o pacote completo de SEO. Ele vai
 - `videos/<curta>/`: roteiro.json → narração (Speko) → collect.py → timeline.json → cena.html/js + trilha.py → render.js → montar.sh
 - `videos/canal/`: logo e capa do canal
 - `videos/SEO.md`: SEO de todos os vídeos
+
+## Longo "Arena Galáctica 3: O Torneio das Duplas" (28/11/2026)
+
+- Pronto em `videos/longo-arena-3-duplas/` (4:02, Joseph v2 + Mixamo). Joseph e Vorg viram dupla contra os guardiões da Sombra: Zentrix (cópias, vence pela audição), Grolm (gigante de pedra, cristal no pescoço), Nyx (copia o Joseph; perde para um golpe novo, "1% melhor por dia"). Lições: juntos é mais forte, todo gigante tem ponto fraco, quem melhora 1% por dia não pode ser copiado.
+- Pendente: short "trailer" da luta contra a Nyx (~2:20–3:20) só se o usuário pedir.
