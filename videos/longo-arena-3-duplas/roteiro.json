@@ -1,0 +1,259 @@
+{
+ "name": "ARENA-3-DUPLAS",
+ "tail": 8,
+ "lines": [
+  {
+   "id": 1,
+   "who": "N",
+   "text": "Dessa vez, o Joseph não vai lutar sozinho... vai lutar ao lado do pior inimigo dele.",
+   "gap": 0.3,
+   "at": 0.3
+  },
+  {
+   "id": 2,
+   "who": "N",
+   "text": "Um mês depois da revanche, o bracelete acendeu de novo.",
+   "gap": 0.6
+  },
+  {
+   "id": 3,
+   "who": "Z",
+   "text": "Joseph! Visual novo?",
+   "gap": 0.4
+  },
+  {
+   "id": 4,
+   "who": "J",
+   "text": "Longa história. Envolve um meteoro.",
+   "gap": 0.3
+  },
+  {
+   "id": 5,
+   "who": "Z",
+   "text": "Não dá tempo! A Nyx, a Sombra, invadiu a arena. E ela quer todos os campeões.",
+   "gap": 0.4
+  },
+  {
+   "id": 6,
+   "who": "N",
+   "text": "A Nyx não tem corpo. Ela vira a sombra de quem enfrenta... e copia cada golpe.",
+   "gap": 0.6
+  },
+  {
+   "id": 7,
+   "who": "N",
+   "text": "E o primeiro que ela derrotou... foi o Vorg.",
+   "gap": 0.5
+  },
+  {
+   "id": 8,
+   "who": "V",
+   "text": "Terráqueo... ela é mais forte que nós dois. Sozinhos, a gente perde.",
+   "gap": 0.5
+  },
+  {
+   "id": 9,
+   "who": "N",
+   "text": "Pela primeira vez, o campeão da galáxia pediu ajuda.",
+   "gap": 0.6
+  },
+  {
+   "id": 10,
+   "who": "A",
+   "text": "Senhoras, senhores e criaturas! O Torneio das Duplas! Terra e Vorg contra os guardiões da Sombra!",
+   "gap": 0.8
+  },
+  {
+   "id": 11,
+   "who": "A",
+   "text": "Primeira luta! Zentrix, o mais rápido da galáxia!",
+   "gap": 0.6
+  },
+  {
+   "id": 12,
+   "who": "N",
+   "text": "Zentrix se movia tão rápido que deixava três cópias de si no ar.",
+   "gap": 0.5
+  },
+  {
+   "id": 13,
+   "who": "N",
+   "text": "O Joseph tentava acertar todas... e não acertava nenhuma.",
+   "gap": 3.5
+  },
+  {
+   "id": 14,
+   "who": "Z",
+   "text": "Para de olhar pra todas! Escolhe uma!",
+   "gap": 0.5
+  },
+  {
+   "id": 15,
+   "who": "N",
+   "text": "Ele fechou os olhos. Ouviu os passos. Só um deles fazia barulho no chão.",
+   "gap": 0.8
+  },
+  {
+   "id": 16,
+   "who": "N",
+   "text": "Esquiva. Gancho. E o Zentrix voou pra fora da arena.",
+   "gap": 3.5
+  },
+  {
+   "id": 17,
+   "who": "A",
+   "text": "Zentrix está fora! Um a zero!",
+   "gap": 2.1
+  },
+  {
+   "id": 18,
+   "who": "N",
+   "text": "Lição número um: quem tenta fazer tudo ao mesmo tempo não faz nada. Escolha uma coisa e foque.",
+   "gap": 1.0
+  },
+  {
+   "id": 19,
+   "who": "A",
+   "text": "Segunda luta! Grolm, o gigante de pedra!",
+   "gap": 0.6
+  },
+  {
+   "id": 20,
+   "who": "N",
+   "text": "Grolm tinha o tamanho de um prédio. E uma armadura que nenhum soco atravessava.",
+   "gap": 1.0
+  },
+  {
+   "id": 21,
+   "who": "V",
+   "text": "Eu seguro ele. Você procura o ponto fraco.",
+   "gap": 1.5
+  },
+  {
+   "id": 22,
+   "who": "N",
+   "text": "O Vorg segurou o gigante pelo pé. O Joseph subiu pelas costas... e viu: uma pedra brilhando atrás do pescoço.",
+   "gap": 2.3
+  },
+  {
+   "id": 23,
+   "who": "N",
+   "text": "Juntos: um chute do Vorg, uma rajada do Joseph. E o gigante desabou.",
+   "gap": 3.7
+  },
+  {
+   "id": 24,
+   "who": "A",
+   "text": "Dois a zero! A dupla funciona!",
+   "gap": 2.1
+  },
+  {
+   "id": 25,
+   "who": "N",
+   "text": "Lição número dois: ninguém vence sozinho. Pedir ajuda não é fraqueza.",
+   "gap": 1.0
+  },
+  {
+   "id": 26,
+   "who": "A",
+   "text": "E agora... a luta final. A Sombra em pessoa!",
+   "gap": 0.6
+  },
+  {
+   "id": 27,
+   "who": "N",
+   "text": "A Nyx saiu do chão como fumaça. E virou... um Joseph de sombra.",
+   "gap": 0.6
+  },
+  {
+   "id": 28,
+   "who": "S",
+   "text": "Tudo o que você fizer... eu faço igual.",
+   "gap": 1.6
+  },
+  {
+   "id": 29,
+   "who": "N",
+   "text": "Soco contra soco. Chute contra chute. Rajada contra rajada. Empate. Sempre empate.",
+   "gap": 3.0
+  },
+  {
+   "id": 30,
+   "who": "N",
+   "text": "O Joseph caiu. A sombra também. Ela era o reflexo perfeito dele.",
+   "gap": 2.6
+  },
+  {
+   "id": 31,
+   "who": "V",
+   "text": "Ela copia o que você já sabe! Faz uma coisa nova!",
+   "gap": 0.6
+  },
+  {
+   "id": 32,
+   "who": "N",
+   "text": "E o Joseph lembrou: todo dia, ele aprendia uma coisa nova. Um por cento melhor por dia.",
+   "gap": 0.6
+  },
+  {
+   "id": 33,
+   "who": "N",
+   "text": "Ele juntou tudo: a esquiva do Zentrix, a força do Grolm... e o chute do Vorg.",
+   "gap": 0.5
+  },
+  {
+   "id": 34,
+   "who": "N",
+   "text": "Um golpe que nunca tinha existido.",
+   "gap": 2.6
+  },
+  {
+   "id": 35,
+   "who": "S",
+   "text": "Erro. Golpe... desconhecido.",
+   "gap": 1.9
+  },
+  {
+   "id": 36,
+   "who": "N",
+   "text": "A Sombra não conseguiu copiar. E explodiu em luz.",
+   "gap": 3.2
+  },
+  {
+   "id": 37,
+   "who": "A",
+   "text": "Inacreditável! A dupla vence o torneio!",
+   "gap": 2.1
+  },
+  {
+   "id": 38,
+   "who": "N",
+   "text": "Lição número três: quem repete o mesmo, empata. Quem melhora um pouco todo dia, vence.",
+   "gap": 1.0
+  },
+  {
+   "id": 39,
+   "who": "N",
+   "text": "O Vorg e o Joseph apertaram as mãos. Os rivais agora eram amigos.",
+   "gap": 1.6
+  },
+  {
+   "id": 40,
+   "who": "V",
+   "text": "Na próxima luta, terráqueo... eu luto do seu lado.",
+   "gap": 0.4
+  },
+  {
+   "id": 41,
+   "who": "J",
+   "text": "Fechado.",
+   "gap": 0.8
+  },
+  {
+   "id": 42,
+   "who": "N",
+   "text": "Qual golpe você aprendia primeiro: o do Zentrix, o do Grolm ou o do Vorg? Comenta aí. E segue o canal pra não perder a próxima aventura do Joseph.",
+   "gap": 0.8
+  }
+ ]
+}

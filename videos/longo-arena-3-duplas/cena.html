@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ARENA-3-DUPLAS</title>
+<style>
+  @font-face { font-family: "Kalam"; font-weight: 700; src: url("../_lib/kalam-700.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; src: url("../_lib/anton-400.woff2") format("woff2"); }
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  #root, #frame { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+  canvas { display: block; width: 1920px; height: 1080px; }
+  .ov { position: absolute; font-family: Anton; color: #fff; opacity: 0; letter-spacing: 3px; -webkit-text-stroke: 14px #0b0b0b; paint-order: stroke fill; line-height: 1; white-space: nowrap; transform-origin: 50% 50%; text-shadow: 0 8px 0 rgba(0,0,0,.4); }
+  #vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%); }
+  #speed { position: absolute; inset: -500px; opacity: 0; background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.8) 0deg 0.6deg, rgba(255,255,255,0) 0.6deg 5deg);
+    -webkit-mask: radial-gradient(circle at 50% 50%, transparent 30%, #000 60%); mask: radial-gradient(circle at 50% 50%, transparent 30%, #000 60%); }
+  #burst { position: absolute; inset: -400px; opacity: 0; mix-blend-mode: difference; background: repeating-conic-gradient(from 3deg at 50% 45%, #fff 0deg 4deg, rgba(0,0,0,0) 4deg 13deg); }
+  #lb { position: absolute; inset: 0; opacity: 0; } #lb::before, #lb::after { content: ""; position: absolute; left: 0; right: 0; height: 110px; background: #000; } #lb::before { top: 0; } #lb::after { bottom: 0; }
+  #title { left: 50%; top: 330px; text-align: center; font-size: 190px; color: #ffd60a; text-shadow: 0 0 60px rgba(199,125,255,.9), 0 12px 0 rgba(0,0,0,.5); }
+  #title span { display: block; font-size: 64px; color: #fff; margin-top: 18px; letter-spacing: 8px; -webkit-text-stroke: 10px #0b0b0b; }
+  #rules { position: absolute; right: 90px; top: 220px; display: flex; flex-direction: column; gap: 22px; opacity: 0; }
+  #rules > div { font-family: Anton; font-size: 66px; color: #fff; background: rgba(60,9,108,.85); border: 6px solid #e0aaff; border-radius: 26px; padding: 10px 34px; -webkit-text-stroke: 9px #111; paint-order: stroke fill; letter-spacing: 2px; transform-origin: 100% 50%; box-shadow: 0 0 40px #c77dff; }
+  #nc { position: absolute; left: 70px; top: 640px; opacity: 0; padding: 14px 44px 18px; border-left: 16px solid #ffd60a; background: linear-gradient(90deg, rgba(10,4,24,.9), rgba(10,4,24,0)); }
+  #ncn { font-family: Anton; font-size: 130px; letter-spacing: 6px; -webkit-text-stroke: 12px #0b0b0b; paint-order: stroke fill; line-height: 1; }
+  #ncs { font-family: Anton; font-size: 52px; color: #fff; letter-spacing: 4px; -webkit-text-stroke: 8px #0b0b0b; paint-order: stroke fill; }
+  #score { position: absolute; left: 50%; top: 36px; transform: translateX(-50%); opacity: 0; font-family: Anton; font-size: 58px; color: #fff; background: rgba(10,4,24,.8); border: 5px solid #ffd60a; border-radius: 22px; padding: 6px 30px; -webkit-text-stroke: 8px #111; paint-order: stroke fill; letter-spacing: 3px; }
+  #lesson { position: absolute; left: 50%; top: 46%; opacity: 0; text-align: center; padding: 40px 80px; background: rgba(5,2,20,.78); border: 6px solid #7df9ff; border-radius: 40px; box-shadow: 0 0 80px rgba(0,229,255,.5); }
+  #lsn { font-family: Anton; font-size: 80px; color: #ffd60a; letter-spacing: 8px; -webkit-text-stroke: 10px #0b0b0b; paint-order: stroke fill; }
+  #lst { font-family: Anton; font-size: 92px; color: #fff; line-height: 1.12; letter-spacing: 2px; -webkit-text-stroke: 12px #0b0b0b; paint-order: stroke fill; white-space: nowrap; }
+  #lento { left: 50%; top: 180px; font-size: 170px; color: #7df9ff; }
+  #energy { position: absolute; left: 50%; top: 150px; transform: translateX(-50%); width: 760px; opacity: 0; font-family: Anton; font-size: 52px; color: #fff; -webkit-text-stroke: 8px #111; paint-order: stroke fill; text-align: center; }
+  #energy .bar { height: 44px; border: 6px solid #fff; border-radius: 22px; background: rgba(0,0,0,.6); overflow: hidden; margin-top: 8px; }
+  #enb { height: 100%; width: 60%; background: linear-gradient(90deg, #ff2d55, #ff9f1c); }
+  #chant { left: 50%; top: 160px; font-size: 170px; color: #ffd60a; text-shadow: 0 0 60px rgba(255,214,10,.8); }
+  #champ { left: 50%; top: 120px; font-size: 120px; color: #ffd60a; text-shadow: 0 0 60px rgba(255,214,10,.8); }
+  #cta { left: 50%; top: 150px; text-align: center; font-size: 110px; color: #fff; line-height: 1.1; }
+  .chip { display: inline-block; font-family: Anton; font-size: 78px; padding: 8px 34px; border: 7px solid #fff; border-radius: 28px; margin: 26px 14px 0; -webkit-text-stroke: 9px #111; paint-order: stroke fill; }
+  #follow { left: 50%; top: 640px; font-size: 76px; color: #ffd60a; padding: 12px 46px; background: linear-gradient(180deg,#ff4d6d,#c9184a); border: 7px solid #fff; border-radius: 999px; box-shadow: 0 0 50px 12px #ff2d55; color: #fff; -webkit-text-stroke: 10px #111; }
+  #fx { left: 50%; top: 40%; font-size: 220px; -webkit-text-stroke: 18px #0b0b0b; letter-spacing: 4px; text-shadow: 0 0 40px rgba(255,255,255,.5), 0 12px 0 rgba(0,0,0,.5); }
+  #cap { position: absolute; left: 50%; bottom: 60px; transform: translateX(-50%); width: 1640px; text-align: center; font-family: Kalam, cursive; font-weight: 700; font-size: 62px; line-height: 1.15;
+         color: #fff; -webkit-text-stroke: 10px #111; paint-order: stroke fill; text-shadow: 0 6px 0 rgba(0,0,0,.4); opacity: 0; }
+  #rage { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse at center, rgba(255,0,0,0) 45%, rgba(200,0,0,.55) 100%); }
+  #split { position: absolute; left: 50%; top: 0; bottom: 0; width: 14px; margin-left: -7px; opacity: 0; background: linear-gradient(180deg,#ffd60a,#fff,#ff1f3d); box-shadow: 0 0 40px 10px rgba(255,255,255,.6); }
+  #bars { position: absolute; left: 50%; top: 40px; transform: translateX(-50%); width: 1500px; display: flex; gap: 80px; opacity: 0; }
+  #bars .bl { flex: 1; font-family: Anton; font-size: 54px; color: #fff; -webkit-text-stroke: 8px #111; paint-order: stroke fill; letter-spacing: 3px; }
+  #bars .bar { height: 46px; border: 6px solid #fff; border-radius: 24px; background: rgba(0,0,0,.6); overflow: hidden; margin-top: 6px; }
+  #bars .bar.r { transform: scaleX(-1); }
+  #bj { height: 100%; width: 50%; background: linear-gradient(90deg,#ffb703,#fff3b0); box-shadow: 0 0 20px #ffd60a; }
+  #bv { height: 100%; width: 50%; background: linear-gradient(90deg,#9d0208,#ff5c6c); box-shadow: 0 0 20px #ff1f3d; }
+</style>
+</head>
+<body>
+<div id="root"><div id="frame">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <div id="vig"></div>
+  <div id="rage"></div>
+  <div id="split"></div>
+  <div id="speed"></div>
+  <div class="ov" id="title">ARENA GALÁCTICA 3<span>O TORNEIO DAS DUPLAS</span></div>
+  <div id="nc"><div id="ncn">JOSEPH</div><div id="ncs">PLANETA TERRA</div></div>
+  <div id="score">TERRA <span id="sc" style="color:#ffd60a;font-family:sans-serif;-webkit-text-stroke:0">☆☆☆</span></div>
+  <div class="ov" id="champ">A DUPLA VENCE O TORNEIO!</div>
+  <div class="ov" id="cta">QUAL GOLPE VOCÊ APRENDIA PRIMEIRO?<br><span class="chip" style="background:#0096c7">ZENTRIX</span><span class="chip" style="background:#6d6875">GROLM</span><span class="chip" style="background:#3d405b">VORG</span></div>
+  <div class="ov" id="follow">SEGUE PRA NÃO PERDER A PRÓXIMA AVENTURA</div>
+  <div id="bars"><div class="bl"><span style="color:#ffd60a">JOSEPH</span><div class="bar"><div id="bj"></div></div></div><div class="bl"><span style="color:#ff5c6c">VORG</span><div class="bar r"><div id="bv"></div></div></div></div>
+  <div id="lesson"><div id="lsn">LIÇÃO 1</div><div id="lst"></div></div>
+  <div class="ov" id="err" style="left:50%;top:120px;font-size:120px;color:#ff2d55;font-family:Anton;-webkit-text-stroke:14px #111;text-align:center">ERRO: GOLPE DESCONHECIDO</div>
+  <div class="ov" id="pct" style="left:50%;top:110px;font-size:120px;color:#ffd60a;font-family:Anton;-webkit-text-stroke:14px #111;text-align:center;line-height:1.05;transform:translateX(-50%)">1% MELHOR POR DIA</div>
+  <div class="ov" id="flashTxt" style="left:50%;top:120px;font-size:110px;font-family:Anton;-webkit-text-stroke:14px #111;transform:translateX(-50%)"></div>
+  <div class="ov" id="fx">POW!</div>
+  <div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0"></div>
+  <div id="burst"></div>
+  <div id="lb"></div>
+  <div id="cap"></div>
+</div></div>
+<script src="build/cena3d.js"></script>
+</body>
+</html>
